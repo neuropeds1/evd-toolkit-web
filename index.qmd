@@ -4,6 +4,46 @@ title: "EVD Toolkit"
 
 A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.
 
+```{ojs}
+visitorCount = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, doc, onSnapshot, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const counterRef = doc(db, "Stats", "visitorCount");
+
+  // Count this page load. Fails silently if the counter document
+  // hasn't been created yet in Firestore.
+  updateDoc(counterRef, { count: increment(1) }).catch(() => {});
+
+  // Live listener — the number updates in real time for every visitor
+  // currently on the page, as new visitors arrive.
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(counterRef, snapshot => {
+      notify(snapshot.data()?.count ?? 0);
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+html`<div style="display:inline-flex;align-items:center;gap:8px;background:#f0f4ff;color:#2c3e50;border-radius:999px;padding:8px 18px;font-size:14px;font-weight:600;margin-bottom:20px;">
+  <span>👀</span>
+  <span>${visitorCount.toLocaleString()} visitors and counting</span>
+</div>`
+```
+
 ## What You Can Do Here
 
 **📘 Foundations**
