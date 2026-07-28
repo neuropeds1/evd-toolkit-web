@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Best Practices – EVD Toolkit</title>
+<title>EVD Systems – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,6 +108,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -87,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apply.html">Clinical Application</a></li><li class="breadcrumb-item"><a href="./best-practices.html">Best Practices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./systems.html">EVD Systems</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -176,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./best-practices.html" class="sidebar-item-text sidebar-link active">
+  <a href="./best-practices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Best Practices</span></a>
   </div>
 </li>
@@ -205,7 +242,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./systems.html" class="sidebar-item-text sidebar-link">
+  <a href="./systems.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">EVD Systems</span></a>
   </div>
 </li>
@@ -268,23 +305,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#dos-and-donts" id="toc-dos-and-donts" class="nav-link active" data-scroll-target="#dos-and-donts">Do’s and Don’ts</a></li>
-  <li><a href="#csf-color-interpretation" id="toc-csf-color-interpretation" class="nav-link" data-scroll-target="#csf-color-interpretation">CSF Color Interpretation</a></li>
-  <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apply.html">Clinical Application</a></li><li class="breadcrumb-item"><a href="./best-practices.html">Best Practices</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./systems.html">EVD Systems</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Best Practices</h1>
+<h1 class="title">EVD Systems</h1>
 </div>
 
 
@@ -301,116 +330,104 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A quick-reference guide to safe, high-quality care when managing external ventricular drains.</p>
-<section id="dos-and-donts" class="level2">
-<h2 class="anchored" data-anchor-id="dos-and-donts">Do’s and Don’ts</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Do</th>
-<th>Don’t</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>✔ Confirm EVD setting before interpreting ICP</td>
-<td>✖ Interpret ICP without knowing the drain setting</td>
-</tr>
-<tr class="even">
-<td>✔ Check clamp status before transport or procedures</td>
-<td>✖ Keep EVD closed and not monitor ICP</td>
-</tr>
-<tr class="odd">
-<td>✔ Level the transducer at the tragus</td>
-<td>✖ Clamp EVD and leave the transducer at the level of the heart</td>
-</tr>
-<tr class="even">
-<td>✔ Trend ICP and waveform together</td>
-<td>✖ Rely on a single ICP value</td>
-</tr>
-<tr class="odd">
-<td>✔ Minimize CSF system access</td>
-<td>✖ Access CSF unnecessarily</td>
-</tr>
-<tr class="even">
-<td>✔ Use sterile technique for all handling</td>
-<td>✖ Break sterility during manipulation</td>
-</tr>
-<tr class="odd">
-<td>✔ Secure tubing to prevent dislodgement</td>
-<td>✖ Leave tubing unsecured</td>
-</tr>
-<tr class="even">
-<td>✔ Communicate EVD status during handoffs</td>
-<td>✖ Assume others know the EVD setup</td>
-</tr>
-<tr class="odd">
-<td>✔ Monitor ICP during transport at all times</td>
-<td>✖ Transport without considering ICP risk</td>
-</tr>
-<tr class="even">
-<td>✔ Reassess waveform if values seem inconsistent</td>
-<td>✖ Ignore dampened or abnormal waveforms</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="csf-color-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="csf-color-interpretation">CSF Color Interpretation</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>CSF Appearance</th>
-<th>Clinical Interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Clear</strong></td>
-<td>Normal CSF</td>
-</tr>
-<tr class="even">
-<td><strong>Xanthochromia (yellow)</strong></td>
-<td>Suggests prior hemorrhage or SAH breakdown products</td>
-</tr>
-<tr class="odd">
-<td><strong>Bloody</strong></td>
-<td>May indicate active bleeding, traumatic tap, or evolving hemorrhage</td>
-</tr>
-<tr class="even">
-<td><strong>Cloudy</strong></td>
-<td>Concerning for infection (e.g., ventriculitis)</td>
-</tr>
-<tr class="odd">
-<td><strong>Debris / Particulate</strong></td>
-<td>Possible clot breakdown, infection, or catheter obstruction</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
+<p><strong>A Global Library of Real-World EVD Systems</strong> — browse how EVD systems vary across institutions worldwide. Click a region/category to expand it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>systems <span class="op">=</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Live listener — updates automatically whenever EVDSystems</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">// changes in Firestore, no page reload needed.</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"EVDSystems"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><strong>Clinical Note:</strong> Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.</p>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="35" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 34;"><span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">// Deterministic color per category name — same category always</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">// gets the same color, no manual mapping to maintain.</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">categoryColor</span>(name) {</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> palette <span class="op">=</span> [<span class="st">"#2c7be5"</span><span class="op">,</span> <span class="st">"#27ae60"</span><span class="op">,</span> <span class="st">"#e67e22"</span><span class="op">,</span> <span class="st">"#8e44ad"</span><span class="op">,</span> <span class="st">"#e74c3c"</span><span class="op">,</span> <span class="st">"#16a2b8"</span><span class="op">,</span> <span class="st">"#d63384"</span><span class="op">,</span> <span class="st">"#6c757d"</span>]<span class="op">;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> name<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) hash <span class="op">=</span> name<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">+</span> ((hash <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">-</span> hash)<span class="op">;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> palette[<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(hash) <span class="op">%</span> palette<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
 </div>
 </div>
-</section>
-<section id="key-takeaway" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="46" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 45;"><span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>groupedSystems <span class="op">=</span> {</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> groups <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  systems<span class="op">.</span><span class="fu">forEach</span>(s <span class="kw">=&gt;</span> {</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> s<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Uncategorized"</span><span class="op">;</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>groups<span class="op">.</span><span class="fu">has</span>(key)) groups<span class="op">.</span><span class="fu">set</span>(key<span class="op">,</span> [])<span class="op">;</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    groups<span class="op">.</span><span class="fu">get</span>(key)<span class="op">.</span><span class="fu">push</span>(s)<span class="op">;</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>groups<span class="op">.</span><span class="fu">entries</span>()]<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a[<span class="dv">0</span>]<span class="op">.</span><span class="fu">localeCompare</span>(b[<span class="dv">0</span>]))<span class="op">;</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="58" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>groupedSystems<span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> items]) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> color <span class="op">=</span> <span class="fu">categoryColor</span>(category)<span class="op">;</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;details class="fs-accordion"&gt;</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;summary class="fs-accordion-summary" style="background:</span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">;"&gt;</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;span class="fs-accordion-name"&gt;</span><span class="sc">${</span>category<span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;span class="fs-accordion-count"&gt;</span><span class="sc">${</span>items<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/summary&gt;</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="fs-accordion-body"&gt;</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-grid" style="margin-top:12px;"&gt;</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>items<span class="op">.</span><span class="fu">map</span>(s <span class="kw">=&gt;</span> <span class="vs">`</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;div class="fs-card"&gt;</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;img class="fs-card-image" src="</span><span class="sc">${</span>s<span class="op">.</span><span class="at">imageURL</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">" onerror="this.style.display='none'" /&gt;</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;div class="fs-card-body"&gt;</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>s<span class="op">.</span><span class="at">name</span> <span class="op">??</span> s<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled system"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>s<span class="op">.</span><span class="at">description</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;p class="fs-card-meta"&gt;</span><span class="sc">${</span>s<span class="op">.</span><span class="at">contributor</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;/div&gt;</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;/div&gt;</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="vs">            `</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/details&gt;</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -421,14 +438,24 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Clinical Pearl:</strong> Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.</p>
+<p>🌍 <strong>Contribute your own:</strong> Have a system worth sharing? New entries are added to this library by our team — reach out via the <a href="./feedback.html">Feedback</a> page.</p>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InN5c3RlbXMgPSB7XG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWFwcC5qc1wiKTtcbiAgY29uc3QgeyBnZXRGaXJlc3RvcmUsIGNvbGxlY3Rpb24sIG9uU25hcHNob3QgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1maXJlc3RvcmUuanNcIik7XG5cbiAgY29uc3QgZmlyZWJhc2VDb25maWcgPSB7XG4gICAgYXBpS2V5OiBcIkFJemFTeUQxRkxuSXJkODZxT3NGUExpNXkxcV9FSVUwbGhMNWd4Y1wiLFxuICAgIGF1dGhEb21haW46IFwiZXZkdG9vbGtpdC5maXJlYmFzZWFwcC5jb21cIixcbiAgICBwcm9qZWN0SWQ6IFwiZXZkdG9vbGtpdFwiLFxuICAgIHN0b3JhZ2VCdWNrZXQ6IFwiZXZkdG9vbGtpdC5maXJlYmFzZXN0b3JhZ2UuYXBwXCIsXG4gICAgbWVzc2FnaW5nU2VuZGVySWQ6IFwiMTAwMjM3NDQzMTE1MVwiLFxuICAgIGFwcElkOiBcIjE6MTAwMjM3NDQzMTE1MTp3ZWI6ZmUzNzI0YmIxZjM5ZWI0NzQ0YWY1YVwiXG4gIH07XG5cbiAgY29uc3QgYXBwID0gaW5pdGlhbGl6ZUFwcChmaXJlYmFzZUNvbmZpZyk7XG4gIGNvbnN0IGRiID0gZ2V0RmlyZXN0b3JlKGFwcCk7XG5cbiAgLy8gTGl2ZSBsaXN0ZW5lciDigJQgdXBkYXRlcyBhdXRvbWF0aWNhbGx5IHdoZW5ldmVyIEVWRFN5c3RlbXNcbiAgLy8gY2hhbmdlcyBpbiBGaXJlc3RvcmUsIG5vIHBhZ2UgcmVsb2FkIG5lZWRlZC5cbiAgcmV0dXJuIEdlbmVyYXRvcnMub2JzZXJ2ZShub3RpZnkgPT4ge1xuICAgIGNvbnN0IHVuc3Vic2NyaWJlID0gb25TbmFwc2hvdChjb2xsZWN0aW9uKGRiLCBcIkVWRFN5c3RlbXNcIiksIHNuYXBzaG90ID0+IHtcbiAgICAgIG5vdGlmeShzbmFwc2hvdC5kb2NzLm1hcChkID0+IGQuZGF0YSgpKSk7XG4gICAgfSk7XG4gICAgcmV0dXJuIHVuc3Vic2NyaWJlO1xuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIERldGVybWluaXN0aWMgY29sb3IgcGVyIGNhdGVnb3J5IG5hbWUg4oCUIHNhbWUgY2F0ZWdvcnkgYWx3YXlzXG4vLyBnZXRzIHRoZSBzYW1lIGNvbG9yLCBubyBtYW51YWwgbWFwcGluZyB0byBtYWludGFpbi5cbmZ1bmN0aW9uIGNhdGVnb3J5Q29sb3IobmFtZSkge1xuICBjb25zdCBwYWxldHRlID0gW1wiIzJjN2JlNVwiLCBcIiMyN2FlNjBcIiwgXCIjZTY3ZTIyXCIsIFwiIzhlNDRhZFwiLCBcIiNlNzRjM2NcIiwgXCIjMTZhMmI4XCIsIFwiI2Q2MzM4NFwiLCBcIiM2Yzc1N2RcIl07XG4gIGxldCBoYXNoID0gMDtcbiAgZm9yIChsZXQgaSA9IDA7IGkgPCBuYW1lLmxlbmd0aDsgaSsrKSBoYXNoID0gbmFtZS5jaGFyQ29kZUF0KGkpICsgKChoYXNoIDw8IDUpIC0gaGFzaCk7XG4gIHJldHVybiBwYWxldHRlW01hdGguYWJzKGhhc2gpICUgcGFsZXR0ZS5sZW5ndGhdO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZ3JvdXBlZFN5c3RlbXMgPSB7XG4gIGNvbnN0IGdyb3VwcyA9IG5ldyBNYXAoKTtcbiAgc3lzdGVtcy5mb3JFYWNoKHMgPT4ge1xuICAgIGNvbnN0IGtleSA9IHMuY2F0ZWdvcnkgPz8gXCJVbmNhdGVnb3JpemVkXCI7XG4gICAgaWYgKCFncm91cHMuaGFzKGtleSkpIGdyb3Vwcy5zZXQoa2V5LCBbXSk7XG4gICAgZ3JvdXBzLmdldChrZXkpLnB1c2gocyk7XG4gIH0pO1xuICByZXR1cm4gWy4uLmdyb3Vwcy5lbnRyaWVzKCldLnNvcnQoKGEsIGIpID0+IGFbMF0ubG9jYWxlQ29tcGFyZShiWzBdKSk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodG1sYDxkaXY+XG4gICR7Z3JvdXBlZFN5c3RlbXMubWFwKChbY2F0ZWdvcnksIGl0ZW1zXSkgPT4ge1xuICAgIGNvbnN0IGNvbG9yID0gY2F0ZWdvcnlDb2xvcihjYXRlZ29yeSk7XG4gICAgcmV0dXJuIGBcbiAgICAgIDxkZXRhaWxzIGNsYXNzPVwiZnMtYWNjb3JkaW9uXCI+XG4gICAgICAgIDxzdW1tYXJ5IGNsYXNzPVwiZnMtYWNjb3JkaW9uLXN1bW1hcnlcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtjb2xvcn07XCI+XG4gICAgICAgICAgPHNwYW4gY2xhc3M9XCJmcy1hY2NvcmRpb24tbmFtZVwiPiR7Y2F0ZWdvcnl9PC9zcGFuPlxuICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZnMtYWNjb3JkaW9uLWNvdW50XCI+JHtpdGVtcy5sZW5ndGh9PC9zcGFuPlxuICAgICAgICA8L3N1bW1hcnk+XG4gICAgICAgIDxkaXYgY2xhc3M9XCJmcy1hY2NvcmRpb24tYm9keVwiPlxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1ncmlkXCIgc3R5bGU9XCJtYXJnaW4tdG9wOjEycHg7XCI+XG4gICAgICAgICAgICAke2l0ZW1zLm1hcChzID0+IGBcbiAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cImZzLWNhcmRcIj5cbiAgICAgICAgICAgICAgICA8aW1nIGNsYXNzPVwiZnMtY2FyZC1pbWFnZVwiIHNyYz1cIiR7cy5pbWFnZVVSTCA/PyBcIlwifVwiIG9uZXJyb3I9XCJ0aGlzLnN0eWxlLmRpc3BsYXk9J25vbmUnXCIgLz5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZC1ib2R5XCI+XG4gICAgICAgICAgICAgICAgICA8aDQgY2xhc3M9XCJmcy1jYXJkLXRpdGxlXCI+JHtzLm5hbWUgPz8gcy50aXRsZSA/PyBcIlVudGl0bGVkIHN5c3RlbVwifTwvaDQ+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzcz1cImZzLWNhcmQtZGVzY1wiPiR7cy5kZXNjcmlwdGlvbiA/PyBcIlwifTwvcD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzPVwiZnMtY2FyZC1tZXRhXCI+JHtzLmNvbnRyaWJ1dG9yID8/IFwiXCJ9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIGApLmpvaW4oXCJcIil9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kZXRhaWxzPlxuICAgIGA7XG4gIH0pLmpvaW4oXCJcIil9XG48L2Rpdj5gXG4ifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

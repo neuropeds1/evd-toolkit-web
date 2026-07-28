@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Best Practices – EVD Toolkit</title>
+<title>QI Metrics – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,6 +108,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -87,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apply.html">Clinical Application</a></li><li class="breadcrumb-item"><a href="./best-practices.html">Best Practices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qi-metrics.html">Safety &amp; Quality</a></li><li class="breadcrumb-item"><a href="./qi-metrics.html">QI Metrics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -176,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./best-practices.html" class="sidebar-item-text sidebar-link active">
+  <a href="./best-practices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Best Practices</span></a>
   </div>
 </li>
@@ -222,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qi-metrics.html" class="sidebar-item-text sidebar-link">
+  <a href="./qi-metrics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">QI Metrics</span></a>
   </div>
 </li>
@@ -273,18 +310,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dos-and-donts" id="toc-dos-and-donts" class="nav-link active" data-scroll-target="#dos-and-donts">Do’s and Don’ts</a></li>
-  <li><a href="#csf-color-interpretation" id="toc-csf-color-interpretation" class="nav-link" data-scroll-target="#csf-color-interpretation">CSF Color Interpretation</a></li>
-  <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
+  <li><a href="#documentation-compliance-anesthesia-record" id="toc-documentation-compliance-anesthesia-record" class="nav-link active" data-scroll-target="#documentation-compliance-anesthesia-record">Documentation Compliance (Anesthesia Record)</a></li>
+  <li><a href="#transport-safety-metrics" id="toc-transport-safety-metrics" class="nav-link" data-scroll-target="#transport-safety-metrics">Transport Safety Metrics</a></li>
+  <li><a href="#ventriculostomy-related-infections-vri" id="toc-ventriculostomy-related-infections-vri" class="nav-link" data-scroll-target="#ventriculostomy-related-infections-vri">Ventriculostomy-Related Infections (VRI)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-your-units-vri-rate" id="toc-what-is-your-units-vri-rate" class="nav-link" data-scroll-target="#what-is-your-units-vri-rate">What is your unit’s VRI rate?</a></li>
+  </ul></li>
+  <li><a href="#references-under-construction" id="toc-references-under-construction" class="nav-link" data-scroll-target="#references-under-construction">References (Under Construction)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apply.html">Clinical Application</a></li><li class="breadcrumb-item"><a href="./best-practices.html">Best Practices</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qi-metrics.html">Safety &amp; Quality</a></li><li class="breadcrumb-item"><a href="./qi-metrics.html">QI Metrics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Best Practices</h1>
+<h1 class="title">QI Metrics</h1>
 </div>
 
 
@@ -301,134 +342,365 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A quick-reference guide to safe, high-quality care when managing external ventricular drains.</p>
-<section id="dos-and-donts" class="level2">
-<h2 class="anchored" data-anchor-id="dos-and-donts">Do’s and Don’ts</h2>
+<p>Track documentation, transport safety, and outcomes related to EVD care. <em>(Under construction)</em></p>
+<section id="documentation-compliance-anesthesia-record" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-compliance-anesthesia-record">Documentation Compliance (Anesthesia Record)</h2>
+<p>Key elements that should be documented:</p>
+<ul>
+<li>Intracranial Pressure (ICP)</li>
+<li>CSF Output</li>
+<li>EVD Setting</li>
+<li>CSF Color</li>
+</ul>
+<p><strong>Current Compliance (Example Data)</strong></p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Do</th>
-<th>Don’t</th>
+<th>Element</th>
+<th>Documented</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>✔ Confirm EVD setting before interpreting ICP</td>
-<td>✖ Interpret ICP without knowing the drain setting</td>
+<td>ICP</td>
+<td>85%</td>
 </tr>
 <tr class="even">
-<td>✔ Check clamp status before transport or procedures</td>
-<td>✖ Keep EVD closed and not monitor ICP</td>
+<td>CSF output</td>
+<td>78%</td>
 </tr>
 <tr class="odd">
-<td>✔ Level the transducer at the tragus</td>
-<td>✖ Clamp EVD and leave the transducer at the level of the heart</td>
+<td>EVD setting</td>
+<td>82%</td>
 </tr>
 <tr class="even">
-<td>✔ Trend ICP and waveform together</td>
-<td>✖ Rely on a single ICP value</td>
-</tr>
-<tr class="odd">
-<td>✔ Minimize CSF system access</td>
-<td>✖ Access CSF unnecessarily</td>
-</tr>
-<tr class="even">
-<td>✔ Use sterile technique for all handling</td>
-<td>✖ Break sterility during manipulation</td>
-</tr>
-<tr class="odd">
-<td>✔ Secure tubing to prevent dislodgement</td>
-<td>✖ Leave tubing unsecured</td>
-</tr>
-<tr class="even">
-<td>✔ Communicate EVD status during handoffs</td>
-<td>✖ Assume others know the EVD setup</td>
-</tr>
-<tr class="odd">
-<td>✔ Monitor ICP during transport at all times</td>
-<td>✖ Transport without considering ICP risk</td>
-</tr>
-<tr class="even">
-<td>✔ Reassess waveform if values seem inconsistent</td>
-<td>✖ Ignore dampened or abnormal waveforms</td>
+<td>CSF color</td>
+<td>65%</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="csf-color-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="csf-color-interpretation">CSF Color Interpretation</h2>
+<section id="transport-safety-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="transport-safety-metrics">Transport Safety Metrics</h2>
+<ul>
+<li>% patients with ICP monitoring during transport</li>
+<li>% transports with EVD clamped</li>
+<li>% transports with ICP elevation ≥20 mmHg</li>
+</ul>
+<p><strong>Example Metrics</strong></p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>CSF Appearance</th>
-<th>Clinical Interpretation</th>
+<th>Metric</th>
+<th>Rate</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Clear</strong></td>
-<td>Normal CSF</td>
+<td>ICP monitored during transport</td>
+<td>72%</td>
 </tr>
 <tr class="even">
-<td><strong>Xanthochromia (yellow)</strong></td>
-<td>Suggests prior hemorrhage or SAH breakdown products</td>
+<td>EVD clamped transports</td>
+<td>40%</td>
 </tr>
 <tr class="odd">
-<td><strong>Bloody</strong></td>
-<td>May indicate active bleeding, traumatic tap, or evolving hemorrhage</td>
-</tr>
-<tr class="even">
-<td><strong>Cloudy</strong></td>
-<td>Concerning for infection (e.g., ventriculitis)</td>
-</tr>
-<tr class="odd">
-<td><strong>Debris / Particulate</strong></td>
-<td>Possible clot breakdown, infection, or catheter obstruction</td>
+<td>ICP elevation ≥20 mmHg</td>
+<td>18%</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+</section>
+<section id="ventriculostomy-related-infections-vri" class="level2">
+<h2 class="anchored" data-anchor-id="ventriculostomy-related-infections-vri">Ventriculostomy-Related Infections (VRI)</h2>
+<p>Outcome metric reflecting infection risk associated with EVD use.</p>
+<p><strong>Global VRI Rate: 8.64%</strong> [95% CI 7.44–9.97]</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+<span class="screen-reader-only">Note</span>VRI rates by country (click to expand)
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Clinical Note:</strong> Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Country</th>
+<th>Studies</th>
+<th>VRI Rate</th>
+<th>95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Croatia</td>
+<td>1</td>
+<td>43.3%</td>
+<td>7.0–89.3%</td>
+</tr>
+<tr class="even">
+<td>Hungary</td>
+<td>1</td>
+<td>33.9%</td>
+<td>3.4–86.2%</td>
+</tr>
+<tr class="odd">
+<td>Greece</td>
+<td>3</td>
+<td>33.2%</td>
+<td>14.3–56.2%</td>
+</tr>
+<tr class="even">
+<td>Ethiopia</td>
+<td>1</td>
+<td>30.2%</td>
+<td>4.0–85.1%</td>
+</tr>
+<tr class="odd">
+<td>Iran</td>
+<td>2</td>
+<td>23.4%</td>
+<td>1.8–77.0%</td>
+</tr>
+<tr class="even">
+<td>Israel</td>
+<td>1</td>
+<td>22.0%</td>
+<td>1.9–82.9%</td>
+</tr>
+<tr class="odd">
+<td>UK</td>
+<td>1</td>
+<td>21.6%</td>
+<td>1.5–77.6%</td>
+</tr>
+<tr class="even">
+<td>Thailand</td>
+<td>1</td>
+<td>19.4%</td>
+<td>1.5–79.6%</td>
+</tr>
+<tr class="odd">
+<td>Netherlands</td>
+<td>7</td>
+<td>18.9%</td>
+<td>9.8–32.2%</td>
+</tr>
+<tr class="even">
+<td>Serbia</td>
+<td>1</td>
+<td>18.4%</td>
+<td>1.1–77.4%</td>
+</tr>
+<tr class="odd">
+<td>United Arab Emirates</td>
+<td>1</td>
+<td>18.4%</td>
+<td>1.4–72.4%</td>
+</tr>
+<tr class="even">
+<td>Turkey</td>
+<td>1</td>
+<td>18.2%</td>
+<td>0.9–88.0%</td>
+</tr>
+<tr class="odd">
+<td>Switzerland</td>
+<td>7</td>
+<td>17.4%</td>
+<td>5.6–34.8%</td>
+</tr>
+<tr class="even">
+<td>Brazil</td>
+<td>4</td>
+<td>15.0%</td>
+<td>2.6–42.4%</td>
+</tr>
+<tr class="odd">
+<td>New Zealand</td>
+<td>2</td>
+<td>13.8%</td>
+<td>4.0–32.4%</td>
+</tr>
+<tr class="even">
+<td>Belgium</td>
+<td>1</td>
+<td>13.5%</td>
+<td>1.0–64.5%</td>
+</tr>
+<tr class="odd">
+<td>Sweden</td>
+<td>5</td>
+<td>13.3%</td>
+<td>6.0–23.5%</td>
+</tr>
+<tr class="even">
+<td>Spain</td>
+<td>4</td>
+<td>12.8%</td>
+<td>8.4–19.1%</td>
+</tr>
+<tr class="odd">
+<td>United Kingdom</td>
+<td>9</td>
+<td>12.7%</td>
+<td>7.0–21.4%</td>
+</tr>
+<tr class="even">
+<td>Denmark</td>
+<td>5</td>
+<td>12.2%</td>
+<td>3.2–28.5%</td>
+</tr>
+<tr class="odd">
+<td>Australia</td>
+<td>5</td>
+<td>11.4%</td>
+<td>4.2–19.2%</td>
+</tr>
+<tr class="even">
+<td>Korea (South)</td>
+<td>3</td>
+<td>10.9%</td>
+<td>5.7–19.1%</td>
+</tr>
+<tr class="odd">
+<td>France</td>
+<td>11</td>
+<td>10.4%</td>
+<td>6.9–15.2%</td>
+</tr>
+<tr class="even">
+<td>Austria</td>
+<td>2</td>
+<td>10.4%</td>
+<td>2.5–28.7%</td>
+</tr>
+<tr class="odd">
+<td>Taiwan</td>
+<td>2</td>
+<td>10.3%</td>
+<td>0.7–49.1%</td>
+</tr>
+<tr class="even">
+<td>India</td>
+<td>1</td>
+<td>10.1%</td>
+<td>0.4–43.5%</td>
+</tr>
+<tr class="odd">
+<td>Canada</td>
+<td>5</td>
+<td>9.1%</td>
+<td>4.4–17.9%</td>
+</tr>
+<tr class="even">
+<td>Italy</td>
+<td>7</td>
+<td>9.0%</td>
+<td>3.7–17.6%</td>
+</tr>
+<tr class="odd">
+<td>China</td>
+<td>15</td>
+<td>8.5%</td>
+<td>5.4–12.4%</td>
+</tr>
+<tr class="even">
+<td>Norway</td>
+<td>1</td>
+<td>8.3%</td>
+<td>0.3–68.4%</td>
+</tr>
+<tr class="odd">
+<td>Germany</td>
+<td>6</td>
+<td>6.1%</td>
+<td>1.1–18.9%</td>
+</tr>
+<tr class="even">
+<td>United States</td>
+<td>46</td>
+<td>4.6%</td>
+<td>3.4–5.9%</td>
+</tr>
+<tr class="odd">
+<td>Singapore</td>
+<td>3</td>
+<td>3.3%</td>
+<td>0.8–7.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="what-is-your-units-vri-rate" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-your-units-vri-rate">What is your unit’s VRI rate?</h3>
+<p>A quick self-check — use this to reinforce prevention practices, whatever your number is.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="89" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 88;"><span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>viewof myVRI <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">30</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Your Unit's VRI Rate (%)"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="93" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 92;"><span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>myVRI <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div style="background:#e8f5e9;padding:15px;border-left:6px solid #27ae60;border-radius:10px;"&gt;</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;strong&gt;🎉 Excellent — 0% VRI rate.&lt;/strong&gt;</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p style="margin:8px 0 0;"&gt;Keep reinforcing the fundamentals that got you here:&lt;/p&gt;</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;ul style="margin:6px 0 0;"&gt;</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;li&gt;Sterile technique and periprocedural antibiotics at insertion&lt;/li&gt;</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;li&gt;Indication-based CSF sampling only&lt;/li&gt;</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;li&gt;Minimizing unnecessary system access&lt;/li&gt;</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/ul&gt;</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div style="background:#fff7e6;padding:15px;border-left:6px solid #f39c12;border-radius:10px;"&gt;</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;strong&gt;Your reported VRI rate is </span><span class="sc">${</span>myVRI<span class="sc">}</span><span class="vs">%.&lt;/strong&gt;</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p style="margin:8px 0 0;"&gt;Every VRI is an opportunity to reinforce prevention. Revisit:&lt;/p&gt;</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;ul style="margin:6px 0 0;"&gt;</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;li&gt;&lt;strong&gt;Insertion Bundle:&lt;/strong&gt; sterile technique, periprocedural antibiotics, antimicrobial-impregnated catheter, tunneling, closed system, sterile dressing&lt;/li&gt;</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;li&gt;&lt;strong&gt;Maintenance Bundle:&lt;/strong&gt; indication-based sampling only, minimize system access, maintain system upright, prevent disconnection&lt;/li&gt;</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/ul&gt;</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p style="margin:8px 0 0;font-size:13px;color:#666;"&gt;See the &lt;a href="bundle.qmd"&gt;Infection Prevention Bundle&lt;/a&gt; page for the full checklist.&lt;/p&gt;</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
 </div>
 </div>
 </section>
-<section id="key-takeaway" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Clinical Pearl:</strong> Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.</p>
-</div>
-</div>
+</section>
+<section id="references-under-construction" class="level2">
+<h2 class="anchored" data-anchor-id="references-under-construction">References (Under Construction)</h2>
+<ol type="1">
+<li>Author A et al.&nbsp;<em>Global Epidemiology of Ventriculostomy-Related Infections.</em> Journal. Year.</li>
+<li>Author B et al.&nbsp;<em>EVD Management and QI Metrics.</em> Journal. Year.</li>
+</ol>
 
 
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBteVZSSSA9IElucHV0cy5yYW5nZShbMCwgMzBdLCB7bGFiZWw6IFwiWW91ciBVbml0J3MgVlJJIFJhdGUgKCUpXCIsIHN0ZXA6IDAuNSwgdmFsdWU6IDB9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibXlWUkkgPT09IDBcbiAgPyBodG1sYDxkaXYgc3R5bGU9XCJiYWNrZ3JvdW5kOiNlOGY1ZTk7cGFkZGluZzoxNXB4O2JvcmRlci1sZWZ0OjZweCBzb2xpZCAjMjdhZTYwO2JvcmRlci1yYWRpdXM6MTBweDtcIj5cbiAgICAgIDxzdHJvbmc+8J+OiSBFeGNlbGxlbnQg4oCUIDAlIFZSSSByYXRlLjwvc3Ryb25nPlxuICAgICAgPHAgc3R5bGU9XCJtYXJnaW46OHB4IDAgMDtcIj5LZWVwIHJlaW5mb3JjaW5nIHRoZSBmdW5kYW1lbnRhbHMgdGhhdCBnb3QgeW91IGhlcmU6PC9wPlxuICAgICAgPHVsIHN0eWxlPVwibWFyZ2luOjZweCAwIDA7XCI+XG4gICAgICAgIDxsaT5TdGVyaWxlIHRlY2huaXF1ZSBhbmQgcGVyaXByb2NlZHVyYWwgYW50aWJpb3RpY3MgYXQgaW5zZXJ0aW9uPC9saT5cbiAgICAgICAgPGxpPkluZGljYXRpb24tYmFzZWQgQ1NGIHNhbXBsaW5nIG9ubHk8L2xpPlxuICAgICAgICA8bGk+TWluaW1pemluZyB1bm5lY2Vzc2FyeSBzeXN0ZW0gYWNjZXNzPC9saT5cbiAgICAgIDwvdWw+XG4gICAgPC9kaXY+YFxuICA6IGh0bWxgPGRpdiBzdHlsZT1cImJhY2tncm91bmQ6I2ZmZjdlNjtwYWRkaW5nOjE1cHg7Ym9yZGVyLWxlZnQ6NnB4IHNvbGlkICNmMzljMTI7Ym9yZGVyLXJhZGl1czoxMHB4O1wiPlxuICAgICAgPHN0cm9uZz5Zb3VyIHJlcG9ydGVkIFZSSSByYXRlIGlzICR7bXlWUkl9JS48L3N0cm9uZz5cbiAgICAgIDxwIHN0eWxlPVwibWFyZ2luOjhweCAwIDA7XCI+RXZlcnkgVlJJIGlzIGFuIG9wcG9ydHVuaXR5IHRvIHJlaW5mb3JjZSBwcmV2ZW50aW9uLiBSZXZpc2l0OjwvcD5cbiAgICAgIDx1bCBzdHlsZT1cIm1hcmdpbjo2cHggMCAwO1wiPlxuICAgICAgICA8bGk+PHN0cm9uZz5JbnNlcnRpb24gQnVuZGxlOjwvc3Ryb25nPiBzdGVyaWxlIHRlY2huaXF1ZSwgcGVyaXByb2NlZHVyYWwgYW50aWJpb3RpY3MsIGFudGltaWNyb2JpYWwtaW1wcmVnbmF0ZWQgY2F0aGV0ZXIsIHR1bm5lbGluZywgY2xvc2VkIHN5c3RlbSwgc3RlcmlsZSBkcmVzc2luZzwvbGk+XG4gICAgICAgIDxsaT48c3Ryb25nPk1haW50ZW5hbmNlIEJ1bmRsZTo8L3N0cm9uZz4gaW5kaWNhdGlvbi1iYXNlZCBzYW1wbGluZyBvbmx5LCBtaW5pbWl6ZSBzeXN0ZW0gYWNjZXNzLCBtYWludGFpbiBzeXN0ZW0gdXByaWdodCwgcHJldmVudCBkaXNjb25uZWN0aW9uPC9saT5cbiAgICAgIDwvdWw+XG4gICAgICA8cCBzdHlsZT1cIm1hcmdpbjo4cHggMCAwO2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiM2NjY7XCI+U2VlIHRoZSA8YSBocmVmPVwiYnVuZGxlLnFtZFwiPkluZmVjdGlvbiBQcmV2ZW50aW9uIEJ1bmRsZTwvYT4gcGFnZSBmb3IgdGhlIGZ1bGwgY2hlY2tsaXN0LjwvcD5cbiAgICA8L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ215VlJJJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
