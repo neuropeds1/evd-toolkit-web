@@ -1,0 +1,9 @@
+---
+title: "EVD Quiz"
+---
+
+Test your knowledge using the official SNACC External Ventricular Drain (EVD) Quiz.
+
+```{=html}
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScug6_m9PFAi1v44t4VdXlA6fDBgr5dEFb3G-ckTIKpdmj5zQ/viewform?usp=sharing&ouid=117721421438305031990" width="100%" height="700" style="border:none;border-radius:12px;"></iframe>
+```

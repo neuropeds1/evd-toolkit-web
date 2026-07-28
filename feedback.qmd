@@ -1,0 +1,28 @@
+---
+title: "Feedback"
+---
+
+We value your input to improve this tool and enhance patient safety.
+
+## Why Your Feedback Matters
+
+- Improve usability and workflow
+- Identify gaps in clinical guidance
+- Enhance safety and decision support
+- Support future research and QI initiatives
+
+## Share Your Feedback
+
+You can fill out the form directly below.
+
+```{=html}
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdq2TXhaqMShJ7ruv27xEuizUr5NlKwEzQcc00hGbl22t7Ssg/viewform?usp=sharing&ouid=117721421438305031990" width="100%" height="700" style="border:none;border-radius:12px;"></iframe>
+```
+
+## Confidentiality
+
+Feedback is collected anonymously unless you choose to provide identifying information.
+
+::: {.callout-note}
+Your insights directly contribute to improving EVD safety and education.
+:::

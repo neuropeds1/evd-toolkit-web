@@ -1,0 +1,117 @@
+---
+title: "References"
+---
+
+Key literature supporting EVD management, transport safety, and clinical practice. Click a category to expand it.
+
+```{ojs}
+references = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Live listener — updates automatically whenever References
+  // changes in Firestore (this also re-fetches PubMed metadata for
+  // any newly added reference, since referencesWithMeta depends on
+  // this cell's value).
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "References"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+// Firestore only stores pmid/type/color — fetch title/authors/journal
+// live from PubMed's own API (NCBI E-utilities), batched into one request.
+referencesWithMeta = {
+  const pmids = references.map(r => r.pmid).filter(Boolean);
+  if (pmids.length === 0) return references;
+
+  try {
+    const url = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${pmids.join(",")}&retmode=json`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    return references.map(r => {
+      const s = data.result?.[r.pmid];
+      if (!s) return r;
+      return {
+        ...r,
+        title: s.title,
+        authors: (s.authors || []).map(a => a.name).join(", "),
+        journal: s.fulljournalname,
+        pubdate: s.pubdate
+      };
+    });
+  } catch (e) {
+    return references;
+  }
+}
+```
+
+```{ojs}
+groupedReferences = {
+  const groups = new Map();
+  referencesWithMeta.forEach(r => {
+    const key = r.type ?? "Uncategorized";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(r);
+  });
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+```
+
+```{ojs}
+// Deterministic color per category name — same category always
+// gets the same color, no manual mapping to maintain.
+function categoryColor(name) {
+  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
+```
+
+```{ojs}
+html`<div>
+  ${groupedReferences.map(([type, refs]) => {
+    const color = categoryColor(type);
+    return `
+      <details class="fs-accordion">
+        <summary class="fs-accordion-summary" style="background:${color};">
+          <span class="fs-accordion-name">${type}</span>
+          <span class="fs-accordion-count">${refs.length}</span>
+        </summary>
+        <div class="fs-accordion-body">
+          ${refs.map(r => `
+            <div class="fs-ref-entry">
+              <p class="fs-ref-title">${r.title ?? `PMID: ${r.pmid}`}</p>
+              ${r.authors ? `<p class="fs-ref-authors">${r.authors}</p>` : ""}
+              ${r.journal ? `<p class="fs-ref-journal">${r.journal}${r.pubdate ? ` (${r.pubdate})` : ""}</p>` : ""}
+              <a class="fs-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/" target="_blank">View on PubMed →</a>
+            </div>
+          `).join("")}
+        </div>
+      </details>
+    `;
+  }).join("")}
+</div>`
+```
+
+::: {.callout-note}
+Titles, authors, and journal names are fetched live from PubMed using each reference's PMID.
+:::

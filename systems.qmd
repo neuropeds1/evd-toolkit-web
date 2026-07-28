@@ -1,0 +1,90 @@
+---
+title: "EVD Systems"
+---
+
+**A Global Library of Real-World EVD Systems** — browse how EVD systems vary across institutions worldwide. Click a region/category to expand it.
+
+```{ojs}
+systems = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Live listener — updates automatically whenever EVDSystems
+  // changes in Firestore, no page reload needed.
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "EVDSystems"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+// Deterministic color per category name — same category always
+// gets the same color, no manual mapping to maintain.
+function categoryColor(name) {
+  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
+```
+
+```{ojs}
+groupedSystems = {
+  const groups = new Map();
+  systems.forEach(s => {
+    const key = s.category ?? "Uncategorized";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(s);
+  });
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+```
+
+```{ojs}
+html`<div>
+  ${groupedSystems.map(([category, items]) => {
+    const color = categoryColor(category);
+    return `
+      <details class="fs-accordion">
+        <summary class="fs-accordion-summary" style="background:${color};">
+          <span class="fs-accordion-name">${category}</span>
+          <span class="fs-accordion-count">${items.length}</span>
+        </summary>
+        <div class="fs-accordion-body">
+          <div class="fs-grid" style="margin-top:12px;">
+            ${items.map(s => `
+              <div class="fs-card">
+                <img class="fs-card-image" src="${s.imageURL ?? ""}" onerror="this.style.display='none'" />
+                <div class="fs-card-body">
+                  <h4 class="fs-card-title">${s.name ?? s.title ?? "Untitled system"}</h4>
+                  <p class="fs-card-desc">${s.description ?? ""}</p>
+                  <p class="fs-card-meta">${s.contributor ?? ""}</p>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </details>
+    `;
+  }).join("")}
+</div>`
+```
+
+::: {.callout-tip}
+🌍 **Contribute your own:** Have a system worth sharing? New entries are added to this library by our team — reach out via the [Feedback](feedback.qmd) page.
+:::

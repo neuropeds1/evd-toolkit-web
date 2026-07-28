@@ -1,0 +1,44 @@
+---
+title: "Infection Prevention Bundle"
+---
+
+A structured, evidence-informed approach to reduce ventriculostomy-related infections (VRI) through standardized insertion and maintenance practices.
+
+## Insertion Bundle
+
+**Definition:** Number of patients with EVDs for whom all elements of an insertion bundle are documented at the time of EVD placement.
+
+**Core Elements:**
+
+- 🧼 Use of strict sterile technique during insertion
+- 💉 Administration of periprocedural antibiotics prior to incision
+- 🧪 Use of antimicrobial-impregnated catheter
+- 📏 Tunneling of the catheter (≥ 5 cm under the skin)
+- 🔒 Use of a closed drainage system
+- 🩹 Application of a sterile (preferably chlorhexidine-impregnated) dressing
+
+::: {.callout-tip}
+**Key Principle:** Full compliance with all bundle elements—not partial adherence—is required to meaningfully reduce infection risk.
+:::
+
+## Maintenance Bundle
+
+**Core Principles:**
+
+- 🧠 Indication-based CSF sampling only
+- 🚫 Avoid routine or unnecessary CSF sampling
+- 🔒 Minimize system access to prevent contamination
+- 📐 Maintain system upright to prevent backflow
+- ⚠️ Prevent accidental disconnection of the system
+
+::: {.callout-tip}
+**Key Principle:** Each access of the CSF system increases infection risk—minimize manipulation unless clinically indicated.
+:::
+
+## Why This Matters
+
+Ventriculostomy-related infections are associated with increased morbidity, prolonged hospital stay, and higher healthcare costs. Standardizing insertion and maintenance practices reduces variability and improves patient outcomes.
+
+::: {.callout-warning}
+**Clinical Reminder:** Infection prevention is a multidisciplinary responsibility involving anesthesia, neurosurgery, nursing, and ICU teams.
+:::

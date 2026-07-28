@@ -1,0 +1,114 @@
+---
+title: "Catheter Types"
+---
+
+A reference catalog of EVD catheter types and coatings. Click a category to expand it.
+
+```{ojs}
+catheterTypes = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Live listener — updates automatically whenever EVDTypes
+  // changes in Firestore, no page reload needed.
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "EVDTypes"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+// Semantic color, not arbitrary: antimicrobial-impregnated catheters
+// are the preferred choice (green); everything else is red as a
+// visual nudge toward the preferred option. Check the "non-" case
+// FIRST since "Non-antimicrobial" also contains the substring
+// "antimicrobial" and would otherwise false-match as green.
+function categoryColor(name) {
+  const lower = name.toLowerCase();
+  if (/non[\s-]?antimicrobial/.test(lower)) return "#e74c3c";
+  if (/antimicrobial/.test(lower)) return "#27ae60";
+  return "#e74c3c";
+}
+```
+
+```{ojs}
+// Curated clinical pearls per catheter category. Add more entries here
+// as categories/facts are provided — categories without an entry just
+// won't show a pearls callout.
+categoryPearls = ({
+  "Antimicrobial impregnated": [
+    "Antimicrobial-impregnated catheters have been shown to reduce the rate of ventriculostomy-related infections (VRI).",
+    "Commonly coated with agents such as rifampicin and clindamycin, or minocycline and rifampin.",
+    "Device choice is one element of infection prevention — full bundle compliance (sterile technique, minimizing access, etc.) still matters most."
+  ]
+})
+```
+
+```{ojs}
+groupedTypes = {
+  const groups = new Map();
+  catheterTypes.forEach(t => {
+    const key = t.category ?? "Uncategorized";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(t);
+  });
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+```
+
+```{ojs}
+html`<div>
+  ${groupedTypes.map(([category, items]) => {
+    const color = categoryColor(category);
+    const pearls = categoryPearls[category];
+    return `
+      <details class="fs-accordion">
+        <summary class="fs-accordion-summary" style="background:${color};">
+          <span class="fs-accordion-name">${category}</span>
+          <span class="fs-accordion-count">${items.length}</span>
+        </summary>
+        <div class="fs-accordion-body">
+          ${pearls ? `
+            <div class="callout-pearl" style="margin-top:14px;">
+              <strong>💡 Key Knowledge Pearls</strong>
+              <ul style="margin:8px 0 0; padding-left:20px;">
+                ${pearls.map(p => `<li style="margin-bottom:4px;">${p}</li>`).join("")}
+              </ul>
+            </div>
+          ` : ""}
+          <div class="fs-grid" style="margin-top:14px;">
+            ${items.map(t => `
+              <div class="fs-card">
+                <img class="fs-card-image" src="${t.imageURL ?? ""}" onerror="this.style.display='none'" />
+                <div class="fs-card-body">
+                  <h4 class="fs-card-title">${t.title ?? "Untitled"}</h4>
+                  <p class="fs-card-desc">${t.description ?? ""}</p>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </details>
+    `;
+  }).join("")}
+</div>`
+```
+
+::: {.callout-tip}
+**Clinical Pearl:** Catheter choice is one piece of the puzzle — see the full [Infection Prevention Bundle](bundle.qmd) for the complete picture.
+:::

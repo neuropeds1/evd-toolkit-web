@@ -20,6 +20,8 @@ website:
             href: settings.qmd
           - text: "ICP Waveform"
             href: waveform.qmd
+          - text: "Catheter Types"
+            href: catheter-types.qmd
       - section: "Clinical Application"
         contents:
           - text: "Apply to a Patient"
@@ -28,6 +30,31 @@ website:
             href: checklist.qmd
           - text: "Best Practices"
             href: best-practices.qmd
+      - section: "Learning & Engagement"
+        contents:
+          - text: "EVD Quiz"
+            href: quiz.qmd
+          - text: "🎬 Must-See Videos"
+            href: video.qmd
+          - text: "EVD Systems"
+            href: systems.qmd
+      - section: "Safety & Quality"
+        contents:
+          - text: "QI Metrics"
+            href: qi-metrics.qmd
+          - text: "Infection Prevention Bundle"
+            href: bundle.qmd
+      - section: "Resources"
+        contents:
+          - text: "References"
+            href: references.qmd
+          - text: "Feedback"
+            href: feedback.qmd
+          - text: "About"
+            href: about.qmd
+
+execute:
+  echo: false
 
 format:
   html:

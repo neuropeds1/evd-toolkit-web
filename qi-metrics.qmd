@@ -1,0 +1,118 @@
+---
+title: "QI Metrics"
+---
+
+Track documentation, transport safety, and outcomes related to EVD care. *(Under construction)*
+
+## Documentation Compliance (Anesthesia Record)
+
+Key elements that should be documented:
+
+- Intracranial Pressure (ICP)
+- CSF Output
+- EVD Setting
+- CSF Color
+
+**Current Compliance (Example Data)**
+
+| Element | Documented |
+|---|---|
+| ICP | 85% |
+| CSF output | 78% |
+| EVD setting | 82% |
+| CSF color | 65% |
+
+## Transport Safety Metrics
+
+- % patients with ICP monitoring during transport
+- % transports with EVD clamped
+- % transports with ICP elevation ≥20 mmHg
+
+**Example Metrics**
+
+| Metric | Rate |
+|---|---|
+| ICP monitored during transport | 72% |
+| EVD clamped transports | 40% |
+| ICP elevation ≥20 mmHg | 18% |
+
+## Ventriculostomy-Related Infections (VRI)
+
+Outcome metric reflecting infection risk associated with EVD use.
+
+**Global VRI Rate: 8.64%** [95% CI 7.44–9.97]
+
+::: {.callout-note collapse="true"}
+### VRI rates by country (click to expand)
+
+| Country | Studies | VRI Rate | 95% CI |
+|---|---|---|---|
+| Croatia | 1 | 43.3% | 7.0–89.3% |
+| Hungary | 1 | 33.9% | 3.4–86.2% |
+| Greece | 3 | 33.2% | 14.3–56.2% |
+| Ethiopia | 1 | 30.2% | 4.0–85.1% |
+| Iran | 2 | 23.4% | 1.8–77.0% |
+| Israel | 1 | 22.0% | 1.9–82.9% |
+| UK | 1 | 21.6% | 1.5–77.6% |
+| Thailand | 1 | 19.4% | 1.5–79.6% |
+| Netherlands | 7 | 18.9% | 9.8–32.2% |
+| Serbia | 1 | 18.4% | 1.1–77.4% |
+| United Arab Emirates | 1 | 18.4% | 1.4–72.4% |
+| Turkey | 1 | 18.2% | 0.9–88.0% |
+| Switzerland | 7 | 17.4% | 5.6–34.8% |
+| Brazil | 4 | 15.0% | 2.6–42.4% |
+| New Zealand | 2 | 13.8% | 4.0–32.4% |
+| Belgium | 1 | 13.5% | 1.0–64.5% |
+| Sweden | 5 | 13.3% | 6.0–23.5% |
+| Spain | 4 | 12.8% | 8.4–19.1% |
+| United Kingdom | 9 | 12.7% | 7.0–21.4% |
+| Denmark | 5 | 12.2% | 3.2–28.5% |
+| Australia | 5 | 11.4% | 4.2–19.2% |
+| Korea (South) | 3 | 10.9% | 5.7–19.1% |
+| France | 11 | 10.4% | 6.9–15.2% |
+| Austria | 2 | 10.4% | 2.5–28.7% |
+| Taiwan | 2 | 10.3% | 0.7–49.1% |
+| India | 1 | 10.1% | 0.4–43.5% |
+| Canada | 5 | 9.1% | 4.4–17.9% |
+| Italy | 7 | 9.0% | 3.7–17.6% |
+| China | 15 | 8.5% | 5.4–12.4% |
+| Norway | 1 | 8.3% | 0.3–68.4% |
+| Germany | 6 | 6.1% | 1.1–18.9% |
+| United States | 46 | 4.6% | 3.4–5.9% |
+| Singapore | 3 | 3.3% | 0.8–7.0% |
+:::
+
+### What is your unit's VRI rate?
+
+A quick self-check — use this to reinforce prevention practices, whatever your number is.
+
+```{ojs}
+viewof myVRI = Inputs.range([0, 30], {label: "Your Unit's VRI Rate (%)", step: 0.5, value: 0})
+```
+
+```{ojs}
+myVRI === 0
+  ? html`<div style="background:#e8f5e9;padding:15px;border-left:6px solid #27ae60;border-radius:10px;">
+      <strong>🎉 Excellent — 0% VRI rate.</strong>
+      <p style="margin:8px 0 0;">Keep reinforcing the fundamentals that got you here:</p>
+      <ul style="margin:6px 0 0;">
+        <li>Sterile technique and periprocedural antibiotics at insertion</li>
+        <li>Indication-based CSF sampling only</li>
+        <li>Minimizing unnecessary system access</li>
+      </ul>
+    </div>`
+  : html`<div style="background:#fff7e6;padding:15px;border-left:6px solid #f39c12;border-radius:10px;">
+      <strong>Your reported VRI rate is ${myVRI}%.</strong>
+      <p style="margin:8px 0 0;">Every VRI is an opportunity to reinforce prevention. Revisit:</p>
+      <ul style="margin:6px 0 0;">
+        <li><strong>Insertion Bundle:</strong> sterile technique, periprocedural antibiotics, antimicrobial-impregnated catheter, tunneling, closed system, sterile dressing</li>
+        <li><strong>Maintenance Bundle:</strong> indication-based sampling only, minimize system access, maintain system upright, prevent disconnection</li>
+      </ul>
+      <p style="margin:8px 0 0;font-size:13px;color:#666;">See the <a href="bundle.qmd">Infection Prevention Bundle</a> page for the full checklist.</p>
+    </div>`
+```
+
+## References (Under Construction)
+
+1. Author A et al. *Global Epidemiology of Ventriculostomy-Related Infections.* Journal. Year.
+2. Author B et al. *EVD Management and QI Metrics.* Journal. Year.

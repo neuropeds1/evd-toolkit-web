@@ -22,21 +22,21 @@ It is primarily used for temporary CSF diversion in patients with **acute sympto
 
 ::: {.callout-note collapse="false"}
 ### Cisternal blood (Basilar aneurysm rupture)
-![](images/SAH.jpeg)
+![](images/ct-sah-cisternal-blood.jpeg)
 
 Cisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.
 :::
 
 ::: {.callout-note collapse="false"}
 ### Intracerebral hemorrhage with intraventricular extension
-![](images/axial_ivh.jpeg)
+![](images/ct-ivh-axial.jpeg)
 
 Thalamic hemorrhage with intraventricular extension and hydrocephalus.
 :::
 
 ::: {.callout-note collapse="false"}
 ### Cerebellar ischemic stroke with edema
-![](images/pic3.jpeg)
+![](images/ct-cerebellar-stroke.jpeg)
 
 Cerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.
 :::

@@ -1,0 +1,135 @@
+---
+title: "Video Library"
+---
+
+**How-To: A Video Library of Must-See Videos** — learn key principles of External Ventricular Drain (EVD) management through SNACC educational resources.
+
+## Videos
+
+```{ojs}
+videos = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Live listener — updates automatically whenever Videos
+  // changes in Firestore, no page reload needed.
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "Videos"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+function youtubeId(url) {
+  if (!url) return null;
+  const patterns = [
+    /youtu\.be\/([a-zA-Z0-9_-]+)/,
+    /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/,
+    /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+```
+
+```{ojs}
+// Deterministic color per category name — same category always
+// gets the same color, no manual mapping to maintain.
+function categoryColor(name) {
+  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
+```
+
+```{ojs}
+videoCategories = ["All", ...new Set(videos.map(v => v.category).filter(Boolean))].sort()
+```
+
+```{ojs}
+viewof videoCategoryFilter = {
+  const container = html`<div class="fs-filters"></div>`;
+  container.value = "All";
+
+  function draw() {
+    container.innerHTML = "";
+    videoCategories.forEach(cat => {
+      const isActive = cat === container.value;
+      const color = cat === "All" ? "#2c7be5" : categoryColor(cat);
+      const pill = html`<button type="button" class="fs-filter-pill${isActive ? " active" : ""}">${cat}</button>`;
+      if (isActive) {
+        pill.style.background = color;
+        pill.style.borderColor = color;
+      }
+      pill.onclick = () => {
+        container.value = cat;
+        container.dispatchEvent(new CustomEvent("input"));
+        draw();
+      };
+      container.appendChild(pill);
+    });
+  }
+  draw();
+  return container;
+}
+```
+
+```{ojs}
+filteredVideos = videoCategoryFilter === "All"
+  ? videos
+  : videos.filter(v => v.category === videoCategoryFilter)
+```
+
+```{ojs}
+html`<div class="fs-grid">
+  ${filteredVideos.length === 0
+    ? `<div class="fs-empty">No videos found in this category yet.</div>`
+    : filteredVideos.map(v => {
+        const id = youtubeId(v.url);
+        const embed = id
+          ? `<iframe class="fs-card-image" style="height:200px;border:none;" src="https://www.youtube.com/embed/${id}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+          : "";
+        return `
+          <div class="fs-card">
+            ${embed}
+            <div class="fs-card-body">
+              <h4 class="fs-card-title">${v.title ?? "Untitled"}</h4>
+              <p class="fs-card-desc">${v.subtitle ?? ""}</p>
+              ${v.category ? `<span class="fs-badge" style="background:${categoryColor(v.category)};">${v.category}</span>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("")}
+</div>`
+```
+
+## Learning Objectives
+
+- Understand how EVD systems function
+- Recognize proper leveling and setup
+- Interpret intracranial pressure (ICP) values
+- Identify common pitfalls and safety risks
+- Apply concepts to clinical practice
+
+::: {.callout-tip}
+**Clinical Tip:** Pause each video and reflect on how each concept applies to your own clinical environment.
+:::

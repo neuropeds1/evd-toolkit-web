@@ -6,7 +6,7 @@ Waveforms often change BEFORE ICP rises → early warning system.
 
 ## Normal ICP Waveform
 
-![](images/pic100.jpeg){width=40%}
+![](images/icp-waveform-normal.jpeg){width=40%}
 
 **Normal:** P1 > P2 > P3 → intact intracranial compliance.
 
@@ -18,7 +18,7 @@ Waveforms often change BEFORE ICP rises → early warning system.
 
 ## Abnormal ICP Waveform
 
-![](images/pic99.jpeg){width=40%}
+![](images/icp-waveform-abnormal.jpeg){width=40%}
 
 **Abnormal:** P2 > P1 → reduced intracranial compliance.
 
