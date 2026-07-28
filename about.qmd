@@ -65,14 +65,34 @@ leafletApi = {
 ```
 
 ```{ojs}
-// Known collaborator cities → coordinates. Add a new entry here whenever
-// a collaborator from a new city joins.
-cityCoords = ({
-  "Karachi": { lat: 24.8607, lng: 67.0011 },
-  "Seattle": { lat: 47.6062, lng: -122.3321 },
-  "Chapel Hill": { lat: 35.9132, lng: -79.0558 },
-  "Toronto": { lat: 43.6532, lng: -79.3832 }
-})
+// Caches city -> coordinates lookups for this page session so the same
+// city is never geocoded twice while the page is open.
+geocodeCache = new Map()
+```
+
+```{ojs}
+// Looks up any city name's coordinates live via OpenStreetMap's free
+// Nominatim geocoder — no manual coordinate table to maintain. Any new
+// collaborator city added in Firestore appears on the map automatically.
+geocodeCity = async function(city, country, cache) {
+  if (!city) return null;
+  const key = `${city}, ${country ?? ""}`;
+  if (cache.has(key)) return cache.get(key);
+
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(key)}`;
+    const res = await fetch(url, { headers: { "Accept-Language": "en" } });
+    const data = await res.json();
+    const coords = data && data[0]
+      ? { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) }
+      : null;
+    cache.set(key, coords);
+    return coords;
+  } catch (e) {
+    cache.set(key, null);
+    return null;
+  }
+}
 ```
 
 ```{ojs}
@@ -125,13 +145,17 @@ updateMarkers = {
   // instead of overlapping markers hiding each other.
   const byCity = new Map();
   collaborators.forEach(c => {
-    const coords = cityCoords[c.City];
-    if (!coords) return;
-    if (!byCity.has(c.City)) byCity.set(c.City, { coords, people: [] });
-    byCity.get(c.City).people.push(c);
+    const key = c.City ?? "Unknown";
+    if (!byCity.has(key)) byCity.set(key, { city: c.City, country: c.Country, people: [] });
+    byCity.get(key).people.push(c);
   });
 
-  byCity.forEach(({ coords, people }) => {
+  // Geocode every city live via OpenStreetMap — no manual coordinate
+  // table to maintain, new cities in Firestore just appear.
+  for (const { city, country, people } of byCity.values()) {
+    const coords = await geocodeCity(city, country, geocodeCache);
+    if (!coords) continue;
+
     const divider = '<hr style="margin:8px 0;border:none;border-top:1px solid #eee;">';
     const content = people
       .map(c => `
@@ -147,7 +171,7 @@ updateMarkers = {
     L.marker([coords.lat, coords.lng]).addTo(markerLayer).bindPopup(
       `<div style="font-family:Inter,sans-serif;font-size:13px;">${content}</div>`
     );
-  });
+  }
 }
 ```
 
