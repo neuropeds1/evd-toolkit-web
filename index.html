@@ -26,41 +26,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -108,8 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -350,54 +313,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>visitorCount <span class="op">=</span> {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> doc<span class="op">,</span> onSnapshot<span class="op">,</span> updateDoc<span class="op">,</span> increment } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> counterRef <span class="op">=</span> <span class="fu">doc</span>(db<span class="op">,</span> <span class="st">"Stats"</span><span class="op">,</span> <span class="st">"visitorCount"</span>)<span class="op">;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Count this page load. Fails silently if the counter document</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">// hasn't been created yet in Firestore.</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateDoc</span>(counterRef<span class="op">,</span> { <span class="dt">count</span><span class="op">:</span> <span class="fu">increment</span>(<span class="dv">1</span>) })<span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> {})<span class="op">;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Live listener — the number updates in real time for every visitor</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// currently on the page, as new visitors arrive.</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(counterRef<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="fu">data</span>()<span class="op">?.</span><span class="at">count</span> <span class="op">??</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="40" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 39;"><span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div style="display:inline-flex;align-items:center;gap:8px;background:#f0f4ff;color:#2c3e50;border-radius:999px;padding:8px 18px;font-size:14px;font-weight:600;margin-bottom:20px;"&gt;</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;span&gt;👀&lt;/span&gt;</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;span&gt;</span><span class="sc">${</span>visitorCount<span class="op">.</span><span class="fu">toLocaleString</span>()<span class="sc">}</span><span class="vs"> visitors and counting&lt;/span&gt;</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
 <section id="what-you-can-do-here" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-can-do-here">What You Can Do Here</h2>
 <p><strong>📘 Foundations</strong></p>
@@ -440,17 +355,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpc2l0b3JDb3VudCA9IHtcclxuICBjb25zdCB7IGluaXRpYWxpemVBcHAgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1hcHAuanNcIik7XHJcbiAgY29uc3QgeyBnZXRGaXJlc3RvcmUsIGRvYywgb25TbmFwc2hvdCwgdXBkYXRlRG9jLCBpbmNyZW1lbnQgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1maXJlc3RvcmUuanNcIik7XHJcblxyXG4gIGNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xyXG4gICAgYXBpS2V5OiBcIkFJemFTeUQxRkxuSXJkODZxT3NGUExpNXkxcV9FSVUwbGhMNWd4Y1wiLFxyXG4gICAgYXV0aERvbWFpbjogXCJldmR0b29sa2l0LmZpcmViYXNlYXBwLmNvbVwiLFxyXG4gICAgcHJvamVjdElkOiBcImV2ZHRvb2xraXRcIixcclxuICAgIHN0b3JhZ2VCdWNrZXQ6IFwiZXZkdG9vbGtpdC5maXJlYmFzZXN0b3JhZ2UuYXBwXCIsXHJcbiAgICBtZXNzYWdpbmdTZW5kZXJJZDogXCIxMDAyMzc0NDMxMTUxXCIsXHJcbiAgICBhcHBJZDogXCIxOjEwMDIzNzQ0MzExNTE6d2ViOmZlMzcyNGJiMWYzOWViNDc0NGFmNWFcIlxyXG4gIH07XHJcblxyXG4gIGNvbnN0IGFwcCA9IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xyXG4gIGNvbnN0IGRiID0gZ2V0RmlyZXN0b3JlKGFwcCk7XHJcbiAgY29uc3QgY291bnRlclJlZiA9IGRvYyhkYiwgXCJTdGF0c1wiLCBcInZpc2l0b3JDb3VudFwiKTtcclxuXHJcbiAgLy8gQ291bnQgdGhpcyBwYWdlIGxvYWQuIEZhaWxzIHNpbGVudGx5IGlmIHRoZSBjb3VudGVyIGRvY3VtZW50XHJcbiAgLy8gaGFzbid0IGJlZW4gY3JlYXRlZCB5ZXQgaW4gRmlyZXN0b3JlLlxyXG4gIHVwZGF0ZURvYyhjb3VudGVyUmVmLCB7IGNvdW50OiBpbmNyZW1lbnQoMSkgfSkuY2F0Y2goKCkgPT4ge30pO1xyXG5cclxuICAvLyBMaXZlIGxpc3RlbmVyIOKAlCB0aGUgbnVtYmVyIHVwZGF0ZXMgaW4gcmVhbCB0aW1lIGZvciBldmVyeSB2aXNpdG9yXHJcbiAgLy8gY3VycmVudGx5IG9uIHRoZSBwYWdlLCBhcyBuZXcgdmlzaXRvcnMgYXJyaXZlLlxyXG4gIHJldHVybiBHZW5lcmF0b3JzLm9ic2VydmUobm90aWZ5ID0+IHtcclxuICAgIGNvbnN0IHVuc3Vic2NyaWJlID0gb25TbmFwc2hvdChjb3VudGVyUmVmLCBzbmFwc2hvdCA9PiB7XHJcbiAgICAgIG5vdGlmeShzbmFwc2hvdC5kYXRhKCk/LmNvdW50ID8/IDApO1xyXG4gICAgfSk7XHJcbiAgICByZXR1cm4gdW5zdWJzY3JpYmU7XHJcbiAgfSk7XHJcbn1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaHRtbGA8ZGl2IHN0eWxlPVwiZGlzcGxheTppbmxpbmUtZmxleDthbGlnbi1pdGVtczpjZW50ZXI7Z2FwOjhweDtiYWNrZ3JvdW5kOiNmMGY0ZmY7Y29sb3I6IzJjM2U1MDtib3JkZXItcmFkaXVzOjk5OXB4O3BhZGRpbmc6OHB4IDE4cHg7Zm9udC1zaXplOjE0cHg7Zm9udC13ZWlnaHQ6NjAwO21hcmdpbi1ib3R0b206MjBweDtcIj5cclxuICA8c3Bhbj7wn5GAPC9zcGFuPlxyXG4gIDxzcGFuPiR7dmlzaXRvckNvdW50LnRvTG9jYWxlU3RyaW5nKCl9IHZpc2l0b3JzIGFuZCBjb3VudGluZzwvc3Bhbj5cclxuPC9kaXY+YFxyXG4ifV19
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -859,6 +763,29 @@ window._ojs.runtime.interpretFromScriptTags();
     </div>   
     <div class="nav-footer-center">
 <p>EVD Toolkit — educational use only, does not replace clinical judgment or institutional guidance.</p>
+<div id="site-footer-stats" style="width:100%;text-align:center;padding-top:8px;font-size:13px;color:#8a94a6;">
+<p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span>Last updated on July 27, 2026</span></p>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getFirestore, doc, onSnapshot, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+  authDomain: "evdtoolkit.firebaseapp.com",
+  projectId: "evdtoolkit",
+  storageBucket: "evdtoolkit.firebasestorage.app",
+  messagingSenderId: "1002374431151",
+  appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const counterRef = doc(db, "Stats", "visitorCount");
+updateDoc(counterRef, { count: increment(1) }).catch(() => {});
+onSnapshot(counterRef, snapshot => {
+  const el = document.getElementById("visitor-count-footer");
+  if (el) el.textContent = `👀 ${(snapshot.data()?.count ?? 0).toLocaleString()} visitors`;
+});
+</script>
 </div>
     <div class="nav-footer-right">
       &nbsp;

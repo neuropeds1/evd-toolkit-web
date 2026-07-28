@@ -870,6 +870,29 @@ window._ojs.runtime.interpretFromScriptTags();
     </div>   
     <div class="nav-footer-center">
 <p>EVD Toolkit — educational use only, does not replace clinical judgment or institutional guidance.</p>
+<div id="site-footer-stats" style="width:100%;text-align:center;padding-top:8px;font-size:13px;color:#8a94a6;">
+<p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span>Last updated on July 27, 2026</span></p>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getFirestore, doc, onSnapshot, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+  authDomain: "evdtoolkit.firebaseapp.com",
+  projectId: "evdtoolkit",
+  storageBucket: "evdtoolkit.firebasestorage.app",
+  messagingSenderId: "1002374431151",
+  appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const counterRef = doc(db, "Stats", "visitorCount");
+updateDoc(counterRef, { count: increment(1) }).catch(() => {});
+onSnapshot(counterRef, snapshot => {
+  const el = document.getElementById("visitor-count-footer");
+  if (el) el.textContent = `👀 ${(snapshot.data()?.count ?? 0).toLocaleString()} visitors`;
+});
+</script>
 </div>
     <div class="nav-footer-right">
       &nbsp;
