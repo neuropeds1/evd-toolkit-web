@@ -723,7 +723,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span>Last updated on July 27, 2026</span></p>
 </div>
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getFirestore, doc, onSnapshot, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
@@ -733,7 +733,7 @@ const firebaseConfig = {
   messagingSenderId: "1002374431151",
   appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
 };
-const app = initializeApp(firebaseConfig);
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const counterRef = doc(db, "Stats", "visitorCount");
 updateDoc(counterRef, { count: increment(1) }).catch(() => {});
