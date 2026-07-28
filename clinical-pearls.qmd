@@ -6,7 +6,7 @@ The most important things to know about EVDs — condensed, testable facts for a
 
 ```{ojs}
 clinicalPearls = {
-  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
   const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
   const firebaseConfig = {
@@ -18,7 +18,7 @@ clinicalPearls = {
     appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
   };
 
-  const app = initializeApp(firebaseConfig);
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
   return Generators.observe(notify => {

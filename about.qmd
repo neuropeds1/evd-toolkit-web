@@ -10,7 +10,7 @@ The EVD Toolkit is an educational platform designed to support understanding of 
 
 ```{ojs}
 collaborators = {
-  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
   const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
   const firebaseConfig = {
@@ -22,7 +22,7 @@ collaborators = {
     appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
   };
 
-  const app = initializeApp(firebaseConfig);
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
   // Live listener — updates automatically whenever Collaborators
