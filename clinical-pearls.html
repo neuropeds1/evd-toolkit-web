@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>High Yield – EVD Toolkit</title>
+<title>Clinical Pearls – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./high-yield.html">⚡ High Yield</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clinical-pearls.html">💎 Clinical Pearls</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -157,14 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./high-yield.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">⚡ High Yield</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./quick10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🔟 Quick 10</span></a>
+  <a href="./clinical-pearls.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">💎 Clinical Pearls</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -331,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">High Yield</h1>
+<h1 class="title">Clinical Pearls</h1>
 </div>
 
 
@@ -348,9 +342,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Condensed, testable facts across every section of the toolkit — a fast pre-shift or pre-exam review. Click a category to expand it.</p>
+<p>The most important things to know about EVDs — condensed, testable facts for a fast pre-shift or pre-exam review. Click a category to expand it.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>highYieldFacts <span class="op">=</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>clinicalPearls <span class="op">=</span> {</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -367,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"HighYield"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"ClinicalPearls"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
@@ -393,12 +387,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="42" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 41;"><span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>groupedHighYield <span class="op">=</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="42" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 41;"><span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>groupedPearls <span class="op">=</span> {</span>
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> groups <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  highYieldFacts<span class="op">.</span><span class="fu">forEach</span>(f <span class="kw">=&gt;</span> {</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> f<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Uncategorized"</span><span class="op">;</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  clinicalPearls<span class="op">.</span><span class="fu">forEach</span>(p <span class="kw">=&gt;</span> {</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> p<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Uncategorized"</span><span class="op">;</span></span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>groups<span class="op">.</span><span class="fu">has</span>(key)) groups<span class="op">.</span><span class="fu">set</span>(key<span class="op">,</span> [])<span class="op">;</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    groups<span class="op">.</span><span class="fu">get</span>(key)<span class="op">.</span><span class="fu">push</span>(f)<span class="op">;</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    groups<span class="op">.</span><span class="fu">get</span>(key)<span class="op">.</span><span class="fu">push</span>(p)<span class="op">;</span></span>
 <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>groups<span class="op">.</span><span class="fu">entries</span>()]<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a[<span class="dv">0</span>]<span class="op">.</span><span class="fu">localeCompare</span>(b[<span class="dv">0</span>]))<span class="op">;</span></span>
 <span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -409,10 +403,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="54" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 53;"><span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>groupedHighYield<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;No high-yield facts added yet — check back soon.&lt;/div&gt;`</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="54" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 53;"><span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>groupedPearls<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;No clinical pearls added yet — check back soon.&lt;/div&gt;`</span></span>
 <span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;</span></span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>groupedHighYield<span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> items]) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>groupedPearls<span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> items]) <span class="kw">=&gt;</span> {</span>
 <span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> color <span class="op">=</span> <span class="fu">categoryColor</span>(category)<span class="op">;</span></span>
 <span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="vs">`</span></span>
 <span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;details class="fs-accordion"&gt;</span></span>
@@ -422,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/summary&gt;</span></span>
 <span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-accordion-body"&gt;</span></span>
 <span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;ul style="margin:14px 0 6px;padding-left:20px;"&gt;</span></span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>items<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> <span class="vs">`&lt;li style="margin-bottom:6px;"&gt;</span><span class="sc">${</span>f<span class="op">.</span><span class="at">fact</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>items<span class="op">.</span><span class="fu">map</span>(p <span class="kw">=&gt;</span> <span class="vs">`&lt;li style="margin-bottom:6px;"&gt;</span><span class="sc">${</span>p<span class="op">.</span><span class="at">pearl</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
 <span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/ul&gt;</span></span>
 <span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
 <span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/details&gt;</span></span>
@@ -440,7 +434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImhpZ2hZaWVsZEZhY3RzID0ge1xuICBjb25zdCB7IGluaXRpYWxpemVBcHAgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1hcHAuanNcIik7XG4gIGNvbnN0IHsgZ2V0RmlyZXN0b3JlLCBjb2xsZWN0aW9uLCBvblNuYXBzaG90IH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtZmlyZXN0b3JlLmpzXCIpO1xuXG4gIGNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xuICAgIGFwaUtleTogXCJBSXphU3lEMUZMbklyZDg2cU9zRlBMaTV5MXFfRUlVMGxoTDVneGNcIixcbiAgICBhdXRoRG9tYWluOiBcImV2ZHRvb2xraXQuZmlyZWJhc2VhcHAuY29tXCIsXG4gICAgcHJvamVjdElkOiBcImV2ZHRvb2xraXRcIixcbiAgICBzdG9yYWdlQnVja2V0OiBcImV2ZHRvb2xraXQuZmlyZWJhc2VzdG9yYWdlLmFwcFwiLFxuICAgIG1lc3NhZ2luZ1NlbmRlcklkOiBcIjEwMDIzNzQ0MzExNTFcIixcbiAgICBhcHBJZDogXCIxOjEwMDIzNzQ0MzExNTE6d2ViOmZlMzcyNGJiMWYzOWViNDc0NGFmNWFcIlxuICB9O1xuXG4gIGNvbnN0IGFwcCA9IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xuICBjb25zdCBkYiA9IGdldEZpcmVzdG9yZShhcHApO1xuXG4gIHJldHVybiBHZW5lcmF0b3JzLm9ic2VydmUobm90aWZ5ID0+IHtcbiAgICBjb25zdCB1bnN1YnNjcmliZSA9IG9uU25hcHNob3QoY29sbGVjdGlvbihkYiwgXCJIaWdoWWllbGRcIiksIHNuYXBzaG90ID0+IHtcbiAgICAgIG5vdGlmeShzbmFwc2hvdC5kb2NzLm1hcChkID0+IGQuZGF0YSgpKSk7XG4gICAgfSk7XG4gICAgcmV0dXJuIHVuc3Vic2NyaWJlO1xuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1bmN0aW9uIGNhdGVnb3J5Q29sb3IobmFtZSkge1xuICBjb25zdCBwYWxldHRlID0gW1wiIzJjN2JlNVwiLCBcIiMyN2FlNjBcIiwgXCIjZTY3ZTIyXCIsIFwiIzhlNDRhZFwiLCBcIiNlNzRjM2NcIiwgXCIjMTZhMmI4XCIsIFwiI2Q2MzM4NFwiLCBcIiM2Yzc1N2RcIl07XG4gIGxldCBoYXNoID0gMDtcbiAgZm9yIChsZXQgaSA9IDA7IGkgPCBuYW1lLmxlbmd0aDsgaSsrKSBoYXNoID0gbmFtZS5jaGFyQ29kZUF0KGkpICsgKChoYXNoIDw8IDUpIC0gaGFzaCk7XG4gIHJldHVybiBwYWxldHRlW01hdGguYWJzKGhhc2gpICUgcGFsZXR0ZS5sZW5ndGhdO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZ3JvdXBlZEhpZ2hZaWVsZCA9IHtcbiAgY29uc3QgZ3JvdXBzID0gbmV3IE1hcCgpO1xuICBoaWdoWWllbGRGYWN0cy5mb3JFYWNoKGYgPT4ge1xuICAgIGNvbnN0IGtleSA9IGYuY2F0ZWdvcnkgPz8gXCJVbmNhdGVnb3JpemVkXCI7XG4gICAgaWYgKCFncm91cHMuaGFzKGtleSkpIGdyb3Vwcy5zZXQoa2V5LCBbXSk7XG4gICAgZ3JvdXBzLmdldChrZXkpLnB1c2goZik7XG4gIH0pO1xuICByZXR1cm4gWy4uLmdyb3Vwcy5lbnRyaWVzKCldLnNvcnQoKGEsIGIpID0+IGFbMF0ubG9jYWxlQ29tcGFyZShiWzBdKSk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJncm91cGVkSGlnaFlpZWxkLmxlbmd0aCA9PT0gMFxuICA/IGh0bWxgPGRpdiBjbGFzcz1cImZzLWVtcHR5XCI+Tm8gaGlnaC15aWVsZCBmYWN0cyBhZGRlZCB5ZXQg4oCUIGNoZWNrIGJhY2sgc29vbi48L2Rpdj5gXG4gIDogaHRtbGA8ZGl2PlxuICAgICR7Z3JvdXBlZEhpZ2hZaWVsZC5tYXAoKFtjYXRlZ29yeSwgaXRlbXNdKSA9PiB7XG4gICAgICBjb25zdCBjb2xvciA9IGNhdGVnb3J5Q29sb3IoY2F0ZWdvcnkpO1xuICAgICAgcmV0dXJuIGBcbiAgICAgICAgPGRldGFpbHMgY2xhc3M9XCJmcy1hY2NvcmRpb25cIj5cbiAgICAgICAgICA8c3VtbWFyeSBjbGFzcz1cImZzLWFjY29yZGlvbi1zdW1tYXJ5XCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7Y29sb3J9O1wiPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJmcy1hY2NvcmRpb24tbmFtZVwiPiR7Y2F0ZWdvcnl9PC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJmcy1hY2NvcmRpb24tY291bnRcIj4ke2l0ZW1zLmxlbmd0aH08L3NwYW4+XG4gICAgICAgICAgPC9zdW1tYXJ5PlxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1hY2NvcmRpb24tYm9keVwiPlxuICAgICAgICAgICAgPHVsIHN0eWxlPVwibWFyZ2luOjE0cHggMCA2cHg7cGFkZGluZy1sZWZ0OjIwcHg7XCI+XG4gICAgICAgICAgICAgICR7aXRlbXMubWFwKGYgPT4gYDxsaSBzdHlsZT1cIm1hcmdpbi1ib3R0b206NnB4O1wiPiR7Zi5mYWN0ID8/IFwiXCJ9PC9saT5gKS5qb2luKFwiXCIpfVxuICAgICAgICAgICAgPC91bD5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kZXRhaWxzPlxuICAgICAgYDtcbiAgICB9KS5qb2luKFwiXCIpfVxuICA8L2Rpdj5gXG4ifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImNsaW5pY2FsUGVhcmxzID0ge1xuICBjb25zdCB7IGluaXRpYWxpemVBcHAgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1hcHAuanNcIik7XG4gIGNvbnN0IHsgZ2V0RmlyZXN0b3JlLCBjb2xsZWN0aW9uLCBvblNuYXBzaG90IH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtZmlyZXN0b3JlLmpzXCIpO1xuXG4gIGNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xuICAgIGFwaUtleTogXCJBSXphU3lEMUZMbklyZDg2cU9zRlBMaTV5MXFfRUlVMGxoTDVneGNcIixcbiAgICBhdXRoRG9tYWluOiBcImV2ZHRvb2xraXQuZmlyZWJhc2VhcHAuY29tXCIsXG4gICAgcHJvamVjdElkOiBcImV2ZHRvb2xraXRcIixcbiAgICBzdG9yYWdlQnVja2V0OiBcImV2ZHRvb2xraXQuZmlyZWJhc2VzdG9yYWdlLmFwcFwiLFxuICAgIG1lc3NhZ2luZ1NlbmRlcklkOiBcIjEwMDIzNzQ0MzExNTFcIixcbiAgICBhcHBJZDogXCIxOjEwMDIzNzQ0MzExNTE6d2ViOmZlMzcyNGJiMWYzOWViNDc0NGFmNWFcIlxuICB9O1xuXG4gIGNvbnN0IGFwcCA9IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xuICBjb25zdCBkYiA9IGdldEZpcmVzdG9yZShhcHApO1xuXG4gIHJldHVybiBHZW5lcmF0b3JzLm9ic2VydmUobm90aWZ5ID0+IHtcbiAgICBjb25zdCB1bnN1YnNjcmliZSA9IG9uU25hcHNob3QoY29sbGVjdGlvbihkYiwgXCJDbGluaWNhbFBlYXJsc1wiKSwgc25hcHNob3QgPT4ge1xuICAgICAgbm90aWZ5KHNuYXBzaG90LmRvY3MubWFwKGQgPT4gZC5kYXRhKCkpKTtcbiAgICB9KTtcbiAgICByZXR1cm4gdW5zdWJzY3JpYmU7XG4gIH0pO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnVuY3Rpb24gY2F0ZWdvcnlDb2xvcihuYW1lKSB7XG4gIGNvbnN0IHBhbGV0dGUgPSBbXCIjMmM3YmU1XCIsIFwiIzI3YWU2MFwiLCBcIiNlNjdlMjJcIiwgXCIjOGU0NGFkXCIsIFwiI2U3NGMzY1wiLCBcIiMxNmEyYjhcIiwgXCIjZDYzMzg0XCIsIFwiIzZjNzU3ZFwiXTtcbiAgbGV0IGhhc2ggPSAwO1xuICBmb3IgKGxldCBpID0gMDsgaSA8IG5hbWUubGVuZ3RoOyBpKyspIGhhc2ggPSBuYW1lLmNoYXJDb2RlQXQoaSkgKyAoKGhhc2ggPDwgNSkgLSBoYXNoKTtcbiAgcmV0dXJuIHBhbGV0dGVbTWF0aC5hYnMoaGFzaCkgJSBwYWxldHRlLmxlbmd0aF07XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJncm91cGVkUGVhcmxzID0ge1xuICBjb25zdCBncm91cHMgPSBuZXcgTWFwKCk7XG4gIGNsaW5pY2FsUGVhcmxzLmZvckVhY2gocCA9PiB7XG4gICAgY29uc3Qga2V5ID0gcC5jYXRlZ29yeSA/PyBcIlVuY2F0ZWdvcml6ZWRcIjtcbiAgICBpZiAoIWdyb3Vwcy5oYXMoa2V5KSkgZ3JvdXBzLnNldChrZXksIFtdKTtcbiAgICBncm91cHMuZ2V0KGtleSkucHVzaChwKTtcbiAgfSk7XG4gIHJldHVybiBbLi4uZ3JvdXBzLmVudHJpZXMoKV0uc29ydCgoYSwgYikgPT4gYVswXS5sb2NhbGVDb21wYXJlKGJbMF0pKTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imdyb3VwZWRQZWFybHMubGVuZ3RoID09PSAwXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5ObyBjbGluaWNhbCBwZWFybHMgYWRkZWQgeWV0IOKAlCBjaGVjayBiYWNrIHNvb24uPC9kaXY+YFxuICA6IGh0bWxgPGRpdj5cbiAgICAke2dyb3VwZWRQZWFybHMubWFwKChbY2F0ZWdvcnksIGl0ZW1zXSkgPT4ge1xuICAgICAgY29uc3QgY29sb3IgPSBjYXRlZ29yeUNvbG9yKGNhdGVnb3J5KTtcbiAgICAgIHJldHVybiBgXG4gICAgICAgIDxkZXRhaWxzIGNsYXNzPVwiZnMtYWNjb3JkaW9uXCI+XG4gICAgICAgICAgPHN1bW1hcnkgY2xhc3M9XCJmcy1hY2NvcmRpb24tc3VtbWFyeVwiIHN0eWxlPVwiYmFja2dyb3VuZDoke2NvbG9yfTtcIj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZnMtYWNjb3JkaW9uLW5hbWVcIj4ke2NhdGVnb3J5fTwvc3Bhbj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZnMtYWNjb3JkaW9uLWNvdW50XCI+JHtpdGVtcy5sZW5ndGh9PC9zcGFuPlxuICAgICAgICAgIDwvc3VtbWFyeT5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtYWNjb3JkaW9uLWJvZHlcIj5cbiAgICAgICAgICAgIDx1bCBzdHlsZT1cIm1hcmdpbjoxNHB4IDAgNnB4O3BhZGRpbmctbGVmdDoyMHB4O1wiPlxuICAgICAgICAgICAgICAke2l0ZW1zLm1hcChwID0+IGA8bGkgc3R5bGU9XCJtYXJnaW4tYm90dG9tOjZweDtcIj4ke3AucGVhcmwgPz8gXCJcIn08L2xpPmApLmpvaW4oXCJcIil9XG4gICAgICAgICAgICA8L3VsPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2RldGFpbHM+XG4gICAgICBgO1xuICAgIH0pLmpvaW4oXCJcIil9XG4gIDwvZGl2PmBcbiJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

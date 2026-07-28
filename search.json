@@ -66,43 +66,58 @@
     ]
   },
   {
-    "objectID": "quick10.html",
-    "href": "quick10.html",
-    "title": "Quick 10",
+    "objectID": "qi-metrics.html",
+    "href": "qi-metrics.html",
+    "title": "QI Metrics",
     "section": "",
-    "text": "The absolute must-knows — if you remember nothing else, remember these.\n\nquick10Facts = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"Quick10\"), snapshot =&gt; {\n      notify(\n        snapshot.docs\n          .map(d =&gt; d.data())\n          .sort((a, b) =&gt; (a.order ?? 999) - (b.order ?? 999))\n      );\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\nquick10Facts.length === 0\n  ? html`&lt;div class=\"fs-empty\"&gt;No facts added yet — check back soon.&lt;/div&gt;`\n  : html`&lt;details class=\"fs-accordion\" open&gt;\n      &lt;summary class=\"fs-accordion-summary\" style=\"background:#2c7be5;\"&gt;\n        &lt;span class=\"fs-accordion-name\"&gt;🔟 Quick 10&lt;/span&gt;\n        &lt;span class=\"fs-accordion-count\"&gt;${quick10Facts.length}&lt;/span&gt;\n      &lt;/summary&gt;\n      &lt;div class=\"fs-accordion-body\"&gt;\n        &lt;ol style=\"margin:14px 0 6px;padding-left:20px;font-size:16px;line-height:1.9;\"&gt;\n          ${quick10Facts.map(f =&gt; `&lt;li&gt;${f.fact ?? \"\"}&lt;/li&gt;`).join(\"\")}\n        &lt;/ol&gt;\n      &lt;/div&gt;\n    &lt;/details&gt;`",
+    "text": "Track documentation, transport safety, and outcomes related to EVD care. (Under construction)",
     "crumbs": [
-      "🔟 Quick 10"
+      "Safety & Quality",
+      "QI Metrics"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "EVD Toolkit",
-    "section": "",
-    "text": "A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.",
+    "objectID": "qi-metrics.html#documentation-compliance-anesthesia-record",
+    "href": "qi-metrics.html#documentation-compliance-anesthesia-record",
+    "title": "QI Metrics",
+    "section": "Documentation Compliance (Anesthesia Record)",
+    "text": "Documentation Compliance (Anesthesia Record)\nKey elements that should be documented:\n\nIntracranial Pressure (ICP)\nCSF Output\nEVD Setting\nCSF Color\n\nCurrent Compliance (Example Data)\n\n\n\nElement\nDocumented\n\n\n\n\nICP\n85%\n\n\nCSF output\n78%\n\n\nEVD setting\n82%\n\n\nCSF color\n65%",
     "crumbs": [
-      "🏠 Home"
+      "Safety & Quality",
+      "QI Metrics"
     ]
   },
   {
-    "objectID": "index.html#what-you-can-do-here",
-    "href": "index.html#what-you-can-do-here",
-    "title": "EVD Toolkit",
-    "section": "What You Can Do Here",
-    "text": "What You Can Do Here\n📘 Foundations\n\nWhat is an EVD\nEVD Settings\nICP Waveform\n\n🧑‍⚕️ Clinical Application\n\nApply to a Hypothetical Patient\nChecklist\nBest Practices\n\n📈 Safety & Quality Improvement\n\nQI Metrics\nInfection Prevention Bundle\nComplications\n\n🎓 Learning & Engagement\n\nEVD Quiz\nEducational Video\nEVD Systems (global variability)\n\n📚 Resources\n\nReferences\nFeedback\nAbout",
+    "objectID": "qi-metrics.html#transport-safety-metrics",
+    "href": "qi-metrics.html#transport-safety-metrics",
+    "title": "QI Metrics",
+    "section": "Transport Safety Metrics",
+    "text": "Transport Safety Metrics\n\n% patients with ICP monitoring during transport\n% transports with EVD clamped\n% transports with ICP elevation ≥20 mmHg\n\nExample Metrics\n\n\n\nMetric\nRate\n\n\n\n\nICP monitored during transport\n72%\n\n\nEVD clamped transports\n40%\n\n\nICP elevation ≥20 mmHg\n18%",
     "crumbs": [
-      "🏠 Home"
+      "Safety & Quality",
+      "QI Metrics"
     ]
   },
   {
-    "objectID": "index.html#about-this-project",
-    "href": "index.html#about-this-project",
-    "title": "EVD Toolkit",
-    "section": "About This Project",
-    "text": "About This Project\nEVD practices vary widely across institutions, particularly in device setup, leveling, and management. This variability can lead to confusion, communication gaps, and potential safety risks.\nThe goal of this toolkit is to provide a standardized, visual, and practical approach to EVD education while recognizing real-world variability in systems and workflows.",
+    "objectID": "qi-metrics.html#ventriculostomy-related-infections-vri",
+    "href": "qi-metrics.html#ventriculostomy-related-infections-vri",
+    "title": "QI Metrics",
+    "section": "Ventriculostomy-Related Infections (VRI)",
+    "text": "Ventriculostomy-Related Infections (VRI)\nOutcome metric reflecting infection risk associated with EVD use.\nGlobal VRI Rate: 8.64% [95% CI 7.44–9.97]\n\n\n\n\n\n\nNoteVRI rates by country (click to expand)\n\n\n\n\n\n\n\n\nCountry\nStudies\nVRI Rate\n95% CI\n\n\n\n\nCroatia\n1\n43.3%\n7.0–89.3%\n\n\nHungary\n1\n33.9%\n3.4–86.2%\n\n\nGreece\n3\n33.2%\n14.3–56.2%\n\n\nEthiopia\n1\n30.2%\n4.0–85.1%\n\n\nIran\n2\n23.4%\n1.8–77.0%\n\n\nIsrael\n1\n22.0%\n1.9–82.9%\n\n\nUK\n1\n21.6%\n1.5–77.6%\n\n\nThailand\n1\n19.4%\n1.5–79.6%\n\n\nNetherlands\n7\n18.9%\n9.8–32.2%\n\n\nSerbia\n1\n18.4%\n1.1–77.4%\n\n\nUnited Arab Emirates\n1\n18.4%\n1.4–72.4%\n\n\nTurkey\n1\n18.2%\n0.9–88.0%\n\n\nSwitzerland\n7\n17.4%\n5.6–34.8%\n\n\nBrazil\n4\n15.0%\n2.6–42.4%\n\n\nNew Zealand\n2\n13.8%\n4.0–32.4%\n\n\nBelgium\n1\n13.5%\n1.0–64.5%\n\n\nSweden\n5\n13.3%\n6.0–23.5%\n\n\nSpain\n4\n12.8%\n8.4–19.1%\n\n\nUnited Kingdom\n9\n12.7%\n7.0–21.4%\n\n\nDenmark\n5\n12.2%\n3.2–28.5%\n\n\nAustralia\n5\n11.4%\n4.2–19.2%\n\n\nKorea (South)\n3\n10.9%\n5.7–19.1%\n\n\nFrance\n11\n10.4%\n6.9–15.2%\n\n\nAustria\n2\n10.4%\n2.5–28.7%\n\n\nTaiwan\n2\n10.3%\n0.7–49.1%\n\n\nIndia\n1\n10.1%\n0.4–43.5%\n\n\nCanada\n5\n9.1%\n4.4–17.9%\n\n\nItaly\n7\n9.0%\n3.7–17.6%\n\n\nChina\n15\n8.5%\n5.4–12.4%\n\n\nNorway\n1\n8.3%\n0.3–68.4%\n\n\nGermany\n6\n6.1%\n1.1–18.9%\n\n\nUnited States\n46\n4.6%\n3.4–5.9%\n\n\nSingapore\n3\n3.3%\n0.8–7.0%\n\n\n\n\n\n\n\nWhat is your unit’s VRI rate?\nA quick self-check — use this to reinforce prevention practices, whatever your number is.\n\nviewof myVRI = Inputs.range([0, 30], {label: \"Your Unit's VRI Rate (%)\", step: 0.5, value: 0})\n\n\n\n\n\n\n\nmyVRI === 0\n  ? html`&lt;div style=\"background:#e8f5e9;padding:15px;border-left:6px solid #27ae60;border-radius:10px;\"&gt;\n      &lt;strong&gt;🎉 Excellent — 0% VRI rate.&lt;/strong&gt;\n      &lt;p style=\"margin:8px 0 0;\"&gt;Keep reinforcing the fundamentals that got you here:&lt;/p&gt;\n      &lt;ul style=\"margin:6px 0 0;\"&gt;\n        &lt;li&gt;Sterile technique and periprocedural antibiotics at insertion&lt;/li&gt;\n        &lt;li&gt;Indication-based CSF sampling only&lt;/li&gt;\n        &lt;li&gt;Minimizing unnecessary system access&lt;/li&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;`\n  : html`&lt;div style=\"background:#fff7e6;padding:15px;border-left:6px solid #f39c12;border-radius:10px;\"&gt;\n      &lt;strong&gt;Your reported VRI rate is ${myVRI}%.&lt;/strong&gt;\n      &lt;p style=\"margin:8px 0 0;\"&gt;Every VRI is an opportunity to reinforce prevention. Revisit:&lt;/p&gt;\n      &lt;ul style=\"margin:6px 0 0;\"&gt;\n        &lt;li&gt;&lt;strong&gt;Insertion Bundle:&lt;/strong&gt; sterile technique, periprocedural antibiotics, antimicrobial-impregnated catheter, tunneling, closed system, sterile dressing&lt;/li&gt;\n        &lt;li&gt;&lt;strong&gt;Maintenance Bundle:&lt;/strong&gt; indication-based sampling only, minimize system access, maintain system upright, prevent disconnection&lt;/li&gt;\n      &lt;/ul&gt;\n      &lt;p style=\"margin:8px 0 0;font-size:13px;color:#666;\"&gt;See the &lt;a href=\"bundle.qmd\"&gt;Infection Prevention Bundle&lt;/a&gt; page for the full checklist.&lt;/p&gt;\n    &lt;/div&gt;`",
     "crumbs": [
-      "🏠 Home"
+      "Safety & Quality",
+      "QI Metrics"
+    ]
+  },
+  {
+    "objectID": "qi-metrics.html#references-under-construction",
+    "href": "qi-metrics.html#references-under-construction",
+    "title": "QI Metrics",
+    "section": "References (Under Construction)",
+    "text": "References (Under Construction)\n\nAuthor A et al. Global Epidemiology of Ventriculostomy-Related Infections. Journal. Year.\nAuthor B et al. EVD Management and QI Metrics. Journal. Year.",
+    "crumbs": [
+      "Safety & Quality",
+      "QI Metrics"
     ]
   },
   {
@@ -150,201 +165,68 @@
     ]
   },
   {
-    "objectID": "checklist.html",
-    "href": "checklist.html",
-    "title": "Transport Checklist",
+    "objectID": "clinical-pearls.html",
+    "href": "clinical-pearls.html",
+    "title": "Clinical Pearls",
     "section": "",
-    "text": "Complete this checklist prior to intra-hospital transport or procedures.",
+    "text": "The most important things to know about EVDs — condensed, testable facts for a fast pre-shift or pre-exam review. Click a category to expand it.\n\nclinicalPearls = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"ClinicalPearls\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\nfunction categoryColor(name) {\n  const palette = [\"#2c7be5\", \"#27ae60\", \"#e67e22\", \"#8e44ad\", \"#e74c3c\", \"#16a2b8\", \"#d63384\", \"#6c757d\"];\n  let hash = 0;\n  for (let i = 0; i &lt; name.length; i++) hash = name.charCodeAt(i) + ((hash &lt;&lt; 5) - hash);\n  return palette[Math.abs(hash) % palette.length];\n}\n\n\n\n\n\n\n\ngroupedPearls = {\n  const groups = new Map();\n  clinicalPearls.forEach(p =&gt; {\n    const key = p.category ?? \"Uncategorized\";\n    if (!groups.has(key)) groups.set(key, []);\n    groups.get(key).push(p);\n  });\n  return [...groups.entries()].sort((a, b) =&gt; a[0].localeCompare(b[0]));\n}\n\n\n\n\n\n\n\ngroupedPearls.length === 0\n  ? html`&lt;div class=\"fs-empty\"&gt;No clinical pearls added yet — check back soon.&lt;/div&gt;`\n  : html`&lt;div&gt;\n    ${groupedPearls.map(([category, items]) =&gt; {\n      const color = categoryColor(category);\n      return `\n        &lt;details class=\"fs-accordion\"&gt;\n          &lt;summary class=\"fs-accordion-summary\" style=\"background:${color};\"&gt;\n            &lt;span class=\"fs-accordion-name\"&gt;${category}&lt;/span&gt;\n            &lt;span class=\"fs-accordion-count\"&gt;${items.length}&lt;/span&gt;\n          &lt;/summary&gt;\n          &lt;div class=\"fs-accordion-body\"&gt;\n            &lt;ul style=\"margin:14px 0 6px;padding-left:20px;\"&gt;\n              ${items.map(p =&gt; `&lt;li style=\"margin-bottom:6px;\"&gt;${p.pearl ?? \"\"}&lt;/li&gt;`).join(\"\")}\n            &lt;/ul&gt;\n          &lt;/div&gt;\n        &lt;/details&gt;\n      `;\n    }).join(\"\")}\n  &lt;/div&gt;`",
     "crumbs": [
-      "Clinical Application",
-      "Checklist"
+      "💎 Clinical Pearls"
     ]
   },
   {
-    "objectID": "checklist.html#pre-transport",
-    "href": "checklist.html#pre-transport",
-    "title": "Transport Checklist",
-    "section": "Pre-Transport",
-    "text": "Pre-Transport\n\npre_items = [\n  \"EVD leveled at tragus\",\n  \"Clamp status confirmed\",\n  \"EVD setting verified\",\n  \"ICP value reviewed\",\n  \"Waveform assessed\",\n  \"CSF output reviewed\",\n  \"Tubing secured\",\n  \"System integrity maintained\"\n]\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
-    "crumbs": [
-      "Clinical Application",
-      "Checklist"
-    ]
-  },
-  {
-    "objectID": "checklist.html#during-transport",
-    "href": "checklist.html#during-transport",
-    "title": "Transport Checklist",
-    "section": "During Transport",
-    "text": "During Transport\n\nduring_items = [\n  \"ICP monitoring maintained\",\n  \"Head position maintained\",\n  \"Drain status appropriate\"\n]\nviewof during_checked = Inputs.checkbox(during_items, {label: \"\"})",
-    "crumbs": [
-      "Clinical Application",
-      "Checklist"
-    ]
-  },
-  {
-    "objectID": "checklist.html#readiness-status",
-    "href": "checklist.html#readiness-status",
-    "title": "Transport Checklist",
-    "section": "Readiness Status",
-    "text": "Readiness Status\n\ntotal = pre_items.length + during_items.length\ncompleted = pre_checked.length + during_checked.length\n\nhtml`&lt;div style=\"padding:15px;border-radius:10px;\n  background:${completed === total ? '#e8f5e9' : '#fdecea'};\n  border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};\"&gt;\n  ${completed === total\n    ? \"✅ Ready for Transport\"\n    : `⚠️ ${total - completed} item(s) remaining`}\n&lt;/div&gt;`",
-    "crumbs": [
-      "Clinical Application",
-      "Checklist"
-    ]
-  },
-  {
-    "objectID": "checklist.html#key-reference",
-    "href": "checklist.html#key-reference",
-    "title": "Transport Checklist",
-    "section": "Key Reference",
-    "text": "Key Reference\nEnhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training. Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067. PMID: 41235833",
-    "crumbs": [
-      "Clinical Application",
-      "Checklist"
-    ]
-  },
-  {
-    "objectID": "bundle.html",
-    "href": "bundle.html",
-    "title": "Infection Prevention Bundle",
+    "objectID": "catheter-types.html",
+    "href": "catheter-types.html",
+    "title": "Catheter Types",
     "section": "",
-    "text": "A structured, evidence-informed approach to reduce ventriculostomy-related infections (VRI) through standardized insertion and maintenance practices.",
-    "crumbs": [
-      "Safety & Quality",
-      "Infection Prevention Bundle"
-    ]
-  },
-  {
-    "objectID": "bundle.html#insertion-bundle",
-    "href": "bundle.html#insertion-bundle",
-    "title": "Infection Prevention Bundle",
-    "section": "Insertion Bundle",
-    "text": "Insertion Bundle\nDefinition: Number of patients with EVDs for whom all elements of an insertion bundle are documented at the time of EVD placement.\nCore Elements:\n\n🧼 Use of strict sterile technique during insertion\n💉 Administration of periprocedural antibiotics prior to incision\n🧪 Use of antimicrobial-impregnated catheter\n📏 Tunneling of the catheter (≥ 5 cm under the skin)\n🔒 Use of a closed drainage system\n🩹 Application of a sterile (preferably chlorhexidine-impregnated) dressing\n\n\n\n\n\n\n\nTip\n\n\n\nKey Principle: Full compliance with all bundle elements—not partial adherence—is required to meaningfully reduce infection risk.",
-    "crumbs": [
-      "Safety & Quality",
-      "Infection Prevention Bundle"
-    ]
-  },
-  {
-    "objectID": "bundle.html#maintenance-bundle",
-    "href": "bundle.html#maintenance-bundle",
-    "title": "Infection Prevention Bundle",
-    "section": "Maintenance Bundle",
-    "text": "Maintenance Bundle\nCore Principles:\n\n🧠 Indication-based CSF sampling only\n🚫 Avoid routine or unnecessary CSF sampling\n🔒 Minimize system access to prevent contamination\n📐 Maintain system upright to prevent backflow\n⚠️ Prevent accidental disconnection of the system\n\n\n\n\n\n\n\nTip\n\n\n\nKey Principle: Each access of the CSF system increases infection risk—minimize manipulation unless clinically indicated.",
-    "crumbs": [
-      "Safety & Quality",
-      "Infection Prevention Bundle"
-    ]
-  },
-  {
-    "objectID": "bundle.html#why-this-matters",
-    "href": "bundle.html#why-this-matters",
-    "title": "Infection Prevention Bundle",
-    "section": "Why This Matters",
-    "text": "Why This Matters\nVentriculostomy-related infections are associated with increased morbidity, prolonged hospital stay, and higher healthcare costs. Standardizing insertion and maintenance practices reduces variability and improves patient outcomes.\n\n\n\n\n\n\nWarning\n\n\n\nClinical Reminder: Infection prevention is a multidisciplinary responsibility involving anesthesia, neurosurgery, nursing, and ICU teams.",
-    "crumbs": [
-      "Safety & Quality",
-      "Infection Prevention Bundle"
-    ]
-  },
-  {
-    "objectID": "basics.html",
-    "href": "basics.html",
-    "title": "What is an EVD",
-    "section": "",
-    "text": "An External Ventricular Drain (EVD) is a temporary device inserted into the ventricular system to allow controlled drainage of cerebrospinal fluid (CSF) and monitoring of intracranial pressure (ICP).\nIt is primarily used for temporary CSF diversion in patients with acute symptomatic hydrocephalus.\nGlobal Perspective: More than 60,000 EVDs are placed annually worldwide.",
+    "text": "A reference catalog of EVD catheter types and coatings. Click a category to expand it.\n\ncatheterTypes = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  // Live listener — updates automatically whenever EVDTypes\n  // changes in Firestore, no page reload needed.\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"EVDTypes\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\n// Semantic color, not arbitrary: antimicrobial-impregnated catheters\n// are the preferred choice (green); everything else is red as a\n// visual nudge toward the preferred option. Check the \"non-\" case\n// FIRST since \"Non-antimicrobial\" also contains the substring\n// \"antimicrobial\" and would otherwise false-match as green.\nfunction categoryColor(name) {\n  const lower = name.toLowerCase();\n  if (/non[\\s-]?antimicrobial/.test(lower)) return \"#e74c3c\";\n  if (/antimicrobial/.test(lower)) return \"#27ae60\";\n  return \"#e74c3c\";\n}\n\n\n\n\n\n\n\n// Curated clinical pearls per catheter category. Add more entries here\n// as categories/facts are provided — categories without an entry just\n// won't show a pearls callout.\ncategoryPearls = ({\n  \"Antimicrobial impregnated\": [\n    \"Antimicrobial-impregnated catheters have been shown to reduce the rate of ventriculostomy-related infections (VRI).\",\n    \"Commonly coated with agents such as rifampicin and clindamycin, or minocycline and rifampin.\",\n    \"Device choice is one element of infection prevention — full bundle compliance (sterile technique, minimizing access, etc.) still matters most.\"\n  ]\n})\n\n\n\n\n\n\n\ngroupedTypes = {\n  const groups = new Map();\n  catheterTypes.forEach(t =&gt; {\n    const key = t.category ?? \"Uncategorized\";\n    if (!groups.has(key)) groups.set(key, []);\n    groups.get(key).push(t);\n  });\n  return [...groups.entries()].sort((a, b) =&gt; a[0].localeCompare(b[0]));\n}\n\n\n\n\n\n\n\nhtml`&lt;div&gt;\n  ${groupedTypes.map(([category, items]) =&gt; {\n    const color = categoryColor(category);\n    const pearls = categoryPearls[category];\n    return `\n      &lt;details class=\"fs-accordion\"&gt;\n        &lt;summary class=\"fs-accordion-summary\" style=\"background:${color};\"&gt;\n          &lt;span class=\"fs-accordion-name\"&gt;${category}&lt;/span&gt;\n          &lt;span class=\"fs-accordion-count\"&gt;${items.length}&lt;/span&gt;\n        &lt;/summary&gt;\n        &lt;div class=\"fs-accordion-body\"&gt;\n          ${pearls ? `\n            &lt;div class=\"callout-pearl\" style=\"margin-top:14px;\"&gt;\n              &lt;strong&gt;💡 Key Knowledge Pearls&lt;/strong&gt;\n              &lt;ul style=\"margin:8px 0 0; padding-left:20px;\"&gt;\n                ${pearls.map(p =&gt; `&lt;li style=\"margin-bottom:4px;\"&gt;${p}&lt;/li&gt;`).join(\"\")}\n              &lt;/ul&gt;\n            &lt;/div&gt;\n          ` : \"\"}\n          &lt;div class=\"fs-grid\" style=\"margin-top:14px;\"&gt;\n            ${items.map(t =&gt; `\n              &lt;div class=\"fs-card\"&gt;\n                &lt;img class=\"fs-card-image\" src=\"${t.imageURL ?? \"\"}\" onerror=\"this.style.display='none'\" /&gt;\n                &lt;div class=\"fs-card-body\"&gt;\n                  &lt;h4 class=\"fs-card-title\"&gt;${t.title ?? \"Untitled\"}&lt;/h4&gt;\n                  &lt;p class=\"fs-card-desc\"&gt;${t.description ?? \"\"}&lt;/p&gt;\n                &lt;/div&gt;\n              &lt;/div&gt;\n            `).join(\"\")}\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/details&gt;\n    `;\n  }).join(\"\")}\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nClinical Pearl: Catheter choice is one piece of the puzzle — see the full Infection Prevention Bundle for the complete picture.",
     "crumbs": [
       "Foundations",
-      "What is an EVD"
+      "Catheter Types"
     ]
   },
   {
-    "objectID": "basics.html#what-is-an-external-ventricular-drain-evd",
-    "href": "basics.html#what-is-an-external-ventricular-drain-evd",
-    "title": "What is an EVD",
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Best Practices",
     "section": "",
-    "text": "An External Ventricular Drain (EVD) is a temporary device inserted into the ventricular system to allow controlled drainage of cerebrospinal fluid (CSF) and monitoring of intracranial pressure (ICP).\nIt is primarily used for temporary CSF diversion in patients with acute symptomatic hydrocephalus.\nGlobal Perspective: More than 60,000 EVDs are placed annually worldwide.",
+    "text": "A quick-reference guide to safe, high-quality care when managing external ventricular drains.",
     "crumbs": [
-      "Foundations",
-      "What is an EVD"
+      "Clinical Application",
+      "Best Practices"
     ]
   },
   {
-    "objectID": "basics.html#common-indications",
-    "href": "basics.html#common-indications",
-    "title": "What is an EVD",
-    "section": "Common Indications",
-    "text": "Common Indications\n\nSubarachnoid hemorrhage (SAH)\nIntraventricular hemorrhage (IVH)\nTraumatic brain injury with hydrocephalus\nPosterior fossa lesions causing obstruction\nCNS infections with hydrocephalus",
+    "objectID": "best-practices.html#dos-and-donts",
+    "href": "best-practices.html#dos-and-donts",
+    "title": "Best Practices",
+    "section": "Do’s and Don’ts",
+    "text": "Do’s and Don’ts\n\n\n\n\n\n\n\nDo\nDon’t\n\n\n\n\n✔ Confirm EVD setting before interpreting ICP\n✖ Interpret ICP without knowing the drain setting\n\n\n✔ Check clamp status before transport or procedures\n✖ Keep EVD closed and not monitor ICP\n\n\n✔ Level the transducer at the tragus\n✖ Clamp EVD and leave the transducer at the level of the heart\n\n\n✔ Trend ICP and waveform together\n✖ Rely on a single ICP value\n\n\n✔ Minimize CSF system access\n✖ Access CSF unnecessarily\n\n\n✔ Use sterile technique for all handling\n✖ Break sterility during manipulation\n\n\n✔ Secure tubing to prevent dislodgement\n✖ Leave tubing unsecured\n\n\n✔ Communicate EVD status during handoffs\n✖ Assume others know the EVD setup\n\n\n✔ Monitor ICP during transport at all times\n✖ Transport without considering ICP risk\n\n\n✔ Reassess waveform if values seem inconsistent\n✖ Ignore dampened or abnormal waveforms",
     "crumbs": [
-      "Foundations",
-      "What is an EVD"
+      "Clinical Application",
+      "Best Practices"
     ]
   },
   {
-    "objectID": "basics.html#ct-abnormalities",
-    "href": "basics.html#ct-abnormalities",
-    "title": "What is an EVD",
-    "section": "CT Abnormalities",
-    "text": "CT Abnormalities\n\n\n\n\n\n\nNoteCisternal blood (Basilar aneurysm rupture)\n\n\n\n\n\n\nCisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.\n\n\n\n\n\n\n\n\n\nNoteIntracerebral hemorrhage with intraventricular extension\n\n\n\n\n\n\nThalamic hemorrhage with intraventricular extension and hydrocephalus.\n\n\n\n\n\n\n\n\n\nNoteCerebellar ischemic stroke with edema\n\n\n\n\n\n\nCerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.",
+    "objectID": "best-practices.html#csf-color-interpretation",
+    "href": "best-practices.html#csf-color-interpretation",
+    "title": "Best Practices",
+    "section": "CSF Color Interpretation",
+    "text": "CSF Color Interpretation\n\n\n\n\n\n\n\nCSF Appearance\nClinical Interpretation\n\n\n\n\nClear\nNormal CSF\n\n\nXanthochromia (yellow)\nSuggests prior hemorrhage or SAH breakdown products\n\n\nBloody\nMay indicate active bleeding, traumatic tap, or evolving hemorrhage\n\n\nCloudy\nConcerning for infection (e.g., ventriculitis)\n\n\nDebris / Particulate\nPossible clot breakdown, infection, or catheter obstruction\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nClinical Note: Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.",
     "crumbs": [
-      "Foundations",
-      "What is an EVD"
+      "Clinical Application",
+      "Best Practices"
     ]
   },
   {
-    "objectID": "basics.html#clinical-pearls",
-    "href": "basics.html#clinical-pearls",
-    "title": "What is an EVD",
-    "section": "Clinical Pearls",
-    "text": "Clinical Pearls\n\nLeveling matters: Always level the EVD at the tragus for accurate ICP measurement.\nDrain vs monitor: An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.\nTransport risk: Clamping an EVD during transport can lead to dangerous ICP elevations.\nOutput trends: A sudden drop in CSF output may indicate obstruction rather than improvement.\nInfection prevention: Maintain a closed system and minimize unnecessary access to reduce infection risk.",
+    "objectID": "best-practices.html#key-takeaway",
+    "href": "best-practices.html#key-takeaway",
+    "title": "Best Practices",
+    "section": "Key Takeaway",
+    "text": "Key Takeaway\n\n\n\n\n\n\nTip\n\n\n\nClinical Pearl: Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.",
     "crumbs": [
-      "Foundations",
-      "What is an EVD"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "The EVD Toolkit is an educational platform designed to support understanding of external ventricular drain (EVD) management, troubleshooting, transport safety, ICP monitoring principles, and neurocritical care education.",
-    "crumbs": [
-      "Resources",
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#about-the-evd-toolkit",
-    "href": "about.html#about-the-evd-toolkit",
-    "title": "About",
-    "section": "",
-    "text": "The EVD Toolkit is an educational platform designed to support understanding of external ventricular drain (EVD) management, troubleshooting, transport safety, ICP monitoring principles, and neurocritical care education.",
-    "crumbs": [
-      "Resources",
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#app-developers-collaborators",
-    "href": "about.html#app-developers-collaborators",
-    "title": "About",
-    "section": "App Developers & Collaborators",
-    "text": "App Developers & Collaborators\n\ncollaborators = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  // Live listener — updates automatically whenever Collaborators\n  // changes in Firestore, no page reload needed.\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"Collaborators\"), snapshot =&gt; {\n      notify(\n        snapshot.docs\n          .map(d =&gt; d.data())\n          .sort((a, b) =&gt; (a.order ?? 999) - (b.order ?? 999))\n      );\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\nClick a pin below to see each collaborator’s role, affiliation, and location.\n\nleafletApi = {\n  return new Promise((resolve, reject) =&gt; {\n    if (window.L) {\n      resolve(window.L);\n      return;\n    }\n    const cssLink = document.createElement(\"link\");\n    cssLink.rel = \"stylesheet\";\n    cssLink.href = \"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css\";\n    document.head.appendChild(cssLink);\n\n    const script = document.createElement(\"script\");\n    script.src = \"https://unpkg.com/leaflet@1.9.4/dist/leaflet.js\";\n    script.async = true;\n    script.onload = () =&gt; resolve(window.L);\n    script.onerror = () =&gt; reject(new Error(\"Failed to load Leaflet\"));\n    document.head.appendChild(script);\n  });\n}\n\n\n\n\n\n\n\n// Known collaborator cities → coordinates. Add a new entry here whenever\n// a collaborator from a new city joins.\ncityCoords = ({\n  \"Karachi\": { lat: 24.8607, lng: 67.0011 },\n  \"Seattle\": { lat: 47.6062, lng: -122.3321 }\n})\n\n\n\n\n\n\n\ncollaboratorMap = {\n  const L = leafletApi;\n  const div = html`&lt;div style=\"width:100%;height:400px;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.06);\"&gt;&lt;/div&gt;`;\n\n  // Leaflet needs its container attached to the live DOM with a real\n  // size before it initializes, so defer to the next paint frame —\n  // by then Observable has inserted the returned div into the page.\n  requestAnimationFrame(() =&gt; {\n    const map = L.map(div).setView([20, 20], 2);\n\n    L.tileLayer(\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\", {\n      attribution: \"&copy; OpenStreetMap contributors\",\n      maxZoom: 18\n    }).addTo(map);\n\n    // Group collaborators by city so multiple people at the same\n    // location share one pin (with everyone listed in the popup)\n    // instead of overlapping markers hiding each other.\n    const byCity = new Map();\n    collaborators.forEach(c =&gt; {\n      const coords = cityCoords[c.City];\n      if (!coords) return;\n      if (!byCity.has(c.City)) byCity.set(c.City, { coords, people: [] });\n      byCity.get(c.City).people.push(c);\n    });\n\n    byCity.forEach(({ coords, people }) =&gt; {\n      const divider = '&lt;hr style=\"margin:8px 0;border:none;border-top:1px solid #eee;\"&gt;';\n      const content = people\n        .map(c =&gt; `\n          &lt;div&gt;\n            &lt;strong&gt;${c.name}&lt;/strong&gt;&lt;br&gt;\n            ${c.Role ?? \"\"}&lt;br&gt;\n            ${c.Affiliation ?? \"\"}&lt;br&gt;\n            ${[c.City, c.Country].filter(Boolean).join(\", \")}\n          &lt;/div&gt;\n        `)\n        .join(people.length &gt; 1 ? divider : \"\");\n\n      L.marker([coords.lat, coords.lng]).addTo(map).bindPopup(\n        `&lt;div style=\"font-family:Inter,sans-serif;font-size:13px;\"&gt;${content}&lt;/div&gt;`\n      );\n    });\n\n    map.invalidateSize();\n  });\n\n  return div;\n}\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nClick a pin to see collaborator details. Cities without a known map location aren’t shown yet — let me know when someone new joins and I’ll add their city.",
-    "crumbs": [
-      "Resources",
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#legal-disclaimer",
-    "href": "about.html#legal-disclaimer",
-    "title": "About",
-    "section": "Legal Disclaimer",
-    "text": "Legal Disclaimer\n\n\n\n\n\n\nWarning\n\n\n\nThis tool is intended for educational purposes only and does not replace clinical judgment or institutional guidance.",
-    "crumbs": [
-      "Resources",
-      "About"
+      "Clinical Application",
+      "Best Practices"
     ]
   },
   {
@@ -425,58 +307,201 @@
     ]
   },
   {
-    "objectID": "best-practices.html",
-    "href": "best-practices.html",
-    "title": "Best Practices",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "A quick-reference guide to safe, high-quality care when managing external ventricular drains.",
+    "text": "The EVD Toolkit is an educational platform designed to support understanding of external ventricular drain (EVD) management, troubleshooting, transport safety, ICP monitoring principles, and neurocritical care education.",
     "crumbs": [
-      "Clinical Application",
-      "Best Practices"
+      "Resources",
+      "About"
     ]
   },
   {
-    "objectID": "best-practices.html#dos-and-donts",
-    "href": "best-practices.html#dos-and-donts",
-    "title": "Best Practices",
-    "section": "Do’s and Don’ts",
-    "text": "Do’s and Don’ts\n\n\n\n\n\n\n\nDo\nDon’t\n\n\n\n\n✔ Confirm EVD setting before interpreting ICP\n✖ Interpret ICP without knowing the drain setting\n\n\n✔ Check clamp status before transport or procedures\n✖ Keep EVD closed and not monitor ICP\n\n\n✔ Level the transducer at the tragus\n✖ Clamp EVD and leave the transducer at the level of the heart\n\n\n✔ Trend ICP and waveform together\n✖ Rely on a single ICP value\n\n\n✔ Minimize CSF system access\n✖ Access CSF unnecessarily\n\n\n✔ Use sterile technique for all handling\n✖ Break sterility during manipulation\n\n\n✔ Secure tubing to prevent dislodgement\n✖ Leave tubing unsecured\n\n\n✔ Communicate EVD status during handoffs\n✖ Assume others know the EVD setup\n\n\n✔ Monitor ICP during transport at all times\n✖ Transport without considering ICP risk\n\n\n✔ Reassess waveform if values seem inconsistent\n✖ Ignore dampened or abnormal waveforms",
-    "crumbs": [
-      "Clinical Application",
-      "Best Practices"
-    ]
-  },
-  {
-    "objectID": "best-practices.html#csf-color-interpretation",
-    "href": "best-practices.html#csf-color-interpretation",
-    "title": "Best Practices",
-    "section": "CSF Color Interpretation",
-    "text": "CSF Color Interpretation\n\n\n\n\n\n\n\nCSF Appearance\nClinical Interpretation\n\n\n\n\nClear\nNormal CSF\n\n\nXanthochromia (yellow)\nSuggests prior hemorrhage or SAH breakdown products\n\n\nBloody\nMay indicate active bleeding, traumatic tap, or evolving hemorrhage\n\n\nCloudy\nConcerning for infection (e.g., ventriculitis)\n\n\nDebris / Particulate\nPossible clot breakdown, infection, or catheter obstruction\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nClinical Note: Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.",
-    "crumbs": [
-      "Clinical Application",
-      "Best Practices"
-    ]
-  },
-  {
-    "objectID": "best-practices.html#key-takeaway",
-    "href": "best-practices.html#key-takeaway",
-    "title": "Best Practices",
-    "section": "Key Takeaway",
-    "text": "Key Takeaway\n\n\n\n\n\n\nTip\n\n\n\nClinical Pearl: Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.",
-    "crumbs": [
-      "Clinical Application",
-      "Best Practices"
-    ]
-  },
-  {
-    "objectID": "catheter-types.html",
-    "href": "catheter-types.html",
-    "title": "Catheter Types",
+    "objectID": "about.html#about-the-evd-toolkit",
+    "href": "about.html#about-the-evd-toolkit",
+    "title": "About",
     "section": "",
-    "text": "A reference catalog of EVD catheter types and coatings. Click a category to expand it.\n\ncatheterTypes = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  // Live listener — updates automatically whenever EVDTypes\n  // changes in Firestore, no page reload needed.\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"EVDTypes\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\n// Semantic color, not arbitrary: antimicrobial-impregnated catheters\n// are the preferred choice (green); everything else is red as a\n// visual nudge toward the preferred option. Check the \"non-\" case\n// FIRST since \"Non-antimicrobial\" also contains the substring\n// \"antimicrobial\" and would otherwise false-match as green.\nfunction categoryColor(name) {\n  const lower = name.toLowerCase();\n  if (/non[\\s-]?antimicrobial/.test(lower)) return \"#e74c3c\";\n  if (/antimicrobial/.test(lower)) return \"#27ae60\";\n  return \"#e74c3c\";\n}\n\n\n\n\n\n\n\n// Curated clinical pearls per catheter category. Add more entries here\n// as categories/facts are provided — categories without an entry just\n// won't show a pearls callout.\ncategoryPearls = ({\n  \"Antimicrobial impregnated\": [\n    \"Antimicrobial-impregnated catheters have been shown to reduce the rate of ventriculostomy-related infections (VRI).\",\n    \"Commonly coated with agents such as rifampicin and clindamycin, or minocycline and rifampin.\",\n    \"Device choice is one element of infection prevention — full bundle compliance (sterile technique, minimizing access, etc.) still matters most.\"\n  ]\n})\n\n\n\n\n\n\n\ngroupedTypes = {\n  const groups = new Map();\n  catheterTypes.forEach(t =&gt; {\n    const key = t.category ?? \"Uncategorized\";\n    if (!groups.has(key)) groups.set(key, []);\n    groups.get(key).push(t);\n  });\n  return [...groups.entries()].sort((a, b) =&gt; a[0].localeCompare(b[0]));\n}\n\n\n\n\n\n\n\nhtml`&lt;div&gt;\n  ${groupedTypes.map(([category, items]) =&gt; {\n    const color = categoryColor(category);\n    const pearls = categoryPearls[category];\n    return `\n      &lt;details class=\"fs-accordion\"&gt;\n        &lt;summary class=\"fs-accordion-summary\" style=\"background:${color};\"&gt;\n          &lt;span class=\"fs-accordion-name\"&gt;${category}&lt;/span&gt;\n          &lt;span class=\"fs-accordion-count\"&gt;${items.length}&lt;/span&gt;\n        &lt;/summary&gt;\n        &lt;div class=\"fs-accordion-body\"&gt;\n          ${pearls ? `\n            &lt;div class=\"callout-pearl\" style=\"margin-top:14px;\"&gt;\n              &lt;strong&gt;💡 Key Knowledge Pearls&lt;/strong&gt;\n              &lt;ul style=\"margin:8px 0 0; padding-left:20px;\"&gt;\n                ${pearls.map(p =&gt; `&lt;li style=\"margin-bottom:4px;\"&gt;${p}&lt;/li&gt;`).join(\"\")}\n              &lt;/ul&gt;\n            &lt;/div&gt;\n          ` : \"\"}\n          &lt;div class=\"fs-grid\" style=\"margin-top:14px;\"&gt;\n            ${items.map(t =&gt; `\n              &lt;div class=\"fs-card\"&gt;\n                &lt;img class=\"fs-card-image\" src=\"${t.imageURL ?? \"\"}\" onerror=\"this.style.display='none'\" /&gt;\n                &lt;div class=\"fs-card-body\"&gt;\n                  &lt;h4 class=\"fs-card-title\"&gt;${t.title ?? \"Untitled\"}&lt;/h4&gt;\n                  &lt;p class=\"fs-card-desc\"&gt;${t.description ?? \"\"}&lt;/p&gt;\n                &lt;/div&gt;\n              &lt;/div&gt;\n            `).join(\"\")}\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/details&gt;\n    `;\n  }).join(\"\")}\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nClinical Pearl: Catheter choice is one piece of the puzzle — see the full Infection Prevention Bundle for the complete picture.",
+    "text": "The EVD Toolkit is an educational platform designed to support understanding of external ventricular drain (EVD) management, troubleshooting, transport safety, ICP monitoring principles, and neurocritical care education.",
+    "crumbs": [
+      "Resources",
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#app-developers-collaborators",
+    "href": "about.html#app-developers-collaborators",
+    "title": "About",
+    "section": "App Developers & Collaborators",
+    "text": "App Developers & Collaborators\n\ncollaborators = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  // Live listener — updates automatically whenever Collaborators\n  // changes in Firestore, no page reload needed.\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"Collaborators\"), snapshot =&gt; {\n      notify(\n        snapshot.docs\n          .map(d =&gt; d.data())\n          .sort((a, b) =&gt; (a.order ?? 999) - (b.order ?? 999))\n      );\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\nClick a pin below to see each collaborator’s role, affiliation, and location.\n\nleafletApi = {\n  return new Promise((resolve, reject) =&gt; {\n    if (window.L) {\n      resolve(window.L);\n      return;\n    }\n    const cssLink = document.createElement(\"link\");\n    cssLink.rel = \"stylesheet\";\n    cssLink.href = \"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css\";\n    document.head.appendChild(cssLink);\n\n    const script = document.createElement(\"script\");\n    script.src = \"https://unpkg.com/leaflet@1.9.4/dist/leaflet.js\";\n    script.async = true;\n    script.onload = () =&gt; resolve(window.L);\n    script.onerror = () =&gt; reject(new Error(\"Failed to load Leaflet\"));\n    document.head.appendChild(script);\n  });\n}\n\n\n\n\n\n\n\n// Known collaborator cities → coordinates. Add a new entry here whenever\n// a collaborator from a new city joins.\ncityCoords = ({\n  \"Karachi\": { lat: 24.8607, lng: 67.0011 },\n  \"Seattle\": { lat: 47.6062, lng: -122.3321 },\n  \"Chapel Hill\": { lat: 35.9132, lng: -79.0558 }\n})\n\n\n\n\n\n\n\n// Creates the map ONCE — this cell does not depend on `collaborators`,\n// so the map is never torn down and recreated when Firestore data\n// changes live. The div is returned directly and immediately so Quarto\n// inserts it into the page right away (critical: Leaflet needs the\n// container actually attached, with a real size, before it can compute\n// tile bounds correctly — initializing too early produces exactly the\n// \"only top-left corner loaded\" bug). A `.ready` promise is attached to\n// the div so other cells can safely wait for the map/markerLayer to\n// exist, regardless of execution order.\nmapInstance = {\n  const L = leafletApi;\n  const div = html`&lt;div style=\"width:100%;height:400px;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.06);\"&gt;&lt;/div&gt;`;\n\n  div.ready = new Promise(resolve =&gt; {\n    requestAnimationFrame(() =&gt; {\n      const map = L.map(div).setView([20, 20], 2);\n\n      L.tileLayer(\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\", {\n        attribution: \"&copy; OpenStreetMap contributors\",\n        maxZoom: 18\n      }).addTo(map);\n\n      const markerLayer = L.layerGroup().addTo(map);\n      map.invalidateSize();\n      resolve({ map, markerLayer });\n    });\n  });\n\n  return div;\n}\n\n\n\n\n\n\n\n// Redraws markers on the EXISTING map whenever `collaborators` changes\n// live from Firestore — updates in place instead of recreating the map.\n// Awaits `mapInstance.ready` so this works correctly no matter which\n// cell finishes first. (No explicit return, so this cell's value is\n// `undefined` and Quarto shows nothing visible for it.)\nupdateMarkers = {\n  const L = leafletApi;\n  const { markerLayer } = await mapInstance.ready;\n\n  markerLayer.clearLayers();\n\n  // Group collaborators by city so multiple people at the same\n  // location share one pin (with everyone listed in the popup)\n  // instead of overlapping markers hiding each other.\n  const byCity = new Map();\n  collaborators.forEach(c =&gt; {\n    const coords = cityCoords[c.City];\n    if (!coords) return;\n    if (!byCity.has(c.City)) byCity.set(c.City, { coords, people: [] });\n    byCity.get(c.City).people.push(c);\n  });\n\n  byCity.forEach(({ coords, people }) =&gt; {\n    const divider = '&lt;hr style=\"margin:8px 0;border:none;border-top:1px solid #eee;\"&gt;';\n    const content = people\n      .map(c =&gt; `\n        &lt;div&gt;\n          &lt;strong&gt;${c.name}&lt;/strong&gt;&lt;br&gt;\n          ${c.Role ?? \"\"}&lt;br&gt;\n          ${c.Affiliation ?? \"\"}&lt;br&gt;\n          ${[c.City, c.Country].filter(Boolean).join(\", \")}\n        &lt;/div&gt;\n      `)\n      .join(people.length &gt; 1 ? divider : \"\");\n\n    L.marker([coords.lat, coords.lng]).addTo(markerLayer).bindPopup(\n      `&lt;div style=\"font-family:Inter,sans-serif;font-size:13px;\"&gt;${content}&lt;/div&gt;`\n    );\n  });\n}\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nClick a pin to see collaborator details. Cities without a known map location aren’t shown yet — let me know when someone new joins and I’ll add their city.",
+    "crumbs": [
+      "Resources",
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#legal-disclaimer",
+    "href": "about.html#legal-disclaimer",
+    "title": "About",
+    "section": "Legal Disclaimer",
+    "text": "Legal Disclaimer\n\n\n\n\n\n\nWarning\n\n\n\nThis tool is intended for educational purposes only and does not replace clinical judgment or institutional guidance.",
+    "crumbs": [
+      "Resources",
+      "About"
+    ]
+  },
+  {
+    "objectID": "basics.html",
+    "href": "basics.html",
+    "title": "What is an EVD",
+    "section": "",
+    "text": "An External Ventricular Drain (EVD) is a temporary device inserted into the ventricular system to allow controlled drainage of cerebrospinal fluid (CSF) and monitoring of intracranial pressure (ICP).\nIt is primarily used for temporary CSF diversion in patients with acute symptomatic hydrocephalus.\nGlobal Perspective: More than 60,000 EVDs are placed annually worldwide.",
     "crumbs": [
       "Foundations",
-      "Catheter Types"
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#what-is-an-external-ventricular-drain-evd",
+    "href": "basics.html#what-is-an-external-ventricular-drain-evd",
+    "title": "What is an EVD",
+    "section": "",
+    "text": "An External Ventricular Drain (EVD) is a temporary device inserted into the ventricular system to allow controlled drainage of cerebrospinal fluid (CSF) and monitoring of intracranial pressure (ICP).\nIt is primarily used for temporary CSF diversion in patients with acute symptomatic hydrocephalus.\nGlobal Perspective: More than 60,000 EVDs are placed annually worldwide.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#common-indications",
+    "href": "basics.html#common-indications",
+    "title": "What is an EVD",
+    "section": "Common Indications",
+    "text": "Common Indications\n\nSubarachnoid hemorrhage (SAH)\nIntraventricular hemorrhage (IVH)\nTraumatic brain injury with hydrocephalus\nPosterior fossa lesions causing obstruction\nCNS infections with hydrocephalus",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#ct-abnormalities",
+    "href": "basics.html#ct-abnormalities",
+    "title": "What is an EVD",
+    "section": "CT Abnormalities",
+    "text": "CT Abnormalities\n\n\n\n\n\n\nNoteCisternal blood (Basilar aneurysm rupture)\n\n\n\n\n\n\nCisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.\n\n\n\n\n\n\n\n\n\nNoteIntracerebral hemorrhage with intraventricular extension\n\n\n\n\n\n\nThalamic hemorrhage with intraventricular extension and hydrocephalus.\n\n\n\n\n\n\n\n\n\nNoteCerebellar ischemic stroke with edema\n\n\n\n\n\n\nCerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#clinical-pearls",
+    "href": "basics.html#clinical-pearls",
+    "title": "What is an EVD",
+    "section": "Clinical Pearls",
+    "text": "Clinical Pearls\n\nLeveling matters: Always level the EVD at the tragus for accurate ICP measurement.\nDrain vs monitor: An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.\nTransport risk: Clamping an EVD during transport can lead to dangerous ICP elevations.\nOutput trends: A sudden drop in CSF output may indicate obstruction rather than improvement.\nInfection prevention: Maintain a closed system and minimize unnecessary access to reduce infection risk.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "bundle.html",
+    "href": "bundle.html",
+    "title": "Infection Prevention Bundle",
+    "section": "",
+    "text": "A structured, evidence-informed approach to reduce ventriculostomy-related infections (VRI) through standardized insertion and maintenance practices.",
+    "crumbs": [
+      "Safety & Quality",
+      "Infection Prevention Bundle"
+    ]
+  },
+  {
+    "objectID": "bundle.html#insertion-bundle",
+    "href": "bundle.html#insertion-bundle",
+    "title": "Infection Prevention Bundle",
+    "section": "Insertion Bundle",
+    "text": "Insertion Bundle\nDefinition: Number of patients with EVDs for whom all elements of an insertion bundle are documented at the time of EVD placement.\nCore Elements:\n\n🧼 Use of strict sterile technique during insertion\n💉 Administration of periprocedural antibiotics prior to incision\n🧪 Use of antimicrobial-impregnated catheter\n📏 Tunneling of the catheter (≥ 5 cm under the skin)\n🔒 Use of a closed drainage system\n🩹 Application of a sterile (preferably chlorhexidine-impregnated) dressing\n\n\n\n\n\n\n\nTip\n\n\n\nKey Principle: Full compliance with all bundle elements—not partial adherence—is required to meaningfully reduce infection risk.",
+    "crumbs": [
+      "Safety & Quality",
+      "Infection Prevention Bundle"
+    ]
+  },
+  {
+    "objectID": "bundle.html#maintenance-bundle",
+    "href": "bundle.html#maintenance-bundle",
+    "title": "Infection Prevention Bundle",
+    "section": "Maintenance Bundle",
+    "text": "Maintenance Bundle\nCore Principles:\n\n🧠 Indication-based CSF sampling only\n🚫 Avoid routine or unnecessary CSF sampling\n🔒 Minimize system access to prevent contamination\n📐 Maintain system upright to prevent backflow\n⚠️ Prevent accidental disconnection of the system\n\n\n\n\n\n\n\nTip\n\n\n\nKey Principle: Each access of the CSF system increases infection risk—minimize manipulation unless clinically indicated.",
+    "crumbs": [
+      "Safety & Quality",
+      "Infection Prevention Bundle"
+    ]
+  },
+  {
+    "objectID": "bundle.html#why-this-matters",
+    "href": "bundle.html#why-this-matters",
+    "title": "Infection Prevention Bundle",
+    "section": "Why This Matters",
+    "text": "Why This Matters\nVentriculostomy-related infections are associated with increased morbidity, prolonged hospital stay, and higher healthcare costs. Standardizing insertion and maintenance practices reduces variability and improves patient outcomes.\n\n\n\n\n\n\nWarning\n\n\n\nClinical Reminder: Infection prevention is a multidisciplinary responsibility involving anesthesia, neurosurgery, nursing, and ICU teams.",
+    "crumbs": [
+      "Safety & Quality",
+      "Infection Prevention Bundle"
+    ]
+  },
+  {
+    "objectID": "checklist.html",
+    "href": "checklist.html",
+    "title": "Transport Checklist",
+    "section": "",
+    "text": "Complete this checklist prior to intra-hospital transport or procedures.",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#pre-transport",
+    "href": "checklist.html#pre-transport",
+    "title": "Transport Checklist",
+    "section": "Pre-Transport",
+    "text": "Pre-Transport\n\npre_items = [\n  \"EVD leveled at tragus\",\n  \"Clamp status confirmed\",\n  \"EVD setting verified\",\n  \"ICP value reviewed\",\n  \"Waveform assessed\",\n  \"CSF output reviewed\",\n  \"Tubing secured\",\n  \"System integrity maintained\"\n]\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#during-transport",
+    "href": "checklist.html#during-transport",
+    "title": "Transport Checklist",
+    "section": "During Transport",
+    "text": "During Transport\n\nduring_items = [\n  \"ICP monitoring maintained\",\n  \"Head position maintained\",\n  \"Drain status appropriate\"\n]\nviewof during_checked = Inputs.checkbox(during_items, {label: \"\"})",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#readiness-status",
+    "href": "checklist.html#readiness-status",
+    "title": "Transport Checklist",
+    "section": "Readiness Status",
+    "text": "Readiness Status\n\ntotal = pre_items.length + during_items.length\ncompleted = pre_checked.length + during_checked.length\n\nhtml`&lt;div style=\"padding:15px;border-radius:10px;\n  background:${completed === total ? '#e8f5e9' : '#fdecea'};\n  border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};\"&gt;\n  ${completed === total\n    ? \"✅ Ready for Transport\"\n    : `⚠️ ${total - completed} item(s) remaining`}\n&lt;/div&gt;`",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#key-reference",
+    "href": "checklist.html#key-reference",
+    "title": "Transport Checklist",
+    "section": "Key Reference",
+    "text": "Key Reference\nEnhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training. Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067. PMID: 41235833",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
     ]
   },
   {
@@ -502,68 +527,33 @@
     ]
   },
   {
-    "objectID": "high-yield.html",
-    "href": "high-yield.html",
-    "title": "High Yield",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EVD Toolkit",
     "section": "",
-    "text": "Condensed, testable facts across every section of the toolkit — a fast pre-shift or pre-exam review. Click a category to expand it.\n\nhighYieldFacts = {\n  const { initializeApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"HighYield\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\nfunction categoryColor(name) {\n  const palette = [\"#2c7be5\", \"#27ae60\", \"#e67e22\", \"#8e44ad\", \"#e74c3c\", \"#16a2b8\", \"#d63384\", \"#6c757d\"];\n  let hash = 0;\n  for (let i = 0; i &lt; name.length; i++) hash = name.charCodeAt(i) + ((hash &lt;&lt; 5) - hash);\n  return palette[Math.abs(hash) % palette.length];\n}\n\n\n\n\n\n\n\ngroupedHighYield = {\n  const groups = new Map();\n  highYieldFacts.forEach(f =&gt; {\n    const key = f.category ?? \"Uncategorized\";\n    if (!groups.has(key)) groups.set(key, []);\n    groups.get(key).push(f);\n  });\n  return [...groups.entries()].sort((a, b) =&gt; a[0].localeCompare(b[0]));\n}\n\n\n\n\n\n\n\ngroupedHighYield.length === 0\n  ? html`&lt;div class=\"fs-empty\"&gt;No high-yield facts added yet — check back soon.&lt;/div&gt;`\n  : html`&lt;div&gt;\n    ${groupedHighYield.map(([category, items]) =&gt; {\n      const color = categoryColor(category);\n      return `\n        &lt;details class=\"fs-accordion\"&gt;\n          &lt;summary class=\"fs-accordion-summary\" style=\"background:${color};\"&gt;\n            &lt;span class=\"fs-accordion-name\"&gt;${category}&lt;/span&gt;\n            &lt;span class=\"fs-accordion-count\"&gt;${items.length}&lt;/span&gt;\n          &lt;/summary&gt;\n          &lt;div class=\"fs-accordion-body\"&gt;\n            &lt;ul style=\"margin:14px 0 6px;padding-left:20px;\"&gt;\n              ${items.map(f =&gt; `&lt;li style=\"margin-bottom:6px;\"&gt;${f.fact ?? \"\"}&lt;/li&gt;`).join(\"\")}\n            &lt;/ul&gt;\n          &lt;/div&gt;\n        &lt;/details&gt;\n      `;\n    }).join(\"\")}\n  &lt;/div&gt;`",
+    "text": "A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.",
     "crumbs": [
-      "⚡ High Yield"
+      "🏠 Home"
     ]
   },
   {
-    "objectID": "qi-metrics.html",
-    "href": "qi-metrics.html",
-    "title": "QI Metrics",
-    "section": "",
-    "text": "Track documentation, transport safety, and outcomes related to EVD care. (Under construction)",
+    "objectID": "index.html#what-you-can-do-here",
+    "href": "index.html#what-you-can-do-here",
+    "title": "EVD Toolkit",
+    "section": "What You Can Do Here",
+    "text": "What You Can Do Here\n📘 Foundations\n\nWhat is an EVD\nEVD Settings\nICP Waveform\n\n🧑‍⚕️ Clinical Application\n\nApply to a Hypothetical Patient\nChecklist\nBest Practices\n\n📈 Safety & Quality Improvement\n\nQI Metrics\nInfection Prevention Bundle\nComplications\n\n🎓 Learning & Engagement\n\nEVD Quiz\nEducational Video\nEVD Systems (global variability)\n\n📚 Resources\n\nReferences\nFeedback\nAbout",
     "crumbs": [
-      "Safety & Quality",
-      "QI Metrics"
+      "🏠 Home"
     ]
   },
   {
-    "objectID": "qi-metrics.html#documentation-compliance-anesthesia-record",
-    "href": "qi-metrics.html#documentation-compliance-anesthesia-record",
-    "title": "QI Metrics",
-    "section": "Documentation Compliance (Anesthesia Record)",
-    "text": "Documentation Compliance (Anesthesia Record)\nKey elements that should be documented:\n\nIntracranial Pressure (ICP)\nCSF Output\nEVD Setting\nCSF Color\n\nCurrent Compliance (Example Data)\n\n\n\nElement\nDocumented\n\n\n\n\nICP\n85%\n\n\nCSF output\n78%\n\n\nEVD setting\n82%\n\n\nCSF color\n65%",
+    "objectID": "index.html#about-this-project",
+    "href": "index.html#about-this-project",
+    "title": "EVD Toolkit",
+    "section": "About This Project",
+    "text": "About This Project\nEVD practices vary widely across institutions, particularly in device setup, leveling, and management. This variability can lead to confusion, communication gaps, and potential safety risks.\nThe goal of this toolkit is to provide a standardized, visual, and practical approach to EVD education while recognizing real-world variability in systems and workflows.",
     "crumbs": [
-      "Safety & Quality",
-      "QI Metrics"
-    ]
-  },
-  {
-    "objectID": "qi-metrics.html#transport-safety-metrics",
-    "href": "qi-metrics.html#transport-safety-metrics",
-    "title": "QI Metrics",
-    "section": "Transport Safety Metrics",
-    "text": "Transport Safety Metrics\n\n% patients with ICP monitoring during transport\n% transports with EVD clamped\n% transports with ICP elevation ≥20 mmHg\n\nExample Metrics\n\n\n\nMetric\nRate\n\n\n\n\nICP monitored during transport\n72%\n\n\nEVD clamped transports\n40%\n\n\nICP elevation ≥20 mmHg\n18%",
-    "crumbs": [
-      "Safety & Quality",
-      "QI Metrics"
-    ]
-  },
-  {
-    "objectID": "qi-metrics.html#ventriculostomy-related-infections-vri",
-    "href": "qi-metrics.html#ventriculostomy-related-infections-vri",
-    "title": "QI Metrics",
-    "section": "Ventriculostomy-Related Infections (VRI)",
-    "text": "Ventriculostomy-Related Infections (VRI)\nOutcome metric reflecting infection risk associated with EVD use.\nGlobal VRI Rate: 8.64% [95% CI 7.44–9.97]\n\n\n\n\n\n\nNoteVRI rates by country (click to expand)\n\n\n\n\n\n\n\n\nCountry\nStudies\nVRI Rate\n95% CI\n\n\n\n\nCroatia\n1\n43.3%\n7.0–89.3%\n\n\nHungary\n1\n33.9%\n3.4–86.2%\n\n\nGreece\n3\n33.2%\n14.3–56.2%\n\n\nEthiopia\n1\n30.2%\n4.0–85.1%\n\n\nIran\n2\n23.4%\n1.8–77.0%\n\n\nIsrael\n1\n22.0%\n1.9–82.9%\n\n\nUK\n1\n21.6%\n1.5–77.6%\n\n\nThailand\n1\n19.4%\n1.5–79.6%\n\n\nNetherlands\n7\n18.9%\n9.8–32.2%\n\n\nSerbia\n1\n18.4%\n1.1–77.4%\n\n\nUnited Arab Emirates\n1\n18.4%\n1.4–72.4%\n\n\nTurkey\n1\n18.2%\n0.9–88.0%\n\n\nSwitzerland\n7\n17.4%\n5.6–34.8%\n\n\nBrazil\n4\n15.0%\n2.6–42.4%\n\n\nNew Zealand\n2\n13.8%\n4.0–32.4%\n\n\nBelgium\n1\n13.5%\n1.0–64.5%\n\n\nSweden\n5\n13.3%\n6.0–23.5%\n\n\nSpain\n4\n12.8%\n8.4–19.1%\n\n\nUnited Kingdom\n9\n12.7%\n7.0–21.4%\n\n\nDenmark\n5\n12.2%\n3.2–28.5%\n\n\nAustralia\n5\n11.4%\n4.2–19.2%\n\n\nKorea (South)\n3\n10.9%\n5.7–19.1%\n\n\nFrance\n11\n10.4%\n6.9–15.2%\n\n\nAustria\n2\n10.4%\n2.5–28.7%\n\n\nTaiwan\n2\n10.3%\n0.7–49.1%\n\n\nIndia\n1\n10.1%\n0.4–43.5%\n\n\nCanada\n5\n9.1%\n4.4–17.9%\n\n\nItaly\n7\n9.0%\n3.7–17.6%\n\n\nChina\n15\n8.5%\n5.4–12.4%\n\n\nNorway\n1\n8.3%\n0.3–68.4%\n\n\nGermany\n6\n6.1%\n1.1–18.9%\n\n\nUnited States\n46\n4.6%\n3.4–5.9%\n\n\nSingapore\n3\n3.3%\n0.8–7.0%\n\n\n\n\n\n\n\nWhat is your unit’s VRI rate?\nA quick self-check — use this to reinforce prevention practices, whatever your number is.\n\nviewof myVRI = Inputs.range([0, 30], {label: \"Your Unit's VRI Rate (%)\", step: 0.5, value: 0})\n\n\n\n\n\n\n\nmyVRI === 0\n  ? html`&lt;div style=\"background:#e8f5e9;padding:15px;border-left:6px solid #27ae60;border-radius:10px;\"&gt;\n      &lt;strong&gt;🎉 Excellent — 0% VRI rate.&lt;/strong&gt;\n      &lt;p style=\"margin:8px 0 0;\"&gt;Keep reinforcing the fundamentals that got you here:&lt;/p&gt;\n      &lt;ul style=\"margin:6px 0 0;\"&gt;\n        &lt;li&gt;Sterile technique and periprocedural antibiotics at insertion&lt;/li&gt;\n        &lt;li&gt;Indication-based CSF sampling only&lt;/li&gt;\n        &lt;li&gt;Minimizing unnecessary system access&lt;/li&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;`\n  : html`&lt;div style=\"background:#fff7e6;padding:15px;border-left:6px solid #f39c12;border-radius:10px;\"&gt;\n      &lt;strong&gt;Your reported VRI rate is ${myVRI}%.&lt;/strong&gt;\n      &lt;p style=\"margin:8px 0 0;\"&gt;Every VRI is an opportunity to reinforce prevention. Revisit:&lt;/p&gt;\n      &lt;ul style=\"margin:6px 0 0;\"&gt;\n        &lt;li&gt;&lt;strong&gt;Insertion Bundle:&lt;/strong&gt; sterile technique, periprocedural antibiotics, antimicrobial-impregnated catheter, tunneling, closed system, sterile dressing&lt;/li&gt;\n        &lt;li&gt;&lt;strong&gt;Maintenance Bundle:&lt;/strong&gt; indication-based sampling only, minimize system access, maintain system upright, prevent disconnection&lt;/li&gt;\n      &lt;/ul&gt;\n      &lt;p style=\"margin:8px 0 0;font-size:13px;color:#666;\"&gt;See the &lt;a href=\"bundle.qmd\"&gt;Infection Prevention Bundle&lt;/a&gt; page for the full checklist.&lt;/p&gt;\n    &lt;/div&gt;`",
-    "crumbs": [
-      "Safety & Quality",
-      "QI Metrics"
-    ]
-  },
-  {
-    "objectID": "qi-metrics.html#references-under-construction",
-    "href": "qi-metrics.html#references-under-construction",
-    "title": "QI Metrics",
-    "section": "References (Under Construction)",
-    "text": "References (Under Construction)\n\nAuthor A et al. Global Epidemiology of Ventriculostomy-Related Infections. Journal. Year.\nAuthor B et al. EVD Management and QI Metrics. Journal. Year.",
-    "crumbs": [
-      "Safety & Quality",
-      "QI Metrics"
+      "🏠 Home"
     ]
   },
   {
