@@ -1,0 +1,384 @@
+[
+  {
+    "objectID": "waveform.html",
+    "href": "waveform.html",
+    "title": "ICP Waveform",
+    "section": "",
+    "text": "Waveforms often change BEFORE ICP rises → early warning system.",
+    "crumbs": [
+      "Foundations",
+      "ICP Waveform"
+    ]
+  },
+  {
+    "objectID": "waveform.html#normal-icp-waveform",
+    "href": "waveform.html#normal-icp-waveform",
+    "title": "ICP Waveform",
+    "section": "Normal ICP Waveform",
+    "text": "Normal ICP Waveform\n\nNormal: P1 &gt; P2 &gt; P3 → intact intracranial compliance.\n\nP1: Arterial pulsation\nP2: Brain compliance\nP3: Venous outflow\n\nTakeaway: P2 should NEVER exceed P1.",
+    "crumbs": [
+      "Foundations",
+      "ICP Waveform"
+    ]
+  },
+  {
+    "objectID": "waveform.html#abnormal-icp-waveform",
+    "href": "waveform.html#abnormal-icp-waveform",
+    "title": "ICP Waveform",
+    "section": "Abnormal ICP Waveform",
+    "text": "Abnormal ICP Waveform\n\nAbnormal: P2 &gt; P1 → reduced intracranial compliance.\n\nEarly intracranial hypertension\nLoss of compensatory reserve\nPrecedes ICP elevation\n\n\n\n\n\n\n\nWarning\n\n\n\nEarly Warning: Waveform changes occur BEFORE ICP rises.",
+    "crumbs": [
+      "Foundations",
+      "ICP Waveform"
+    ]
+  },
+  {
+    "objectID": "waveform.html#how-to-examine-icp-waveform",
+    "href": "waveform.html#how-to-examine-icp-waveform",
+    "title": "ICP Waveform",
+    "section": "How to Examine ICP Waveform",
+    "text": "How to Examine ICP Waveform\nWatch how to interpret ICP waveform at the bedside:\n\n\n\n\n\n\n\nTip\n\n\n\nThink: Is P2 higher than P1? What does that imply about compliance?",
+    "crumbs": [
+      "Foundations",
+      "ICP Waveform"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EVD Toolkit",
+    "section": "",
+    "text": "A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.",
+    "crumbs": [
+      "🏠 Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-can-do-here",
+    "href": "index.html#what-you-can-do-here",
+    "title": "EVD Toolkit",
+    "section": "What You Can Do Here",
+    "text": "What You Can Do Here\n📘 Foundations\n\nWhat is an EVD\nEVD Settings\nICP Waveform\n\n🧑‍⚕️ Clinical Application\n\nApply to a Hypothetical Patient\nChecklist\nBest Practices\n\n📈 Safety & Quality Improvement\n\nQI Metrics\nInfection Prevention Bundle\nComplications\n\n🎓 Learning & Engagement\n\nEVD Quiz\nEducational Video\nEVD Systems (global variability)\n\n📚 Resources\n\nReferences\nFeedback\nAbout",
+    "crumbs": [
+      "🏠 Home"
+    ]
+  },
+  {
+    "objectID": "index.html#about-this-project",
+    "href": "index.html#about-this-project",
+    "title": "EVD Toolkit",
+    "section": "About This Project",
+    "text": "About This Project\nEVD practices vary widely across institutions, particularly in device setup, leveling, and management. This variability can lead to confusion, communication gaps, and potential safety risks.\nThe goal of this toolkit is to provide a standardized, visual, and practical approach to EVD education while recognizing real-world variability in systems and workflows.",
+    "crumbs": [
+      "🏠 Home"
+    ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "A quick-reference guide to safe, high-quality care when managing external ventricular drains.",
+    "crumbs": [
+      "Clinical Application",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#dos-and-donts",
+    "href": "best-practices.html#dos-and-donts",
+    "title": "Best Practices",
+    "section": "Do’s and Don’ts",
+    "text": "Do’s and Don’ts\n\n\n\n\n\n\n\nDo\nDon’t\n\n\n\n\n✔ Confirm EVD setting before interpreting ICP\n✖ Interpret ICP without knowing the drain setting\n\n\n✔ Check clamp status before transport or procedures\n✖ Keep EVD closed and not monitor ICP\n\n\n✔ Level the transducer at the tragus\n✖ Clamp EVD and leave the transducer at the level of the heart\n\n\n✔ Trend ICP and waveform together\n✖ Rely on a single ICP value\n\n\n✔ Minimize CSF system access\n✖ Access CSF unnecessarily\n\n\n✔ Use sterile technique for all handling\n✖ Break sterility during manipulation\n\n\n✔ Secure tubing to prevent dislodgement\n✖ Leave tubing unsecured\n\n\n✔ Communicate EVD status during handoffs\n✖ Assume others know the EVD setup\n\n\n✔ Monitor ICP during transport at all times\n✖ Transport without considering ICP risk\n\n\n✔ Reassess waveform if values seem inconsistent\n✖ Ignore dampened or abnormal waveforms",
+    "crumbs": [
+      "Clinical Application",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#csf-color-interpretation",
+    "href": "best-practices.html#csf-color-interpretation",
+    "title": "Best Practices",
+    "section": "CSF Color Interpretation",
+    "text": "CSF Color Interpretation\n\n\n\n\n\n\n\nCSF Appearance\nClinical Interpretation\n\n\n\n\nClear\nNormal CSF\n\n\nXanthochromia (yellow)\nSuggests prior hemorrhage or SAH breakdown products\n\n\nBloody\nMay indicate active bleeding, traumatic tap, or evolving hemorrhage\n\n\nCloudy\nConcerning for infection (e.g., ventriculitis)\n\n\nDebris / Particulate\nPossible clot breakdown, infection, or catheter obstruction\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nClinical Note: Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.",
+    "crumbs": [
+      "Clinical Application",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#key-takeaway",
+    "href": "best-practices.html#key-takeaway",
+    "title": "Best Practices",
+    "section": "Key Takeaway",
+    "text": "Key Takeaway\n\n\n\n\n\n\nTip\n\n\n\nClinical Pearl: Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.",
+    "crumbs": [
+      "Clinical Application",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "apply.html",
+    "href": "apply.html",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "",
+    "text": "A structured reflection tool prior to intra-hospital transport (IHT) with a clamped EVD.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "apply.html#before-you-transport-a-pause-point",
+    "href": "apply.html#before-you-transport-a-pause-point",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "",
+    "text": "A structured reflection tool prior to intra-hospital transport (IHT) with a clamped EVD.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "apply.html#what-has-been-described-in-the-literature",
+    "href": "apply.html#what-has-been-described-in-the-literature",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "What has been described in the literature?",
+    "text": "What has been described in the literature?\nRetrospective analyses have identified factors associated with ICP elevation ≥20 mmHg during transport when EVDs are clamped (Chaikittisilpa et al., 2017).\n\n\n\n\n\n\nImportant\n\n\n\n\nHigher baseline ICP\nHigher CSF output\nEVD open prior to transport\nUnplanned/emergent transport\nEarly ICU phase\n\n\n\nThese findings are derived from: Chaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. Neurocrit Care. 2017;26(2):196–204.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "apply.html#pause-and-reflect",
+    "href": "apply.html#pause-and-reflect",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "Pause and Reflect",
+    "text": "Pause and Reflect\n\nWhat is the ICP trend?\nIs the patient CSF-dependent?\nWhat is the waveform compliance?\nHow long will transport take?\nIs this emergent?",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "apply.html#exploratory-risk-model",
+    "href": "apply.html#exploratory-risk-model",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "Exploratory Risk Model",
+    "text": "Exploratory Risk Model\nEstimates probability of ICP elevation ≥20 mmHg during transport (derived from Chaikittisilpa et al., 2017).\n\nviewof icp = Inputs.select([\"&lt;15\", \"15–19\", \"≥20\"], {label: \"Baseline ICP\"})\nviewof intubated = Inputs.select([\"Yes\", \"No\"], {label: \"Intubated\"})\nviewof duration = Inputs.range([0, 120], {label: \"Transport Time (min)\", step: 1, value: 30})\nviewof days = Inputs.range([0, 30], {label: \"ICU Day\", step: 1, value: 5})\nviewof csf = Inputs.number({label: \"CSF Output (mL/hr)\", value: 5})\nviewof iht = Inputs.select([\"Therapeutic\", \"Diagnostic\"], {label: \"Transport Type\"})\nviewof unscheduled = Inputs.select([\"Yes\", \"No\"], {label: \"Unplanned\"})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrisk_icp = icp === \"&lt;15\" ? 1 : icp === \"15–19\" ? 3.4 : 12.94\nrisk_intubated = intubated === \"Yes\" ? 0.58 : 1\nrisk_duration = (duration / 10) * 0.95\nrisk_days = days * 0.97\nrisk_csf = csf * 1.11\nrisk_iht = iht === \"Therapeutic\" ? 5.82 : 1\nrisk_unscheduled = unscheduled === \"Yes\" ? 1.2 : 1\n\nrisk = risk_icp * risk_intubated * risk_duration * risk_days * risk_csf * risk_iht * risk_unscheduled * 0.118\nresult = Math.round(Math.min(risk, 100) * 10) / 10\n\ncategory = result &lt; 20 ? \"LOW RISK\" : result &lt; 50 ? \"MODERATE RISK\" : \"HIGH RISK\"\ncolor = result &lt; 20 ? \"#2ecc71\" : result &lt; 50 ? \"#f39c12\" : \"#e74c3c\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;div style=\"padding:18px;border-radius:12px;background:${color};color:white;font-size:18px;text-align:center;\"&gt;\n  &lt;strong&gt;${category}&lt;/strong&gt;&lt;br&gt;\n  ${result}% probability of ICP ≥20 mmHg\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat does this mean?\n\n\n\n\n\nThis model estimates the probability of ICP elevation ≥20 mmHg during transport with a clamped EVD, derived from retrospective data in Chaikittisilpa et al., 2017.\n\nLow Risk: minimal signal\nModerate Risk: consider mitigation strategies\nHigh Risk: strong signal → reassess transport plan\n\nNot prospectively validated. For educational use only.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "apply.html#clinical-takeaway",
+    "href": "apply.html#clinical-takeaway",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "Clinical Takeaway",
+    "text": "Clinical Takeaway\nUse this model as a cognitive aid. Final decisions should be guided by clinical judgment and team communication.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "apply.html#references",
+    "href": "apply.html#references",
+    "title": "Apply to a Hypothetical Patient",
+    "section": "References",
+    "text": "References\n\nChaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. Neurocrit Care. 2017;26(2):196–204. doi: 10.1007/s12028-016-0308-0. PubMed\n\n\n\n\n\n\n\nNote\n\n\n\nDisclaimer: This model is derived from retrospective data and is intended for educational use only. It does not provide clinical recommendations.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
+    "objectID": "basics.html",
+    "href": "basics.html",
+    "title": "What is an EVD",
+    "section": "",
+    "text": "An External Ventricular Drain (EVD) is a temporary device inserted into the ventricular system to allow controlled drainage of cerebrospinal fluid (CSF) and monitoring of intracranial pressure (ICP).\nIt is primarily used for temporary CSF diversion in patients with acute symptomatic hydrocephalus.\nGlobal Perspective: More than 60,000 EVDs are placed annually worldwide.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#what-is-an-external-ventricular-drain-evd",
+    "href": "basics.html#what-is-an-external-ventricular-drain-evd",
+    "title": "What is an EVD",
+    "section": "",
+    "text": "An External Ventricular Drain (EVD) is a temporary device inserted into the ventricular system to allow controlled drainage of cerebrospinal fluid (CSF) and monitoring of intracranial pressure (ICP).\nIt is primarily used for temporary CSF diversion in patients with acute symptomatic hydrocephalus.\nGlobal Perspective: More than 60,000 EVDs are placed annually worldwide.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#common-indications",
+    "href": "basics.html#common-indications",
+    "title": "What is an EVD",
+    "section": "Common Indications",
+    "text": "Common Indications\n\nSubarachnoid hemorrhage (SAH)\nIntraventricular hemorrhage (IVH)\nTraumatic brain injury with hydrocephalus\nPosterior fossa lesions causing obstruction\nCNS infections with hydrocephalus",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#ct-abnormalities",
+    "href": "basics.html#ct-abnormalities",
+    "title": "What is an EVD",
+    "section": "CT Abnormalities",
+    "text": "CT Abnormalities\n\n\n\n\n\n\nNoteCisternal blood (Basilar aneurysm rupture)\n\n\n\n\n\n\nCisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.\n\n\n\n\n\n\n\n\n\nNoteIntracerebral hemorrhage with intraventricular extension\n\n\n\n\n\n\nThalamic hemorrhage with intraventricular extension and hydrocephalus.\n\n\n\n\n\n\n\n\n\nNoteCerebellar ischemic stroke with edema\n\n\n\n\n\n\nCerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "basics.html#clinical-pearls",
+    "href": "basics.html#clinical-pearls",
+    "title": "What is an EVD",
+    "section": "Clinical Pearls",
+    "text": "Clinical Pearls\n\nLeveling matters: Always level the EVD at the tragus for accurate ICP measurement.\nDrain vs monitor: An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.\nTransport risk: Clamping an EVD during transport can lead to dangerous ICP elevations.\nOutput trends: A sudden drop in CSF output may indicate obstruction rather than improvement.\nInfection prevention: Maintain a closed system and minimize unnecessary access to reduce infection risk.",
+    "crumbs": [
+      "Foundations",
+      "What is an EVD"
+    ]
+  },
+  {
+    "objectID": "checklist.html",
+    "href": "checklist.html",
+    "title": "Transport Checklist",
+    "section": "",
+    "text": "Complete this checklist prior to intra-hospital transport or procedures.",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#pre-transport",
+    "href": "checklist.html#pre-transport",
+    "title": "Transport Checklist",
+    "section": "Pre-Transport",
+    "text": "Pre-Transport\n\npre_items = [\n  \"EVD leveled at tragus\",\n  \"Clamp status confirmed\",\n  \"EVD setting verified\",\n  \"ICP value reviewed\",\n  \"Waveform assessed\",\n  \"CSF output reviewed\",\n  \"Tubing secured\",\n  \"System integrity maintained\"\n]\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#during-transport",
+    "href": "checklist.html#during-transport",
+    "title": "Transport Checklist",
+    "section": "During Transport",
+    "text": "During Transport\n\nduring_items = [\n  \"ICP monitoring maintained\",\n  \"Head position maintained\",\n  \"Drain status appropriate\"\n]\nviewof during_checked = Inputs.checkbox(during_items, {label: \"\"})",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#readiness-status",
+    "href": "checklist.html#readiness-status",
+    "title": "Transport Checklist",
+    "section": "Readiness Status",
+    "text": "Readiness Status\n\ntotal = pre_items.length + during_items.length\ncompleted = pre_checked.length + during_checked.length\n\nhtml`&lt;div style=\"padding:15px;border-radius:10px;\n  background:${completed === total ? '#e8f5e9' : '#fdecea'};\n  border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};\"&gt;\n  ${completed === total\n    ? \"✅ Ready for Transport\"\n    : `⚠️ ${total - completed} item(s) remaining`}\n&lt;/div&gt;`",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "checklist.html#key-reference",
+    "href": "checklist.html#key-reference",
+    "title": "Transport Checklist",
+    "section": "Key Reference",
+    "text": "Key Reference\nEnhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training. Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067. PMID: 41235833",
+    "crumbs": [
+      "Clinical Application",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "settings.html",
+    "href": "settings.html",
+    "title": "EVD Settings",
+    "section": "",
+    "text": "The EVD setting represents the pressure threshold (cm H₂O) above which CSF will drain.",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
+    "objectID": "settings.html#the-three-common-settings",
+    "href": "settings.html#the-three-common-settings",
+    "title": "EVD Settings",
+    "section": "The Three Common Settings",
+    "text": "The Three Common Settings\n\n\n\n\n\n\nNote5 cm H₂O — Aggressive drainage\n\n\n\nUsed in patients with unresolved hydrocephalus or with low ICPs to facilitate CSF drainage.\n\n\n\n\n\n\n\n\nNote10 cm H₂O — Moderate drainage\n\n\n\nCommonly used after a ruptured aneurysm has been secured. Institutional practices may vary on the setting — please correlate with your institution’s practice.\n\n\n\n\n\n\n\n\nNote20 cm H₂O — Restricted drainage\n\n\n\nPrevents overdrainage before an aneurysm is secured.",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
+    "objectID": "settings.html#clinical-model",
+    "href": "settings.html#clinical-model",
+    "title": "EVD Settings",
+    "section": "Clinical Model",
+    "text": "Clinical Model\n\nEVD behaves like a pressure-regulated valve\nICP must exceed the setting for drainage\nSetting, ICP, and CSF output are interdependent\n\n\n\n\n\n\n\nTip\n\n\n\nClinical Pearl: Always interpret ICP in the context of the EVD setting.",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
+    "objectID": "settings.html#csf-output-mlhr",
+    "href": "settings.html#csf-output-mlhr",
+    "title": "EVD Settings",
+    "section": "CSF Output (mL/hr)",
+    "text": "CSF Output (mL/hr)\n\nHigh output → low setting OR elevated ICP\nLow output → high setting, low ICP, or obstruction\nTrend matters more than single values",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
+    "objectID": "settings.html#clamp-status",
+    "href": "settings.html#clamp-status",
+    "title": "EVD Settings",
+    "section": "Clamp Status",
+    "text": "Clamp Status\n\nOpen: CSF drains if ICP exceeds setting\nClamped: No drainage → ICP reflects true pressure\n\n\n\n\n\n\n\nWarning\n\n\n\nCritical: Interpretation changes completely when the EVD is clamped.",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
+    "objectID": "settings.html#leveling",
+    "href": "settings.html#leveling",
+    "title": "EVD Settings",
+    "section": "Leveling",
+    "text": "Leveling\n\nReference point = tragus\nSmall height errors → large pressure errors\nAlways confirm before interpreting ICP",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
+    "objectID": "settings.html#common-errors",
+    "href": "settings.html#common-errors",
+    "title": "EVD Settings",
+    "section": "Common Errors",
+    "text": "Common Errors\n\nIgnoring EVD setting\nNot checking clamp status\nMisinterpreting CSF output\nFailure to confirm leveling",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  }
+]

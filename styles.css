@@ -1,0 +1,11 @@
+.sidebar-title {
+  font-weight: 700;
+}
+
+.callout-pearl {
+  background: #eef6ff;
+  border-left: 5px solid #2c7be5;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
