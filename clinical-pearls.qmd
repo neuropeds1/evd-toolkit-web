@@ -1,11 +1,11 @@
 ---
-title: "High Yield"
+title: "Clinical Pearls"
 ---
 
-Condensed, testable facts across every section of the toolkit — a fast pre-shift or pre-exam review. Click a category to expand it.
+The most important things to know about EVDs — condensed, testable facts for a fast pre-shift or pre-exam review. Click a category to expand it.
 
 ```{ojs}
-highYieldFacts = {
+clinicalPearls = {
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
   const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
@@ -22,7 +22,7 @@ highYieldFacts = {
   const db = getFirestore(app);
 
   return Generators.observe(notify => {
-    const unsubscribe = onSnapshot(collection(db, "HighYield"), snapshot => {
+    const unsubscribe = onSnapshot(collection(db, "ClinicalPearls"), snapshot => {
       notify(snapshot.docs.map(d => d.data()));
     });
     return unsubscribe;
@@ -40,22 +40,22 @@ function categoryColor(name) {
 ```
 
 ```{ojs}
-groupedHighYield = {
+groupedPearls = {
   const groups = new Map();
-  highYieldFacts.forEach(f => {
-    const key = f.category ?? "Uncategorized";
+  clinicalPearls.forEach(p => {
+    const key = p.category ?? "Uncategorized";
     if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(f);
+    groups.get(key).push(p);
   });
   return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
 }
 ```
 
 ```{ojs}
-groupedHighYield.length === 0
-  ? html`<div class="fs-empty">No high-yield facts added yet — check back soon.</div>`
+groupedPearls.length === 0
+  ? html`<div class="fs-empty">No clinical pearls added yet — check back soon.</div>`
   : html`<div>
-    ${groupedHighYield.map(([category, items]) => {
+    ${groupedPearls.map(([category, items]) => {
       const color = categoryColor(category);
       return `
         <details class="fs-accordion">
@@ -65,7 +65,7 @@ groupedHighYield.length === 0
           </summary>
           <div class="fs-accordion-body">
             <ul style="margin:14px 0 6px;padding-left:20px;">
-              ${items.map(f => `<li style="margin-bottom:6px;">${f.fact ?? ""}</li>`).join("")}
+              ${items.map(p => `<li style="margin-bottom:6px;">${p.pearl ?? ""}</li>`).join("")}
             </ul>
           </div>
         </details>
