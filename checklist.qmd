@@ -1,0 +1,54 @@
+---
+title: "Transport Checklist"
+---
+
+Complete this checklist prior to intra-hospital transport or procedures.
+
+## Pre-Transport
+
+```{ojs}
+pre_items = [
+  "EVD leveled at tragus",
+  "Clamp status confirmed",
+  "EVD setting verified",
+  "ICP value reviewed",
+  "Waveform assessed",
+  "CSF output reviewed",
+  "Tubing secured",
+  "System integrity maintained"
+]
+viewof pre_checked = Inputs.checkbox(pre_items, {label: ""})
+```
+
+## During Transport
+
+```{ojs}
+during_items = [
+  "ICP monitoring maintained",
+  "Head position maintained",
+  "Drain status appropriate"
+]
+viewof during_checked = Inputs.checkbox(during_items, {label: ""})
+```
+
+## Readiness Status
+
+```{ojs}
+total = pre_items.length + during_items.length
+completed = pre_checked.length + during_checked.length
+
+html`<div style="padding:15px;border-radius:10px;
+  background:${completed === total ? '#e8f5e9' : '#fdecea'};
+  border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};">
+  ${completed === total
+    ? "✅ Ready for Transport"
+    : `⚠️ ${total - completed} item(s) remaining`}
+</div>`
+```
+
+## Key Reference
+
+**Enhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training.**
+Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV.
+J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067.
+[PMID: 41235833](https://pubmed.ncbi.nlm.nih.gov/41235833)

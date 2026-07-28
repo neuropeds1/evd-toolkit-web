@@ -1,0 +1,40 @@
+---
+title: "Best Practices"
+---
+
+A quick-reference guide to safe, high-quality care when managing external ventricular drains.
+
+## Do's and Don'ts
+
+| Do | Don't |
+|---|---|
+| ✔ Confirm EVD setting before interpreting ICP | ✖ Interpret ICP without knowing the drain setting |
+| ✔ Check clamp status before transport or procedures | ✖ Keep EVD closed and not monitor ICP |
+| ✔ Level the transducer at the tragus | ✖ Clamp EVD and leave the transducer at the level of the heart |
+| ✔ Trend ICP and waveform together | ✖ Rely on a single ICP value |
+| ✔ Minimize CSF system access | ✖ Access CSF unnecessarily |
+| ✔ Use sterile technique for all handling | ✖ Break sterility during manipulation |
+| ✔ Secure tubing to prevent dislodgement | ✖ Leave tubing unsecured |
+| ✔ Communicate EVD status during handoffs | ✖ Assume others know the EVD setup |
+| ✔ Monitor ICP during transport at all times | ✖ Transport without considering ICP risk |
+| ✔ Reassess waveform if values seem inconsistent | ✖ Ignore dampened or abnormal waveforms |
+
+## CSF Color Interpretation
+
+| CSF Appearance | Clinical Interpretation |
+|---|---|
+| **Clear** | Normal CSF |
+| **Xanthochromia (yellow)** | Suggests prior hemorrhage or SAH breakdown products |
+| **Bloody** | May indicate active bleeding, traumatic tap, or evolving hemorrhage |
+| **Cloudy** | Concerning for infection (e.g., ventriculitis) |
+| **Debris / Particulate** | Possible clot breakdown, infection, or catheter obstruction |
+
+::: {.callout-warning}
+**Clinical Note:** Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.
+:::
+
+## Key Takeaway
+
+::: {.callout-tip}
+**Clinical Pearl:** Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.
+:::

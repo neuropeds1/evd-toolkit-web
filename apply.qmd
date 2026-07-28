@@ -1,0 +1,90 @@
+---
+title: "Apply to a Hypothetical Patient"
+---
+
+## Before You Transport: A Pause Point
+
+A structured reflection tool prior to intra-hospital transport (IHT) with a clamped EVD.
+
+## What has been described in the literature?
+
+Retrospective analyses have identified factors associated with **ICP elevation ≥20 mmHg during transport** when EVDs are clamped ([Chaikittisilpa et al., 2017](https://pubmed.ncbi.nlm.nih.gov/27757914)).
+
+::: {.callout-important}
+- Higher baseline ICP
+- Higher CSF output
+- EVD open prior to transport
+- Unplanned/emergent transport
+- Early ICU phase
+:::
+
+*These findings are derived from: Chaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. Neurocrit Care. 2017;26(2):196–204.*
+
+## Pause and Reflect
+
+- What is the ICP trend?
+- Is the patient CSF-dependent?
+- What is the waveform compliance?
+- How long will transport take?
+- Is this emergent?
+
+## Exploratory Risk Model
+
+Estimates probability of ICP elevation ≥20 mmHg during transport (derived from Chaikittisilpa et al., 2017).
+
+```{ojs}
+viewof icp = Inputs.select(["<15", "15–19", "≥20"], {label: "Baseline ICP"})
+viewof intubated = Inputs.select(["Yes", "No"], {label: "Intubated"})
+viewof duration = Inputs.range([0, 120], {label: "Transport Time (min)", step: 1, value: 30})
+viewof days = Inputs.range([0, 30], {label: "ICU Day", step: 1, value: 5})
+viewof csf = Inputs.number({label: "CSF Output (mL/hr)", value: 5})
+viewof iht = Inputs.select(["Therapeutic", "Diagnostic"], {label: "Transport Type"})
+viewof unscheduled = Inputs.select(["Yes", "No"], {label: "Unplanned"})
+```
+
+```{ojs}
+risk_icp = icp === "<15" ? 1 : icp === "15–19" ? 3.4 : 12.94
+risk_intubated = intubated === "Yes" ? 0.58 : 1
+risk_duration = (duration / 10) * 0.95
+risk_days = days * 0.97
+risk_csf = csf * 1.11
+risk_iht = iht === "Therapeutic" ? 5.82 : 1
+risk_unscheduled = unscheduled === "Yes" ? 1.2 : 1
+
+risk = risk_icp * risk_intubated * risk_duration * risk_days * risk_csf * risk_iht * risk_unscheduled * 0.118
+result = Math.round(Math.min(risk, 100) * 10) / 10
+
+category = result < 20 ? "LOW RISK" : result < 50 ? "MODERATE RISK" : "HIGH RISK"
+color = result < 20 ? "#2ecc71" : result < 50 ? "#f39c12" : "#e74c3c"
+```
+
+```{ojs}
+html`<div style="padding:18px;border-radius:12px;background:${color};color:white;font-size:18px;text-align:center;">
+  <strong>${category}</strong><br>
+  ${result}% probability of ICP ≥20 mmHg
+</div>`
+```
+
+::: {.callout-tip collapse="true"}
+### What does this mean?
+
+This model estimates the probability of **ICP elevation ≥20 mmHg during transport with a clamped EVD**, derived from retrospective data in Chaikittisilpa et al., 2017.
+
+- **Low Risk:** minimal signal
+- **Moderate Risk:** consider mitigation strategies
+- **High Risk:** strong signal → reassess transport plan
+
+*Not prospectively validated. For educational use only.*
+:::
+
+## Clinical Takeaway
+
+Use this model as a cognitive aid. Final decisions should be guided by clinical judgment and team communication.
+
+## References
+
+1. Chaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. *Neurocrit Care.* 2017;26(2):196–204. doi: 10.1007/s12028-016-0308-0. [PubMed](https://pubmed.ncbi.nlm.nih.gov/27757914)
+
+::: {.callout-note}
+**Disclaimer:** This model is derived from retrospective data and is intended for educational use only. It does not provide clinical recommendations.
+:::

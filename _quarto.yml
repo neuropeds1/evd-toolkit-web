@@ -1,0 +1,39 @@
+project:
+  type: website
+
+website:
+  title: "EVD Toolkit"
+  page-footer:
+    center: "EVD Toolkit — educational use only, does not replace clinical judgment or institutional guidance."
+  sidebar:
+    style: "docked"
+    background: dark
+    search: true
+    contents:
+      - text: "🏠 Home"
+        href: index.qmd
+      - section: "Foundations"
+        contents:
+          - text: "What is an EVD"
+            href: basics.qmd
+          - text: "EVD Settings"
+            href: settings.qmd
+          - text: "ICP Waveform"
+            href: waveform.qmd
+      - section: "Clinical Application"
+        contents:
+          - text: "Apply to a Patient"
+            href: apply.qmd
+          - text: "Checklist"
+            href: checklist.qmd
+          - text: "Best Practices"
+            href: best-practices.qmd
+
+format:
+  html:
+    theme:
+      light: cosmo
+    css: styles.css
+    toc: true
+    grid:
+      sidebar-width: 260px

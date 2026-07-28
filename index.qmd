@@ -1,0 +1,43 @@
+---
+title: "EVD Toolkit"
+---
+
+A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.
+
+## What You Can Do Here
+
+**📘 Foundations**
+
+- What is an EVD
+- EVD Settings
+- ICP Waveform
+
+**🧑‍⚕️ Clinical Application**
+
+- Apply to a Hypothetical Patient
+- Checklist
+- Best Practices
+
+**📈 Safety & Quality Improvement**
+
+- QI Metrics
+- Infection Prevention Bundle
+- Complications
+
+**🎓 Learning & Engagement**
+
+- EVD Quiz
+- Educational Video
+- EVD Systems (global variability)
+
+**📚 Resources**
+
+- References
+- Feedback
+- About
+
+## About This Project
+
+EVD practices vary widely across institutions, particularly in device setup, leveling, and management. This variability can lead to confusion, communication gaps, and potential safety risks.
+
+The goal of this toolkit is to provide a standardized, visual, and practical approach to EVD education while recognizing real-world variability in systems and workflows.

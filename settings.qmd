@@ -1,0 +1,60 @@
+---
+title: "EVD Settings"
+---
+
+The EVD setting represents the pressure threshold (cm H₂O) above which CSF will drain.
+
+## The Three Common Settings
+
+::: {.callout-note}
+### 5 cm H₂O — Aggressive drainage
+Used in patients with unresolved hydrocephalus or with low ICPs to facilitate CSF drainage.
+:::
+
+::: {.callout-note}
+### 10 cm H₂O — Moderate drainage
+Commonly used after a ruptured aneurysm has been secured. Institutional practices may vary on the setting — please correlate with your institution's practice.
+:::
+
+::: {.callout-note}
+### 20 cm H₂O — Restricted drainage
+Prevents overdrainage before an aneurysm is secured.
+:::
+
+## Clinical Model
+
+- EVD behaves like a pressure-regulated valve
+- ICP must exceed the setting for drainage
+- Setting, ICP, and CSF output are interdependent
+
+::: {.callout-tip}
+**Clinical Pearl:** Always interpret ICP in the context of the EVD setting.
+:::
+
+## CSF Output (mL/hr)
+
+- High output → low setting OR elevated ICP
+- Low output → high setting, low ICP, or obstruction
+- Trend matters more than single values
+
+## Clamp Status
+
+- **Open:** CSF drains if ICP exceeds setting
+- **Clamped:** No drainage → ICP reflects true pressure
+
+::: {.callout-warning}
+**Critical:** Interpretation changes completely when the EVD is clamped.
+:::
+
+## Leveling
+
+- Reference point = tragus
+- Small height errors → large pressure errors
+- Always confirm before interpreting ICP
+
+## Common Errors
+
+- Ignoring EVD setting
+- Not checking clamp status
+- Misinterpreting CSF output
+- Failure to confirm leveling
