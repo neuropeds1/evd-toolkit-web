@@ -1,0 +1,159 @@
+---
+title: "Complications"
+---
+
+Recognize complications early. Understand patterns. Prevent avoidable harm.
+
+::: {.callout-tip}
+### Normal / Expected Position
+**Target:** Frontal horn near foramen of Monro.
+
+- Tip should float freely in CSF
+- Avoid ventricular wall contact
+- Confirm on CT after placement
+:::
+
+## By Category
+
+```{ojs}
+complications = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Live listener — updates automatically whenever Complications
+  // changes in Firestore, no page reload needed.
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "Complications"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+// Deterministic color per category name — same category always
+// gets the same color, no manual mapping to maintain.
+function categoryColor(name) {
+  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
+```
+
+```{ojs}
+// Curated prevention pearls / clinical insights per category. Add more
+// entries here as new categories are added to Firestore.
+categoryPearls = ({
+  "Hemorrhage": {
+    prevention: [
+      "Correct coagulopathy and antiplatelet effects BEFORE placement",
+      "Minimize number of attempts",
+      "Avoid blind repeated passes",
+      "Use navigation tools when available"
+    ],
+    insight: [
+      "Small tract bleeds are common — large bleeds are not",
+      "Correlate CT findings with exam + ICP changes"
+    ]
+  },
+  "Malposition": {
+    prevention: [
+      "Use anatomical landmarks carefully (Kocher's point)",
+      "Use neuro-navigation tools when available",
+      "Consider adjunct learning tools: simulation training, virtual reality modules"
+    ],
+    insight: [
+      "Low CSF output ≠ low ICP",
+      "A dampened waveform → think malposition"
+    ]
+  },
+  "Pneumocephalus": {
+    prevention: [
+      "Usually benign",
+      "Avoid unnecessary disconnections",
+      "Maintain a closed sterile system"
+    ],
+    insight: []
+  }
+})
+```
+
+```{ojs}
+groupedComplications = {
+  const groups = new Map();
+  complications.forEach(c => {
+    const key = c.category ?? "Uncategorized";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(c);
+  });
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+```
+
+```{ojs}
+groupedComplications.length === 0
+  ? html`<div class="fs-empty">No complications documented yet — check back soon.</div>`
+  : html`<div>
+    ${groupedComplications.map(([category, items]) => {
+      const color = categoryColor(category);
+      const pearls = categoryPearls[category];
+      const pearlsHtml = pearls ? `
+        <div class="callout-pearl" style="margin-top:14px;">
+          ${pearls.prevention.length ? `
+            <strong>💡 Prevention Pearls</strong>
+            <ul style="margin:8px 0 12px;padding-left:20px;">
+              ${pearls.prevention.map(p => `<li style="margin-bottom:4px;">${p}</li>`).join("")}
+            </ul>
+          ` : ""}
+          ${pearls.insight.length ? `
+            <strong>⚠️ Clinical Insight</strong>
+            <ul style="margin:8px 0 0;padding-left:20px;">
+              ${pearls.insight.map(p => `<li style="margin-bottom:4px;">${p}</li>`).join("")}
+            </ul>
+          ` : ""}
+        </div>
+      ` : "";
+
+      return `
+        <details class="fs-accordion">
+          <summary class="fs-accordion-summary" style="background:${color};">
+            <span class="fs-accordion-name">${category}</span>
+            <span class="fs-accordion-count">${items.length}</span>
+          </summary>
+          <div class="fs-accordion-body">
+            ${pearlsHtml}
+            <div class="fs-grid" style="margin-top:14px;">
+              ${items.map(c => `
+                <div class="fs-card">
+                  <img class="fs-card-image" src="${c.imageURL ?? ""}" onerror="this.style.display='none'" />
+                  <div class="fs-card-body">
+                    <h4 class="fs-card-title">${c.title ?? "Untitled"}</h4>
+                    <p class="fs-card-desc">${c.description ?? ""}</p>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </details>
+      `;
+    }).join("")}
+  </div>`
+```
+
+::: {.callout-note}
+See [References](references.qmd) for the full citations supporting this page (PMID: 28169966, 26738503).
+:::

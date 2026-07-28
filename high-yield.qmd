@@ -1,0 +1,75 @@
+---
+title: "High Yield"
+---
+
+Condensed, testable facts across every section of the toolkit — a fast pre-shift or pre-exam review. Click a category to expand it.
+
+```{ojs}
+highYieldFacts = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "HighYield"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+function categoryColor(name) {
+  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
+```
+
+```{ojs}
+groupedHighYield = {
+  const groups = new Map();
+  highYieldFacts.forEach(f => {
+    const key = f.category ?? "Uncategorized";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(f);
+  });
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+```
+
+```{ojs}
+groupedHighYield.length === 0
+  ? html`<div class="fs-empty">No high-yield facts added yet — check back soon.</div>`
+  : html`<div>
+    ${groupedHighYield.map(([category, items]) => {
+      const color = categoryColor(category);
+      return `
+        <details class="fs-accordion">
+          <summary class="fs-accordion-summary" style="background:${color};">
+            <span class="fs-accordion-name">${category}</span>
+            <span class="fs-accordion-count">${items.length}</span>
+          </summary>
+          <div class="fs-accordion-body">
+            <ul style="margin:14px 0 6px;padding-left:20px;">
+              ${items.map(f => `<li style="margin-bottom:6px;">${f.fact ?? ""}</li>`).join("")}
+            </ul>
+          </div>
+        </details>
+      `;
+    }).join("")}
+  </div>`
+```

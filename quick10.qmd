@@ -1,0 +1,51 @@
+---
+title: "Quick 10"
+---
+
+The absolute must-knows — if you remember nothing else, remember these.
+
+```{ojs}
+quick10Facts = {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "Quick10"), snapshot => {
+      notify(
+        snapshot.docs
+          .map(d => d.data())
+          .sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+      );
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+quick10Facts.length === 0
+  ? html`<div class="fs-empty">No facts added yet — check back soon.</div>`
+  : html`<details class="fs-accordion" open>
+      <summary class="fs-accordion-summary" style="background:#2c7be5;">
+        <span class="fs-accordion-name">🔟 Quick 10</span>
+        <span class="fs-accordion-count">${quick10Facts.length}</span>
+      </summary>
+      <div class="fs-accordion-body">
+        <ol style="margin:14px 0 6px;padding-left:20px;font-size:16px;line-height:1.9;">
+          ${quick10Facts.map(f => `<li>${f.fact ?? ""}</li>`).join("")}
+        </ol>
+      </div>
+    </details>`
+```

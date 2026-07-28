@@ -12,6 +12,10 @@ website:
     contents:
       - text: "🏠 Home"
         href: index.qmd
+      - text: "⚡ High Yield"
+        href: high-yield.qmd
+      - text: "🔟 Quick 10"
+        href: quick10.qmd
       - section: "Foundations"
         contents:
           - text: "What is an EVD"
@@ -44,6 +48,8 @@ website:
             href: qi-metrics.qmd
           - text: "Infection Prevention Bundle"
             href: bundle.qmd
+          - text: "Complications"
+            href: complications.qmd
       - section: "Resources"
         contents:
           - text: "References"
