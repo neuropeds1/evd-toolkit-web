@@ -70,7 +70,8 @@ leafletApi = {
 cityCoords = ({
   "Karachi": { lat: 24.8607, lng: 67.0011 },
   "Seattle": { lat: 47.6062, lng: -122.3321 },
-  "Chapel Hill": { lat: 35.9132, lng: -79.0558 }
+  "Chapel Hill": { lat: 35.9132, lng: -79.0558 },
+  "Toronto": { lat: 43.6532, lng: -79.3832 }
 })
 ```
 
