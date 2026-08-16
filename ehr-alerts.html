@@ -46,6 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-25936e55b689ef23fa44ff03791d9a0a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -397,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/identify_icp.png" class="img-fluid figure-img"></p>
+<p><a href="images/identify_icp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Example screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices."><img src="images/identify_icp.png" class="img-fluid figure-img" alt="Example screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices."></a></p>
 <figcaption>Example screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices.</figcaption>
 </figure>
 </div>
@@ -418,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The goal is to improve perioperative situational awareness before transport or operating room transfer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/preop_review.png" class="img-fluid figure-img"></p>
+<p><a href="images/preop_review.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Example EHR perioperative workflow screen displaying ICP trends, CSF output, and transport readiness documentation."><img src="images/preop_review.png" class="img-fluid figure-img" alt="Example EHR perioperative workflow screen displaying ICP trends, CSF output, and transport readiness documentation."></a></p>
 <figcaption>Example EHR perioperative workflow screen displaying ICP trends, CSF output, and transport readiness documentation.</figcaption>
 </figure>
 </div>
@@ -448,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Structured documentation may improve communication across ICU, transport, anesthesia, and neurosurgical teams.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/pearl_or.png" class="img-fluid figure-img"></p>
+<p><a href="images/pearl_or.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Example intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields."><img src="images/pearl_or.png" class="img-fluid figure-img" alt="Example intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields."></a></p>
 <figcaption>Example intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.</figcaption>
 </figure>
 </div>
@@ -457,6 +460,22 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<div id="fs-lightbox-overlay" onclick="fsCloseLightbox()">
+  <img id="fs-lightbox-img" src="" alt="">
+</div>
+<script>
+function fsOpenLightbox(src) {
+  if (!src) return;
+  document.getElementById('fs-lightbox-img').src = src;
+  document.getElementById('fs-lightbox-overlay').classList.add('open');
+}
+function fsCloseLightbox() {
+  document.getElementById('fs-lightbox-overlay').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') fsCloseLightbox();
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -894,6 +913,38 @@ onSnapshot(counterRef, snapshot => {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

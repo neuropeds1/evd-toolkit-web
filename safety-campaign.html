@@ -46,6 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-25936e55b689ef23fa44ff03791d9a0a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -385,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/snacc_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="max-height:90px;"></p>
+<p><a href="images/snacc_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/snacc_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="max-height:90px;"></a></p>
 </figure>
 </div>
 <p>Explore the EVD Safety Campaign through educational resources, global outreach initiatives, campaign deliverables, multidisciplinary collaboration, and participation opportunities.</p>
@@ -578,6 +581,22 @@ Warning
 </section>
 
 </main> <!-- /main -->
+<div id="fs-lightbox-overlay" onclick="fsCloseLightbox()">
+  <img id="fs-lightbox-img" src="" alt="">
+</div>
+<script>
+function fsOpenLightbox(src) {
+  if (!src) return;
+  document.getElementById('fs-lightbox-img').src = src;
+  document.getElementById('fs-lightbox-overlay').classList.add('open');
+}
+function fsCloseLightbox() {
+  document.getElementById('fs-lightbox-overlay').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') fsCloseLightbox();
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1015,6 +1034,38 @@ onSnapshot(counterRef, snapshot => {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

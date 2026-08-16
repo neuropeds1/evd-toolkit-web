@@ -134,6 +134,38 @@ table td {
   object-fit: cover;
   background: #f1f3f5;
   display: block;
+  cursor: zoom-in;
+}
+
+/* ============================================
+   Click-to-enlarge overlay for Firestore/OJS-
+   injected images (fs-card-image and friends),
+   which the native Quarto lightbox can't reach
+   since they're inserted client-side at runtime.
+   ============================================ */
+
+#fs-lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 20, 0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  cursor: zoom-out;
+}
+
+#fs-lightbox-overlay.open {
+  display: flex;
+}
+
+#fs-lightbox-img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: default;
 }
 
 .fs-card-body {
