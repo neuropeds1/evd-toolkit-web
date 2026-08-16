@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Video Library – EVD Toolkit</title>
+<title>Downloads – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./video.html">🎬 Must-See Videos</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./downloads.html">More</a></li><li class="breadcrumb-item"><a href="./downloads.html">Downloads</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./video.html" class="sidebar-item-text sidebar-link active">
+  <a href="./video.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🎬 Must-See Videos</span></a>
   </div>
 </li>
@@ -323,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./downloads.html" class="sidebar-item-text sidebar-link">
+  <a href="./downloads.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Downloads</span></a>
   </div>
 </li>
@@ -380,17 +380,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#videos" id="toc-videos" class="nav-link active" data-scroll-target="#videos">Videos</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#educational-resources" id="toc-educational-resources" class="nav-link" data-scroll-target="#educational-resources">Educational Resources</a></li>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions">Future Directions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./video.html">🎬 Must-See Videos</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./downloads.html">More</a></li><li class="breadcrumb-item"><a href="./downloads.html">Downloads</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Video Library</h1>
+<h1 class="title">Downloads</h1>
 </div>
 
 
@@ -407,35 +408,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>How-To: A Video Library of Must-See Videos</strong> — learn key principles of External Ventricular Drain (EVD) management through SNACC educational resources.</p>
-<section id="videos" class="level2">
-<h2 class="anchored" data-anchor-id="videos">Videos</h2>
+<p>Educational PDFs and bedside resources.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="9" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 8;"><span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>videos <span class="op">=</span> {</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Live listener — updates automatically whenever Videos</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// changes in Firestore, no page reload needed.</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"Videos"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>downloadsData <span class="op">=</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> textItems <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> resources <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> emit <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="fu">notify</span>({ textItems<span class="op">,</span> resources })<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubText <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"DownloadsText"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      textItems <span class="op">=</span> snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>())<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">emit</span>()<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubResources <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"Downloads"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      resources <span class="op">=</span> snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>())<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> (a<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>) <span class="op">-</span> (b<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>))<span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="fu">emit</span>()<span class="op">;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> () <span class="kw">=&gt;</span> { <span class="fu">unsubText</span>()<span class="op">;</span> <span class="fu">unsubResources</span>()<span class="op">;</span> }<span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -443,19 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="37" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 36;"><span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">youtubeId</span>(url) {</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>url) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> patterns <span class="op">=</span> [</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="ss">/youtu</span><span class="sc">\.</span><span class="ss">be</span><span class="sc">\/([a-zA-Z0-9_-]+)</span><span class="ss">/</span><span class="op">,</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="ss">/youtube</span><span class="sc">\.</span><span class="ss">com</span><span class="sc">\/</span><span class="ss">watch</span><span class="sc">\?</span><span class="ss">v=</span><span class="sc">([a-zA-Z0-9_-]+)</span><span class="ss">/</span><span class="op">,</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="ss">/youtube</span><span class="sc">\.</span><span class="ss">com</span><span class="sc">\/</span><span class="ss">embed</span><span class="sc">\/([a-zA-Z0-9_-]+)</span><span class="ss">/</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> p <span class="kw">of</span> patterns) {</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> m <span class="op">=</span> url<span class="op">.</span><span class="fu">match</span>(p)<span class="op">;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (m) <span class="cf">return</span> m[<span class="dv">1</span>]<span class="op">;</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="43" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 42;"><span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>overviewParagraphs <span class="op">=</span> downloadsData<span class="op">.</span><span class="at">textItems</span><span class="op">.</span><span class="fu">filter</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">section</span> <span class="op">===</span> <span class="st">"overview"</span>)<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> (a<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>) <span class="op">-</span> (b<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -463,118 +458,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="53" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 52;"><span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">// Deterministic color per category name — same category always</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co">// gets the same color, no manual mapping to maintain.</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">categoryColor</span>(name) {</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> palette <span class="op">=</span> [<span class="st">"#2c7be5"</span><span class="op">,</span> <span class="st">"#27ae60"</span><span class="op">,</span> <span class="st">"#e67e22"</span><span class="op">,</span> <span class="st">"#8e44ad"</span><span class="op">,</span> <span class="st">"#e74c3c"</span><span class="op">,</span> <span class="st">"#16a2b8"</span><span class="op">,</span> <span class="st">"#d63384"</span><span class="op">,</span> <span class="st">"#6c757d"</span>]<span class="op">;</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> name<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) hash <span class="op">=</span> name<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">+</span> ((hash <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">-</span> hash)<span class="op">;</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> palette[<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(hash) <span class="op">%</span> palette<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="47" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 46;"><span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>futureDirections <span class="op">=</span> downloadsData<span class="op">.</span><span class="at">textItems</span><span class="op">.</span><span class="fu">filter</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">section</span> <span class="op">===</span> <span class="st">"futureDirections"</span>)<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> (a<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>) <span class="op">-</span> (b<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="64" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 63;"><span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>videoCategories <span class="op">=</span> [<span class="st">"All"</span><span class="op">,</span> <span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>(videos<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> v<span class="op">.</span><span class="at">category</span>)<span class="op">.</span><span class="fu">filter</span>(<span class="bu">Boolean</span>))]<span class="op">.</span><span class="fu">sort</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="53" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 52;"><span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>overviewParagraphs<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading…&lt;/div&gt;`</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>overviewParagraphs<span class="op">.</span><span class="fu">map</span>(p <span class="kw">=&gt;</span> <span class="vs">`&lt;p&gt;</span><span class="sc">${</span>p<span class="op">.</span><span class="at">text</span><span class="sc">}</span><span class="vs">&lt;/p&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="68" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 67;"><span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>viewof videoCategoryFilter <span class="op">=</span> {</span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-filters"&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="st">"All"</span><span class="op">;</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">draw</span>() {</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    container<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    videoCategories<span class="op">.</span><span class="fu">forEach</span>(cat <span class="kw">=&gt;</span> {</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> isActive <span class="op">=</span> cat <span class="op">===</span> container<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> color <span class="op">=</span> cat <span class="op">===</span> <span class="st">"All"</span> <span class="op">?</span> <span class="st">"#2c7be5"</span> <span class="op">:</span> <span class="fu">categoryColor</span>(cat)<span class="op">;</span></span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> pill <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button type="button" class="fs-filter-pill</span><span class="sc">${</span>isActive <span class="op">?</span> <span class="st">" active"</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>cat<span class="sc">}</span><span class="vs">&lt;/button&gt;`</span><span class="op">;</span></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (isActive) {</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>        pill<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">background</span> <span class="op">=</span> color<span class="op">;</span></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>        pill<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">borderColor</span> <span class="op">=</span> color<span class="op">;</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>      pill<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>        container<span class="op">.</span><span class="at">value</span> <span class="op">=</span> cat<span class="op">;</span></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>        container<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))<span class="op">;</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>        <span class="fu">draw</span>()<span class="op">;</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>      }<span class="op">;</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>      container<span class="op">.</span><span class="fu">appendChild</span>(pill)<span class="op">;</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw</span>()<span class="op">;</span></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-5" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="96" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 95;"><span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>filteredVideos <span class="op">=</span> videoCategoryFilter <span class="op">===</span> <span class="st">"All"</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> videos</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> videos<span class="op">.</span><span class="fu">filter</span>(v <span class="kw">=&gt;</span> v<span class="op">.</span><span class="at">category</span> <span class="op">===</span> videoCategoryFilter)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-6" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="102" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 101;"><span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="fs-grid"&gt;</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>filteredVideos<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="vs">`&lt;div class="fs-empty"&gt;No videos found in this category yet.&lt;/div&gt;`</span></span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> filteredVideos<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> {</span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> id <span class="op">=</span> <span class="fu">youtubeId</span>(v<span class="op">.</span><span class="at">url</span>)<span class="op">;</span></span>
-<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> embed <span class="op">=</span> id</span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>          <span class="op">?</span> <span class="vs">`&lt;iframe class="fs-card-image" style="height:200px;border:none;" src="https://www.youtube.com/embed/</span><span class="sc">${</span>id<span class="sc">}</span><span class="vs">" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;`</span></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>          <span class="op">:</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="vs">`</span></span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-card"&gt;</span></span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>embed<span class="sc">}</span></span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="fs-card-body"&gt;</span></span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>v<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>v<span class="op">.</span><span class="at">subtitle</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>v<span class="op">.</span><span class="at">category</span> <span class="op">?</span> <span class="vs">`&lt;span class="fs-badge" style="background:</span><span class="sc">${</span><span class="fu">categoryColor</span>(v<span class="op">.</span><span class="at">category</span>)<span class="sc">}</span><span class="vs">;"&gt;</span><span class="sc">${</span>v<span class="op">.</span><span class="at">category</span><span class="sc">}</span><span class="vs">&lt;/span&gt;`</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/div&gt;</span></span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="vs">        `</span><span class="op">;</span></span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>      })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-7" data-nodetype="expression">
+<div id="ojs-cell-4" data-nodetype="expression">
 
 </div>
 </div>
 </div>
 </section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Understand how EVD systems function</li>
-<li>Recognize proper leveling and setup</li>
-<li>Interpret intracranial pressure (ICP) values</li>
-<li>Identify common pitfalls and safety risks</li>
-<li>Apply concepts to clinical practice</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="educational-resources" class="level2">
+<h2 class="anchored" data-anchor-id="educational-resources">Educational Resources</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="61" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 60;"><span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>downloadsData<span class="op">.</span><span class="at">resources</span><span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading…&lt;/div&gt;`</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-grid"&gt;</span><span class="sc">${</span>downloadsData<span class="op">.</span><span class="at">resources</span><span class="op">.</span><span class="fu">map</span>(r <span class="kw">=&gt;</span> {</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> hasWebLink <span class="op">=</span> <span class="op">!!</span>r<span class="op">.</span><span class="at">pdfURL</span><span class="op">;</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="vs">`</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="fs-card"&gt;</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-card-body"&gt;</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>r<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>r<span class="op">.</span><span class="at">subtitle</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>hasWebLink</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>              <span class="op">?</span> <span class="vs">`&lt;a class="fs-card-link" href="</span><span class="sc">${</span>r<span class="op">.</span><span class="at">pdfURL</span><span class="sc">}</span><span class="vs">" target="_blank"&gt;Open PDF →&lt;/a&gt;`</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>              <span class="op">:</span> <span class="vs">`&lt;span class="fs-badge" style="background:#8e44ad;"&gt;Available in the mobile app&lt;/span&gt;`</span><span class="sc">}</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="vs">      `</span><span class="op">;</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="expression">
+
 </div>
-<div class="callout-title-container flex-fill">
-Tip
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><strong>Clinical Tip:</strong> Pause each video and reflect on how each concept applies to your own clinical environment.</p>
+</section>
+<section id="future-directions" class="level2">
+<h2 class="anchored" data-anchor-id="future-directions">Future Directions</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="82" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 81;"><span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>futureDirections<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading…&lt;/div&gt;`</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;ul&gt;</span><span class="sc">${</span>futureDirections<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> <span class="vs">`&lt;li&gt;</span><span class="sc">${</span>f<span class="op">.</span><span class="at">text</span><span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span><span class="vs">&lt;/ul&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="expression">
+
+</div>
 </div>
 </div>
 
@@ -583,7 +522,7 @@ Tip
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZGVvcyA9IHtcbiAgY29uc3QgeyBpbml0aWFsaXplQXBwLCBnZXRBcHBzLCBnZXRBcHAgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1hcHAuanNcIik7XG4gIGNvbnN0IHsgZ2V0RmlyZXN0b3JlLCBjb2xsZWN0aW9uLCBvblNuYXBzaG90IH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtZmlyZXN0b3JlLmpzXCIpO1xuXG4gIGNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xuICAgIGFwaUtleTogXCJBSXphU3lEMUZMbklyZDg2cU9zRlBMaTV5MXFfRUlVMGxoTDVneGNcIixcbiAgICBhdXRoRG9tYWluOiBcImV2ZHRvb2xraXQuZmlyZWJhc2VhcHAuY29tXCIsXG4gICAgcHJvamVjdElkOiBcImV2ZHRvb2xraXRcIixcbiAgICBzdG9yYWdlQnVja2V0OiBcImV2ZHRvb2xraXQuZmlyZWJhc2VzdG9yYWdlLmFwcFwiLFxuICAgIG1lc3NhZ2luZ1NlbmRlcklkOiBcIjEwMDIzNzQ0MzExNTFcIixcbiAgICBhcHBJZDogXCIxOjEwMDIzNzQ0MzExNTE6d2ViOmZlMzcyNGJiMWYzOWViNDc0NGFmNWFcIlxuICB9O1xuXG4gIGNvbnN0IGFwcCA9IGdldEFwcHMoKS5sZW5ndGggPyBnZXRBcHAoKSA6IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xuICBjb25zdCBkYiA9IGdldEZpcmVzdG9yZShhcHApO1xuXG4gIC8vIExpdmUgbGlzdGVuZXIg4oCUIHVwZGF0ZXMgYXV0b21hdGljYWxseSB3aGVuZXZlciBWaWRlb3NcbiAgLy8gY2hhbmdlcyBpbiBGaXJlc3RvcmUsIG5vIHBhZ2UgcmVsb2FkIG5lZWRlZC5cbiAgcmV0dXJuIEdlbmVyYXRvcnMub2JzZXJ2ZShub3RpZnkgPT4ge1xuICAgIGNvbnN0IHVuc3Vic2NyaWJlID0gb25TbmFwc2hvdChjb2xsZWN0aW9uKGRiLCBcIlZpZGVvc1wiKSwgc25hcHNob3QgPT4ge1xuICAgICAgbm90aWZ5KHNuYXBzaG90LmRvY3MubWFwKGQgPT4gZC5kYXRhKCkpKTtcbiAgICB9KTtcbiAgICByZXR1cm4gdW5zdWJzY3JpYmU7XG4gIH0pO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnVuY3Rpb24geW91dHViZUlkKHVybCkge1xuICBpZiAoIXVybCkgcmV0dXJuIG51bGw7XG4gIGNvbnN0IHBhdHRlcm5zID0gW1xuICAgIC95b3V0dVxcLmJlXFwvKFthLXpBLVowLTlfLV0rKS8sXG4gICAgL3lvdXR1YmVcXC5jb21cXC93YXRjaFxcP3Y9KFthLXpBLVowLTlfLV0rKS8sXG4gICAgL3lvdXR1YmVcXC5jb21cXC9lbWJlZFxcLyhbYS16QS1aMC05Xy1dKykvXG4gIF07XG4gIGZvciAoY29uc3QgcCBvZiBwYXR0ZXJucykge1xuICAgIGNvbnN0IG0gPSB1cmwubWF0Y2gocCk7XG4gICAgaWYgKG0pIHJldHVybiBtWzFdO1xuICB9XG4gIHJldHVybiBudWxsO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gRGV0ZXJtaW5pc3RpYyBjb2xvciBwZXIgY2F0ZWdvcnkgbmFtZSDigJQgc2FtZSBjYXRlZ29yeSBhbHdheXNcbi8vIGdldHMgdGhlIHNhbWUgY29sb3IsIG5vIG1hbnVhbCBtYXBwaW5nIHRvIG1haW50YWluLlxuZnVuY3Rpb24gY2F0ZWdvcnlDb2xvcihuYW1lKSB7XG4gIGNvbnN0IHBhbGV0dGUgPSBbXCIjMmM3YmU1XCIsIFwiIzI3YWU2MFwiLCBcIiNlNjdlMjJcIiwgXCIjOGU0NGFkXCIsIFwiI2U3NGMzY1wiLCBcIiMxNmEyYjhcIiwgXCIjZDYzMzg0XCIsIFwiIzZjNzU3ZFwiXTtcbiAgbGV0IGhhc2ggPSAwO1xuICBmb3IgKGxldCBpID0gMDsgaSA8IG5hbWUubGVuZ3RoOyBpKyspIGhhc2ggPSBuYW1lLmNoYXJDb2RlQXQoaSkgKyAoKGhhc2ggPDwgNSkgLSBoYXNoKTtcbiAgcmV0dXJuIHBhbGV0dGVbTWF0aC5hYnMoaGFzaCkgJSBwYWxldHRlLmxlbmd0aF07XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWRlb0NhdGVnb3JpZXMgPSBbXCJBbGxcIiwgLi4ubmV3IFNldCh2aWRlb3MubWFwKHYgPT4gdi5jYXRlZ29yeSkuZmlsdGVyKEJvb2xlYW4pKV0uc29ydCgpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgdmlkZW9DYXRlZ29yeUZpbHRlciA9IHtcbiAgY29uc3QgY29udGFpbmVyID0gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZmlsdGVyc1wiPjwvZGl2PmA7XG4gIGNvbnRhaW5lci52YWx1ZSA9IFwiQWxsXCI7XG5cbiAgZnVuY3Rpb24gZHJhdygpIHtcbiAgICBjb250YWluZXIuaW5uZXJIVE1MID0gXCJcIjtcbiAgICB2aWRlb0NhdGVnb3JpZXMuZm9yRWFjaChjYXQgPT4ge1xuICAgICAgY29uc3QgaXNBY3RpdmUgPSBjYXQgPT09IGNvbnRhaW5lci52YWx1ZTtcbiAgICAgIGNvbnN0IGNvbG9yID0gY2F0ID09PSBcIkFsbFwiID8gXCIjMmM3YmU1XCIgOiBjYXRlZ29yeUNvbG9yKGNhdCk7XG4gICAgICBjb25zdCBwaWxsID0gaHRtbGA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImZzLWZpbHRlci1waWxsJHtpc0FjdGl2ZSA/IFwiIGFjdGl2ZVwiIDogXCJcIn1cIj4ke2NhdH08L2J1dHRvbj5gO1xuICAgICAgaWYgKGlzQWN0aXZlKSB7XG4gICAgICAgIHBpbGwuc3R5bGUuYmFja2dyb3VuZCA9IGNvbG9yO1xuICAgICAgICBwaWxsLnN0eWxlLmJvcmRlckNvbG9yID0gY29sb3I7XG4gICAgICB9XG4gICAgICBwaWxsLm9uY2xpY2sgPSAoKSA9PiB7XG4gICAgICAgIGNvbnRhaW5lci52YWx1ZSA9IGNhdDtcbiAgICAgICAgY29udGFpbmVyLmRpc3BhdGNoRXZlbnQobmV3IEN1c3RvbUV2ZW50KFwiaW5wdXRcIikpO1xuICAgICAgICBkcmF3KCk7XG4gICAgICB9O1xuICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHBpbGwpO1xuICAgIH0pO1xuICB9XG4gIGRyYXcoKTtcbiAgcmV0dXJuIGNvbnRhaW5lcjtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZpbHRlcmVkVmlkZW9zID0gdmlkZW9DYXRlZ29yeUZpbHRlciA9PT0gXCJBbGxcIlxuICA/IHZpZGVvc1xuICA6IHZpZGVvcy5maWx0ZXIodiA9PiB2LmNhdGVnb3J5ID09PSB2aWRlb0NhdGVnb3J5RmlsdGVyKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZ3JpZFwiPlxuICAke2ZpbHRlcmVkVmlkZW9zLmxlbmd0aCA9PT0gMFxuICAgID8gYDxkaXYgY2xhc3M9XCJmcy1lbXB0eVwiPk5vIHZpZGVvcyBmb3VuZCBpbiB0aGlzIGNhdGVnb3J5IHlldC48L2Rpdj5gXG4gICAgOiBmaWx0ZXJlZFZpZGVvcy5tYXAodiA9PiB7XG4gICAgICAgIGNvbnN0IGlkID0geW91dHViZUlkKHYudXJsKTtcbiAgICAgICAgY29uc3QgZW1iZWQgPSBpZFxuICAgICAgICAgID8gYDxpZnJhbWUgY2xhc3M9XCJmcy1jYXJkLWltYWdlXCIgc3R5bGU9XCJoZWlnaHQ6MjAwcHg7Ym9yZGVyOm5vbmU7XCIgc3JjPVwiaHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvJHtpZH1cIiBhbGxvdz1cImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBjbGlwYm9hcmQtd3JpdGU7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmVcIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+YFxuICAgICAgICAgIDogXCJcIjtcbiAgICAgICAgcmV0dXJuIGBcbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZFwiPlxuICAgICAgICAgICAgJHtlbWJlZH1cbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1jYXJkLWJvZHlcIj5cbiAgICAgICAgICAgICAgPGg0IGNsYXNzPVwiZnMtY2FyZC10aXRsZVwiPiR7di50aXRsZSA/PyBcIlVudGl0bGVkXCJ9PC9oND5cbiAgICAgICAgICAgICAgPHAgY2xhc3M9XCJmcy1jYXJkLWRlc2NcIj4ke3Yuc3VidGl0bGUgPz8gXCJcIn08L3A+XG4gICAgICAgICAgICAgICR7di5jYXRlZ29yeSA/IGA8c3BhbiBjbGFzcz1cImZzLWJhZGdlXCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7Y2F0ZWdvcnlDb2xvcih2LmNhdGVnb3J5KX07XCI+JHt2LmNhdGVnb3J5fTwvc3Bhbj5gIDogXCJcIn1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICBgO1xuICAgICAgfSkuam9pbihcIlwiKX1cbjwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndmlkZW9DYXRlZ29yeUZpbHRlcicpIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImRvd25sb2Fkc0RhdGEgPSB7XG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCwgZ2V0QXBwcywgZ2V0QXBwIH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtYXBwLmpzXCIpO1xuICBjb25zdCB7IGdldEZpcmVzdG9yZSwgY29sbGVjdGlvbiwgb25TbmFwc2hvdCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWZpcmVzdG9yZS5qc1wiKTtcblxuICBjb25zdCBmaXJlYmFzZUNvbmZpZyA9IHtcbiAgICBhcGlLZXk6IFwiQUl6YVN5RDFGTG5JcmQ4NnFPc0ZQTGk1eTFxX0VJVTBsaEw1Z3hjXCIsXG4gICAgYXV0aERvbWFpbjogXCJldmR0b29sa2l0LmZpcmViYXNlYXBwLmNvbVwiLFxuICAgIHByb2plY3RJZDogXCJldmR0b29sa2l0XCIsXG4gICAgc3RvcmFnZUJ1Y2tldDogXCJldmR0b29sa2l0LmZpcmViYXNlc3RvcmFnZS5hcHBcIixcbiAgICBtZXNzYWdpbmdTZW5kZXJJZDogXCIxMDAyMzc0NDMxMTUxXCIsXG4gICAgYXBwSWQ6IFwiMToxMDAyMzc0NDMxMTUxOndlYjpmZTM3MjRiYjFmMzllYjQ3NDRhZjVhXCJcbiAgfTtcblxuICBjb25zdCBhcHAgPSBnZXRBcHBzKCkubGVuZ3RoID8gZ2V0QXBwKCkgOiBpbml0aWFsaXplQXBwKGZpcmViYXNlQ29uZmlnKTtcbiAgY29uc3QgZGIgPSBnZXRGaXJlc3RvcmUoYXBwKTtcblxuICByZXR1cm4gR2VuZXJhdG9ycy5vYnNlcnZlKG5vdGlmeSA9PiB7XG4gICAgbGV0IHRleHRJdGVtcyA9IFtdO1xuICAgIGxldCByZXNvdXJjZXMgPSBbXTtcbiAgICBjb25zdCBlbWl0ID0gKCkgPT4gbm90aWZ5KHsgdGV4dEl0ZW1zLCByZXNvdXJjZXMgfSk7XG5cbiAgICBjb25zdCB1bnN1YlRleHQgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiRG93bmxvYWRzVGV4dFwiKSwgc25hcHNob3QgPT4ge1xuICAgICAgdGV4dEl0ZW1zID0gc25hcHNob3QuZG9jcy5tYXAoZCA9PiBkLmRhdGEoKSk7XG4gICAgICBlbWl0KCk7XG4gICAgfSk7XG4gICAgY29uc3QgdW5zdWJSZXNvdXJjZXMgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiRG93bmxvYWRzXCIpLCBzbmFwc2hvdCA9PiB7XG4gICAgICByZXNvdXJjZXMgPSBzbmFwc2hvdC5kb2NzLm1hcChkID0+IGQuZGF0YSgpKS5zb3J0KChhLCBiKSA9PiAoYS5vcmRlciA/PyAwKSAtIChiLm9yZGVyID8/IDApKTtcbiAgICAgIGVtaXQoKTtcbiAgICB9KTtcblxuICAgIHJldHVybiAoKSA9PiB7IHVuc3ViVGV4dCgpOyB1bnN1YlJlc291cmNlcygpOyB9O1xuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im92ZXJ2aWV3UGFyYWdyYXBocyA9IGRvd25sb2Fkc0RhdGEudGV4dEl0ZW1zLmZpbHRlcih0ID0+IHQuc2VjdGlvbiA9PT0gXCJvdmVydmlld1wiKS5zb3J0KChhLCBiKSA9PiAoYS5vcmRlciA/PyAwKSAtIChiLm9yZGVyID8/IDApKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnV0dXJlRGlyZWN0aW9ucyA9IGRvd25sb2Fkc0RhdGEudGV4dEl0ZW1zLmZpbHRlcih0ID0+IHQuc2VjdGlvbiA9PT0gXCJmdXR1cmVEaXJlY3Rpb25zXCIpLnNvcnQoKGEsIGIpID0+IChhLm9yZGVyID8/IDApIC0gKGIub3JkZXIgPz8gMCkpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJvdmVydmlld1BhcmFncmFwaHMubGVuZ3RoID09PSAwXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5Mb2FkaW5n4oCmPC9kaXY+YFxuICA6IGh0bWxgPGRpdj4ke292ZXJ2aWV3UGFyYWdyYXBocy5tYXAocCA9PiBgPHA+JHtwLnRleHR9PC9wPmApLmpvaW4oXCJcIil9PC9kaXY+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZG93bmxvYWRzRGF0YS5yZXNvdXJjZXMubGVuZ3RoID09PSAwXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5Mb2FkaW5n4oCmPC9kaXY+YFxuICA6IGh0bWxgPGRpdiBjbGFzcz1cImZzLWdyaWRcIj4ke2Rvd25sb2Fkc0RhdGEucmVzb3VyY2VzLm1hcChyID0+IHtcbiAgICAgIGNvbnN0IGhhc1dlYkxpbmsgPSAhIXIucGRmVVJMO1xuICAgICAgcmV0dXJuIGBcbiAgICAgICAgPGRpdiBjbGFzcz1cImZzLWNhcmRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZC1ib2R5XCI+XG4gICAgICAgICAgICA8aDQgY2xhc3M9XCJmcy1jYXJkLXRpdGxlXCI+JHtyLnRpdGxlID8/IFwiVW50aXRsZWRcIn08L2g0PlxuICAgICAgICAgICAgPHAgY2xhc3M9XCJmcy1jYXJkLWRlc2NcIj4ke3Iuc3VidGl0bGUgPz8gXCJcIn08L3A+XG4gICAgICAgICAgICAke2hhc1dlYkxpbmtcbiAgICAgICAgICAgICAgPyBgPGEgY2xhc3M9XCJmcy1jYXJkLWxpbmtcIiBocmVmPVwiJHtyLnBkZlVSTH1cIiB0YXJnZXQ9XCJfYmxhbmtcIj5PcGVuIFBERiDihpI8L2E+YFxuICAgICAgICAgICAgICA6IGA8c3BhbiBjbGFzcz1cImZzLWJhZGdlXCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiM4ZTQ0YWQ7XCI+QXZhaWxhYmxlIGluIHRoZSBtb2JpbGUgYXBwPC9zcGFuPmB9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgYDtcbiAgICB9KS5qb2luKFwiXCIpfTwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1dHVyZURpcmVjdGlvbnMubGVuZ3RoID09PSAwXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5Mb2FkaW5n4oCmPC9kaXY+YFxuICA6IGh0bWxgPHVsPiR7ZnV0dXJlRGlyZWN0aW9ucy5tYXAoZiA9PiBgPGxpPiR7Zi50ZXh0fTwvbGk+YCkuam9pbihcIlwiKX08L3VsPmBcbiJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

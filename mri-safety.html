@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Video Library – EVD Toolkit</title>
+<title>MRI Safety – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./video.html">🎬 Must-See Videos</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./transport-icp-risk.html">Transport &amp; MRI Safety</a></li><li class="breadcrumb-item"><a href="./mri-safety.html">MRI Safety</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./video.html" class="sidebar-item-text sidebar-link active">
+  <a href="./video.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🎬 Must-See Videos</span></a>
   </div>
 </li>
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mri-safety.html" class="sidebar-item-text sidebar-link">
+  <a href="./mri-safety.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">MRI Safety</span></a>
   </div>
 </li>
@@ -375,22 +375,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#videos" id="toc-videos" class="nav-link active" data-scroll-target="#videos">Videos</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./video.html">🎬 Must-See Videos</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./transport-icp-risk.html">Transport &amp; MRI Safety</a></li><li class="breadcrumb-item"><a href="./mri-safety.html">MRI Safety</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Video Library</h1>
+<h1 class="title">MRI Safety</h1>
 </div>
 
 
@@ -407,35 +400,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>How-To: A Video Library of Must-See Videos</strong> — learn key principles of External Ventricular Drain (EVD) management through SNACC educational resources.</p>
-<section id="videos" class="level2">
-<h2 class="anchored" data-anchor-id="videos">Videos</h2>
+<p>EVD considerations before and during MRI. Click a category to expand it.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="9" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 8;"><span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>videos <span class="op">=</span> {</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Live listener — updates automatically whenever Videos</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// changes in Firestore, no page reload needed.</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"Videos"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mriData <span class="op">=</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> doc<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> overview <span class="op">=</span> <span class="st">"Loading..."</span><span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> steps <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> emit <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="fu">notify</span>({ overview<span class="op">,</span> steps })<span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubOverview <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">doc</span>(db<span class="op">,</span> <span class="st">"MRISafety"</span><span class="op">,</span> <span class="st">"overview"</span>)<span class="op">,</span> snap <span class="kw">=&gt;</span> {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      overview <span class="op">=</span> snap<span class="op">.</span><span class="fu">data</span>()<span class="op">?.</span><span class="at">text</span> <span class="op">??</span> overview<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">emit</span>()<span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubSteps <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"MRISafetySteps"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>      steps <span class="op">=</span> snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>())<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="fu">emit</span>()<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> () <span class="kw">=&gt;</span> { <span class="fu">unsubOverview</span>()<span class="op">;</span> <span class="fu">unsubSteps</span>()<span class="op">;</span> }<span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -443,19 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="37" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 36;"><span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">youtubeId</span>(url) {</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>url) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> patterns <span class="op">=</span> [</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="ss">/youtu</span><span class="sc">\.</span><span class="ss">be</span><span class="sc">\/([a-zA-Z0-9_-]+)</span><span class="ss">/</span><span class="op">,</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="ss">/youtube</span><span class="sc">\.</span><span class="ss">com</span><span class="sc">\/</span><span class="ss">watch</span><span class="sc">\?</span><span class="ss">v=</span><span class="sc">([a-zA-Z0-9_-]+)</span><span class="ss">/</span><span class="op">,</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="ss">/youtube</span><span class="sc">\.</span><span class="ss">com</span><span class="sc">\/</span><span class="ss">embed</span><span class="sc">\/([a-zA-Z0-9_-]+)</span><span class="ss">/</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> p <span class="kw">of</span> patterns) {</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> m <span class="op">=</span> url<span class="op">.</span><span class="fu">match</span>(p)<span class="op">;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (m) <span class="cf">return</span> m[<span class="dv">1</span>]<span class="op">;</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="45" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 44;"><span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>overviewText <span class="op">=</span> mriData<span class="op">.</span><span class="at">overview</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -463,14 +452,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="53" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 52;"><span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">// Deterministic color per category name — same category always</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co">// gets the same color, no manual mapping to maintain.</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">categoryColor</span>(name) {</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> palette <span class="op">=</span> [<span class="st">"#2c7be5"</span><span class="op">,</span> <span class="st">"#27ae60"</span><span class="op">,</span> <span class="st">"#e67e22"</span><span class="op">,</span> <span class="st">"#8e44ad"</span><span class="op">,</span> <span class="st">"#e74c3c"</span><span class="op">,</span> <span class="st">"#16a2b8"</span><span class="op">,</span> <span class="st">"#d63384"</span><span class="op">,</span> <span class="st">"#6c757d"</span>]<span class="op">;</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> name<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) hash <span class="op">=</span> name<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">+</span> ((hash <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">-</span> hash)<span class="op">;</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> palette[<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(hash) <span class="op">%</span> palette<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="49" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 48;"><span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co">// Group steps by category, sorted by categoryOrder then step order --</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">// mirrors MRISafetyViewModel's `group()` function in the app.</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>groupedSteps <span class="op">=</span> {</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> groups <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  mriData<span class="op">.</span><span class="at">steps</span><span class="op">.</span><span class="fu">forEach</span>(s <span class="kw">=&gt;</span> {</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> s<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Uncategorized"</span><span class="op">;</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>groups<span class="op">.</span><span class="fu">has</span>(key)) groups<span class="op">.</span><span class="fu">set</span>(key<span class="op">,</span> { <span class="dt">categoryOrder</span><span class="op">:</span> s<span class="op">.</span><span class="at">categoryOrder</span> <span class="op">??</span> <span class="dv">999</span><span class="op">,</span> steps<span class="op">:</span> [] })<span class="op">;</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    groups<span class="op">.</span><span class="fu">get</span>(key)<span class="op">.</span><span class="at">steps</span><span class="op">.</span><span class="fu">push</span>(s)<span class="op">;</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>groups<span class="op">.</span><span class="fu">entries</span>()]</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> { categoryOrder<span class="op">,</span> steps }]) <span class="kw">=&gt;</span> [category<span class="op">,</span> categoryOrder<span class="op">,</span> steps<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> (a<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>) <span class="op">-</span> (b<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>))])</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a[<span class="dv">1</span>] <span class="op">-</span> b[<span class="dv">1</span>])<span class="op">;</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
 
@@ -478,112 +472,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="64" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 63;"><span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>videoCategories <span class="op">=</span> [<span class="st">"All"</span><span class="op">,</span> <span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>(videos<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> v<span class="op">.</span><span class="at">category</span>)<span class="op">.</span><span class="fu">filter</span>(<span class="bu">Boolean</span>))]<span class="op">.</span><span class="fu">sort</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="65" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 64;"><span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">categoryColor</span>(name) {</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> palette <span class="op">=</span> [<span class="st">"#2c7be5"</span><span class="op">,</span> <span class="st">"#27ae60"</span><span class="op">,</span> <span class="st">"#e67e22"</span><span class="op">,</span> <span class="st">"#8e44ad"</span><span class="op">,</span> <span class="st">"#e74c3c"</span><span class="op">,</span> <span class="st">"#16a2b8"</span><span class="op">,</span> <span class="st">"#d63384"</span><span class="op">,</span> <span class="st">"#6c757d"</span>]<span class="op">;</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> name<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) hash <span class="op">=</span> name<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">+</span> ((hash <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">-</span> hash)<span class="op">;</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> palette[<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(hash) <span class="op">%</span> palette<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="68" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 67;"><span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>viewof videoCategoryFilter <span class="op">=</span> {</span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-filters"&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="st">"All"</span><span class="op">;</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">draw</span>() {</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    container<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    videoCategories<span class="op">.</span><span class="fu">forEach</span>(cat <span class="kw">=&gt;</span> {</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> isActive <span class="op">=</span> cat <span class="op">===</span> container<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> color <span class="op">=</span> cat <span class="op">===</span> <span class="st">"All"</span> <span class="op">?</span> <span class="st">"#2c7be5"</span> <span class="op">:</span> <span class="fu">categoryColor</span>(cat)<span class="op">;</span></span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> pill <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button type="button" class="fs-filter-pill</span><span class="sc">${</span>isActive <span class="op">?</span> <span class="st">" active"</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>cat<span class="sc">}</span><span class="vs">&lt;/button&gt;`</span><span class="op">;</span></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (isActive) {</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>        pill<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">background</span> <span class="op">=</span> color<span class="op">;</span></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>        pill<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">borderColor</span> <span class="op">=</span> color<span class="op">;</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>      pill<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>        container<span class="op">.</span><span class="at">value</span> <span class="op">=</span> cat<span class="op">;</span></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>        container<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))<span class="op">;</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>        <span class="fu">draw</span>()<span class="op">;</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>      }<span class="op">;</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>      container<span class="op">.</span><span class="fu">appendChild</span>(pill)<span class="op">;</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw</span>()<span class="op">;</span></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-5" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="96" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 95;"><span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>filteredVideos <span class="op">=</span> videoCategoryFilter <span class="op">===</span> <span class="st">"All"</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> videos</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> videos<span class="op">.</span><span class="fu">filter</span>(v <span class="kw">=&gt;</span> v<span class="op">.</span><span class="at">category</span> <span class="op">===</span> videoCategoryFilter)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-6" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="102" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 101;"><span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="fs-grid"&gt;</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>filteredVideos<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="vs">`&lt;div class="fs-empty"&gt;No videos found in this category yet.&lt;/div&gt;`</span></span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> filteredVideos<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> {</span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> id <span class="op">=</span> <span class="fu">youtubeId</span>(v<span class="op">.</span><span class="at">url</span>)<span class="op">;</span></span>
-<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> embed <span class="op">=</span> id</span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>          <span class="op">?</span> <span class="vs">`&lt;iframe class="fs-card-image" style="height:200px;border:none;" src="https://www.youtube.com/embed/</span><span class="sc">${</span>id<span class="sc">}</span><span class="vs">" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;`</span></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>          <span class="op">:</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="vs">`</span></span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-card"&gt;</span></span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>embed<span class="sc">}</span></span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="fs-card-body"&gt;</span></span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>v<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>v<span class="op">.</span><span class="at">subtitle</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>v<span class="op">.</span><span class="at">category</span> <span class="op">?</span> <span class="vs">`&lt;span class="fs-badge" style="background:</span><span class="sc">${</span><span class="fu">categoryColor</span>(v<span class="op">.</span><span class="at">category</span>)<span class="sc">}</span><span class="vs">;"&gt;</span><span class="sc">${</span>v<span class="op">.</span><span class="at">category</span><span class="sc">}</span><span class="vs">&lt;/span&gt;`</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/div&gt;</span></span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="vs">        `</span><span class="op">;</span></span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>      })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-7" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Understand how EVD systems function</li>
-<li>Recognize proper leveling and setup</li>
-<li>Interpret intracranial pressure (ICP) values</li>
-<li>Identify common pitfalls and safety risks</li>
-<li>Apply concepts to clinical practice</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Clinical Tip:</strong> Pause each video and reflect on how each concept applies to your own clinical environment.</p>
+<p><strong>Clinical Overview:</strong> <span><span id="ojs-element-id-1"></span></span></p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="78" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 77;"><span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>groupedSteps<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading MRI safety steps…&lt;/div&gt;`</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>groupedSteps<span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> order<span class="op">,</span> steps]) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> color <span class="op">=</span> <span class="fu">categoryColor</span>(category)<span class="op">;</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="vs">`</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;details class="fs-accordion"&gt;</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;summary class="fs-accordion-summary" style="background:</span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">;"&gt;</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;span class="fs-accordion-name"&gt;</span><span class="sc">${</span>category<span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;span class="fs-accordion-count"&gt;</span><span class="sc">${</span>steps<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/summary&gt;</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-accordion-body"&gt;</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="fs-grid" style="margin-top:12px;"&gt;</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>steps<span class="op">.</span><span class="fu">map</span>(s <span class="kw">=&gt;</span> <span class="vs">`</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;div class="fs-card"&gt;</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="vs">                  </span><span class="sc">${</span>s<span class="op">.</span><span class="at">imageURL</span> <span class="op">?</span> <span class="vs">`&lt;img class="fs-card-image" src="</span><span class="sc">${</span>s<span class="op">.</span><span class="at">imageURL</span><span class="sc">}</span><span class="vs">" onerror="this.style.display='none'" /&gt;`</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;div class="fs-card-body"&gt;</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>s<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled step"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>s<span class="op">.</span><span class="at">detail</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;/div&gt;</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;/div&gt;</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="vs">              `</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/div&gt;</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/details&gt;</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="vs">      `</span><span class="op">;</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Follow Institutional Protocol:</strong> This content is educational only and does not replace institutional MRI safety screening protocols, manufacturer device labeling, or clinical judgment.</p>
 </div>
 </div>
 
 
-</section>
+<div class="ojs-auto-generated hidden">
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7b3ZlcnZpZXdUZXh0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtMSJ9XX0=
+</script>
+</div>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZGVvcyA9IHtcbiAgY29uc3QgeyBpbml0aWFsaXplQXBwLCBnZXRBcHBzLCBnZXRBcHAgfSA9IGF3YWl0IGltcG9ydChcImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tL2ZpcmViYXNlanMvMTAuMTQuMS9maXJlYmFzZS1hcHAuanNcIik7XG4gIGNvbnN0IHsgZ2V0RmlyZXN0b3JlLCBjb2xsZWN0aW9uLCBvblNuYXBzaG90IH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtZmlyZXN0b3JlLmpzXCIpO1xuXG4gIGNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xuICAgIGFwaUtleTogXCJBSXphU3lEMUZMbklyZDg2cU9zRlBMaTV5MXFfRUlVMGxoTDVneGNcIixcbiAgICBhdXRoRG9tYWluOiBcImV2ZHRvb2xraXQuZmlyZWJhc2VhcHAuY29tXCIsXG4gICAgcHJvamVjdElkOiBcImV2ZHRvb2xraXRcIixcbiAgICBzdG9yYWdlQnVja2V0OiBcImV2ZHRvb2xraXQuZmlyZWJhc2VzdG9yYWdlLmFwcFwiLFxuICAgIG1lc3NhZ2luZ1NlbmRlcklkOiBcIjEwMDIzNzQ0MzExNTFcIixcbiAgICBhcHBJZDogXCIxOjEwMDIzNzQ0MzExNTE6d2ViOmZlMzcyNGJiMWYzOWViNDc0NGFmNWFcIlxuICB9O1xuXG4gIGNvbnN0IGFwcCA9IGdldEFwcHMoKS5sZW5ndGggPyBnZXRBcHAoKSA6IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xuICBjb25zdCBkYiA9IGdldEZpcmVzdG9yZShhcHApO1xuXG4gIC8vIExpdmUgbGlzdGVuZXIg4oCUIHVwZGF0ZXMgYXV0b21hdGljYWxseSB3aGVuZXZlciBWaWRlb3NcbiAgLy8gY2hhbmdlcyBpbiBGaXJlc3RvcmUsIG5vIHBhZ2UgcmVsb2FkIG5lZWRlZC5cbiAgcmV0dXJuIEdlbmVyYXRvcnMub2JzZXJ2ZShub3RpZnkgPT4ge1xuICAgIGNvbnN0IHVuc3Vic2NyaWJlID0gb25TbmFwc2hvdChjb2xsZWN0aW9uKGRiLCBcIlZpZGVvc1wiKSwgc25hcHNob3QgPT4ge1xuICAgICAgbm90aWZ5KHNuYXBzaG90LmRvY3MubWFwKGQgPT4gZC5kYXRhKCkpKTtcbiAgICB9KTtcbiAgICByZXR1cm4gdW5zdWJzY3JpYmU7XG4gIH0pO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnVuY3Rpb24geW91dHViZUlkKHVybCkge1xuICBpZiAoIXVybCkgcmV0dXJuIG51bGw7XG4gIGNvbnN0IHBhdHRlcm5zID0gW1xuICAgIC95b3V0dVxcLmJlXFwvKFthLXpBLVowLTlfLV0rKS8sXG4gICAgL3lvdXR1YmVcXC5jb21cXC93YXRjaFxcP3Y9KFthLXpBLVowLTlfLV0rKS8sXG4gICAgL3lvdXR1YmVcXC5jb21cXC9lbWJlZFxcLyhbYS16QS1aMC05Xy1dKykvXG4gIF07XG4gIGZvciAoY29uc3QgcCBvZiBwYXR0ZXJucykge1xuICAgIGNvbnN0IG0gPSB1cmwubWF0Y2gocCk7XG4gICAgaWYgKG0pIHJldHVybiBtWzFdO1xuICB9XG4gIHJldHVybiBudWxsO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gRGV0ZXJtaW5pc3RpYyBjb2xvciBwZXIgY2F0ZWdvcnkgbmFtZSDigJQgc2FtZSBjYXRlZ29yeSBhbHdheXNcbi8vIGdldHMgdGhlIHNhbWUgY29sb3IsIG5vIG1hbnVhbCBtYXBwaW5nIHRvIG1haW50YWluLlxuZnVuY3Rpb24gY2F0ZWdvcnlDb2xvcihuYW1lKSB7XG4gIGNvbnN0IHBhbGV0dGUgPSBbXCIjMmM3YmU1XCIsIFwiIzI3YWU2MFwiLCBcIiNlNjdlMjJcIiwgXCIjOGU0NGFkXCIsIFwiI2U3NGMzY1wiLCBcIiMxNmEyYjhcIiwgXCIjZDYzMzg0XCIsIFwiIzZjNzU3ZFwiXTtcbiAgbGV0IGhhc2ggPSAwO1xuICBmb3IgKGxldCBpID0gMDsgaSA8IG5hbWUubGVuZ3RoOyBpKyspIGhhc2ggPSBuYW1lLmNoYXJDb2RlQXQoaSkgKyAoKGhhc2ggPDwgNSkgLSBoYXNoKTtcbiAgcmV0dXJuIHBhbGV0dGVbTWF0aC5hYnMoaGFzaCkgJSBwYWxldHRlLmxlbmd0aF07XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWRlb0NhdGVnb3JpZXMgPSBbXCJBbGxcIiwgLi4ubmV3IFNldCh2aWRlb3MubWFwKHYgPT4gdi5jYXRlZ29yeSkuZmlsdGVyKEJvb2xlYW4pKV0uc29ydCgpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgdmlkZW9DYXRlZ29yeUZpbHRlciA9IHtcbiAgY29uc3QgY29udGFpbmVyID0gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZmlsdGVyc1wiPjwvZGl2PmA7XG4gIGNvbnRhaW5lci52YWx1ZSA9IFwiQWxsXCI7XG5cbiAgZnVuY3Rpb24gZHJhdygpIHtcbiAgICBjb250YWluZXIuaW5uZXJIVE1MID0gXCJcIjtcbiAgICB2aWRlb0NhdGVnb3JpZXMuZm9yRWFjaChjYXQgPT4ge1xuICAgICAgY29uc3QgaXNBY3RpdmUgPSBjYXQgPT09IGNvbnRhaW5lci52YWx1ZTtcbiAgICAgIGNvbnN0IGNvbG9yID0gY2F0ID09PSBcIkFsbFwiID8gXCIjMmM3YmU1XCIgOiBjYXRlZ29yeUNvbG9yKGNhdCk7XG4gICAgICBjb25zdCBwaWxsID0gaHRtbGA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImZzLWZpbHRlci1waWxsJHtpc0FjdGl2ZSA/IFwiIGFjdGl2ZVwiIDogXCJcIn1cIj4ke2NhdH08L2J1dHRvbj5gO1xuICAgICAgaWYgKGlzQWN0aXZlKSB7XG4gICAgICAgIHBpbGwuc3R5bGUuYmFja2dyb3VuZCA9IGNvbG9yO1xuICAgICAgICBwaWxsLnN0eWxlLmJvcmRlckNvbG9yID0gY29sb3I7XG4gICAgICB9XG4gICAgICBwaWxsLm9uY2xpY2sgPSAoKSA9PiB7XG4gICAgICAgIGNvbnRhaW5lci52YWx1ZSA9IGNhdDtcbiAgICAgICAgY29udGFpbmVyLmRpc3BhdGNoRXZlbnQobmV3IEN1c3RvbUV2ZW50KFwiaW5wdXRcIikpO1xuICAgICAgICBkcmF3KCk7XG4gICAgICB9O1xuICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHBpbGwpO1xuICAgIH0pO1xuICB9XG4gIGRyYXcoKTtcbiAgcmV0dXJuIGNvbnRhaW5lcjtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZpbHRlcmVkVmlkZW9zID0gdmlkZW9DYXRlZ29yeUZpbHRlciA9PT0gXCJBbGxcIlxuICA/IHZpZGVvc1xuICA6IHZpZGVvcy5maWx0ZXIodiA9PiB2LmNhdGVnb3J5ID09PSB2aWRlb0NhdGVnb3J5RmlsdGVyKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZ3JpZFwiPlxuICAke2ZpbHRlcmVkVmlkZW9zLmxlbmd0aCA9PT0gMFxuICAgID8gYDxkaXYgY2xhc3M9XCJmcy1lbXB0eVwiPk5vIHZpZGVvcyBmb3VuZCBpbiB0aGlzIGNhdGVnb3J5IHlldC48L2Rpdj5gXG4gICAgOiBmaWx0ZXJlZFZpZGVvcy5tYXAodiA9PiB7XG4gICAgICAgIGNvbnN0IGlkID0geW91dHViZUlkKHYudXJsKTtcbiAgICAgICAgY29uc3QgZW1iZWQgPSBpZFxuICAgICAgICAgID8gYDxpZnJhbWUgY2xhc3M9XCJmcy1jYXJkLWltYWdlXCIgc3R5bGU9XCJoZWlnaHQ6MjAwcHg7Ym9yZGVyOm5vbmU7XCIgc3JjPVwiaHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvJHtpZH1cIiBhbGxvdz1cImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBjbGlwYm9hcmQtd3JpdGU7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmVcIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+YFxuICAgICAgICAgIDogXCJcIjtcbiAgICAgICAgcmV0dXJuIGBcbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZFwiPlxuICAgICAgICAgICAgJHtlbWJlZH1cbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1jYXJkLWJvZHlcIj5cbiAgICAgICAgICAgICAgPGg0IGNsYXNzPVwiZnMtY2FyZC10aXRsZVwiPiR7di50aXRsZSA/PyBcIlVudGl0bGVkXCJ9PC9oND5cbiAgICAgICAgICAgICAgPHAgY2xhc3M9XCJmcy1jYXJkLWRlc2NcIj4ke3Yuc3VidGl0bGUgPz8gXCJcIn08L3A+XG4gICAgICAgICAgICAgICR7di5jYXRlZ29yeSA/IGA8c3BhbiBjbGFzcz1cImZzLWJhZGdlXCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7Y2F0ZWdvcnlDb2xvcih2LmNhdGVnb3J5KX07XCI+JHt2LmNhdGVnb3J5fTwvc3Bhbj5gIDogXCJcIn1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICBgO1xuICAgICAgfSkuam9pbihcIlwiKX1cbjwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndmlkZW9DYXRlZ29yeUZpbHRlcicpIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1yaURhdGEgPSB7XG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCwgZ2V0QXBwcywgZ2V0QXBwIH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtYXBwLmpzXCIpO1xuICBjb25zdCB7IGdldEZpcmVzdG9yZSwgZG9jLCBjb2xsZWN0aW9uLCBvblNuYXBzaG90IH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtZmlyZXN0b3JlLmpzXCIpO1xuXG4gIGNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xuICAgIGFwaUtleTogXCJBSXphU3lEMUZMbklyZDg2cU9zRlBMaTV5MXFfRUlVMGxoTDVneGNcIixcbiAgICBhdXRoRG9tYWluOiBcImV2ZHRvb2xraXQuZmlyZWJhc2VhcHAuY29tXCIsXG4gICAgcHJvamVjdElkOiBcImV2ZHRvb2xraXRcIixcbiAgICBzdG9yYWdlQnVja2V0OiBcImV2ZHRvb2xraXQuZmlyZWJhc2VzdG9yYWdlLmFwcFwiLFxuICAgIG1lc3NhZ2luZ1NlbmRlcklkOiBcIjEwMDIzNzQ0MzExNTFcIixcbiAgICBhcHBJZDogXCIxOjEwMDIzNzQ0MzExNTE6d2ViOmZlMzcyNGJiMWYzOWViNDc0NGFmNWFcIlxuICB9O1xuXG4gIGNvbnN0IGFwcCA9IGdldEFwcHMoKS5sZW5ndGggPyBnZXRBcHAoKSA6IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xuICBjb25zdCBkYiA9IGdldEZpcmVzdG9yZShhcHApO1xuXG4gIHJldHVybiBHZW5lcmF0b3JzLm9ic2VydmUobm90aWZ5ID0+IHtcbiAgICBsZXQgb3ZlcnZpZXcgPSBcIkxvYWRpbmcuLi5cIjtcbiAgICBsZXQgc3RlcHMgPSBbXTtcblxuICAgIGNvbnN0IGVtaXQgPSAoKSA9PiBub3RpZnkoeyBvdmVydmlldywgc3RlcHMgfSk7XG5cbiAgICBjb25zdCB1bnN1Yk92ZXJ2aWV3ID0gb25TbmFwc2hvdChkb2MoZGIsIFwiTVJJU2FmZXR5XCIsIFwib3ZlcnZpZXdcIiksIHNuYXAgPT4ge1xuICAgICAgb3ZlcnZpZXcgPSBzbmFwLmRhdGEoKT8udGV4dCA/PyBvdmVydmlldztcbiAgICAgIGVtaXQoKTtcbiAgICB9KTtcblxuICAgIGNvbnN0IHVuc3ViU3RlcHMgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiTVJJU2FmZXR5U3RlcHNcIiksIHNuYXBzaG90ID0+IHtcbiAgICAgIHN0ZXBzID0gc25hcHNob3QuZG9jcy5tYXAoZCA9PiBkLmRhdGEoKSk7XG4gICAgICBlbWl0KCk7XG4gICAgfSk7XG5cbiAgICByZXR1cm4gKCkgPT4geyB1bnN1Yk92ZXJ2aWV3KCk7IHVuc3ViU3RlcHMoKTsgfTtcbiAgfSk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJvdmVydmlld1RleHQgPSBtcmlEYXRhLm92ZXJ2aWV3XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBHcm91cCBzdGVwcyBieSBjYXRlZ29yeSwgc29ydGVkIGJ5IGNhdGVnb3J5T3JkZXIgdGhlbiBzdGVwIG9yZGVyIC0tXG4vLyBtaXJyb3JzIE1SSVNhZmV0eVZpZXdNb2RlbCdzIGBncm91cCgpYCBmdW5jdGlvbiBpbiB0aGUgYXBwLlxuZ3JvdXBlZFN0ZXBzID0ge1xuICBjb25zdCBncm91cHMgPSBuZXcgTWFwKCk7XG4gIG1yaURhdGEuc3RlcHMuZm9yRWFjaChzID0+IHtcbiAgICBjb25zdCBrZXkgPSBzLmNhdGVnb3J5ID8/IFwiVW5jYXRlZ29yaXplZFwiO1xuICAgIGlmICghZ3JvdXBzLmhhcyhrZXkpKSBncm91cHMuc2V0KGtleSwgeyBjYXRlZ29yeU9yZGVyOiBzLmNhdGVnb3J5T3JkZXIgPz8gOTk5LCBzdGVwczogW10gfSk7XG4gICAgZ3JvdXBzLmdldChrZXkpLnN0ZXBzLnB1c2gocyk7XG4gIH0pO1xuICByZXR1cm4gWy4uLmdyb3Vwcy5lbnRyaWVzKCldXG4gICAgLm1hcCgoW2NhdGVnb3J5LCB7IGNhdGVnb3J5T3JkZXIsIHN0ZXBzIH1dKSA9PiBbY2F0ZWdvcnksIGNhdGVnb3J5T3JkZXIsIHN0ZXBzLnNvcnQoKGEsIGIpID0+IChhLm9yZGVyID8/IDApIC0gKGIub3JkZXIgPz8gMCkpXSlcbiAgICAuc29ydCgoYSwgYikgPT4gYVsxXSAtIGJbMV0pO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnVuY3Rpb24gY2F0ZWdvcnlDb2xvcihuYW1lKSB7XG4gIGNvbnN0IHBhbGV0dGUgPSBbXCIjMmM3YmU1XCIsIFwiIzI3YWU2MFwiLCBcIiNlNjdlMjJcIiwgXCIjOGU0NGFkXCIsIFwiI2U3NGMzY1wiLCBcIiMxNmEyYjhcIiwgXCIjZDYzMzg0XCIsIFwiIzZjNzU3ZFwiXTtcbiAgbGV0IGhhc2ggPSAwO1xuICBmb3IgKGxldCBpID0gMDsgaSA8IG5hbWUubGVuZ3RoOyBpKyspIGhhc2ggPSBuYW1lLmNoYXJDb2RlQXQoaSkgKyAoKGhhc2ggPDwgNSkgLSBoYXNoKTtcbiAgcmV0dXJuIHBhbGV0dGVbTWF0aC5hYnMoaGFzaCkgJSBwYWxldHRlLmxlbmd0aF07XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJncm91cGVkU3RlcHMubGVuZ3RoID09PSAwXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5Mb2FkaW5nIE1SSSBzYWZldHkgc3RlcHPigKY8L2Rpdj5gXG4gIDogaHRtbGA8ZGl2PlxuICAgICR7Z3JvdXBlZFN0ZXBzLm1hcCgoW2NhdGVnb3J5LCBvcmRlciwgc3RlcHNdKSA9PiB7XG4gICAgICBjb25zdCBjb2xvciA9IGNhdGVnb3J5Q29sb3IoY2F0ZWdvcnkpO1xuICAgICAgcmV0dXJuIGBcbiAgICAgICAgPGRldGFpbHMgY2xhc3M9XCJmcy1hY2NvcmRpb25cIj5cbiAgICAgICAgICA8c3VtbWFyeSBjbGFzcz1cImZzLWFjY29yZGlvbi1zdW1tYXJ5XCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7Y29sb3J9O1wiPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJmcy1hY2NvcmRpb24tbmFtZVwiPiR7Y2F0ZWdvcnl9PC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJmcy1hY2NvcmRpb24tY291bnRcIj4ke3N0ZXBzLmxlbmd0aH08L3NwYW4+XG4gICAgICAgICAgPC9zdW1tYXJ5PlxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1hY2NvcmRpb24tYm9keVwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cImZzLWdyaWRcIiBzdHlsZT1cIm1hcmdpbi10b3A6MTJweDtcIj5cbiAgICAgICAgICAgICAgJHtzdGVwcy5tYXAocyA9PiBgXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cImZzLWNhcmRcIj5cbiAgICAgICAgICAgICAgICAgICR7cy5pbWFnZVVSTCA/IGA8aW1nIGNsYXNzPVwiZnMtY2FyZC1pbWFnZVwiIHNyYz1cIiR7cy5pbWFnZVVSTH1cIiBvbmVycm9yPVwidGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJ1wiIC8+YCA6IFwiXCJ9XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZC1ib2R5XCI+XG4gICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzcz1cImZzLWNhcmQtdGl0bGVcIj4ke3MudGl0bGUgPz8gXCJVbnRpdGxlZCBzdGVwXCJ9PC9oND5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9XCJmcy1jYXJkLWRlc2NcIj4ke3MuZGV0YWlsID8/IFwiXCJ9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIGApLmpvaW4oXCJcIil9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kZXRhaWxzPlxuICAgICAgYDtcbiAgICB9KS5qb2luKFwiXCIpfVxuICA8L2Rpdj5gXG4ifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
