@@ -2,11 +2,72 @@
 title: "About"
 ---
 
-## About the EVD Toolkit
+```{ojs}
+aboutText = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
-The EVD Toolkit is an educational platform designed to support understanding of external ventricular drain (EVD) management, troubleshooting, transport safety, ICP monitoring principles, and neurocritical care education.
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
 
-## App Developers & Collaborators
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "AboutText"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 999) - (b.order ?? 999)));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+aboutPurpose = {
+  const { getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+  const db = getFirestore(getApp());
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "AboutEducationalPurpose"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 999) - (b.order ?? 999)));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+overviewParagraphs = aboutText.filter(t => t.section === "overview")
+```
+
+```{ojs}
+disclaimerParagraphs = aboutText.filter(t => t.section === "disclaimer")
+```
+
+## App Overview
+
+```{ojs}
+overviewParagraphs.length === 0
+  ? html`<p>The EVD Toolkit is an educational platform designed to support understanding of external ventricular drain (EVD) management, troubleshooting, transport safety, ICP monitoring principles, and neurocritical care education.</p>`
+  : html`<div>${overviewParagraphs.map(p => `<p>${p.text}</p>`).join("")}</div>`
+```
+
+## Educational Purpose
+
+```{ojs}
+aboutPurpose.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<ul>${aboutPurpose.map(p => `<li>${p.text}</li>`).join("")}</ul>`
+```
+
+## Global Collaborators
 
 ```{ojs}
 collaborators = {
@@ -179,8 +240,58 @@ updateMarkers = {
 Click a pin to see collaborator details. Cities without a known map location aren't shown yet — let me know when someone new joins and I'll add their city.
 :::
 
+```{ojs}
+// Port of AboutView.swift's people-sorting rule: ordered items first
+// (by order), then unordered items alphabetically by name.
+sortPeople = function(people) {
+  const ordered = people.filter(p => p.order != null).sort((a, b) => a.order - b.order);
+  const unordered = people.filter(p => p.order == null).sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
+  return [...ordered, ...unordered];
+}
+```
+
+```{ojs}
+isDeveloper = c => (c.Role ?? "").toLowerCase().includes("design")
+```
+
+```{ojs}
+developers = sortPeople(collaborators.filter(isDeveloper))
+```
+
+```{ojs}
+collaboratorsList = sortPeople(collaborators.filter(c => !isDeveloper(c)))
+```
+
+```{ojs}
+function peopleList(people) {
+  return people.length === 0
+    ? html`<div class="fs-empty">Loading…</div>`
+    : html`<div>${people.map(p => `
+        <div class="fs-ref-entry">
+          <p class="fs-ref-title">${p.name ?? ""}</p>
+          <p class="fs-ref-authors">${p.Role ?? ""}</p>
+          <p class="fs-ref-journal">${p.Affiliation ?? ""}${[p.City, p.Country].filter(Boolean).length ? ` — ${[p.City, p.Country].filter(Boolean).join(", ")}` : ""}</p>
+        </div>
+      `).join("")}</div>`
+}
+```
+
+## Developers
+
+```{ojs}
+peopleList(developers)
+```
+
+## Collaborators
+
+```{ojs}
+peopleList(collaboratorsList)
+```
+
 ## Legal Disclaimer
 
-::: {.callout-warning}
-This tool is intended for educational purposes only and does not replace clinical judgment or institutional guidance.
-:::
+```{ojs}
+disclaimerParagraphs.length === 0
+  ? html`<div class="callout-pearl">This tool is intended for educational purposes only and does not replace clinical judgment or institutional guidance.</div>`
+  : html`<div class="callout-pearl">${disclaimerParagraphs.map(p => `<p>${p.text}</p>`).join("")}</div>`
+```

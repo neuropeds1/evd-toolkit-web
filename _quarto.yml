@@ -67,6 +67,14 @@ website:
             href: video.qmd
           - text: "EVD Systems"
             href: systems.qmd
+      - section: "Transport & MRI Safety"
+        contents:
+          - text: "Transport ICP Risk"
+            href: transport-icp-risk.qmd
+          - text: "Transport Checklist"
+            href: checklist.qmd
+          - text: "MRI Safety"
+            href: mri-safety.qmd
       - section: "Safety & Quality"
         contents:
           - text: "QI Metrics"
@@ -75,6 +83,14 @@ website:
             href: bundle.qmd
           - text: "Complications"
             href: complications.qmd
+      - section: "More"
+        contents:
+          - text: "Downloads"
+            href: downloads.qmd
+          - text: "EHR Alerts"
+            href: ehr-alerts.qmd
+          - text: "EVD Safety Campaign"
+            href: safety-campaign.qmd
       - section: "Resources"
         contents:
           - text: "References"

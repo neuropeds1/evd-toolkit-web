@@ -2,43 +2,167 @@
 title: "QI Metrics"
 ---
 
-Track documentation, transport safety, and outcomes related to EVD care. *(Under construction)*
+Quality improvement metrics for EVD safety and monitoring.
 
-## Documentation Compliance (Anesthesia Record)
+```{ojs}
+firebaseDb = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
-Key elements that should be documented:
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
 
-- Intracranial Pressure (ICP)
-- CSF Output
-- EVD Setting
-- CSF Color
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  return getFirestore(app);
+}
+```
 
-**Current Compliance (Example Data)**
+```{ojs}
+qiListItems = {
+  const { collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(firebaseDb, "QIMetricsListItems"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
 
-| Element | Documented |
-|---|---|
-| ICP | 85% |
-| CSF output | 78% |
-| EVD setting | 82% |
-| CSF color | 65% |
+```{ojs}
+qiPearlItems = {
+  const { collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(firebaseDb, "QIMetricsPearls"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
 
-## Transport Safety Metrics
+```{ojs}
+qiReportableEvents = {
+  const { collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(firebaseDb, "QIReportableEvents"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+    });
+    return unsubscribe;
+  });
+}
+```
 
-- % patients with ICP monitoring during transport
-- % transports with EVD clamped
-- % transports with ICP elevation ≥20 mmHg
+```{ojs}
+qiBenchmarkZones = {
+  const { collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(firebaseDb, "QIBenchmarkZones"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
 
-**Example Metrics**
+```{ojs}
+suggestedMetrics = qiListItems.filter(i => i.section === "suggestedMetrics").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+```
 
-| Metric | Rate |
-|---|---|
-| ICP monitored during transport | 72% |
-| EVD clamped transports | 40% |
-| ICP elevation ≥20 mmHg | 18% |
+```{ojs}
+documentationItems = qiListItems.filter(i => i.section === "documentation").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+```
 
-## Ventriculostomy-Related Infections (VRI)
+```{ojs}
+qiPearls = qiPearlItems.filter(i => i.section === "pearls").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+```
 
-Outcome metric reflecting infection risk associated with EVD use.
+```{ojs}
+priorities = qiPearlItems.filter(i => i.section === "priorities").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+```
+
+```{ojs}
+function bulletedList(items) {
+  return items.length === 0
+    ? html`<div class="fs-empty">Loading…</div>`
+    : html`<ul>${items.map(i => `<li>${i.text}</li>`).join("")}</ul>`
+}
+```
+
+## Suggested Metrics
+
+```{ojs}
+bulletedList(suggestedMetrics)
+```
+
+## Interactive VRI Benchmarking
+
+Adjust the slider to compare an institutional ventriculostomy-related infection (VRI) rate against suggested quality benchmarks.
+
+```{ojs}
+viewof vriRate = Inputs.range([0, 20], {label: "Institutional VRI Rate (%)", step: 0.1, value: 4})
+```
+
+```{ojs}
+// Port of QIMetricsScreen's zone lookup: low <1%, elevated <10%, high >=10%.
+currentZoneKey = vriRate < 1 ? "low" : vriRate < 10 ? "elevated" : "high"
+```
+
+```{ojs}
+currentZone = qiBenchmarkZones.find(z => z.zoneKey === currentZoneKey)
+```
+
+```{ojs}
+currentZone
+  ? html`<div style="padding:16px;border-radius:14px;background:${(currentZone.color ?? "orange")}22;border-left:5px solid ${currentZone.color ?? "orange"};">
+      <strong>${currentZone.title ?? ""}</strong>
+      <p style="margin:8px 0 0;">${currentZone.message ?? ""}</p>
+    </div>`
+  : html`<div class="fs-empty">Loading benchmark zones…</div>`
+```
+
+## Reportable EVD Safety Events
+
+```{ojs}
+qiReportableEvents.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<div>${qiReportableEvents.map(e => `
+      <div class="fs-ref-entry">
+        <p class="fs-ref-title">${e.title ?? ""}</p>
+        <p class="fs-ref-authors">${e.description ?? ""}</p>
+      </div>
+    `).join("")}</div>`
+```
+
+## Mandatory Documentation
+
+The following elements should be documented in perioperative and anesthesia records for patients with EVDs or ICP monitors:
+
+```{ojs}
+bulletedList(documentationItems)
+```
+
+## Quality Improvement Pearls
+
+```{ojs}
+bulletedList(qiPearls)
+```
+
+## Safety Priorities
+
+```{ojs}
+bulletedList(priorities)
+```
+
+## Global VRI Rate Data
+
+Supplementary epidemiology (not part of the app content above): reported ventriculostomy-related infection rates by country from the published literature.
 
 **Global VRI Rate: 8.64%** [95% CI 7.44–9.97]
 
@@ -111,8 +235,3 @@ myVRI === 0
       <p style="margin:8px 0 0;font-size:13px;color:#666;">See the <a href="bundle.qmd">Infection Prevention Bundle</a> page for the full checklist.</p>
     </div>`
 ```
-
-## References (Under Construction)
-
-1. Author A et al. *Global Epidemiology of Ventriculostomy-Related Infections.* Journal. Year.
-2. Author B et al. *EVD Management and QI Metrics.* Journal. Year.

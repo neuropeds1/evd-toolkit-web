@@ -2,21 +2,111 @@
 title: "EVD Toolkit"
 ---
 
-A practical, visual, and interactive educational tool designed to improve understanding, safety, and standardization of External Ventricular Drain (EVD) care.
+<div style="background:linear-gradient(90deg,#2c7be5,#8e44ad);border-radius:20px;padding:18px 22px;color:white;margin-bottom:8px;">
+<strong style="font-size:1.15rem;">EVD Toolkit</strong><br>
+<span style="opacity:0.9;">A practical, visual, and interactive educational platform for external ventricular drain (EVD) care.</span>
+</div>
 
-## What You Can Do Here
+## Pearl of the Day
+
+```{ojs}
+pearlsData = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "ClinicalPearls"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+// Port of ContentView.swift's todaysPearl: same pearl for everyone on a
+// given calendar day, rotating through the live Firestore-backed list.
+todaysPearl = {
+  if (pearlsData.length === 0) return null;
+  const start = new Date(new Date().getFullYear(), 0, 0);
+  const diff = new Date() - start;
+  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+  return pearlsData[dayOfYear % pearlsData.length];
+}
+```
+
+```{ojs}
+todaysPearl
+  ? html`<div style="background-color:#eef6ff;border-left:5px solid #2c7be5;border-radius:12px;padding:16px 18px;">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#2c7be5;">💡 ${todaysPearl.category ?? "Pearl"}</div>
+      <div style="margin-top:6px;font-size:15px;">${todaysPearl.pearl ?? ""}</div>
+    </div>`
+  : html`<div class="fs-empty">Loading today's pearl…</div>`
+```
+
+## New Here?
+
+A quick path to get oriented on EVDs.
+
+<div class="fs-grid">
+  <a class="fs-card" href="basics.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">🩺 What is an EVD?</h4><p class="fs-card-desc">Core concepts and terminology</p></div>
+  </a>
+  <a class="fs-card" href="video.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">🎬 How-To Videos</h4><p class="fs-card-desc">Setup, safety, and technique walkthroughs</p></div>
+  </a>
+  <a class="fs-card" href="catheter-types.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">📋 EVD Types & Systems</h4><p class="fs-card-desc">Catheter types and drainage systems you'll encounter — see also <a href="systems.qmd">EVD Systems</a></p></div>
+  </a>
+  <a class="fs-card" href="settings.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">🎚️ EVD Setup</h4><p class="fs-card-desc">Leveling and bedside setup</p></div>
+  </a>
+  <a class="fs-card" href="basics.qmd#ct-abnormalities" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">🧠 CT Imaging</h4><p class="fs-card-desc">Normal positioning and complications</p></div>
+  </a>
+  <a class="fs-card" href="waveform.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">📈 ICP Waveforms</h4><p class="fs-card-desc">Interpretation and waveform review</p></div>
+  </a>
+  <a class="fs-card" href="clinical-pearls.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">💡 Clinical Pearls</h4><p class="fs-card-desc">High-yield teaching points</p></div>
+  </a>
+  <a class="fs-card" href="mri-safety.qmd" style="text-decoration:none;color:inherit;">
+    <div class="fs-card-body"><h4 class="fs-card-title">🚑 Transport & MRI Safety</h4><p class="fs-card-desc">Safe transport and MRI considerations — see also <a href="transport-icp-risk.qmd">ICP Risk</a> and <a href="checklist.qmd">Transport Checklist</a></p></div>
+  </a>
+</div>
+
+## Explore Everything
 
 **📘 Foundations**
 
 - What is an EVD
 - EVD Settings
 - ICP Waveform
+- Catheter Types
 
 **🧑‍⚕️ Clinical Application**
 
 - Apply to a Hypothetical Patient
 - Checklist
 - Best Practices
+
+**🚑 Transport & MRI Safety**
+
+- Transport ICP Risk
+- Transport Checklist
+- MRI Safety
 
 **📈 Safety & Quality Improvement**
 
@@ -29,6 +119,12 @@ A practical, visual, and interactive educational tool designed to improve unders
 - EVD Quiz
 - Educational Video
 - EVD Systems (global variability)
+
+**📦 More**
+
+- Downloads
+- EHR Alerts
+- EVD Safety Campaign
 
 **📚 Resources**
 

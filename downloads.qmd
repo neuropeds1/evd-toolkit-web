@@ -1,0 +1,86 @@
+---
+title: "Downloads"
+---
+
+Educational PDFs and bedside resources.
+
+```{ojs}
+downloadsData = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    let textItems = [];
+    let resources = [];
+    const emit = () => notify({ textItems, resources });
+
+    const unsubText = onSnapshot(collection(db, "DownloadsText"), snapshot => {
+      textItems = snapshot.docs.map(d => d.data());
+      emit();
+    });
+    const unsubResources = onSnapshot(collection(db, "Downloads"), snapshot => {
+      resources = snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+      emit();
+    });
+
+    return () => { unsubText(); unsubResources(); };
+  });
+}
+```
+
+```{ojs}
+overviewParagraphs = downloadsData.textItems.filter(t => t.section === "overview").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+```
+
+```{ojs}
+futureDirections = downloadsData.textItems.filter(t => t.section === "futureDirections").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+```
+
+## Overview
+
+```{ojs}
+overviewParagraphs.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<div>${overviewParagraphs.map(p => `<p>${p.text}</p>`).join("")}</div>`
+```
+
+## Educational Resources
+
+```{ojs}
+downloadsData.resources.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<div class="fs-grid">${downloadsData.resources.map(r => {
+      const hasWebLink = !!r.pdfURL;
+      return `
+        <div class="fs-card">
+          <div class="fs-card-body">
+            <h4 class="fs-card-title">${r.title ?? "Untitled"}</h4>
+            <p class="fs-card-desc">${r.subtitle ?? ""}</p>
+            ${hasWebLink
+              ? `<a class="fs-card-link" href="${r.pdfURL}" target="_blank">Open PDF →</a>`
+              : `<span class="fs-badge" style="background:#8e44ad;">Available in the mobile app</span>`}
+          </div>
+        </div>
+      `;
+    }).join("")}</div>`
+```
+
+## Future Directions
+
+```{ojs}
+futureDirections.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<ul>${futureDirections.map(f => `<li>${f.text}</li>`).join("")}</ul>`
+```

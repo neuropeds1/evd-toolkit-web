@@ -1,0 +1,111 @@
+---
+title: "MRI Safety"
+---
+
+EVD considerations before and during MRI. Click a category to expand it.
+
+```{ojs}
+mriData = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, doc, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    let overview = "Loading...";
+    let steps = [];
+
+    const emit = () => notify({ overview, steps });
+
+    const unsubOverview = onSnapshot(doc(db, "MRISafety", "overview"), snap => {
+      overview = snap.data()?.text ?? overview;
+      emit();
+    });
+
+    const unsubSteps = onSnapshot(collection(db, "MRISafetySteps"), snapshot => {
+      steps = snapshot.docs.map(d => d.data());
+      emit();
+    });
+
+    return () => { unsubOverview(); unsubSteps(); };
+  });
+}
+```
+
+```{ojs}
+overviewText = mriData.overview
+```
+
+```{ojs}
+// Group steps by category, sorted by categoryOrder then step order --
+// mirrors MRISafetyViewModel's `group()` function in the app.
+groupedSteps = {
+  const groups = new Map();
+  mriData.steps.forEach(s => {
+    const key = s.category ?? "Uncategorized";
+    if (!groups.has(key)) groups.set(key, { categoryOrder: s.categoryOrder ?? 999, steps: [] });
+    groups.get(key).steps.push(s);
+  });
+  return [...groups.entries()]
+    .map(([category, { categoryOrder, steps }]) => [category, categoryOrder, steps.sort((a, b) => (a.order ?? 0) - (b.order ?? 0))])
+    .sort((a, b) => a[1] - b[1]);
+}
+```
+
+```{ojs}
+function categoryColor(name) {
+  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
+```
+
+::: {.callout-note}
+**Clinical Overview:** ${overviewText}
+:::
+
+```{ojs}
+groupedSteps.length === 0
+  ? html`<div class="fs-empty">Loading MRI safety steps…</div>`
+  : html`<div>
+    ${groupedSteps.map(([category, order, steps]) => {
+      const color = categoryColor(category);
+      return `
+        <details class="fs-accordion">
+          <summary class="fs-accordion-summary" style="background:${color};">
+            <span class="fs-accordion-name">${category}</span>
+            <span class="fs-accordion-count">${steps.length}</span>
+          </summary>
+          <div class="fs-accordion-body">
+            <div class="fs-grid" style="margin-top:12px;">
+              ${steps.map(s => `
+                <div class="fs-card">
+                  ${s.imageURL ? `<img class="fs-card-image" src="${s.imageURL}" onerror="this.style.display='none'" />` : ""}
+                  <div class="fs-card-body">
+                    <h4 class="fs-card-title">${s.title ?? "Untitled step"}</h4>
+                    <p class="fs-card-desc">${s.detail ?? ""}</p>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </details>
+      `;
+    }).join("")}
+  </div>`
+```
+
+::: {.callout-warning}
+**Follow Institutional Protocol:** This content is educational only and does not replace institutional MRI safety screening protocols, manufacturer device labeling, or clinical judgment.
+:::
