@@ -14,64 +14,6 @@ page-layout: full
   </div>
 </div>
 
-<div class="home-layout">
-
-<aside class="home-sidebar">
-<h2 class="pearl-heading">Pearl of the Day</h2>
-```
-
-```{ojs}
-pearlsData = {
-  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
-  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
-    authDomain: "evdtoolkit.firebaseapp.com",
-    projectId: "evdtoolkit",
-    storageBucket: "evdtoolkit.firebasestorage.app",
-    messagingSenderId: "1002374431151",
-    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
-  };
-
-  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  return Generators.observe(notify => {
-    const unsubscribe = onSnapshot(collection(db, "ClinicalPearls"), snapshot => {
-      notify(snapshot.docs.map(d => d.data()));
-    });
-    return unsubscribe;
-  });
-}
-```
-
-```{ojs}
-// Port of ContentView.swift's todaysPearl: same pearl for everyone on a
-// given calendar day, rotating through the live Firestore-backed list.
-todaysPearl = {
-  if (pearlsData.length === 0) return null;
-  const start = new Date(new Date().getFullYear(), 0, 0);
-  const diff = new Date() - start;
-  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-  return pearlsData[dayOfYear % pearlsData.length];
-}
-```
-
-```{ojs}
-todaysPearl
-  ? html`<div class="ios-card pearl-card" style="--card-color: var(--ios-blue);">
-      <span class="pearl-badge">✨ Today's Pearl</span>
-      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ios-blue);">💡 ${todaysPearl.category ?? "Pearl"}</div>
-      <div style="margin-top:6px;font-size:15px;">${todaysPearl.pearl ?? ""}</div>
-    </div>`
-  : html`<div class="fs-empty">Loading today's pearl…</div>`
-```
-
-```{=html}
-</aside>
-
-<div class="home-main">
 <h2 class="new-here-heading">New Here?</h2>
 <div class="new-here-subtitle">A quick path to get oriented on EVDs</div>
 
@@ -128,8 +70,6 @@ todaysPearl
   <button id="home-feedback-dismiss" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:1rem;cursor:pointer;line-height:1;">✕</button>
 </div>
 
-</div><!-- /home-main -->
-</div><!-- /home-layout -->
 </div><!-- /home-wrap -->
 ```
 
