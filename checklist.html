@@ -71,6 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -108,6 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="EVD Toolkit">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2c7be5">
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
@@ -945,11 +953,11 @@ window._ojs.runtime.interpretFromScriptTags();
     <div class="nav-footer-center">
 <p>EVD Toolkit — educational use only, does not replace clinical judgment or institutional guidance.</p>
 <div id="site-footer-stats" style="width:100%;text-align:center;padding-top:8px;font-size:13px;color:#8a94a6;">
-<p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span>Last updated on August 20, 2026</span></p>
+<p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span id="country-count-footer"></span> &nbsp;·&nbsp; <span>Last updated on August 20, 2026</span></p>
 </div>
 <script type="module">
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, doc, onSnapshot, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getFirestore, doc, onSnapshot, updateDoc, setDoc, increment, arrayUnion } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
   authDomain: "evdtoolkit.firebaseapp.com",
@@ -960,11 +968,30 @@ const firebaseConfig = {
 };
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
 const counterRef = doc(db, "Stats", "visitorCount");
 updateDoc(counterRef, { count: increment(1) }).catch(() => {});
 onSnapshot(counterRef, snapshot => {
   const el = document.getElementById("visitor-count-footer");
   if (el) el.textContent = `👀 ${(snapshot.data()?.count ?? 0).toLocaleString()} visitors`;
+});
+
+// Country tally: record this visitor's country (via a free,
+// no-signup IP geolocation lookup) into a de-duplicated Firestore
+// set, so the footer can show a running distinct-country count.
+const countriesRef = doc(db, "Stats", "visitorCountries");
+fetch("https://get.geojs.io/v1/ip/country.json")
+  .then(res => res.json())
+  .then(data => {
+    if (data && data.country) {
+      return setDoc(countriesRef, { codes: arrayUnion(data.country) }, { merge: true });
+    }
+  })
+  .catch(() => {});
+onSnapshot(countriesRef, snapshot => {
+  const el = document.getElementById("country-count-footer");
+  const count = (snapshot.data()?.codes ?? []).length;
+  if (el && count > 0) el.textContent = `🌍 ${count} ${count === 1 ? "country" : "countries"}`;
 });
 </script>
 </div>
