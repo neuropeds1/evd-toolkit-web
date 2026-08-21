@@ -145,6 +145,88 @@ a:hover {
   margin-top: 2px;
 }
 
+/* ============================================
+   Home page two-column layout: main content +
+   a sticky right-side Pearl of the Day card on
+   wide screens, collapsing to a single stacked
+   column (pearl first, for visibility) on mobile.
+   ============================================ */
+
+.home-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin-top: 4px;
+}
+
+.home-main {
+  flex: 1;
+  min-width: 0;
+  order: 1;
+}
+
+.home-sidebar {
+  flex: 0 0 280px;
+  order: 2;
+  position: sticky;
+  top: 84px;
+}
+
+@media (max-width: 880px) {
+  .home-layout {
+    flex-direction: column;
+  }
+  .home-main,
+  .home-sidebar {
+    order: 0;
+  }
+  .home-sidebar {
+    position: static;
+    width: 100%;
+  }
+}
+
+.pearl-heading,
+.new-here-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--ios-blue), var(--ios-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 0 4px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pearl-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--ios-blue), var(--ios-purple));
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.pearl-card {
+  animation: pearl-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes pearl-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.28); }
+  50% { box-shadow: 0 0 0 12px rgba(0, 122, 255, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pearl-card {
+    animation: none;
+  }
+}
+
 .start-here-list {
   display: flex;
   flex-direction: column;
