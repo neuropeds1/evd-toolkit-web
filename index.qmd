@@ -1,9 +1,11 @@
 ---
 title: "EVD Toolkit"
 toc: false
+page-layout: full
 ---
 
 ```{=html}
+<div class="home-wrap">
 <div class="home-header">
   <span class="home-header-icon">🧠</span>
   <div>
@@ -128,6 +130,7 @@ todaysPearl
 
 </div><!-- /home-main -->
 </div><!-- /home-layout -->
+</div><!-- /home-wrap -->
 ```
 
 <script>
