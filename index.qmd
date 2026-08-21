@@ -2,6 +2,7 @@
 title: "EVD Toolkit"
 ---
 
+```{=html}
 <div class="home-header">
   <span class="home-header-icon">🧠</span>
   <div>
@@ -9,6 +10,7 @@ title: "EVD Toolkit"
     <div class="home-header-subtitle">Educational platform</div>
   </div>
 </div>
+```
 
 ## Pearl of the Day
 
@@ -61,6 +63,7 @@ todaysPearl
 
 ## New Here? {.new-here-heading}
 
+```{=html}
 <div class="new-here-subtitle">A quick path to get oriented on EVDs</div>
 
 <div class="start-here-list">
@@ -115,6 +118,7 @@ todaysPearl
   <a id="home-feedback-send" href="https://docs.google.com/forms/d/e/1FAIpQLSdq2TXhaqMShJ7ruv27xEuizUr5NlKwEzQcc00hGbl22t7Ssg/viewform?usp=header" target="_blank" style="background:white;color:var(--ios-indigo);font-weight:600;font-size:0.85rem;padding:6px 14px;border-radius:999px;text-decoration:none;">Send</a>
   <button id="home-feedback-dismiss" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:1rem;cursor:pointer;line-height:1;">✕</button>
 </div>
+```
 
 <script>
 (function() {
