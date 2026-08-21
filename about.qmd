@@ -105,17 +105,22 @@ collaborators = {
 Click a pin below to see each collaborator's role, affiliation, and location.
 
 ```{ojs}
-googleMapsApi = {
+leafletApi = {
   return new Promise((resolve, reject) => {
-    if (window.google && window.google.maps) {
-      resolve(window.google.maps);
+    if (window.L) {
+      resolve(window.L);
       return;
     }
+    const cssLink = document.createElement("link");
+    cssLink.rel = "stylesheet";
+    cssLink.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    document.head.appendChild(cssLink);
+
     const script = document.createElement("script");
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDBMtJls7iPKZz-MeoiSpWWR0znhl7mMk8&loading=async";
+    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
     script.async = true;
-    script.onload = () => resolve(window.google.maps);
-    script.onerror = () => reject(new Error("Failed to load Google Maps"));
+    script.onload = () => resolve(window.L);
+    script.onerror = () => reject(new Error("Failed to load Leaflet"));
     document.head.appendChild(script);
   });
 }
@@ -128,19 +133,20 @@ geocodeCache = new Map()
 ```
 
 ```{ojs}
-// Looks up any city name's coordinates live via the Google Geocoding
-// API -- no manual coordinate table to maintain. Any new collaborator
-// city added in Firestore appears on the map automatically.
-geocodeCity = async function(city, country, cache, maps) {
+// Looks up any city name's coordinates live via OpenStreetMap's free
+// Nominatim geocoder — no manual coordinate table to maintain. Any new
+// collaborator city added in Firestore appears on the map automatically.
+geocodeCity = async function(city, country, cache) {
   if (!city) return null;
   const key = `${city}, ${country ?? ""}`;
   if (cache.has(key)) return cache.get(key);
 
   try {
-    const geocoder = new maps.Geocoder();
-    const { results } = await geocoder.geocode({ address: key });
-    const coords = results && results[0]
-      ? { lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng() }
+    const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(key)}`;
+    const res = await fetch(url, { headers: { "Accept-Language": "en" } });
+    const data = await res.json();
+    const coords = data && data[0]
+      ? { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) }
       : null;
     cache.set(key, coords);
     return coords;
@@ -155,23 +161,28 @@ geocodeCity = async function(city, country, cache, maps) {
 // Creates the map ONCE — this cell does not depend on `collaborators`,
 // so the map is never torn down and recreated when Firestore data
 // changes live. The div is returned directly and immediately so Quarto
-// inserts it into the page right away. A `.ready` promise is attached
-// to the div so other cells can safely wait for the map to exist,
-// regardless of execution order.
+// inserts it into the page right away (critical: Leaflet needs the
+// container actually attached, with a real size, before it can compute
+// tile bounds correctly — initializing too early produces exactly the
+// "only top-left corner loaded" bug). A `.ready` promise is attached to
+// the div so other cells can safely wait for the map/markerLayer to
+// exist, regardless of execution order.
 mapInstance = {
-  const maps = googleMapsApi;
+  const L = leafletApi;
   const div = html`<div style="width:100%;height:400px;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.06);"></div>`;
 
   div.ready = new Promise(resolve => {
     requestAnimationFrame(() => {
-      const map = new maps.Map(div, {
-        center: { lat: 20, lng: 20 },
-        zoom: 2,
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: false
-      });
-      resolve({ map, markers: [] });
+      const map = L.map(div).setView([20, 20], 2);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+        maxZoom: 18
+      }).addTo(map);
+
+      const markerLayer = L.layerGroup().addTo(map);
+      map.invalidateSize();
+      resolve({ map, markerLayer });
     });
   });
 
@@ -186,14 +197,13 @@ mapInstance = {
 // cell finishes first. (No explicit return, so this cell's value is
 // `undefined` and Quarto shows nothing visible for it.)
 updateMarkers = {
-  const maps = googleMapsApi;
-  const state = await mapInstance.ready;
+  const L = leafletApi;
+  const { markerLayer } = await mapInstance.ready;
 
-  state.markers.forEach(m => m.setMap(null));
-  state.markers = [];
+  markerLayer.clearLayers();
 
   // Group collaborators by city so multiple people at the same
-  // location share one pin (with everyone listed in the info window)
+  // location share one pin (with everyone listed in the popup)
   // instead of overlapping markers hiding each other.
   const byCity = new Map();
   collaborators.forEach(c => {
@@ -202,10 +212,10 @@ updateMarkers = {
     byCity.get(key).people.push(c);
   });
 
-  // Geocode every city live via Google -- no manual coordinate table
-  // to maintain, new cities in Firestore just appear.
+  // Geocode every city live via OpenStreetMap — no manual coordinate
+  // table to maintain, new cities in Firestore just appear.
   for (const { city, country, people } of byCity.values()) {
-    const coords = await geocodeCity(city, country, geocodeCache, maps);
+    const coords = await geocodeCity(city, country, geocodeCache);
     if (!coords) continue;
 
     const divider = '<hr style="margin:8px 0;border:none;border-top:1px solid #eee;">';
@@ -220,16 +230,9 @@ updateMarkers = {
       `)
       .join(people.length > 1 ? divider : "");
 
-    const marker = new maps.Marker({
-      position: coords,
-      map: state.map,
-      title: people.map(p => p.name).join(", ")
-    });
-    const infoWindow = new maps.InfoWindow({
-      content: `<div style="font-family:Inter,sans-serif;font-size:13px;">${content}</div>`
-    });
-    marker.addListener("click", () => infoWindow.open({ anchor: marker, map: state.map }));
-    state.markers.push(marker);
+    L.marker([coords.lat, coords.lng]).addTo(markerLayer).bindPopup(
+      `<div style="font-family:Inter,sans-serif;font-size:13px;">${content}</div>`
+    );
   }
 }
 ```
