@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Complications – EVD Toolkit</title>
+<title>⚠️ Complications – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -331,6 +331,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./more.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources Hub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./downloads.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Downloads</span></a>
   </div>
@@ -397,7 +403,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qi-metrics.html">Safety &amp; Quality</a></li><li class="breadcrumb-item"><a href="./complications.html">Complications</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Complications</h1>
+<h1 class="title">⚠️ Complications</h1>
+<p class="subtitle lead">Recognize complications early</p>
 </div>
 
 
@@ -436,31 +443,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="by-category" class="level2">
 <h2 class="anchored" data-anchor-id="by-category">By Category</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="18" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 17;"><span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>complications <span class="op">=</span> {</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Live listener — updates automatically whenever Complications</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// changes in Firestore, no page reload needed.</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"Complications"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="19" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 18;"><span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>complications <span class="op">=</span> {</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Live listener — updates automatically whenever Complications</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="co">// changes in Firestore, no page reload needed.</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"Complications"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -468,14 +475,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="46" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 45;"><span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">// Deterministic color per category name — same category always</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">// gets the same color, no manual mapping to maintain.</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">categoryColor</span>(name) {</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> palette <span class="op">=</span> [<span class="st">"#007AFF"</span><span class="op">,</span> <span class="st">"#34C759"</span><span class="op">,</span> <span class="st">"#FF9500"</span><span class="op">,</span> <span class="st">"#AF52DE"</span><span class="op">,</span> <span class="st">"#FF3B30"</span><span class="op">,</span> <span class="st">"#30B0C7"</span><span class="op">,</span> <span class="st">"#FF2D55"</span><span class="op">,</span> <span class="st">"#8E8E93"</span>]<span class="op">;</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> name<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) hash <span class="op">=</span> name<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">+</span> ((hash <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">-</span> hash)<span class="op">;</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> palette[<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(hash) <span class="op">%</span> palette<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="47" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 46;"><span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">// Deterministic color per category name — same category always</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">// gets the same color, no manual mapping to maintain.</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">categoryColor</span>(name) {</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> palette <span class="op">=</span> [<span class="st">"#007AFF"</span><span class="op">,</span> <span class="st">"#34C759"</span><span class="op">,</span> <span class="st">"#FF9500"</span><span class="op">,</span> <span class="st">"#AF52DE"</span><span class="op">,</span> <span class="st">"#FF3B30"</span><span class="op">,</span> <span class="st">"#30B0C7"</span><span class="op">,</span> <span class="st">"#FF2D55"</span><span class="op">,</span> <span class="st">"#8E8E93"</span>]<span class="op">;</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> name<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) hash <span class="op">=</span> name<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">+</span> ((hash <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">-</span> hash)<span class="op">;</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> palette[<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(hash) <span class="op">%</span> palette<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -483,41 +490,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="57" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 56;"><span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co">// Curated prevention pearls / clinical insights per category. Add more</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co">// entries here as new categories are added to Firestore.</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>categoryPearls <span class="op">=</span> ({</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hemorrhage"</span><span class="op">:</span> {</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="dt">prevention</span><span class="op">:</span> [</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Correct coagulopathy and antiplatelet effects BEFORE placement"</span><span class="op">,</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Minimize number of attempts"</span><span class="op">,</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Avoid blind repeated passes"</span><span class="op">,</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Use navigation tools when available"</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    <span class="dt">insight</span><span class="op">:</span> [</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Small tract bleeds are common — large bleeds are not"</span><span class="op">,</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Correlate CT findings with exam + ICP changes"</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Malposition"</span><span class="op">:</span> {</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="dt">prevention</span><span class="op">:</span> [</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Use anatomical landmarks carefully (Kocher's point)"</span><span class="op">,</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Use neuro-navigation tools when available"</span><span class="op">,</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Consider adjunct learning tools: simulation training, virtual reality modules"</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    <span class="dt">insight</span><span class="op">:</span> [</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Low CSF output ≠ low ICP"</span><span class="op">,</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>      <span class="st">"A dampened waveform → think malposition"</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pneumocephalus"</span><span class="op">:</span> {</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>    <span class="dt">prevention</span><span class="op">:</span> [</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Usually benign"</span><span class="op">,</span></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Avoid unnecessary disconnections"</span><span class="op">,</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Maintain a closed sterile system"</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    <span class="dt">insight</span><span class="op">:</span> []</span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="58" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co">// Curated prevention pearls / clinical insights per category. Add more</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co">// entries here as new categories are added to Firestore.</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>categoryPearls <span class="op">=</span> ({</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hemorrhage"</span><span class="op">:</span> {</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    <span class="dt">prevention</span><span class="op">:</span> [</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Correct coagulopathy and antiplatelet effects BEFORE placement"</span><span class="op">,</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Minimize number of attempts"</span><span class="op">,</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Avoid blind repeated passes"</span><span class="op">,</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Use navigation tools when available"</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    <span class="dt">insight</span><span class="op">:</span> [</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Small tract bleeds are common — large bleeds are not"</span><span class="op">,</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Correlate CT findings with exam + ICP changes"</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Malposition"</span><span class="op">:</span> {</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    <span class="dt">prevention</span><span class="op">:</span> [</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Use anatomical landmarks carefully (Kocher's point)"</span><span class="op">,</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Use neuro-navigation tools when available"</span><span class="op">,</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Consider adjunct learning tools: simulation training, virtual reality modules"</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>    <span class="dt">insight</span><span class="op">:</span> [</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Low CSF output ≠ low ICP"</span><span class="op">,</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>      <span class="st">"A dampened waveform → think malposition"</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pneumocephalus"</span><span class="op">:</span> {</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>    <span class="dt">prevention</span><span class="op">:</span> [</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Usually benign"</span><span class="op">,</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Avoid unnecessary disconnections"</span><span class="op">,</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Maintain a closed sterile system"</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>    <span class="dt">insight</span><span class="op">:</span> []</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
 
@@ -525,15 +532,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="95" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 94;"><span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>groupedComplications <span class="op">=</span> {</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> groups <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>  complications<span class="op">.</span><span class="fu">forEach</span>(c <span class="kw">=&gt;</span> {</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> c<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Uncategorized"</span><span class="op">;</span></span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>groups<span class="op">.</span><span class="fu">has</span>(key)) groups<span class="op">.</span><span class="fu">set</span>(key<span class="op">,</span> [])<span class="op">;</span></span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    groups<span class="op">.</span><span class="fu">get</span>(key)<span class="op">.</span><span class="fu">push</span>(c)<span class="op">;</span></span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>groups<span class="op">.</span><span class="fu">entries</span>()]<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a[<span class="dv">0</span>]<span class="op">.</span><span class="fu">localeCompare</span>(b[<span class="dv">0</span>]))<span class="op">;</span></span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="96" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 95;"><span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>groupedComplications <span class="op">=</span> {</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> groups <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  complications<span class="op">.</span><span class="fu">forEach</span>(c <span class="kw">=&gt;</span> {</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> c<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Uncategorized"</span><span class="op">;</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>groups<span class="op">.</span><span class="fu">has</span>(key)) groups<span class="op">.</span><span class="fu">set</span>(key<span class="op">,</span> [])<span class="op">;</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    groups<span class="op">.</span><span class="fu">get</span>(key)<span class="op">.</span><span class="fu">push</span>(c)<span class="op">;</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>groups<span class="op">.</span><span class="fu">entries</span>()]<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a[<span class="dv">0</span>]<span class="op">.</span><span class="fu">localeCompare</span>(b[<span class="dv">0</span>]))<span class="op">;</span></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="declaration">
 
@@ -541,54 +548,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="107" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 106;"><span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>groupedComplications<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;No complications documented yet — check back soon.&lt;/div&gt;`</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;</span></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>groupedComplications<span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> items]) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> color <span class="op">=</span> <span class="fu">categoryColor</span>(category)<span class="op">;</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> pearls <span class="op">=</span> categoryPearls[category]<span class="op">;</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> pearlsHtml <span class="op">=</span> pearls <span class="op">?</span> <span class="vs">`</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="callout-pearl" style="margin-top:14px;"&gt;</span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="vs">          </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">prevention</span><span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="vs">`</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;strong&gt;💡 Prevention Pearls&lt;/strong&gt;</span></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;ul style="margin:8px 0 12px;padding-left:20px;"&gt;</span></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">prevention</span><span class="op">.</span><span class="fu">map</span>(p <span class="kw">=&gt;</span> <span class="vs">`&lt;li style="margin-bottom:4px;"&gt;</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/ul&gt;</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="vs">          `</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="vs">          </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">insight</span><span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="vs">`</span></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;strong&gt;⚠️ Clinical Insight&lt;/strong&gt;</span></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;ul style="margin:8px 0 0;padding-left:20px;"&gt;</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">insight</span><span class="op">.</span><span class="fu">map</span>(p <span class="kw">=&gt;</span> <span class="vs">`&lt;li style="margin-bottom:4px;"&gt;</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/ul&gt;</span></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="vs">          `</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="vs">      `</span> <span class="op">:</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="vs">`</span></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;details class="fs-accordion"&gt;</span></span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;summary class="fs-accordion-summary" style="background:</span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">;"&gt;</span></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;span class="fs-accordion-name"&gt;</span><span class="sc">${</span>category<span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;span class="fs-accordion-count"&gt;</span><span class="sc">${</span>items<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/summary&gt;</span></span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-accordion-body"&gt;</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>pearlsHtml<span class="sc">}</span></span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="fs-grid" style="margin-top:14px;"&gt;</span></span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>items<span class="op">.</span><span class="fu">map</span>(c <span class="kw">=&gt;</span> <span class="vs">`</span></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;div class="fs-card"&gt;</span></span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;img class="fs-card-image" src="</span><span class="sc">${</span>c<span class="op">.</span><span class="at">imageURL</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" /&gt;</span></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;div class="fs-card-body"&gt;</span></span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">description</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;p class="fs-card-meta"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">source</span> <span class="op">??</span> c<span class="op">.</span><span class="at">contributor</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;/div&gt;</span></span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;/div&gt;</span></span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="vs">              `</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/div&gt;</span></span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/details&gt;</span></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a><span class="vs">      `</span><span class="op">;</span></span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>    })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>groupedComplications<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;No complications documented yet — check back soon.&lt;/div&gt;`</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>groupedComplications<span class="op">.</span><span class="fu">map</span>(([category<span class="op">,</span> items]) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> color <span class="op">=</span> <span class="fu">categoryColor</span>(category)<span class="op">;</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> pearls <span class="op">=</span> categoryPearls[category]<span class="op">;</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> pearlsHtml <span class="op">=</span> pearls <span class="op">?</span> <span class="vs">`</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="callout-pearl" style="margin-top:14px;"&gt;</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="vs">          </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">prevention</span><span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="vs">`</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;strong&gt;💡 Prevention Pearls&lt;/strong&gt;</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;ul style="margin:8px 0 12px;padding-left:20px;"&gt;</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">prevention</span><span class="op">.</span><span class="fu">map</span>(p <span class="kw">=&gt;</span> <span class="vs">`&lt;li style="margin-bottom:4px;"&gt;</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/ul&gt;</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="vs">          `</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="vs">          </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">insight</span><span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="vs">`</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;strong&gt;⚠️ Clinical Insight&lt;/strong&gt;</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;ul style="margin:8px 0 0;padding-left:20px;"&gt;</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>pearls<span class="op">.</span><span class="at">insight</span><span class="op">.</span><span class="fu">map</span>(p <span class="kw">=&gt;</span> <span class="vs">`&lt;li style="margin-bottom:4px;"&gt;</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">&lt;/li&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/ul&gt;</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="vs">          `</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="vs">      `</span> <span class="op">:</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="vs">`</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;details class="fs-accordion"&gt;</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;summary class="fs-accordion-summary" style="background:</span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">;"&gt;</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;span class="fs-accordion-name"&gt;</span><span class="sc">${</span>category<span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;span class="fs-accordion-count"&gt;</span><span class="sc">${</span>items<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/summary&gt;</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="fs-accordion-body"&gt;</span></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>pearlsHtml<span class="sc">}</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="fs-grid" style="margin-top:14px;"&gt;</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="vs">              </span><span class="sc">${</span>items<span class="op">.</span><span class="fu">map</span>(c <span class="kw">=&gt;</span> <span class="vs">`</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;div class="fs-card"&gt;</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;img class="fs-card-image" src="</span><span class="sc">${</span>c<span class="op">.</span><span class="at">imageURL</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" /&gt;</span></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;div class="fs-card-body"&gt;</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">description</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a><span class="vs">                    &lt;p class="fs-card-meta"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">source</span> <span class="op">??</span> c<span class="op">.</span><span class="at">contributor</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a><span class="vs">                  &lt;/div&gt;</span></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="vs">                &lt;/div&gt;</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a><span class="vs">              `</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/div&gt;</span></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/details&gt;</span></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="vs">      `</span><span class="op">;</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>    })<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span></span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="expression">
 
@@ -628,6 +635,36 @@ function fsCloseLightbox() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') fsCloseLightbox();
 });
+</script>
+<nav class="app-tab-bar" id="app-tab-bar">
+  <a class="app-tab-item" data-tab="home" href="./index.html">
+    <span class="app-tab-icon">🏠</span>
+    <span>Home</span>
+  </a>
+  <button class="app-tab-item" data-tab="search" type="button" onclick="if (window.quartoOpenSearch) window.quartoOpenSearch();">
+    <span class="app-tab-icon">🔍</span>
+    <span>Search</span>
+  </button>
+  <a class="app-tab-item" data-tab="references" href="./references.html">
+    <span class="app-tab-icon">📖</span>
+    <span>References</span>
+  </a>
+  <a class="app-tab-item" data-tab="resources" href="./more.html">
+    <span class="app-tab-icon">⋯</span>
+    <span>Resources</span>
+  </a>
+</nav>
+
+<script>
+(function() {
+  var path = location.pathname.split("/").pop() || "index.html";
+  var map = { "index.html": "home", "references.html": "references", "more.html": "resources" };
+  var active = map[path];
+  if (!active) return;
+  document.querySelectorAll(".app-tab-item").forEach(function(item) {
+    if (item.getAttribute("data-tab") === active) item.classList.add("active");
+  });
+})();
 </script>
 <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImNvbXBsaWNhdGlvbnMgPSB7XG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCwgZ2V0QXBwcywgZ2V0QXBwIH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtYXBwLmpzXCIpO1xuICBjb25zdCB7IGdldEZpcmVzdG9yZSwgY29sbGVjdGlvbiwgb25TbmFwc2hvdCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWZpcmVzdG9yZS5qc1wiKTtcblxuICBjb25zdCBmaXJlYmFzZUNvbmZpZyA9IHtcbiAgICBhcGlLZXk6IFwiQUl6YVN5RDFGTG5JcmQ4NnFPc0ZQTGk1eTFxX0VJVTBsaEw1Z3hjXCIsXG4gICAgYXV0aERvbWFpbjogXCJldmR0b29sa2l0LmZpcmViYXNlYXBwLmNvbVwiLFxuICAgIHByb2plY3RJZDogXCJldmR0b29sa2l0XCIsXG4gICAgc3RvcmFnZUJ1Y2tldDogXCJldmR0b29sa2l0LmZpcmViYXNlc3RvcmFnZS5hcHBcIixcbiAgICBtZXNzYWdpbmdTZW5kZXJJZDogXCIxMDAyMzc0NDMxMTUxXCIsXG4gICAgYXBwSWQ6IFwiMToxMDAyMzc0NDMxMTUxOndlYjpmZTM3MjRiYjFmMzllYjQ3NDRhZjVhXCJcbiAgfTtcblxuICBjb25zdCBhcHAgPSBnZXRBcHBzKCkubGVuZ3RoID8gZ2V0QXBwKCkgOiBpbml0aWFsaXplQXBwKGZpcmViYXNlQ29uZmlnKTtcbiAgY29uc3QgZGIgPSBnZXRGaXJlc3RvcmUoYXBwKTtcblxuICAvLyBMaXZlIGxpc3RlbmVyIOKAlCB1cGRhdGVzIGF1dG9tYXRpY2FsbHkgd2hlbmV2ZXIgQ29tcGxpY2F0aW9uc1xuICAvLyBjaGFuZ2VzIGluIEZpcmVzdG9yZSwgbm8gcGFnZSByZWxvYWQgbmVlZGVkLlxuICByZXR1cm4gR2VuZXJhdG9ycy5vYnNlcnZlKG5vdGlmeSA9PiB7XG4gICAgY29uc3QgdW5zdWJzY3JpYmUgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiQ29tcGxpY2F0aW9uc1wiKSwgc25hcHNob3QgPT4ge1xuICAgICAgbm90aWZ5KHNuYXBzaG90LmRvY3MubWFwKGQgPT4gZC5kYXRhKCkpKTtcbiAgICB9KTtcbiAgICByZXR1cm4gdW5zdWJzY3JpYmU7XG4gIH0pO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gRGV0ZXJtaW5pc3RpYyBjb2xvciBwZXIgY2F0ZWdvcnkgbmFtZSDigJQgc2FtZSBjYXRlZ29yeSBhbHdheXNcbi8vIGdldHMgdGhlIHNhbWUgY29sb3IsIG5vIG1hbnVhbCBtYXBwaW5nIHRvIG1haW50YWluLlxuZnVuY3Rpb24gY2F0ZWdvcnlDb2xvcihuYW1lKSB7XG4gIGNvbnN0IHBhbGV0dGUgPSBbXCIjMDA3QUZGXCIsIFwiIzM0Qzc1OVwiLCBcIiNGRjk1MDBcIiwgXCIjQUY1MkRFXCIsIFwiI0ZGM0IzMFwiLCBcIiMzMEIwQzdcIiwgXCIjRkYyRDU1XCIsIFwiIzhFOEU5M1wiXTtcbiAgbGV0IGhhc2ggPSAwO1xuICBmb3IgKGxldCBpID0gMDsgaSA8IG5hbWUubGVuZ3RoOyBpKyspIGhhc2ggPSBuYW1lLmNoYXJDb2RlQXQoaSkgKyAoKGhhc2ggPDwgNSkgLSBoYXNoKTtcbiAgcmV0dXJuIHBhbGV0dGVbTWF0aC5hYnMoaGFzaCkgJSBwYWxldHRlLmxlbmd0aF07XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBDdXJhdGVkIHByZXZlbnRpb24gcGVhcmxzIC8gY2xpbmljYWwgaW5zaWdodHMgcGVyIGNhdGVnb3J5LiBBZGQgbW9yZVxuLy8gZW50cmllcyBoZXJlIGFzIG5ldyBjYXRlZ29yaWVzIGFyZSBhZGRlZCB0byBGaXJlc3RvcmUuXG5jYXRlZ29yeVBlYXJscyA9ICh7XG4gIFwiSGVtb3JyaGFnZVwiOiB7XG4gICAgcHJldmVudGlvbjogW1xuICAgICAgXCJDb3JyZWN0IGNvYWd1bG9wYXRoeSBhbmQgYW50aXBsYXRlbGV0IGVmZmVjdHMgQkVGT1JFIHBsYWNlbWVudFwiLFxuICAgICAgXCJNaW5pbWl6ZSBudW1iZXIgb2YgYXR0ZW1wdHNcIixcbiAgICAgIFwiQXZvaWQgYmxpbmQgcmVwZWF0ZWQgcGFzc2VzXCIsXG4gICAgICBcIlVzZSBuYXZpZ2F0aW9uIHRvb2xzIHdoZW4gYXZhaWxhYmxlXCJcbiAgICBdLFxuICAgIGluc2lnaHQ6IFtcbiAgICAgIFwiU21hbGwgdHJhY3QgYmxlZWRzIGFyZSBjb21tb24g4oCUIGxhcmdlIGJsZWVkcyBhcmUgbm90XCIsXG4gICAgICBcIkNvcnJlbGF0ZSBDVCBmaW5kaW5ncyB3aXRoIGV4YW0gKyBJQ1AgY2hhbmdlc1wiXG4gICAgXVxuICB9LFxuICBcIk1hbHBvc2l0aW9uXCI6IHtcbiAgICBwcmV2ZW50aW9uOiBbXG4gICAgICBcIlVzZSBhbmF0b21pY2FsIGxhbmRtYXJrcyBjYXJlZnVsbHkgKEtvY2hlcidzIHBvaW50KVwiLFxuICAgICAgXCJVc2UgbmV1cm8tbmF2aWdhdGlvbiB0b29scyB3aGVuIGF2YWlsYWJsZVwiLFxuICAgICAgXCJDb25zaWRlciBhZGp1bmN0IGxlYXJuaW5nIHRvb2xzOiBzaW11bGF0aW9uIHRyYWluaW5nLCB2aXJ0dWFsIHJlYWxpdHkgbW9kdWxlc1wiXG4gICAgXSxcbiAgICBpbnNpZ2h0OiBbXG4gICAgICBcIkxvdyBDU0Ygb3V0cHV0IOKJoCBsb3cgSUNQXCIsXG4gICAgICBcIkEgZGFtcGVuZWQgd2F2ZWZvcm0g4oaSIHRoaW5rIG1hbHBvc2l0aW9uXCJcbiAgICBdXG4gIH0sXG4gIFwiUG5ldW1vY2VwaGFsdXNcIjoge1xuICAgIHByZXZlbnRpb246IFtcbiAgICAgIFwiVXN1YWxseSBiZW5pZ25cIixcbiAgICAgIFwiQXZvaWQgdW5uZWNlc3NhcnkgZGlzY29ubmVjdGlvbnNcIixcbiAgICAgIFwiTWFpbnRhaW4gYSBjbG9zZWQgc3RlcmlsZSBzeXN0ZW1cIlxuICAgIF0sXG4gICAgaW5zaWdodDogW11cbiAgfVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imdyb3VwZWRDb21wbGljYXRpb25zID0ge1xuICBjb25zdCBncm91cHMgPSBuZXcgTWFwKCk7XG4gIGNvbXBsaWNhdGlvbnMuZm9yRWFjaChjID0+IHtcbiAgICBjb25zdCBrZXkgPSBjLmNhdGVnb3J5ID8/IFwiVW5jYXRlZ29yaXplZFwiO1xuICAgIGlmICghZ3JvdXBzLmhhcyhrZXkpKSBncm91cHMuc2V0KGtleSwgW10pO1xuICAgIGdyb3Vwcy5nZXQoa2V5KS5wdXNoKGMpO1xuICB9KTtcbiAgcmV0dXJuIFsuLi5ncm91cHMuZW50cmllcygpXS5zb3J0KChhLCBiKSA9PiBhWzBdLmxvY2FsZUNvbXBhcmUoYlswXSkpO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZ3JvdXBlZENvbXBsaWNhdGlvbnMubGVuZ3RoID09PSAwXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5ObyBjb21wbGljYXRpb25zIGRvY3VtZW50ZWQgeWV0IOKAlCBjaGVjayBiYWNrIHNvb24uPC9kaXY+YFxuICA6IGh0bWxgPGRpdj5cbiAgICAke2dyb3VwZWRDb21wbGljYXRpb25zLm1hcCgoW2NhdGVnb3J5LCBpdGVtc10pID0+IHtcbiAgICAgIGNvbnN0IGNvbG9yID0gY2F0ZWdvcnlDb2xvcihjYXRlZ29yeSk7XG4gICAgICBjb25zdCBwZWFybHMgPSBjYXRlZ29yeVBlYXJsc1tjYXRlZ29yeV07XG4gICAgICBjb25zdCBwZWFybHNIdG1sID0gcGVhcmxzID8gYFxuICAgICAgICA8ZGl2IGNsYXNzPVwiY2FsbG91dC1wZWFybFwiIHN0eWxlPVwibWFyZ2luLXRvcDoxNHB4O1wiPlxuICAgICAgICAgICR7cGVhcmxzLnByZXZlbnRpb24ubGVuZ3RoID8gYFxuICAgICAgICAgICAgPHN0cm9uZz7wn5KhIFByZXZlbnRpb24gUGVhcmxzPC9zdHJvbmc+XG4gICAgICAgICAgICA8dWwgc3R5bGU9XCJtYXJnaW46OHB4IDAgMTJweDtwYWRkaW5nLWxlZnQ6MjBweDtcIj5cbiAgICAgICAgICAgICAgJHtwZWFybHMucHJldmVudGlvbi5tYXAocCA9PiBgPGxpIHN0eWxlPVwibWFyZ2luLWJvdHRvbTo0cHg7XCI+JHtwfTwvbGk+YCkuam9pbihcIlwiKX1cbiAgICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgYCA6IFwiXCJ9XG4gICAgICAgICAgJHtwZWFybHMuaW5zaWdodC5sZW5ndGggPyBgXG4gICAgICAgICAgICA8c3Ryb25nPuKaoO+4jyBDbGluaWNhbCBJbnNpZ2h0PC9zdHJvbmc+XG4gICAgICAgICAgICA8dWwgc3R5bGU9XCJtYXJnaW46OHB4IDAgMDtwYWRkaW5nLWxlZnQ6MjBweDtcIj5cbiAgICAgICAgICAgICAgJHtwZWFybHMuaW5zaWdodC5tYXAocCA9PiBgPGxpIHN0eWxlPVwibWFyZ2luLWJvdHRvbTo0cHg7XCI+JHtwfTwvbGk+YCkuam9pbihcIlwiKX1cbiAgICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgYCA6IFwiXCJ9XG4gICAgICAgIDwvZGl2PlxuICAgICAgYCA6IFwiXCI7XG5cbiAgICAgIHJldHVybiBgXG4gICAgICAgIDxkZXRhaWxzIGNsYXNzPVwiZnMtYWNjb3JkaW9uXCI+XG4gICAgICAgICAgPHN1bW1hcnkgY2xhc3M9XCJmcy1hY2NvcmRpb24tc3VtbWFyeVwiIHN0eWxlPVwiYmFja2dyb3VuZDoke2NvbG9yfTtcIj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZnMtYWNjb3JkaW9uLW5hbWVcIj4ke2NhdGVnb3J5fTwvc3Bhbj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZnMtYWNjb3JkaW9uLWNvdW50XCI+JHtpdGVtcy5sZW5ndGh9PC9zcGFuPlxuICAgICAgICAgIDwvc3VtbWFyeT5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtYWNjb3JkaW9uLWJvZHlcIj5cbiAgICAgICAgICAgICR7cGVhcmxzSHRtbH1cbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1ncmlkXCIgc3R5bGU9XCJtYXJnaW4tdG9wOjE0cHg7XCI+XG4gICAgICAgICAgICAgICR7aXRlbXMubWFwKGMgPT4gYFxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJmcy1jYXJkXCI+XG4gICAgICAgICAgICAgICAgICA8aW1nIGNsYXNzPVwiZnMtY2FyZC1pbWFnZVwiIHNyYz1cIiR7Yy5pbWFnZVVSTCA/PyBcIlwifVwiIG9uZXJyb3I9XCJ0aGlzLnN0eWxlLmRpc3BsYXk9J25vbmUnXCIgb25jbGljaz1cImZzT3BlbkxpZ2h0Ym94KHRoaXMuc3JjKVwiIC8+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZC1ib2R5XCI+XG4gICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzcz1cImZzLWNhcmQtdGl0bGVcIj4ke2MudGl0bGUgPz8gXCJVbnRpdGxlZFwifTwvaDQ+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzPVwiZnMtY2FyZC1kZXNjXCI+JHtjLmRlc2NyaXB0aW9uID8/IFwiXCJ9PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzcz1cImZzLWNhcmQtbWV0YVwiPiR7Yy5zb3VyY2UgPz8gYy5jb250cmlidXRvciA/PyBcIlwifTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICBgKS5qb2luKFwiXCIpfVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGV0YWlscz5cbiAgICAgIGA7XG4gICAgfSkuam9pbihcIlwiKX1cbiAgPC9kaXY+YFxuIn1dfQ==

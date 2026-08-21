@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EHR Alerts – EVD Toolkit</title>
+<title>💬 EHR Alerts – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./downloads.html">More</a></li><li class="breadcrumb-item"><a href="./ehr-alerts.html">EHR Alerts</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./more.html">More</a></li><li class="breadcrumb-item"><a href="./ehr-alerts.html">EHR Alerts</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -297,6 +297,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./more.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources Hub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./downloads.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Downloads</span></a>
   </div>
@@ -363,9 +369,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./downloads.html">More</a></li><li class="breadcrumb-item"><a href="./ehr-alerts.html">EHR Alerts</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./more.html">More</a></li><li class="breadcrumb-item"><a href="./ehr-alerts.html">EHR Alerts</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">EHR Alerts</h1>
+<h1 class="title">💬 EHR Alerts</h1>
+<p class="subtitle lead">Perioperative workflows and best practice advisories</p>
 </div>
 
 
@@ -483,6 +490,36 @@ function fsCloseLightbox() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') fsCloseLightbox();
 });
+</script>
+<nav class="app-tab-bar" id="app-tab-bar">
+  <a class="app-tab-item" data-tab="home" href="./index.html">
+    <span class="app-tab-icon">🏠</span>
+    <span>Home</span>
+  </a>
+  <button class="app-tab-item" data-tab="search" type="button" onclick="if (window.quartoOpenSearch) window.quartoOpenSearch();">
+    <span class="app-tab-icon">🔍</span>
+    <span>Search</span>
+  </button>
+  <a class="app-tab-item" data-tab="references" href="./references.html">
+    <span class="app-tab-icon">📖</span>
+    <span>References</span>
+  </a>
+  <a class="app-tab-item" data-tab="resources" href="./more.html">
+    <span class="app-tab-icon">⋯</span>
+    <span>Resources</span>
+  </a>
+</nav>
+
+<script>
+(function() {
+  var path = location.pathname.split("/").pop() || "index.html";
+  var map = { "index.html": "home", "references.html": "references", "more.html": "resources" };
+  var active = map[path];
+  if (!active) return;
+  document.querySelectorAll(".app-tab-item").forEach(function(item) {
+    if (item.getAttribute("data-tab") === active) item.classList.add("active");
+  });
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
