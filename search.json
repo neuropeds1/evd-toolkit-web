@@ -191,7 +191,7 @@
     "href": "settings.html#leveling",
     "title": "EVD Settings",
     "section": "Leveling",
-    "text": "Leveling\n\nReference point = tragus\nSmall height errors → large pressure errors\nAlways confirm before interpreting ICP",
+    "text": "Leveling\n\nReference point = external auditory meatus\nSmall height errors → large pressure errors\nAlways confirm before interpreting ICP",
     "crumbs": [
       "Foundations",
       "EVD Settings"
@@ -439,7 +439,7 @@
     "href": "checklist.html#pre-transport",
     "title": "Transport Checklist",
     "section": "Pre-Transport",
-    "text": "Pre-Transport\n\npre_items = [\n  \"EVD leveled at tragus\",\n  \"Clamp status confirmed\",\n  \"EVD setting verified\",\n  \"ICP value reviewed\",\n  \"Waveform assessed\",\n  \"CSF output reviewed\",\n  \"Tubing secured\",\n  \"System integrity maintained\"\n]\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
+    "text": "Pre-Transport\n\npre_items = [\n  \"EVD leveled at external auditory meatus\",\n  \"Clamp status confirmed\",\n  \"EVD setting verified\",\n  \"ICP value reviewed\",\n  \"Waveform assessed\",\n  \"CSF output reviewed\",\n  \"Tubing secured\",\n  \"System integrity maintained\"\n]\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
     "crumbs": [
       "Clinical Application",
       "Checklist"
@@ -571,7 +571,7 @@
     "href": "basics.html#clinical-pearls",
     "title": "What is an EVD",
     "section": "Clinical Pearls",
-    "text": "Clinical Pearls\n\nLeveling matters: Always level the EVD at the tragus for accurate ICP measurement.\nDrain vs monitor: An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.\nTransport risk: Clamping an EVD during transport can lead to dangerous ICP elevations.\nOutput trends: A sudden drop in CSF output may indicate obstruction rather than improvement.\nInfection prevention: Maintain a closed system and minimize unnecessary access to reduce infection risk.",
+    "text": "Clinical Pearls\n\nLeveling matters: Always level the EVD at the external auditory meatus for accurate ICP measurement.\nDrain vs monitor: An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.\nTransport risk: Clamping an EVD during transport can lead to dangerous ICP elevations.\nOutput trends: A sudden drop in CSF output may indicate obstruction rather than improvement.\nInfection prevention: Maintain a closed system and minimize unnecessary access to reduce infection risk.",
     "crumbs": [
       "Foundations",
       "What is an EVD"
@@ -747,7 +747,7 @@
     "href": "best-practices.html#dos-and-donts",
     "title": "Best Practices",
     "section": "Do’s and Don’ts",
-    "text": "Do’s and Don’ts\n\n\n\n\n\n\n\nDo\nDon’t\n\n\n\n\n✔ Confirm EVD setting before interpreting ICP\n✖ Interpret ICP without knowing the drain setting\n\n\n✔ Check clamp status before transport or procedures\n✖ Keep EVD closed and not monitor ICP\n\n\n✔ Level the transducer at the tragus\n✖ Clamp EVD and leave the transducer at the level of the heart\n\n\n✔ Trend ICP and waveform together\n✖ Rely on a single ICP value\n\n\n✔ Minimize CSF system access\n✖ Access CSF unnecessarily\n\n\n✔ Use sterile technique for all handling\n✖ Break sterility during manipulation\n\n\n✔ Secure tubing to prevent dislodgement\n✖ Leave tubing unsecured\n\n\n✔ Communicate EVD status during handoffs\n✖ Assume others know the EVD setup\n\n\n✔ Monitor ICP during transport at all times\n✖ Transport without considering ICP risk\n\n\n✔ Reassess waveform if values seem inconsistent\n✖ Ignore dampened or abnormal waveforms",
+    "text": "Do’s and Don’ts\n\n\n\n\n\n\n\nDo\nDon’t\n\n\n\n\n✔ Confirm EVD setting before interpreting ICP\n✖ Interpret ICP without knowing the drain setting\n\n\n✔ Check clamp status before transport or procedures\n✖ Keep EVD closed and not monitor ICP\n\n\n✔ Level the transducer at the external auditory meatus\n✖ Clamp EVD and leave the transducer at the level of the heart\n\n\n✔ Trend ICP and waveform together\n✖ Rely on a single ICP value\n\n\n✔ Minimize CSF system access\n✖ Access CSF unnecessarily\n\n\n✔ Use sterile technique for all handling\n✖ Break sterility during manipulation\n\n\n✔ Secure tubing to prevent dislodgement\n✖ Leave tubing unsecured\n\n\n✔ Communicate EVD status during handoffs\n✖ Assume others know the EVD setup\n\n\n✔ Monitor ICP during transport at all times\n✖ Transport without considering ICP risk\n\n\n✔ Reassess waveform if values seem inconsistent\n✖ Ignore dampened or abnormal waveforms",
     "crumbs": [
       "Clinical Application",
       "Best Practices"
