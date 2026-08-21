@@ -79,7 +79,7 @@ groupedReferences = {
 // Deterministic color per category name — same category always
 // gets the same color, no manual mapping to maintain.
 function categoryColor(name) {
-  const palette = ["#2c7be5", "#27ae60", "#e67e22", "#8e44ad", "#e74c3c", "#16a2b8", "#d63384", "#6c757d"];
+  const palette = ["#007AFF", "#34C759", "#FF9500", "#AF52DE", "#FF3B30", "#30B0C7", "#FF2D55", "#8E8E93"];
   let hash = 0;
   for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
   return palette[Math.abs(hash) % palette.length];

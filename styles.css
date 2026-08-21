@@ -6,13 +6,31 @@
 
 :root {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Exact iOS system colors (Color.blue, .purple, ...) -- matches
+     SystemColors.kt on Android and Color.blue/.purple/etc. in the
+     SwiftUI source, so the site's palette is the app's palette. */
+  --ios-blue: #007AFF;
+  --ios-purple: #AF52DE;
+  --ios-red: #FF3B30;
+  --ios-orange: #FF9500;
+  --ios-yellow: #FFCC00;
+  --ios-green: #34C759;
+  --ios-indigo: #5856D6;
+  --ios-teal: #30B0C7;
+  --ios-cyan: #32ADE6;
+  --ios-pink: #FF2D55;
+  --ios-mint: #00C7BE;
+  --ios-gray: #8E8E93;
+  --ios-card-radius: 20px;
+  --ios-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 body {
   font-family: var(--font-sans);
   font-size: 17.5px;
   line-height: 1.65;
-  color: #262b33;
+  color: #1c1c1e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,7 +38,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
-  color: #12375c;
+  color: #1c1c1e;
   letter-spacing: -0.01em;
   line-height: 1.25;
 }
@@ -50,12 +68,178 @@ p {
 }
 
 a {
-  color: #2c7be5;
+  color: var(--ios-blue);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* ============================================
+   Home screen -- mirrors HomeView.swift exactly:
+   diagonal blue->purple gradient banner, gradient
+   "New Here?" heading, and a StartHereRow list
+   (circular gradient icon badge + light tinted row).
+   ============================================ */
+
+.home-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-radius: var(--ios-card-radius);
+  background: linear-gradient(135deg, var(--ios-blue), var(--ios-purple));
+  color: white;
+  margin-bottom: 4px;
+}
+
+.home-header-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.home-header-title {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.home-header-subtitle {
+  opacity: 0.9;
+  font-size: 0.85rem;
+}
+
+.new-here-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--ios-blue), var(--ios-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-top: 1.4em !important;
+}
+
+.new-here-subtitle {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.start-here-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0 24px;
+}
+
+.start-here-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  text-decoration: none !important;
+  color: inherit;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--row-color) 16%, white), color-mix(in srgb, var(--row-color) 5%, white));
+  transition: transform 0.1s ease;
+}
+
+.start-here-row:hover {
+  transform: translateX(2px);
+}
+
+.start-here-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: white;
+  background: linear-gradient(135deg, var(--row-color), color-mix(in srgb, var(--row-color) 60%, white));
+}
+
+.start-here-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.start-here-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1c1c1e;
+}
+
+.start-here-subtitle {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.start-here-chevron {
+  flex: 0 0 auto;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   CategoryTile -- mirrors CategoryTile.swift: a
+   bold color-gradient tile with white icon/title/
+   subtitle, used for hub-style navigation grids.
+   ============================================ */
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  margin: 14px 0 24px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 150px;
+  padding: 18px;
+  border-radius: 24px;
+  text-decoration: none !important;
+  background: linear-gradient(135deg, var(--tile-color), color-mix(in srgb, var(--tile-color) 75%, white));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--tile-color) 25%, transparent);
+}
+
+.tile-icon {
+  font-size: 30px;
+  color: white;
+}
+
+.tile-title {
+  color: white;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.tile-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+}
+
+/* ============================================
+   Soft-tint card -- mirrors SectionCard.swift: a
+   rounded card with the whole background tinted
+   ~12% of the accent color, not just a header bar.
+   ============================================ */
+
+.ios-card {
+  background: color-mix(in srgb, var(--card-color, var(--ios-blue)) 12%, white);
+  border-radius: var(--ios-card-radius);
+  padding: 16px 18px;
+  box-shadow: var(--ios-shadow);
+  margin: 14px 0;
 }
 
 /* sidebar polish */
@@ -93,21 +277,21 @@ table td {
 }
 
 .mark-do {
-  color: #27ae60;
+  color: var(--ios-green);
   font-weight: 800;
 }
 
 .mark-dont {
-  color: #e74c3c;
+  color: var(--ios-red);
   font-weight: 800;
 }
 
 .callout-pearl {
-  background: #eef6ff;
-  border-left: 5px solid #2c7be5;
-  padding: 12px 14px;
-  border-radius: 8px;
+  background: color-mix(in srgb, var(--ios-blue) 12%, white);
+  padding: 14px 16px;
+  border-radius: var(--ios-card-radius);
   margin: 10px 0;
+  box-shadow: var(--ios-shadow);
 }
 
 /* ============================================
@@ -125,7 +309,7 @@ table td {
 
 .fs-card {
   background: white;
-  border-radius: 16px;
+  border-radius: var(--ios-card-radius);
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -189,7 +373,7 @@ table td {
 .fs-card-title {
   font-size: 17px;
   font-weight: 700;
-  color: #12375c;
+  color: #1c1c1e;
   margin: 0;
   line-height: 1.3;
 }
@@ -221,7 +405,7 @@ table td {
 .fs-card-link {
   display: inline-block;
   margin-top: 10px;
-  background: #2c7be5;
+  background: var(--ios-blue);
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -251,13 +435,13 @@ table td {
 }
 
 .fs-filter-pill:hover {
-  border-color: #2c7be5;
-  color: #2c7be5;
+  border-color: var(--ios-blue);
+  color: var(--ios-blue);
 }
 
 .fs-filter-pill.active {
-  background: #2c7be5;
-  border-color: #2c7be5;
+  background: var(--ios-blue);
+  border-color: var(--ios-blue);
   color: white;
 }
 
@@ -351,7 +535,7 @@ table td {
 .fs-ref-title {
   font-weight: 600;
   font-size: 16px;
-  color: #12375c;
+  color: #1c1c1e;
   margin: 0 0 4px;
   line-height: 1.45;
 }
@@ -371,7 +555,7 @@ table td {
 
 .fs-ref-link {
   font-size: 14px;
-  color: #2c7be5;
+  color: var(--ios-blue);
   font-weight: 500;
   text-decoration: none;
 }

@@ -2,9 +2,12 @@
 title: "EVD Toolkit"
 ---
 
-<div style="background:linear-gradient(90deg,#2c7be5,#8e44ad);border-radius:20px;padding:18px 22px;color:white;margin-bottom:8px;">
-<strong style="font-size:1.15rem;">EVD Toolkit</strong><br>
-<span style="opacity:0.9;">A practical, visual, and interactive educational platform for external ventricular drain (EVD) care.</span>
+<div class="home-header">
+  <span class="home-header-icon">🧠</span>
+  <div>
+    <div class="home-header-title">EVD Toolkit</div>
+    <div class="home-header-subtitle">Educational platform</div>
+  </div>
 </div>
 
 ## Pearl of the Day
@@ -49,91 +52,94 @@ todaysPearl = {
 
 ```{ojs}
 todaysPearl
-  ? html`<div style="background-color:#eef6ff;border-left:5px solid #2c7be5;border-radius:12px;padding:16px 18px;">
-      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#2c7be5;">💡 ${todaysPearl.category ?? "Pearl"}</div>
+  ? html`<div class="ios-card" style="--card-color: var(--ios-blue);">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ios-blue);">💡 ${todaysPearl.category ?? "Pearl"}</div>
       <div style="margin-top:6px;font-size:15px;">${todaysPearl.pearl ?? ""}</div>
     </div>`
   : html`<div class="fs-empty">Loading today's pearl…</div>`
 ```
 
-## New Here?
+## New Here? {.new-here-heading}
 
-A quick path to get oriented on EVDs.
+<div class="new-here-subtitle">A quick path to get oriented on EVDs</div>
 
-<div class="fs-grid">
-  <a class="fs-card" href="basics.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">🩺 What is an EVD?</h4><p class="fs-card-desc">Core concepts and terminology</p></div>
+<div class="start-here-list">
+  <a class="start-here-row" href="basics.qmd" style="--row-color: var(--ios-teal);">
+    <span class="start-here-icon">❓</span>
+    <span class="start-here-text"><span class="start-here-title">What is an EVD?</span><br><span class="start-here-subtitle">Core concepts and terminology</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="video.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">🎬 How-To Videos</h4><p class="fs-card-desc">Setup, safety, and technique walkthroughs</p></div>
+  <a class="start-here-row" href="video.qmd" style="--row-color: var(--ios-orange);">
+    <span class="start-here-icon">▶️</span>
+    <span class="start-here-text"><span class="start-here-title">How-To Videos</span><br><span class="start-here-subtitle">Setup, safety, and technique walkthroughs</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="catheter-types.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">📋 EVD Types & Systems</h4><p class="fs-card-desc">Catheter types and drainage systems you'll encounter — see also <a href="systems.qmd">EVD Systems</a></p></div>
+  <a class="start-here-row" href="catheter-types.qmd" style="--row-color: var(--ios-blue);">
+    <span class="start-here-icon">📋</span>
+    <span class="start-here-text"><span class="start-here-title">EVD Types & Systems</span><br><span class="start-here-subtitle">Catheter types and drainage systems you'll encounter</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="settings.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">🎚️ EVD Setup</h4><p class="fs-card-desc">Leveling and bedside setup</p></div>
+  <a class="start-here-row" href="settings.qmd" style="--row-color: var(--ios-purple);">
+    <span class="start-here-icon">🎚️</span>
+    <span class="start-here-text"><span class="start-here-title">EVD Setup</span><br><span class="start-here-subtitle">Leveling and bedside setup</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="basics.qmd#ct-abnormalities" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">🧠 CT Imaging</h4><p class="fs-card-desc">Normal positioning and complications</p></div>
+  <a class="start-here-row" href="basics.qmd#ct-abnormalities" style="--row-color: var(--ios-gray);">
+    <span class="start-here-icon">🧠</span>
+    <span class="start-here-text"><span class="start-here-title">CT Imaging</span><br><span class="start-here-subtitle">Normal positioning and complications</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="waveform.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">📈 ICP Waveforms</h4><p class="fs-card-desc">Interpretation and waveform review</p></div>
+  <a class="start-here-row" href="waveform.qmd" style="--row-color: var(--ios-green);">
+    <span class="start-here-icon">📈</span>
+    <span class="start-here-text"><span class="start-here-title">ICP Waveforms</span><br><span class="start-here-subtitle">Interpretation and waveform review</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="clinical-pearls.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">💡 Clinical Pearls</h4><p class="fs-card-desc">High-yield teaching points</p></div>
+  <a class="start-here-row" href="clinical-pearls.qmd" style="--row-color: var(--ios-yellow);">
+    <span class="start-here-icon">💡</span>
+    <span class="start-here-text"><span class="start-here-title">Clinical Pearls</span><br><span class="start-here-subtitle">High-yield teaching points</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
-  <a class="fs-card" href="mri-safety.qmd" style="text-decoration:none;color:inherit;">
-    <div class="fs-card-body"><h4 class="fs-card-title">🚑 Transport & MRI Safety</h4><p class="fs-card-desc">Safe transport and MRI considerations — see also <a href="transport-icp-risk.qmd">ICP Risk</a> and <a href="checklist.qmd">Transport Checklist</a></p></div>
+  <a class="start-here-row" href="mri-safety.qmd" style="--row-color: var(--ios-red);">
+    <span class="start-here-icon">🚑</span>
+    <span class="start-here-text"><span class="start-here-title">Transport & MRI Safety</span><br><span class="start-here-subtitle">Safe transport and MRI considerations</span></span>
+    <span class="start-here-chevron">›</span>
   </a>
 </div>
 
-## Explore Everything
+<div id="home-feedback-banner" style="display:none;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--ios-indigo);box-shadow:0 6px 16px rgba(0,0,0,0.12);">
+  <span style="font-size:20px;">💬</span>
+  <span style="flex:1;">
+    <span style="display:block;color:white;font-weight:600;font-size:0.92rem;">How are we doing?</span>
+    <span style="display:block;color:rgba(255,255,255,0.85);font-size:0.78rem;">We'd love your feedback.</span>
+  </span>
+  <a id="home-feedback-send" href="https://docs.google.com/forms/d/e/1FAIpQLSdq2TXhaqMShJ7ruv27xEuizUr5NlKwEzQcc00hGbl22t7Ssg/viewform?usp=header" target="_blank" style="background:white;color:var(--ios-indigo);font-weight:600;font-size:0.85rem;padding:6px 14px;border-radius:999px;text-decoration:none;">Send</a>
+  <button id="home-feedback-dismiss" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:1rem;cursor:pointer;line-height:1;">✕</button>
+</div>
 
-**📘 Foundations**
+<script>
+(function() {
+  var KEY = "lastFeedbackBannerDate";
+  var banner = document.getElementById("home-feedback-banner");
+  if (!banner) return;
 
-- What is an EVD
-- EVD Settings
-- ICP Waveform
-- Catheter Types
+  function today() { return new Date().toDateString(); }
 
-**🧑‍⚕️ Clinical Application**
+  function shouldShow() {
+    var last = localStorage.getItem(KEY);
+    if (!last) return true;
+    var lastDate = new Date(last);
+    var days = Math.floor((new Date() - lastDate) / (1000 * 60 * 60 * 24));
+    return days >= 7;
+  }
 
-- Apply to a Hypothetical Patient
-- Checklist
-- Best Practices
+  function dismiss() {
+    localStorage.setItem(KEY, new Date().toDateString());
+    banner.style.display = "none";
+  }
 
-**🚑 Transport & MRI Safety**
+  if (shouldShow()) banner.style.display = "flex";
 
-- Transport ICP Risk
-- Transport Checklist
-- MRI Safety
-
-**📈 Safety & Quality Improvement**
-
-- QI Metrics
-- Infection Prevention Bundle
-- Complications
-
-**🎓 Learning & Engagement**
-
-- EVD Quiz
-- Educational Video
-- EVD Systems (global variability)
-
-**📦 More**
-
-- Downloads
-- EHR Alerts
-- EVD Safety Campaign
-
-**📚 Resources**
-
-- References
-- Feedback
-- About
-
-## About This Project
-
-EVD practices vary widely across institutions, particularly in device setup, leveling, and management. This variability can lead to confusion, communication gaps, and potential safety risks.
-
-The goal of this toolkit is to provide a standardized, visual, and practical approach to EVD education while recognizing real-world variability in systems and workflows.
+  document.getElementById("home-feedback-dismiss").addEventListener("click", dismiss);
+  document.getElementById("home-feedback-send").addEventListener("click", dismiss);
+})();
+</script>
