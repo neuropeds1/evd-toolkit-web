@@ -47,7 +47,7 @@ Cerebellar ischemic stroke with posterior fossa edema causing compression of the
 
 ## Clinical Pearls
 
-- **Leveling matters:** Always level the EVD at the tragus for accurate ICP measurement.
+- **Leveling matters:** Always level the EVD at the external auditory meatus for accurate ICP measurement.
 - **Drain vs monitor:** An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.
 - **Transport risk:** Clamping an EVD during transport can lead to dangerous ICP elevations.
 - **Output trends:** A sudden drop in CSF output may indicate obstruction rather than improvement.

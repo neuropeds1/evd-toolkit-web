@@ -48,7 +48,7 @@ Prevents overdrainage before an aneurysm is secured.
 
 ## Leveling
 
-- Reference point = tragus
+- Reference point = external auditory meatus
 - Small height errors → large pressure errors
 - Always confirm before interpreting ICP
 

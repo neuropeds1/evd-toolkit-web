@@ -8,7 +8,7 @@ Complete this checklist prior to intra-hospital transport or procedures.
 
 ```{ojs}
 pre_items = [
-  "EVD leveled at tragus",
+  "EVD leveled at external auditory meatus",
   "Clamp status confirmed",
   "EVD setting verified",
   "ICP value reviewed",
