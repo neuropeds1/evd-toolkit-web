@@ -333,6 +333,13 @@ a:hover {
   line-height: 1;
 }
 
+/* Collaborator map on About: an embedded iframe in the regular browser,
+   falling back to a plain link-out card in standalone/installed mode,
+   where cross-origin iframes are unreliable in WebKit's PWA container. */
+.map-link-fallback {
+  display: none;
+}
+
 @media (display-mode: standalone) {
   .app-tab-bar {
     display: flex;
@@ -359,6 +366,14 @@ a:hover {
 
   body {
     padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .map-embed-only {
+    display: none !important;
+  }
+
+  .map-link-fallback {
+    display: flex !important;
   }
 }
 
