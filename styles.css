@@ -92,6 +92,16 @@ table td {
   border-top: 1px solid #eef1f5;
 }
 
+.mark-do {
+  color: #27ae60;
+  font-weight: 800;
+}
+
+.mark-dont {
+  color: #e74c3c;
+  font-weight: 800;
+}
+
 .callout-pearl {
   background: #eef6ff;
   border-left: 5px solid #2c7be5;
