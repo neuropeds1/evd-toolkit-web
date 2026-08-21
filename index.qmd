@@ -1,5 +1,6 @@
 ---
 title: "EVD Toolkit"
+toc: false
 ---
 
 ```{=html}
@@ -10,9 +11,12 @@ title: "EVD Toolkit"
     <div class="home-header-subtitle">Educational platform</div>
   </div>
 </div>
-```
 
-## Pearl of the Day
+<div class="home-layout">
+
+<aside class="home-sidebar">
+<h2 class="pearl-heading">Pearl of the Day</h2>
+```
 
 ```{ojs}
 pearlsData = {
@@ -54,16 +58,19 @@ todaysPearl = {
 
 ```{ojs}
 todaysPearl
-  ? html`<div class="ios-card" style="--card-color: var(--ios-blue);">
+  ? html`<div class="ios-card pearl-card" style="--card-color: var(--ios-blue);">
+      <span class="pearl-badge">✨ Today's Pearl</span>
       <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ios-blue);">💡 ${todaysPearl.category ?? "Pearl"}</div>
       <div style="margin-top:6px;font-size:15px;">${todaysPearl.pearl ?? ""}</div>
     </div>`
   : html`<div class="fs-empty">Loading today's pearl…</div>`
 ```
 
-## New Here? {.new-here-heading}
-
 ```{=html}
+</aside>
+
+<div class="home-main">
+<h2 class="new-here-heading">New Here?</h2>
 <div class="new-here-subtitle">A quick path to get oriented on EVDs</div>
 
 <div class="start-here-list">
@@ -118,6 +125,9 @@ todaysPearl
   <a id="home-feedback-send" href="https://docs.google.com/forms/d/e/1FAIpQLSdq2TXhaqMShJ7ruv27xEuizUr5NlKwEzQcc00hGbl22t7Ssg/viewform?usp=header" target="_blank" style="background:white;color:var(--ios-indigo);font-weight:600;font-size:0.85rem;padding:6px 14px;border-radius:999px;text-decoration:none;">Send</a>
   <button id="home-feedback-dismiss" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:1rem;cursor:pointer;line-height:1;">✕</button>
 </div>
+
+</div><!-- /home-main -->
+</div><!-- /home-layout -->
 ```
 
 <script>
