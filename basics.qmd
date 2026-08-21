@@ -8,8 +8,6 @@ An External Ventricular Drain (EVD) is a temporary device inserted into the vent
 
 It is primarily used for temporary CSF diversion in patients with **acute symptomatic hydrocephalus**.
 
-**Global Perspective:** More than 60,000 EVDs are placed annually worldwide.
-
 ## Common Indications
 
 1. Subarachnoid hemorrhage (SAH)
