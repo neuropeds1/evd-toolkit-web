@@ -1,8 +1,12 @@
 project:
   type: website
+  resources:
+    - icon-192.png
+    - icon-512.png
 
 website:
   title: "EVD Toolkit"
+  favicon: favicon.ico
   page-footer:
     center: |
       EVD Toolkit — educational use only, does not replace clinical judgment or institutional guidance.
@@ -10,11 +14,13 @@ website:
       <div id="site-footer-stats" style="width:100%;text-align:center;padding-top:8px;font-size:13px;color:#8a94a6;">
       <span id="visitor-count-footer">👀 loading…</span>
       &nbsp;·&nbsp;
+      <span id="country-count-footer"></span>
+      &nbsp;·&nbsp;
       <span>Last updated on August 20, 2026</span>
       </div>
       <script type="module">
       import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-      import { getFirestore, doc, onSnapshot, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+      import { getFirestore, doc, onSnapshot, updateDoc, setDoc, increment, arrayUnion } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
         authDomain: "evdtoolkit.firebaseapp.com",
@@ -25,11 +31,30 @@ website:
       };
       const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
       const db = getFirestore(app);
+
       const counterRef = doc(db, "Stats", "visitorCount");
       updateDoc(counterRef, { count: increment(1) }).catch(() => {});
       onSnapshot(counterRef, snapshot => {
         const el = document.getElementById("visitor-count-footer");
         if (el) el.textContent = `👀 ${(snapshot.data()?.count ?? 0).toLocaleString()} visitors`;
+      });
+
+      // Country tally: record this visitor's country (via a free,
+      // no-signup IP geolocation lookup) into a de-duplicated Firestore
+      // set, so the footer can show a running distinct-country count.
+      const countriesRef = doc(db, "Stats", "visitorCountries");
+      fetch("https://get.geojs.io/v1/ip/country.json")
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.country) {
+            return setDoc(countriesRef, { codes: arrayUnion(data.country) }, { merge: true });
+          }
+        })
+        .catch(() => {});
+      onSnapshot(countriesRef, snapshot => {
+        const el = document.getElementById("country-count-footer");
+        const count = (snapshot.data()?.codes ?? []).length;
+        if (el && count > 0) el.textContent = `🌍 ${count} ${count === 1 ? "country" : "countries"}`;
       });
       </script>
   sidebar:
@@ -112,4 +137,5 @@ format:
     grid:
       sidebar-width: 260px
     lightbox: true
+    include-in-header: head-include.html
     include-after-body: lightbox-include.html
