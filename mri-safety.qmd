@@ -95,6 +95,7 @@ groupedSteps.length === 0
                   <div class="fs-card-body">
                     <h4 class="fs-card-title">${s.title ?? "Untitled step"}</h4>
                     <p class="fs-card-desc">${s.detail ?? ""}</p>
+                    <p class="fs-card-meta">${s.source ?? (s.imageURL ? "Illustrative example, not an actual patient" : "")}</p>
                   </div>
                 </div>
               `).join("")}

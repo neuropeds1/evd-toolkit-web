@@ -10,7 +10,7 @@ website:
       <div id="site-footer-stats" style="width:100%;text-align:center;padding-top:8px;font-size:13px;color:#8a94a6;">
       <span id="visitor-count-footer">👀 loading…</span>
       &nbsp;·&nbsp;
-      <span>Last updated on July 27, 2026</span>
+      <span>Last updated on August 20, 2026</span>
       </div>
       <script type="module">
       import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";

@@ -25,6 +25,8 @@ It is primarily used for temporary CSF diversion in patients with **acute sympto
 ![](images/ct-sah-cisternal-blood.jpeg)
 
 Cisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.
+
+*Source: Dr. Abhijit V. Lele, University of Washington.*
 :::
 
 ::: {.callout-note collapse="false"}
@@ -32,6 +34,8 @@ Cisternal blood due to ruptured basilar aneurysm causing obstruction of CSF path
 ![](images/ct-ivh-axial.jpeg)
 
 Thalamic hemorrhage with intraventricular extension and hydrocephalus.
+
+*Source: Dr. Abhijit V. Lele, University of Washington.*
 :::
 
 ::: {.callout-note collapse="false"}
@@ -39,6 +43,8 @@ Thalamic hemorrhage with intraventricular extension and hydrocephalus.
 ![](images/ct-cerebellar-stroke.jpeg)
 
 Cerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.
+
+*Source: Dr. Abhijit V. Lele, University of Washington.*
 :::
 
 ## Clinical Pearls
