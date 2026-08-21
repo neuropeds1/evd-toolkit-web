@@ -109,6 +109,10 @@ a:hover {
   font-size: 0.85rem;
 }
 
+.new-here-heading .anchorjs-link {
+  display: none !important;
+}
+
 .new-here-heading {
   font-size: 1.5rem;
   font-weight: 800;
