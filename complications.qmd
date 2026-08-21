@@ -144,7 +144,7 @@ groupedComplications.length === 0
                   <div class="fs-card-body">
                     <h4 class="fs-card-title">${c.title ?? "Untitled"}</h4>
                     <p class="fs-card-desc">${c.description ?? ""}</p>
-                    <p class="fs-card-meta">${c.source ?? c.contributor ?? ""}</p>
+                    ${(c.source ?? c.contributor) ? `<span class="fs-source">📎 ${c.source ?? c.contributor}</span>` : ""}
                   </div>
                 </div>
               `).join("")}

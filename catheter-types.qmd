@@ -99,7 +99,7 @@ html`<div>
                 <div class="fs-card-body">
                   <h4 class="fs-card-title">${t.title ?? "Untitled"}</h4>
                   <p class="fs-card-desc">${t.description ?? ""}</p>
-                  <p class="fs-card-meta">${t.source ?? t.contributor ?? ""}</p>
+                  ${(t.source ?? t.contributor) ? `<span class="fs-source">📎 ${t.source ?? t.contributor}</span>` : ""}
                 </div>
               </div>
             `).join("")}

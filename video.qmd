@@ -115,7 +115,7 @@ html`<div class="fs-grid">
             <div class="fs-card-body">
               <h4 class="fs-card-title">${v.title ?? "Untitled"}</h4>
               <p class="fs-card-desc">${v.subtitle ?? ""}</p>
-              <p class="fs-card-meta">${v.source ?? ""}</p>
+              ${v.source ? `<span class="fs-source">📎 ${v.source}</span>` : ""}
               ${v.category ? `<span class="fs-badge" style="background:${categoryColor(v.category)};">${v.category}</span>` : ""}
             </div>
           </div>
