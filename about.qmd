@@ -234,10 +234,6 @@ updateMarkers = {
 }
 ```
 
-::: {.callout-note}
-Click a pin to see collaborator details. Cities without a known map location aren't shown yet — let me know when someone new joins and I'll add their city.
-:::
-
 ```{ojs}
 // Port of AboutView.swift's people-sorting rule: ordered items first
 // (by order), then unordered items alphabetically by name.
