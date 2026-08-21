@@ -1,0 +1,35 @@
+---
+title: "🧠 Foundations"
+subtitle: "Core educational modules for EVD and ICP monitoring"
+---
+
+**Foundation Modules** — core concepts, imaging, setup, and waveform interpretation.
+
+```{=html}
+<div class="tile-grid">
+  <a class="tile" href="basics.qmd" style="--tile-color: var(--ios-blue);">
+    <span class="tile-icon">🧠</span>
+    <span><span class="tile-title">What is an EVD?</span><br><span class="tile-subtitle">Introduction to EVDs and ICP monitoring</span></span>
+  </a>
+  <a class="tile" href="catheter-types.qmd" style="--tile-color: var(--ios-teal);">
+    <span class="tile-icon">🖼️</span>
+    <span><span class="tile-title">Types of EVD</span><br><span class="tile-subtitle">Photo library of EVD devices</span></span>
+  </a>
+  <a class="tile" href="systems.qmd" style="--tile-color: var(--ios-cyan);">
+    <span class="tile-icon">💾</span>
+    <span><span class="tile-title">EVD Systems</span><br><span class="tile-subtitle">Global repository of EVD systems</span></span>
+  </a>
+  <a class="tile" href="settings.qmd" style="--tile-color: var(--ios-green);">
+    <span class="tile-icon">🎚️</span>
+    <span><span class="tile-title">EVD Setup</span><br><span class="tile-subtitle">Leveling and bedside setup</span></span>
+  </a>
+  <a class="tile" href="waveform.qmd" style="--tile-color: var(--ios-orange);">
+    <span class="tile-icon">📈</span>
+    <span><span class="tile-title">ICP Waveforms</span><br><span class="tile-subtitle">Interpretation and waveform review</span></span>
+  </a>
+  <a class="tile" href="basics.qmd#ct-abnormalities" style="--tile-color: var(--ios-gray);">
+    <span class="tile-icon">🩻</span>
+    <span><span class="tile-title">CT Imaging</span><br><span class="tile-subtitle">Normal positioning and complications</span></span>
+  </a>
+</div>
+```

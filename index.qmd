@@ -53,7 +53,7 @@ page-layout: full
     <span class="start-here-text"><span class="start-here-title">Clinical Pearls</span><br><span class="start-here-subtitle">High-yield teaching points</span></span>
     <span class="start-here-chevron">›</span>
   </a>
-  <a class="start-here-row" href="mri-safety.qmd" style="--row-color: var(--ios-red);">
+  <a class="start-here-row" href="transport-mri-safety.qmd" style="--row-color: var(--ios-red);">
     <span class="start-here-icon">🚑</span>
     <span class="start-here-text"><span class="start-here-title">Transport & MRI Safety</span><br><span class="start-here-subtitle">Safe transport and MRI considerations</span></span>
     <span class="start-here-chevron">›</span>

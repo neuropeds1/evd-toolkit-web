@@ -68,6 +68,8 @@ website:
         href: clinical-pearls.qmd
       - section: "Foundations"
         contents:
+          - text: "Foundations Hub"
+            href: foundations.qmd
           - text: "What is an EVD"
             href: basics.qmd
           - text: "EVD Settings"
@@ -94,6 +96,8 @@ website:
             href: systems.qmd
       - section: "Transport & MRI Safety"
         contents:
+          - text: "Transport & MRI Safety Hub"
+            href: transport-mri-safety.qmd
           - text: "Transport ICP Risk"
             href: transport-icp-risk.qmd
           - text: "Transport Checklist"

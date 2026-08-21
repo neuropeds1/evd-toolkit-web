@@ -3,7 +3,24 @@ title: "💬 EHR Alerts"
 subtitle: "Perioperative workflows and best practice advisories"
 ---
 
-Perioperative workflows and best practice advisories. Educational perioperative EHR workflow examples.
+**EHR Workflow Modules** — educational perioperative EHR workflow examples.
+
+```{=html}
+<div class="tile-grid">
+  <a class="tile" href="#identify-patients" style="--tile-color: var(--ios-red);">
+    <span class="tile-icon">🧠</span>
+    <span><span class="tile-title">Identify Patients</span><br><span class="tile-subtitle">EVD and ICP monitor identification</span></span>
+  </a>
+  <a class="tile" href="#preoperative-review" style="--tile-color: var(--ios-orange);">
+    <span class="tile-icon">🔍</span>
+    <span><span class="tile-title">Data Review</span><br><span class="tile-subtitle">Information to abstract preoperatively</span></span>
+  </a>
+  <a class="tile" href="#or-documentation" style="--tile-color: var(--ios-green);">
+    <span class="tile-icon">📋</span>
+    <span><span class="tile-title">Documentation</span><br><span class="tile-subtitle">Structured perioperative documentation</span></span>
+  </a>
+</div>
+```
 
 ## Identify Patients
 

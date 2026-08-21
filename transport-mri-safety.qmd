@@ -1,0 +1,23 @@
+---
+title: "🚑 Transport & MRI Safety"
+subtitle: "Safety tools for EVD transport"
+---
+
+**Transport & MRI Safety Modules** — ICP risk and safety checklist.
+
+```{=html}
+<div class="tile-grid">
+  <a class="tile" href="transport-icp-risk.qmd" style="--tile-color: var(--ios-orange);">
+    <span class="tile-icon">⚠️</span>
+    <span><span class="tile-title">ICP Risk</span><br><span class="tile-subtitle">Interactive ICP risk model</span></span>
+  </a>
+  <a class="tile" href="checklist.qmd" style="--tile-color: var(--ios-green);">
+    <span class="tile-icon">✅</span>
+    <span><span class="tile-title">Transport Checklist</span><br><span class="tile-subtitle">EVD safety checklist</span></span>
+  </a>
+  <a class="tile" href="mri-safety.qmd" style="--tile-color: var(--ios-purple);">
+    <span class="tile-icon">⚛️</span>
+    <span><span class="tile-title">MRI Safety</span><br><span class="tile-subtitle">Scan safety considerations</span></span>
+  </a>
+</div>
+```
