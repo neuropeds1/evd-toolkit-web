@@ -1,5 +1,6 @@
 ---
-title: "Transport ICP Risk"
+title: "⚠️ Transport ICP Risk"
+subtitle: "Hypothetical scenario for transport-associated ICP elevation"
 ---
 
 Hypothetical scenario for transport-associated ICP elevation.

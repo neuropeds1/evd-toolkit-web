@@ -1,5 +1,6 @@
 ---
-title: "Apply to a Hypothetical Patient"
+title: "🩺 Apply to a Hypothetical Patient"
+subtitle: "Apply core EVD concepts to a bedside clinical scenario"
 ---
 
 ## Before You Transport: A Pause Point

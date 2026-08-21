@@ -1,5 +1,6 @@
 ---
-title: "MRI Safety"
+title: "⚛️ MRI Safety"
+subtitle: "EVD considerations before and during MRI"
 ---
 
 EVD considerations before and during MRI. Click a category to expand it.

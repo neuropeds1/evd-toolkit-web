@@ -1,5 +1,6 @@
 ---
-title: "EVD Systems"
+title: "💾 EVD Systems"
+subtitle: "Global repository of ventricular drainage systems"
 ---
 
 **A Global Library of Real-World EVD Systems** — browse how EVD systems vary across institutions worldwide. Click a region/category to expand it.

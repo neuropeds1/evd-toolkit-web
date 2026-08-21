@@ -1,5 +1,6 @@
 ---
-title: "Infection Prevention Bundle"
+title: "🛡️ Infection Prevention Bundle"
+subtitle: "Evidence-based practices to reduce EVD-related infection"
 ---
 
 A structured, evidence-informed approach to reduce ventriculostomy-related infections (VRI) through standardized insertion and maintenance practices.

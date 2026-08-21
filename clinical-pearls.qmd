@@ -1,5 +1,6 @@
 ---
-title: "Clinical Pearls"
+title: "💡 Clinical Pearls"
+subtitle: "High-yield bedside EVD teaching points"
 ---
 
 The most important things to know about EVDs — condensed, testable facts for a fast pre-shift or pre-exam review. Click a category to expand it.

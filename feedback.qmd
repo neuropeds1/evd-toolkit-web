@@ -1,5 +1,6 @@
 ---
-title: "Feedback"
+title: "💬 Feedback"
+subtitle: "Help improve the EVD Toolkit experience"
 ---
 
 We value your input to improve this tool and enhance patient safety.

@@ -1,5 +1,6 @@
 ---
-title: "EVD Settings"
+title: "🎚️ EVD Settings"
+subtitle: "Leveling, drainage systems, and bedside setup principles"
 ---
 
 The EVD setting represents the pressure threshold (cm H₂O) above which CSF will drain.

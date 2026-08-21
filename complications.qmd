@@ -1,5 +1,6 @@
 ---
-title: "Complications"
+title: "⚠️ Complications"
+subtitle: "Recognize complications early"
 ---
 
 Recognize complications early. Understand patterns. Prevent avoidable harm.

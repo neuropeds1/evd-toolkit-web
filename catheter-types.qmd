@@ -1,5 +1,6 @@
 ---
-title: "Catheter Types"
+title: "🖼️ Catheter Types"
+subtitle: "Photo library of EVD devices and systems"
 ---
 
 A reference catalog of EVD catheter types and coatings. Click a category to expand it.

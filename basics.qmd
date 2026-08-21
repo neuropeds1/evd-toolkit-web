@@ -1,5 +1,6 @@
 ---
-title: "What is an EVD"
+title: "🧠 What is an EVD"
+subtitle: "Overview of external ventricular drains and ICP monitoring"
 ---
 
 ## What is an External Ventricular Drain (EVD)?

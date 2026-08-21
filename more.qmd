@@ -1,0 +1,33 @@
+---
+title: "⋯ Resources"
+subtitle: "Basics · QI Metrics · Downloads · EHR Alerts · Safety Campaign · Info"
+---
+
+```{=html}
+<div class="tile-grid">
+  <a class="tile" href="basics.qmd" style="--tile-color: var(--ios-blue);">
+    <span class="tile-icon">🧠</span>
+    <span><span class="tile-title">Basics</span><br><span class="tile-subtitle">Core concepts</span></span>
+  </a>
+  <a class="tile" href="qi-metrics.qmd" style="--tile-color: var(--ios-teal);">
+    <span class="tile-icon">📊</span>
+    <span><span class="tile-title">QI Metrics</span><br><span class="tile-subtitle">Quality improvement</span></span>
+  </a>
+  <a class="tile" href="downloads.qmd" style="--tile-color: var(--ios-purple);">
+    <span class="tile-icon">⬇️</span>
+    <span><span class="tile-title">Downloads</span><br><span class="tile-subtitle">Resources & docs</span></span>
+  </a>
+  <a class="tile" href="ehr-alerts.qmd" style="--tile-color: var(--ios-indigo);">
+    <span class="tile-icon">💬</span>
+    <span><span class="tile-title">EHR Alerts</span><br><span class="tile-subtitle">Advisories & workflows</span></span>
+  </a>
+  <a class="tile" href="safety-campaign.qmd" style="--tile-color: var(--ios-pink);">
+    <span class="tile-icon">🛡️</span>
+    <span><span class="tile-title">Safety Campaign</span><br><span class="tile-subtitle">SNACC educational initiative</span></span>
+  </a>
+  <a class="tile" href="about.qmd" style="--tile-color: var(--ios-orange);">
+    <span class="tile-icon">ℹ️</span>
+    <span><span class="tile-title">Info</span><br><span class="tile-subtitle">References & feedback</span></span>
+  </a>
+</div>
+```

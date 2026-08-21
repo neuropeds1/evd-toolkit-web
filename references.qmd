@@ -1,5 +1,6 @@
 ---
-title: "References"
+title: "📖 References"
+subtitle: "Key literature supporting EVD management and safety"
 ---
 
 Key literature supporting EVD management, transport safety, and clinical practice. Click a category to expand it.

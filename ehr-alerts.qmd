@@ -1,5 +1,6 @@
 ---
-title: "EHR Alerts"
+title: "💬 EHR Alerts"
+subtitle: "Perioperative workflows and best practice advisories"
 ---
 
 Perioperative workflows and best practice advisories. Educational perioperative EHR workflow examples.

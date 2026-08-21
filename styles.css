@@ -49,6 +49,19 @@ h1 {
   margin-bottom: 0.5em;
 }
 
+/* StandardPageHeader match: icon (as an emoji prefixed onto the title
+   itself) + bold title + gray subtitle, mirroring StandardPageHeader.swift
+   (title in plain primary text, no accent color -- only the icon carries
+   color, which emoji already do on their own). */
+.quarto-title .subtitle.lead {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  color: #6b7280;
+  margin-top: -0.3em;
+  margin-bottom: 0.8em;
+}
+
 h2 {
   font-size: 1.5rem;
   margin-top: 2em;
@@ -244,6 +257,86 @@ a:hover {
   padding: 16px 18px;
   box-shadow: var(--ios-shadow);
   margin: 14px 0;
+}
+
+/* ============================================
+   App shell -- when installed to the home screen
+   (display-mode: standalone), the site sheds every
+   bit of "website" chrome (sidebar, docs header,
+   footer stats) and becomes a bottom-tab app shell
+   matching MainTabView.swift's 4 tabs exactly, so
+   the installed experience is indistinguishable
+   from the native app.
+   ============================================ */
+
+.app-tab-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(249, 249, 249, 0.94);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0px));
+}
+
+.app-tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #8E8E93;
+  text-decoration: none !important;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.app-tab-item.active {
+  color: var(--ios-blue);
+}
+
+.app-tab-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@media (display-mode: standalone) {
+  .app-tab-bar {
+    display: flex;
+  }
+
+  #quarto-header,
+  #quarto-sidebar,
+  #quarto-margin-sidebar,
+  .quarto-secondary-nav,
+  .page-footer,
+  #title-block-header nav.quarto-page-breadcrumbs {
+    display: none !important;
+  }
+
+  #quarto-content.page-columns {
+    display: block !important;
+  }
+
+  main.content {
+    margin: 0 !important;
+    max-width: 100% !important;
+    padding: 16px 16px calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  body {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
 }
 
 /* sidebar polish */

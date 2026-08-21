@@ -1,5 +1,6 @@
 ---
-title: "QI Metrics"
+title: "📊 QI Metrics"
+subtitle: "Quality improvement metrics for EVD safety and monitoring"
 ---
 
 Quality improvement metrics for EVD safety and monitoring.

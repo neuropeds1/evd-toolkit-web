@@ -1,5 +1,6 @@
 ---
-title: "ICP Waveform"
+title: "📈 ICP Waveform"
+subtitle: "Interpretation of intracranial pressure waveforms and compliance changes"
 ---
 
 Waveforms often change BEFORE ICP rises → early warning system.

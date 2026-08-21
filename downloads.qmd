@@ -1,5 +1,6 @@
 ---
-title: "Downloads"
+title: "⬇️ Downloads"
+subtitle: "Educational PDFs and bedside resources"
 ---
 
 Educational PDFs and bedside resources.

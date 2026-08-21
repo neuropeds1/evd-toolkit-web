@@ -110,6 +110,8 @@ website:
             href: complications.qmd
       - section: "More"
         contents:
+          - text: "Resources Hub"
+            href: more.qmd
           - text: "Downloads"
             href: downloads.qmd
           - text: "EHR Alerts"
@@ -138,4 +140,6 @@ format:
       sidebar-width: 260px
     lightbox: true
     include-in-header: head-include.html
-    include-after-body: lightbox-include.html
+    include-after-body:
+      - lightbox-include.html
+      - app-shell-include.html

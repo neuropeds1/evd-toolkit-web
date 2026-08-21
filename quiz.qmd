@@ -1,5 +1,6 @@
 ---
-title: "EVD Quiz"
+title: "❓ EVD Quiz"
+subtitle: "Test your EVD knowledge"
 ---
 
 Test your knowledge using the official SNACC External Ventricular Drain (EVD) Quiz.

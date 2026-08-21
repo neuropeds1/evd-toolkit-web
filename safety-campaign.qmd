@@ -1,5 +1,6 @@
 ---
-title: "EVD Safety Campaign"
+title: "🛡️ EVD Safety Campaign"
+subtitle: "Global collaboration to improve EVD safety"
 ---
 
 ![](images/snacc_logo.png){fig-align="center" style="max-height:90px;"}

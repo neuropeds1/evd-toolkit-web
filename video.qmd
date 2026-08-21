@@ -1,5 +1,6 @@
 ---
-title: "Video Library"
+title: "▶️ Video Library"
+subtitle: "How-to guides and educational content"
 ---
 
 **How-To: A Video Library of Must-See Videos** — learn key principles of External Ventricular Drain (EVD) management through SNACC educational resources.
