@@ -390,8 +390,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#pearl-of-the-day" id="toc-pearl-of-the-day" class="nav-link active" data-scroll-target="#pearl-of-the-day">Pearl of the Day</a></li>
   <li><a href="#new-here" id="toc-new-here" class="nav-link" data-scroll-target="#new-here">New Here?</a></li>
-  <li><a href="#explore-everything" id="toc-explore-everything" class="nav-link" data-scroll-target="#explore-everything">Explore Everything</a></li>
-  <li><a href="#about-this-project" id="toc-about-this-project" class="nav-link" data-scroll-target="#about-this-project">About This Project</a></li>
   </ul>
 </nav>
     </div>
@@ -417,35 +415,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div style="background:linear-gradient(90deg,#2c7be5,#8e44ad);border-radius:20px;padding:18px 22px;color:white;margin-bottom:8px;">
-<p><strong style="font-size:1.15rem;">EVD Toolkit</strong><br> <span style="opacity:0.9;">A practical, visual, and interactive educational platform for external ventricular drain (EVD) care.</span></p>
+<div class="home-header">
+<span class="home-header-icon">🧠</span>
+<div>
+<pre><code>&lt;div class="home-header-title"&gt;EVD Toolkit&lt;/div&gt;
+&lt;div class="home-header-subtitle"&gt;Educational platform&lt;/div&gt;</code></pre>
+</div>
 </div>
 <section id="pearl-of-the-day" class="level2">
 <h2 class="anchored" data-anchor-id="pearl-of-the-day">Pearl of the Day</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="12" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 11;"><span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pearlsData <span class="op">=</span> {</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"ClinicalPearls"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="15" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 14;"><span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>pearlsData <span class="op">=</span> {</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"ClinicalPearls"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>()))<span class="op">;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -453,15 +455,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="38" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 37;"><span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">// Port of ContentView.swift's todaysPearl: same pearl for everyone on a</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">// given calendar day, rotating through the live Firestore-backed list.</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>todaysPearl <span class="op">=</span> {</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pearlsData<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> start <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>(<span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> diff <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>() <span class="op">-</span> start<span class="op">;</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> dayOfYear <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(diff <span class="op">/</span> (<span class="dv">1000</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">24</span>))<span class="op">;</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> pearlsData[dayOfYear <span class="op">%</span> pearlsData<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="41" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 40;"><span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co">// Port of ContentView.swift's todaysPearl: same pearl for everyone on a</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co">// given calendar day, rotating through the live Firestore-backed list.</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>todaysPearl <span class="op">=</span> {</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pearlsData<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> start <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>(<span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> diff <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>() <span class="op">-</span> start<span class="op">;</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> dayOfYear <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(diff <span class="op">/</span> (<span class="dv">1000</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">24</span>))<span class="op">;</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> pearlsData[dayOfYear <span class="op">%</span> pearlsData<span class="op">.</span><span class="at">length</span>]<span class="op">;</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -469,12 +471,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="50" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 49;"><span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>todaysPearl</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div style="background-color:#eef6ff;border-left:5px solid #2c7be5;border-radius:12px;padding:16px 18px;"&gt;</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#2c7be5;"&gt;💡 </span><span class="sc">${</span>todaysPearl<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Pearl"</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="margin-top:6px;font-size:15px;"&gt;</span><span class="sc">${</span>todaysPearl<span class="op">.</span><span class="at">pearl</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading today's pearl…&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="53" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 52;"><span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>todaysPearl</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="ios-card" style="--card-color: var(--ios-blue);"&gt;</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ios-blue);"&gt;💡 </span><span class="sc">${</span>todaysPearl<span class="op">.</span><span class="at">category</span> <span class="op">??</span> <span class="st">"Pearl"</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="margin-top:6px;font-size:15px;"&gt;</span><span class="sc">${</span>todaysPearl<span class="op">.</span><span class="at">pearl</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading today's pearl…&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="expression">
 
@@ -482,135 +484,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="new-here" class="level2">
-<h2 class="anchored" data-anchor-id="new-here">New Here?</h2>
-<p>A quick path to get oriented on EVDs.</p>
-<div class="fs-grid">
-<a class="fs-card" href="./basics.html" style="text-decoration:none;color:inherit;">
-<div class="fs-card-body">
-<h4 class="fs-card-title anchored">
-🩺 What is an EVD?
-</h4>
-<p class="fs-card-desc">
-Core concepts and terminology
-</p>
+<section id="new-here" class="level2 new-here-heading">
+<h2 class="new-here-heading anchored" data-anchor-id="new-here">New Here?</h2>
+<div class="new-here-subtitle">
+A quick path to get oriented on EVDs
 </div>
-</a> <a class="fs-card" href="./video.html" style="text-decoration:none;color:inherit;">
-<div class="fs-card-body">
-<h4 class="fs-card-title anchored">
-🎬 How-To Videos
-</h4>
-<p class="fs-card-desc">
-Setup, safety, and technique walkthroughs
-</p>
+<div class="start-here-list">
+<p><a class="start-here-row" href="./basics.html" style="--row-color: var(--ios-teal);"> <span class="start-here-icon">❓</span> <span class="start-here-text"><span class="start-here-title">What is an EVD?</span><br><span class="start-here-subtitle">Core concepts and terminology</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./video.html" style="--row-color: var(--ios-orange);"> <span class="start-here-icon">▶️</span> <span class="start-here-text"><span class="start-here-title">How-To Videos</span><br><span class="start-here-subtitle">Setup, safety, and technique walkthroughs</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./catheter-types.html" style="--row-color: var(--ios-blue);"> <span class="start-here-icon">📋</span> <span class="start-here-text"><span class="start-here-title">EVD Types &amp; Systems</span><br><span class="start-here-subtitle">Catheter types and drainage systems you’ll encounter</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./settings.html" style="--row-color: var(--ios-purple);"> <span class="start-here-icon">🎚️</span> <span class="start-here-text"><span class="start-here-title">EVD Setup</span><br><span class="start-here-subtitle">Leveling and bedside setup</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./basics.html#ct-abnormalities" style="--row-color: var(--ios-gray);"> <span class="start-here-icon">🧠</span> <span class="start-here-text"><span class="start-here-title">CT Imaging</span><br><span class="start-here-subtitle">Normal positioning and complications</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./waveform.html" style="--row-color: var(--ios-green);"> <span class="start-here-icon">📈</span> <span class="start-here-text"><span class="start-here-title">ICP Waveforms</span><br><span class="start-here-subtitle">Interpretation and waveform review</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./clinical-pearls.html" style="--row-color: var(--ios-yellow);"> <span class="start-here-icon">💡</span> <span class="start-here-text"><span class="start-here-title">Clinical Pearls</span><br><span class="start-here-subtitle">High-yield teaching points</span></span> <span class="start-here-chevron">›</span> </a> <a class="start-here-row" href="./mri-safety.html" style="--row-color: var(--ios-red);"> <span class="start-here-icon">🚑</span> <span class="start-here-text"><span class="start-here-title">Transport &amp; MRI Safety</span><br><span class="start-here-subtitle">Safe transport and MRI considerations</span></span> <span class="start-here-chevron">›</span> </a></p>
 </div>
-</a> <a class="fs-card" href="./catheter-types.html" style="text-decoration:none;color:inherit;">
-</a><div class="fs-card-body"><a class="fs-card" href="./catheter-types.html" style="text-decoration:none;color:inherit;">
-<h4 class="fs-card-title anchored">
-📋 EVD Types &amp; Systems
-</h4>
-</a><p class="fs-card-desc"><a class="fs-card" href="./catheter-types.html" style="text-decoration:none;color:inherit;">
-Catheter types and drainage systems you’ll encounter — see also </a><a href="./systems.html">EVD Systems</a>
-</p>
+<div id="home-feedback-banner" style="display:none;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--ios-indigo);box-shadow:0 6px 16px rgba(0,0,0,0.12);">
+<p><span style="font-size:20px;">💬</span> <span style="flex:1;"> <span style="display:block;color:white;font-weight:600;font-size:0.92rem;">How are we doing?</span> <span style="display:block;color:rgba(255,255,255,0.85);font-size:0.78rem;">We’d love your feedback.</span> </span> <a id="home-feedback-send" href="https://docs.google.com/forms/d/e/1FAIpQLSdq2TXhaqMShJ7ruv27xEuizUr5NlKwEzQcc00hGbl22t7Ssg/viewform?usp=header" target="_blank" style="background:white;color:var(--ios-indigo);font-weight:600;font-size:0.85rem;padding:6px 14px;border-radius:999px;text-decoration:none;">Send</a> <button id="home-feedback-dismiss" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:1rem;cursor:pointer;line-height:1;">✕</button></p>
 </div>
- <a class="fs-card" href="./settings.html" style="text-decoration:none;color:inherit;">
-<div class="fs-card-body">
-<h4 class="fs-card-title anchored">
-🎚️ EVD Setup
-</h4>
-<p class="fs-card-desc">
-Leveling and bedside setup
-</p>
-</div>
-</a> <a class="fs-card" href="./basics.html#ct-abnormalities" style="text-decoration:none;color:inherit;">
-<div class="fs-card-body">
-<h4 class="fs-card-title anchored">
-🧠 CT Imaging
-</h4>
-<p class="fs-card-desc">
-Normal positioning and complications
-</p>
-</div>
-</a> <a class="fs-card" href="./waveform.html" style="text-decoration:none;color:inherit;">
-<div class="fs-card-body">
-<h4 class="fs-card-title anchored">
-📈 ICP Waveforms
-</h4>
-<p class="fs-card-desc">
-Interpretation and waveform review
-</p>
-</div>
-</a> <a class="fs-card" href="./clinical-pearls.html" style="text-decoration:none;color:inherit;">
-<div class="fs-card-body">
-<h4 class="fs-card-title anchored">
-💡 Clinical Pearls
-</h4>
-<p class="fs-card-desc">
-High-yield teaching points
-</p>
-</div>
-</a> <a class="fs-card" href="./mri-safety.html" style="text-decoration:none;color:inherit;">
-</a><div class="fs-card-body"><a class="fs-card" href="./mri-safety.html" style="text-decoration:none;color:inherit;">
-<h4 class="fs-card-title anchored">
-🚑 Transport &amp; MRI Safety
-</h4>
-</a><p class="fs-card-desc"><a class="fs-card" href="./mri-safety.html" style="text-decoration:none;color:inherit;">
-Safe transport and MRI considerations — see also </a><a href="./transport-icp-risk.html">ICP Risk</a> and <a href="./checklist.html">Transport Checklist</a>
-</p>
-</div>
-<p></p>
-</div>
-</section>
-<section id="explore-everything" class="level2">
-<h2 class="anchored" data-anchor-id="explore-everything">Explore Everything</h2>
-<p><strong>📘 Foundations</strong></p>
-<ul>
-<li>What is an EVD</li>
-<li>EVD Settings</li>
-<li>ICP Waveform</li>
-<li>Catheter Types</li>
-</ul>
-<p><strong>🧑‍⚕️ Clinical Application</strong></p>
-<ul>
-<li>Apply to a Hypothetical Patient</li>
-<li>Checklist</li>
-<li>Best Practices</li>
-</ul>
-<p><strong>🚑 Transport &amp; MRI Safety</strong></p>
-<ul>
-<li>Transport ICP Risk</li>
-<li>Transport Checklist</li>
-<li>MRI Safety</li>
-</ul>
-<p><strong>📈 Safety &amp; Quality Improvement</strong></p>
-<ul>
-<li>QI Metrics</li>
-<li>Infection Prevention Bundle</li>
-<li>Complications</li>
-</ul>
-<p><strong>🎓 Learning &amp; Engagement</strong></p>
-<ul>
-<li>EVD Quiz</li>
-<li>Educational Video</li>
-<li>EVD Systems (global variability)</li>
-</ul>
-<p><strong>📦 More</strong></p>
-<ul>
-<li>Downloads</li>
-<li>EHR Alerts</li>
-<li>EVD Safety Campaign</li>
-</ul>
-<p><strong>📚 Resources</strong></p>
-<ul>
-<li>References</li>
-<li>Feedback</li>
-<li>About</li>
-</ul>
-</section>
-<section id="about-this-project" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-project">About This Project</h2>
-<p>EVD practices vary widely across institutions, particularly in device setup, leveling, and management. This variability can lead to confusion, communication gaps, and potential safety risks.</p>
-<p>The goal of this toolkit is to provide a standardized, visual, and practical approach to EVD education while recognizing real-world variability in systems and workflows.</p>
+<script>
+(function() {
+  var KEY = "lastFeedbackBannerDate";
+  var banner = document.getElementById("home-feedback-banner");
+  if (!banner) return;
+
+  function today() { return new Date().toDateString(); }
+
+  function shouldShow() {
+    var last = localStorage.getItem(KEY);
+    if (!last) return true;
+    var lastDate = new Date(last);
+    var days = Math.floor((new Date() - lastDate) / (1000 * 60 * 60 * 24));
+    return days >= 7;
+  }
+
+  function dismiss() {
+    localStorage.setItem(KEY, new Date().toDateString());
+    banner.style.display = "none";
+  }
+
+  if (shouldShow()) banner.style.display = "flex";
+
+  document.getElementById("home-feedback-dismiss").addEventListener("click", dismiss);
+  document.getElementById("home-feedback-send").addEventListener("click", dismiss);
+})();
+</script>
 
 
 </section>
@@ -633,7 +544,7 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InBlYXJsc0RhdGEgPSB7XG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCwgZ2V0QXBwcywgZ2V0QXBwIH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtYXBwLmpzXCIpO1xuICBjb25zdCB7IGdldEZpcmVzdG9yZSwgY29sbGVjdGlvbiwgb25TbmFwc2hvdCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWZpcmVzdG9yZS5qc1wiKTtcblxuICBjb25zdCBmaXJlYmFzZUNvbmZpZyA9IHtcbiAgICBhcGlLZXk6IFwiQUl6YVN5RDFGTG5JcmQ4NnFPc0ZQTGk1eTFxX0VJVTBsaEw1Z3hjXCIsXG4gICAgYXV0aERvbWFpbjogXCJldmR0b29sa2l0LmZpcmViYXNlYXBwLmNvbVwiLFxuICAgIHByb2plY3RJZDogXCJldmR0b29sa2l0XCIsXG4gICAgc3RvcmFnZUJ1Y2tldDogXCJldmR0b29sa2l0LmZpcmViYXNlc3RvcmFnZS5hcHBcIixcbiAgICBtZXNzYWdpbmdTZW5kZXJJZDogXCIxMDAyMzc0NDMxMTUxXCIsXG4gICAgYXBwSWQ6IFwiMToxMDAyMzc0NDMxMTUxOndlYjpmZTM3MjRiYjFmMzllYjQ3NDRhZjVhXCJcbiAgfTtcblxuICBjb25zdCBhcHAgPSBnZXRBcHBzKCkubGVuZ3RoID8gZ2V0QXBwKCkgOiBpbml0aWFsaXplQXBwKGZpcmViYXNlQ29uZmlnKTtcbiAgY29uc3QgZGIgPSBnZXRGaXJlc3RvcmUoYXBwKTtcblxuICByZXR1cm4gR2VuZXJhdG9ycy5vYnNlcnZlKG5vdGlmeSA9PiB7XG4gICAgY29uc3QgdW5zdWJzY3JpYmUgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiQ2xpbmljYWxQZWFybHNcIiksIHNuYXBzaG90ID0+IHtcbiAgICAgIG5vdGlmeShzbmFwc2hvdC5kb2NzLm1hcChkID0+IGQuZGF0YSgpKSk7XG4gICAgfSk7XG4gICAgcmV0dXJuIHVuc3Vic2NyaWJlO1xuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIFBvcnQgb2YgQ29udGVudFZpZXcuc3dpZnQncyB0b2RheXNQZWFybDogc2FtZSBwZWFybCBmb3IgZXZlcnlvbmUgb24gYVxuLy8gZ2l2ZW4gY2FsZW5kYXIgZGF5LCByb3RhdGluZyB0aHJvdWdoIHRoZSBsaXZlIEZpcmVzdG9yZS1iYWNrZWQgbGlzdC5cbnRvZGF5c1BlYXJsID0ge1xuICBpZiAocGVhcmxzRGF0YS5sZW5ndGggPT09IDApIHJldHVybiBudWxsO1xuICBjb25zdCBzdGFydCA9IG5ldyBEYXRlKG5ldyBEYXRlKCkuZ2V0RnVsbFllYXIoKSwgMCwgMCk7XG4gIGNvbnN0IGRpZmYgPSBuZXcgRGF0ZSgpIC0gc3RhcnQ7XG4gIGNvbnN0IGRheU9mWWVhciA9IE1hdGguZmxvb3IoZGlmZiAvICgxMDAwICogNjAgKiA2MCAqIDI0KSk7XG4gIHJldHVybiBwZWFybHNEYXRhW2RheU9mWWVhciAlIHBlYXJsc0RhdGEubGVuZ3RoXTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InRvZGF5c1BlYXJsXG4gID8gaHRtbGA8ZGl2IHN0eWxlPVwiYmFja2dyb3VuZC1jb2xvcjojZWVmNmZmO2JvcmRlci1sZWZ0OjVweCBzb2xpZCAjMmM3YmU1O2JvcmRlci1yYWRpdXM6MTJweDtwYWRkaW5nOjE2cHggMThweDtcIj5cbiAgICAgIDxkaXYgc3R5bGU9XCJmb250LXNpemU6MTJweDtmb250LXdlaWdodDo3MDA7dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO2xldHRlci1zcGFjaW5nOjAuMDRlbTtjb2xvcjojMmM3YmU1O1wiPvCfkqEgJHt0b2RheXNQZWFybC5jYXRlZ29yeSA/PyBcIlBlYXJsXCJ9PC9kaXY+XG4gICAgICA8ZGl2IHN0eWxlPVwibWFyZ2luLXRvcDo2cHg7Zm9udC1zaXplOjE1cHg7XCI+JHt0b2RheXNQZWFybC5wZWFybCA/PyBcIlwifTwvZGl2PlxuICAgIDwvZGl2PmBcbiAgOiBodG1sYDxkaXYgY2xhc3M9XCJmcy1lbXB0eVwiPkxvYWRpbmcgdG9kYXkncyBwZWFybOKApjwvZGl2PmBcbiJ9XX0=
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InBlYXJsc0RhdGEgPSB7XG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCwgZ2V0QXBwcywgZ2V0QXBwIH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtYXBwLmpzXCIpO1xuICBjb25zdCB7IGdldEZpcmVzdG9yZSwgY29sbGVjdGlvbiwgb25TbmFwc2hvdCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWZpcmVzdG9yZS5qc1wiKTtcblxuICBjb25zdCBmaXJlYmFzZUNvbmZpZyA9IHtcbiAgICBhcGlLZXk6IFwiQUl6YVN5RDFGTG5JcmQ4NnFPc0ZQTGk1eTFxX0VJVTBsaEw1Z3hjXCIsXG4gICAgYXV0aERvbWFpbjogXCJldmR0b29sa2l0LmZpcmViYXNlYXBwLmNvbVwiLFxuICAgIHByb2plY3RJZDogXCJldmR0b29sa2l0XCIsXG4gICAgc3RvcmFnZUJ1Y2tldDogXCJldmR0b29sa2l0LmZpcmViYXNlc3RvcmFnZS5hcHBcIixcbiAgICBtZXNzYWdpbmdTZW5kZXJJZDogXCIxMDAyMzc0NDMxMTUxXCIsXG4gICAgYXBwSWQ6IFwiMToxMDAyMzc0NDMxMTUxOndlYjpmZTM3MjRiYjFmMzllYjQ3NDRhZjVhXCJcbiAgfTtcblxuICBjb25zdCBhcHAgPSBnZXRBcHBzKCkubGVuZ3RoID8gZ2V0QXBwKCkgOiBpbml0aWFsaXplQXBwKGZpcmViYXNlQ29uZmlnKTtcbiAgY29uc3QgZGIgPSBnZXRGaXJlc3RvcmUoYXBwKTtcblxuICByZXR1cm4gR2VuZXJhdG9ycy5vYnNlcnZlKG5vdGlmeSA9PiB7XG4gICAgY29uc3QgdW5zdWJzY3JpYmUgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiQ2xpbmljYWxQZWFybHNcIiksIHNuYXBzaG90ID0+IHtcbiAgICAgIG5vdGlmeShzbmFwc2hvdC5kb2NzLm1hcChkID0+IGQuZGF0YSgpKSk7XG4gICAgfSk7XG4gICAgcmV0dXJuIHVuc3Vic2NyaWJlO1xuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIFBvcnQgb2YgQ29udGVudFZpZXcuc3dpZnQncyB0b2RheXNQZWFybDogc2FtZSBwZWFybCBmb3IgZXZlcnlvbmUgb24gYVxuLy8gZ2l2ZW4gY2FsZW5kYXIgZGF5LCByb3RhdGluZyB0aHJvdWdoIHRoZSBsaXZlIEZpcmVzdG9yZS1iYWNrZWQgbGlzdC5cbnRvZGF5c1BlYXJsID0ge1xuICBpZiAocGVhcmxzRGF0YS5sZW5ndGggPT09IDApIHJldHVybiBudWxsO1xuICBjb25zdCBzdGFydCA9IG5ldyBEYXRlKG5ldyBEYXRlKCkuZ2V0RnVsbFllYXIoKSwgMCwgMCk7XG4gIGNvbnN0IGRpZmYgPSBuZXcgRGF0ZSgpIC0gc3RhcnQ7XG4gIGNvbnN0IGRheU9mWWVhciA9IE1hdGguZmxvb3IoZGlmZiAvICgxMDAwICogNjAgKiA2MCAqIDI0KSk7XG4gIHJldHVybiBwZWFybHNEYXRhW2RheU9mWWVhciAlIHBlYXJsc0RhdGEubGVuZ3RoXTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InRvZGF5c1BlYXJsXG4gID8gaHRtbGA8ZGl2IGNsYXNzPVwiaW9zLWNhcmRcIiBzdHlsZT1cIi0tY2FyZC1jb2xvcjogdmFyKC0taW9zLWJsdWUpO1wiPlxuICAgICAgPGRpdiBzdHlsZT1cImZvbnQtc2l6ZToxMnB4O2ZvbnQtd2VpZ2h0OjcwMDt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7bGV0dGVyLXNwYWNpbmc6MC4wNGVtO2NvbG9yOnZhcigtLWlvcy1ibHVlKTtcIj7wn5KhICR7dG9kYXlzUGVhcmwuY2F0ZWdvcnkgPz8gXCJQZWFybFwifTwvZGl2PlxuICAgICAgPGRpdiBzdHlsZT1cIm1hcmdpbi10b3A6NnB4O2ZvbnQtc2l6ZToxNXB4O1wiPiR7dG9kYXlzUGVhcmwucGVhcmwgPz8gXCJcIn08L2Rpdj5cbiAgICA8L2Rpdj5gXG4gIDogaHRtbGA8ZGl2IGNsYXNzPVwiZnMtZW1wdHlcIj5Mb2FkaW5nIHRvZGF5J3MgcGVhcmzigKY8L2Rpdj5gXG4ifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
