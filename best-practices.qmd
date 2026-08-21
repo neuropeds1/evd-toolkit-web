@@ -8,16 +8,16 @@ A quick-reference guide to safe, high-quality care when managing external ventri
 
 | Do | Don't |
 |---|---|
-| ✔ Confirm EVD setting before interpreting ICP | ✖ Interpret ICP without knowing the drain setting |
-| ✔ Check clamp status before transport or procedures | ✖ Keep EVD closed and not monitor ICP |
-| ✔ Level the transducer at the tragus | ✖ Clamp EVD and leave the transducer at the level of the heart |
-| ✔ Trend ICP and waveform together | ✖ Rely on a single ICP value |
-| ✔ Minimize CSF system access | ✖ Access CSF unnecessarily |
-| ✔ Use sterile technique for all handling | ✖ Break sterility during manipulation |
-| ✔ Secure tubing to prevent dislodgement | ✖ Leave tubing unsecured |
-| ✔ Communicate EVD status during handoffs | ✖ Assume others know the EVD setup |
-| ✔ Monitor ICP during transport at all times | ✖ Transport without considering ICP risk |
-| ✔ Reassess waveform if values seem inconsistent | ✖ Ignore dampened or abnormal waveforms |
+| <span class="mark-do">✔</span> Confirm EVD setting before interpreting ICP | <span class="mark-dont">✖</span> Interpret ICP without knowing the drain setting |
+| <span class="mark-do">✔</span> Check clamp status before transport or procedures | <span class="mark-dont">✖</span> Keep EVD closed and not monitor ICP |
+| <span class="mark-do">✔</span> Level the transducer at the tragus | <span class="mark-dont">✖</span> Clamp EVD and leave the transducer at the level of the heart |
+| <span class="mark-do">✔</span> Trend ICP and waveform together | <span class="mark-dont">✖</span> Rely on a single ICP value |
+| <span class="mark-do">✔</span> Minimize CSF system access | <span class="mark-dont">✖</span> Access CSF unnecessarily |
+| <span class="mark-do">✔</span> Use sterile technique for all handling | <span class="mark-dont">✖</span> Break sterility during manipulation |
+| <span class="mark-do">✔</span> Secure tubing to prevent dislodgement | <span class="mark-dont">✖</span> Leave tubing unsecured |
+| <span class="mark-do">✔</span> Communicate EVD status during handoffs | <span class="mark-dont">✖</span> Assume others know the EVD setup |
+| <span class="mark-do">✔</span> Monitor ICP during transport at all times | <span class="mark-dont">✖</span> Transport without considering ICP risk |
+| <span class="mark-do">✔</span> Reassess waveform if values seem inconsistent | <span class="mark-dont">✖</span> Ignore dampened or abnormal waveforms |
 
 ## CSF Color Interpretation
 
