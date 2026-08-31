@@ -845,6 +845,17 @@
     ]
   },
   {
+    "objectID": "settings.html#weaning",
+    "href": "settings.html#weaning",
+    "title": "🎚️ EVD Settings",
+    "section": "Weaning",
+    "text": "Weaning\nEVD weaning generally follows one of two approaches:\n\nRapid weaning: +10 cm H₂O → clamp trial for 24–48 hours.\nGradual weaning: +10 cm H₂O → +20 cm H₂O → clamp, with each change occurring at 24-hour intervals.\n\n\n\n\n\n\n\nNote\n\n\n\nFurther reading — rapid vs. gradual weaning:\nEbel F, Lichter E, Mariani L, et al. Rapid Versus Gradual Weaning of External Ventricular Drain: A Systematic Literature Review and Meta-analysis. Neurocritical Care. 2023 Aug. PMID: 37308728\nBrown GW, Lisitsyna A, Ashraf M, et al. Rapid versus gradual weaning of external ventricular drains in aneurysmal subarachnoid hemorrhage: a systematic review and meta-analysis. Journal of Neurosurgical Sciences. 2026 Apr. PMID: 41949294",
+    "crumbs": [
+      "Foundations",
+      "EVD Settings"
+    ]
+  },
+  {
     "objectID": "settings.html#clinical-model",
     "href": "settings.html#clinical-model",
     "title": "🎚️ EVD Settings",
