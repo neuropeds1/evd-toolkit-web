@@ -48,6 +48,10 @@ evdSettings.length === 0
     `).join("")}</div>`
 ```
 
+::: {.callout-note}
+**Further reading:** Lele AV, Prabhakar H, Lin V, et al. **External Ventricular Drain Management in Aneurysmal Subarachnoid Hemorrhage: Perspectives and Practices From Low-Income and Middle-Income Countries.** *Cureus.* 2025 Apr. [PMID: 40453290](https://pubmed.ncbi.nlm.nih.gov/40453290/)
+:::
+
 ## Clinical Model
 
 - EVD behaves like a pressure-regulated valve
