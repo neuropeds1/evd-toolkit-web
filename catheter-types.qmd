@@ -114,3 +114,13 @@ html`<div>
 ::: {.callout-tip}
 **Clinical Pearl:** Catheter choice is one piece of the puzzle — see the full [Infection Prevention Bundle](bundle.qmd) for the complete picture.
 :::
+
+::: {.callout-note}
+**Further reading — antimicrobial vs. standard catheters:**
+
+Zabramski JM, Whiting D, Darouiche RO, et al. **Efficacy of antimicrobial-impregnated external ventricular drain catheters: a prospective, randomized, controlled trial.** *Journal of Neurosurgery.* 2003 Apr. [PMID: 12691395](https://pubmed.ncbi.nlm.nih.gov/12691395/)
+
+Wang X, Dong Y, Qi XQ, et al. **Clinical review: Efficacy of antimicrobial-impregnated catheters in external ventricular drainage — a systematic review and meta-analysis.** *Critical Care.* 2013 Jul 25. [PMID: 23890254](https://pubmed.ncbi.nlm.nih.gov/23890254/)
+
+Blacker SN, Prabhakar H, Moreton EO, et al. **Effect of Bundled Care on External Ventricular Drain Infections: A Systematic Review and Meta-analysis.** *Journal of Neurosurgical Anesthesiology.* 2025 Nov 17. [PMID: 41243982](https://pubmed.ncbi.nlm.nih.gov/41243982/)
+:::
