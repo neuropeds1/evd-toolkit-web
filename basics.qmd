@@ -26,32 +26,46 @@ An estimated 24,380 ventriculostomies are performed annually in the United State
 
 ## CT Abnormalities
 
-::: {.callout-note collapse="false"}
-### Cisternal blood (Basilar aneurysm rupture)
-![](images/ct-sah-cisternal-blood.jpeg)
+```{ojs}
+ctAbnormalities = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
-Cisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
 
-*Source: Dr. Abhijit V. Lele, University of Washington.*
-:::
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-::: {.callout-note collapse="false"}
-### Intracerebral hemorrhage with intraventricular extension
-![](images/ct-ivh-axial.jpeg)
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "CTAbnormalities"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+    });
+    return unsubscribe;
+  });
+}
+```
 
-Thalamic hemorrhage with intraventricular extension and hydrocephalus.
-
-*Source: Dr. Abhijit V. Lele, University of Washington.*
-:::
-
-::: {.callout-note collapse="false"}
-### Cerebellar ischemic stroke with edema
-![](images/ct-cerebellar-stroke.jpeg)
-
-Cerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.
-
-*Source: Dr. Abhijit V. Lele, University of Washington.*
-:::
+```{ojs}
+ctAbnormalities.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<div class="fs-grid">${ctAbnormalities.map(c => `
+      <div class="fs-card">
+        <img class="fs-card-image" src="${c.imageURL ?? ""}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" />
+        <div class="fs-card-body">
+          <h4 class="fs-card-title">${c.title ?? "Untitled"}</h4>
+          <p class="fs-card-desc">${c.description ?? ""}</p>
+          ${c.source ? `<span class="fs-source">📎 ${c.source}</span>` : ""}
+        </div>
+      </div>
+    `).join("")}</div>`
+```
 
 ## Clinical Pearls
 
