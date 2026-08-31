@@ -7,6 +7,10 @@ The EVD setting represents the pressure threshold (cm H₂O) above which CSF wil
 
 ## The Three Common Settings
 
+::: {.callout-important}
+**How the setting relates to the drainage system:** The flushless transducer is zeroed at the external auditory meatus (EAM), approximating the foramen of Monro. The CSF collecting chamber sits at a height above the EAM that corresponds to the EVD setting — for example, a +20 cm H₂O setting means the chamber is raised 20 cm above the EAM reference point. CSF only drains into the chamber once ICP exceeds that height, so CSF output depends directly on the relationship between the patient's ICP and the chamber height set at the bedside.
+:::
+
 ```{ojs}
 evdSettings = {
   const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
