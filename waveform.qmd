@@ -57,11 +57,15 @@ waveformGrid("Normal")
 
 **Normal:** P1 > P2 > P3 → intact intracranial compliance.
 
-- **P1:** Arterial pulsation
-- **P2:** Brain compliance
-- **P3:** Venous outflow
+- **P1 (percussion wave):** Arterial pulsation transmitted through the elastic walls of the cerebral arteries as arterial systolic pressure rises.
+- **P2 (tidal wave):** Reflects intracranial compliance -- its amplitude rises as compliance falls, tracking changes in cerebral blood volume.
+- **P3 (dicrotic wave):** Follows closure of the aortic valve; associated with venous outflow.
 
 *Takeaway: P2 should NEVER exceed P1.*
+
+::: {.callout-note}
+**Source:** Cardoso ER, Rowan JO, Galbraith S. **Analysis of the cerebrospinal fluid pulse wave in intracranial pressure.** *Journal of Neurosurgery.* 1983 Nov. [PMID: 6619934](https://pubmed.ncbi.nlm.nih.gov/6619934/)
+:::
 
 ## Abnormal ICP Waveform
 
