@@ -92,7 +92,7 @@ groupedSteps.length === 0
             <div class="fs-grid" style="margin-top:12px;">
               ${steps.map(s => `
                 <div class="fs-card">
-                  ${s.imageURL ? `<img class="fs-card-image" src="${s.imageURL}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" />` : ""}
+                  ${s.imageURL ? `<img class="fs-card-image" src="${s.imageURL}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" />` : ""}
                   <div class="fs-card-body">
                     <h4 class="fs-card-title">${s.title ?? "Untitled step"}</h4>
                     <p class="fs-card-desc">${s.detail ?? ""}</p>

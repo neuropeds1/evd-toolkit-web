@@ -10,6 +10,14 @@ function fsOpenLightbox(src) {
 function fsCloseLightbox() {
   document.getElementById('fs-lightbox-overlay').classList.remove('open');
 }
+// Classifies a card image as portrait or landscape once its real
+// dimensions are known, so CSS can give each orientation an
+// appropriately shaped box instead of forcing every image into one
+// fixed landscape crop.
+function fsClassifyImage(img) {
+  if (!img.naturalWidth || !img.naturalHeight) return;
+  img.classList.add(img.naturalWidth >= img.naturalHeight ? 'is-landscape' : 'is-portrait');
+}
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') fsCloseLightbox();
 });

@@ -95,7 +95,7 @@ html`<div>
           <div class="fs-grid" style="margin-top:14px;">
             ${items.map(t => `
               <div class="fs-card">
-                <img class="fs-card-image" src="${t.imageURL ?? ""}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" />
+                <img class="fs-card-image" src="${t.imageURL ?? ""}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" />
                 <div class="fs-card-body">
                   <h4 class="fs-card-title">${t.title ?? "Untitled"}</h4>
                   <p class="fs-card-desc">${t.description ?? ""}</p>
