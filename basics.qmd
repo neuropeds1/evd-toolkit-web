@@ -18,6 +18,11 @@ An estimated 24,380 ventriculostomies are performed annually in the United State
 3. Traumatic brain injury with hydrocephalus
 4. Posterior fossa lesions causing obstruction
 5. CNS infections with hydrocephalus
+6. Patients with chronic hydrocephalus in whom a pre-existing permanent CSF diversion system (e.g., a VP shunt) is infected or malfunctioning
+
+::: {.callout-note}
+**Further reading:** Lele AV, Sawant P, Blacker SN. **External ventricular drain safety campaign and opportunities for global neuroanesthesiology quality and safety.** *Current Opinion in Anaesthesiology.* 2026 Jul 13. [PMID: 42438063](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+:::
 
 ## CT Abnormalities
 
