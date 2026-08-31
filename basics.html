@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -47,9 +82,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-25936e55b689ef23fa44ff03791d9a0a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,6 +116,8 @@ ul.task-list li input[type="checkbox"] {
 <meta name="apple-mobile-web-app-title" content="EVD Toolkit">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#2c7be5">
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -434,57 +468,52 @@ Note
 </section>
 <section id="ct-abnormalities" class="level2">
 <h2 class="anchored" data-anchor-id="ct-abnormalities">CT Abnormalities</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Cisternal blood (Basilar aneurysm rupture)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p><a href="images/ct-sah-cisternal-blood.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/ct-sah-cisternal-blood.jpeg" class="img-fluid"></a></p>
-<p>Cisternal blood due to ruptured basilar aneurysm causing obstruction of CSF pathways.</p>
-<p><em>Source: Dr.&nbsp;Abhijit V. Lele, University of Washington.</em></p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Intracerebral hemorrhage with intraventricular extension
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p><a href="images/ct-ivh-axial.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/ct-ivh-axial.jpeg" class="img-fluid"></a></p>
-<p>Thalamic hemorrhage with intraventricular extension and hydrocephalus.</p>
-<p><em>Source: Dr.&nbsp;Abhijit V. Lele, University of Washington.</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="29" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 28;"><span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ctAbnormalities <span class="op">=</span> {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { initializeApp<span class="op">,</span> getApps<span class="op">,</span> getApp } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"</span>)<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { getFirestore<span class="op">,</span> collection<span class="op">,</span> onSnapshot } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"</span>)<span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> firebaseConfig <span class="op">=</span> {</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">apiKey</span><span class="op">:</span> <span class="st">"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc"</span><span class="op">,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">authDomain</span><span class="op">:</span> <span class="st">"evdtoolkit.firebaseapp.com"</span><span class="op">,</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">projectId</span><span class="op">:</span> <span class="st">"evdtoolkit"</span><span class="op">,</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">storageBucket</span><span class="op">:</span> <span class="st">"evdtoolkit.firebasestorage.app"</span><span class="op">,</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">messagingSenderId</span><span class="op">:</span> <span class="st">"1002374431151"</span><span class="op">,</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">appId</span><span class="op">:</span> <span class="st">"1:1002374431151:web:fe3724bb1f39eb4744af5a"</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> <span class="fu">getApps</span>()<span class="op">.</span><span class="at">length</span> <span class="op">?</span> <span class="fu">getApp</span>() <span class="op">:</span> <span class="fu">initializeApp</span>(firebaseConfig)<span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> db <span class="op">=</span> <span class="fu">getFirestore</span>(app)<span class="op">;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Generators<span class="op">.</span><span class="fu">observe</span>(notify <span class="kw">=&gt;</span> {</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> unsubscribe <span class="op">=</span> <span class="fu">onSnapshot</span>(<span class="fu">collection</span>(db<span class="op">,</span> <span class="st">"CTAbnormalities"</span>)<span class="op">,</span> snapshot <span class="kw">=&gt;</span> {</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">notify</span>(snapshot<span class="op">.</span><span class="at">docs</span><span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">data</span>())<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> (a<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>) <span class="op">-</span> (b<span class="op">.</span><span class="at">order</span> <span class="op">??</span> <span class="dv">0</span>)))<span class="op">;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unsubscribe<span class="op">;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Cerebellar ischemic stroke with edema
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p><a href="images/ct-cerebellar-stroke.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/ct-cerebellar-stroke.jpeg" class="img-fluid"></a></p>
-<p>Cerebellar ischemic stroke with posterior fossa edema causing compression of the fourth ventricle.</p>
-<p><em>Source: Dr.&nbsp;Abhijit V. Lele, University of Washington.</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="55" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 54;"><span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>ctAbnormalities<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-empty"&gt;Loading…&lt;/div&gt;`</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;div class="fs-grid"&gt;</span><span class="sc">${</span>ctAbnormalities<span class="op">.</span><span class="fu">map</span>(c <span class="kw">=&gt;</span> <span class="vs">`</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="fs-card"&gt;</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;img class="fs-card-image" src="</span><span class="sc">${</span>c<span class="op">.</span><span class="at">imageURL</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" /&gt;</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="fs-card-body"&gt;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h4 class="fs-card-title"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">title</span> <span class="op">??</span> <span class="st">"Untitled"</span><span class="sc">}</span><span class="vs">&lt;/h4&gt;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p class="fs-card-desc"&gt;</span><span class="sc">${</span>c<span class="op">.</span><span class="at">description</span> <span class="op">??</span> <span class="st">""</span><span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="vs">          </span><span class="sc">${</span>c<span class="op">.</span><span class="at">source</span> <span class="op">?</span> <span class="vs">`&lt;span class="fs-source"&gt;📎 </span><span class="sc">${</span>c<span class="op">.</span><span class="at">source</span><span class="sc">}</span><span class="vs">&lt;/span&gt;`</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
 </div>
 </div>
 </div>
@@ -556,6 +585,17 @@ document.addEventListener('keydown', function(e) {
     if (item.getAttribute("data-tab") === active) item.classList.add("active");
   });
 })();
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImN0QWJub3JtYWxpdGllcyA9IHtcclxuICBjb25zdCB7IGluaXRpYWxpemVBcHAsIGdldEFwcHMsIGdldEFwcCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWFwcC5qc1wiKTtcclxuICBjb25zdCB7IGdldEZpcmVzdG9yZSwgY29sbGVjdGlvbiwgb25TbmFwc2hvdCB9ID0gYXdhaXQgaW1wb3J0KFwiaHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vZmlyZWJhc2Vqcy8xMC4xNC4xL2ZpcmViYXNlLWZpcmVzdG9yZS5qc1wiKTtcclxuXHJcbiAgY29uc3QgZmlyZWJhc2VDb25maWcgPSB7XHJcbiAgICBhcGlLZXk6IFwiQUl6YVN5RDFGTG5JcmQ4NnFPc0ZQTGk1eTFxX0VJVTBsaEw1Z3hjXCIsXHJcbiAgICBhdXRoRG9tYWluOiBcImV2ZHRvb2xraXQuZmlyZWJhc2VhcHAuY29tXCIsXHJcbiAgICBwcm9qZWN0SWQ6IFwiZXZkdG9vbGtpdFwiLFxyXG4gICAgc3RvcmFnZUJ1Y2tldDogXCJldmR0b29sa2l0LmZpcmViYXNlc3RvcmFnZS5hcHBcIixcclxuICAgIG1lc3NhZ2luZ1NlbmRlcklkOiBcIjEwMDIzNzQ0MzExNTFcIixcclxuICAgIGFwcElkOiBcIjE6MTAwMjM3NDQzMTE1MTp3ZWI6ZmUzNzI0YmIxZjM5ZWI0NzQ0YWY1YVwiXHJcbiAgfTtcclxuXHJcbiAgY29uc3QgYXBwID0gZ2V0QXBwcygpLmxlbmd0aCA/IGdldEFwcCgpIDogaW5pdGlhbGl6ZUFwcChmaXJlYmFzZUNvbmZpZyk7XHJcbiAgY29uc3QgZGIgPSBnZXRGaXJlc3RvcmUoYXBwKTtcclxuXHJcbiAgcmV0dXJuIEdlbmVyYXRvcnMub2JzZXJ2ZShub3RpZnkgPT4ge1xyXG4gICAgY29uc3QgdW5zdWJzY3JpYmUgPSBvblNuYXBzaG90KGNvbGxlY3Rpb24oZGIsIFwiQ1RBYm5vcm1hbGl0aWVzXCIpLCBzbmFwc2hvdCA9PiB7XHJcbiAgICAgIG5vdGlmeShzbmFwc2hvdC5kb2NzLm1hcChkID0+IGQuZGF0YSgpKS5zb3J0KChhLCBiKSA9PiAoYS5vcmRlciA/PyAwKSAtIChiLm9yZGVyID8/IDApKSk7XHJcbiAgICB9KTtcclxuICAgIHJldHVybiB1bnN1YnNjcmliZTtcclxuICB9KTtcclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJjdEFibm9ybWFsaXRpZXMubGVuZ3RoID09PSAwXHJcbiAgPyBodG1sYDxkaXYgY2xhc3M9XCJmcy1lbXB0eVwiPkxvYWRpbmfigKY8L2Rpdj5gXHJcbiAgOiBodG1sYDxkaXYgY2xhc3M9XCJmcy1ncmlkXCI+JHtjdEFibm9ybWFsaXRpZXMubWFwKGMgPT4gYFxyXG4gICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZFwiPlxyXG4gICAgICAgIDxpbWcgY2xhc3M9XCJmcy1jYXJkLWltYWdlXCIgc3JjPVwiJHtjLmltYWdlVVJMID8/IFwiXCJ9XCIgb25lcnJvcj1cInRoaXMuc3R5bGUuZGlzcGxheT0nbm9uZSdcIiBvbmNsaWNrPVwiZnNPcGVuTGlnaHRib3godGhpcy5zcmMpXCIgb25sb2FkPVwiZnNDbGFzc2lmeUltYWdlKHRoaXMpXCIgLz5cclxuICAgICAgICA8ZGl2IGNsYXNzPVwiZnMtY2FyZC1ib2R5XCI+XHJcbiAgICAgICAgICA8aDQgY2xhc3M9XCJmcy1jYXJkLXRpdGxlXCI+JHtjLnRpdGxlID8/IFwiVW50aXRsZWRcIn08L2g0PlxyXG4gICAgICAgICAgPHAgY2xhc3M9XCJmcy1jYXJkLWRlc2NcIj4ke2MuZGVzY3JpcHRpb24gPz8gXCJcIn08L3A+XHJcbiAgICAgICAgICAke2Muc291cmNlID8gYDxzcGFuIGNsYXNzPVwiZnMtc291cmNlXCI+8J+TjiAke2Muc291cmNlfTwvc3Bhbj5gIDogXCJcIn1cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9kaXY+XHJcbiAgICBgKS5qb2luKFwiXCIpfTwvZGl2PmBcclxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1035,38 +1075,6 @@ fetch("https://api.github.com/repos/neuropeds1/evd-toolkit-web/commits/main")
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
