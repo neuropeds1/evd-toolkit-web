@@ -962,8 +962,17 @@ fetch("https://get.geojs.io/v1/ip/country.json")
   .catch(() => {});
 onSnapshot(countriesRef, snapshot => {
   const el = document.getElementById("country-count-footer");
-  const count = (snapshot.data()?.codes ?? []).length;
-  if (el && count > 0) el.textContent = `🌍 ${count} ${count === 1 ? "country" : "countries"}`;
+  const codes = snapshot.data()?.codes ?? [];
+  if (!el || codes.length === 0) return;
+  el.textContent = `🌍 ${codes.length} ${codes.length === 1 ? "country" : "countries"}`;
+  try {
+    const names = new Intl.DisplayNames(["en"], { type: "region" });
+    const sorted = codes.map(c => names.of(c) ?? c).sort();
+    el.title = sorted.join(", ");
+  } catch (e) {
+    el.title = codes.sort().join(", ");
+  }
+  el.style.cursor = "help";
 });
 </script>
 </div>
