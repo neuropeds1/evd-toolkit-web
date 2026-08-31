@@ -104,7 +104,7 @@ bulletedList(suggestedMetrics)
 
 ## Interactive VRI Benchmarking
 
-Adjust the slider to compare an institutional ventriculostomy-related infection (VRI) rate against suggested quality benchmarks.
+Adjust the slider to compare an institutional ventriculostomy-related infection (VRI) rate against suggested quality benchmarks. See the [Global VRI Rate Data](#global-vri-rate-data) below to compare your rate against reported rates by country, based on Blacker et al.'s Bayesian hierarchical meta-analysis (PMID [42290525](https://pubmed.ncbi.nlm.nih.gov/42290525/)).
 
 ```{ojs}
 viewof vriRate = Inputs.range([0, 20], {label: "Institutional VRI Rate (%)", step: 0.1, value: 4})
@@ -164,6 +164,10 @@ bulletedList(priorities)
 ## Global VRI Rate Data
 
 Supplementary epidemiology (not part of the app content above): reported ventriculostomy-related infection rates by country from the published literature.
+
+::: {.callout-note}
+**Source:** Blacker SN, Prabhakar H, Moreton EO, et al. **Ventriculostomy-Related Infections by Country-Income Level: A Systematic Review and Bayesian Hierarchical Meta-analysis.** *Journal of Neurosurgical Anesthesiology.* 2026 Jun 15. [PMID: 42290525](https://pubmed.ncbi.nlm.nih.gov/42290525/)
+:::
 
 **Global VRI Rate: 8.64%** [95% CI 7.44–9.97]
 
