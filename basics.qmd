@@ -9,6 +9,8 @@ An External Ventricular Drain (EVD) is a temporary device inserted into the vent
 
 It is primarily used for temporary CSF diversion in patients with **acute symptomatic hydrocephalus**.
 
+An estimated 24,380 ventriculostomies are performed annually in the United States, based on Nationwide Inpatient Sample data from 1997–2001 (Sekula RF, Cohen DB, Patek PM, et al. **Epidemiology of ventriculostomy in the United States from 1997 to 2001.** *British Journal of Neurosurgery.* 2008 Apr. [PMID: 18348016](https://pubmed.ncbi.nlm.nih.gov/18348016/)).
+
 ## Common Indications
 
 1. Subarachnoid hemorrhage (SAH)
