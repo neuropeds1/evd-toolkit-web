@@ -963,6 +963,14 @@ function fsOpenLightbox(src) {
 function fsCloseLightbox() {
   document.getElementById('fs-lightbox-overlay').classList.remove('open');
 }
+// Classifies a card image as portrait or landscape once its real
+// dimensions are known, so CSS can give each orientation an
+// appropriately shaped box instead of forcing every image into one
+// fixed landscape crop.
+function fsClassifyImage(img) {
+  if (!img.naturalWidth || !img.naturalHeight) return;
+  img.classList.add(img.naturalWidth >= img.naturalHeight ? 'is-landscape' : 'is-portrait');
+}
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') fsCloseLightbox();
 });
@@ -1417,7 +1425,7 @@ window._ojs.runtime.interpretFromScriptTags();
     <div class="nav-footer-center">
 <p>EVD Toolkit — educational use only, does not replace clinical judgment or institutional guidance.</p>
 <div id="site-footer-stats" style="width:100%;text-align:center;padding-top:8px;font-size:13px;color:#8a94a6;">
-<p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span id="country-count-footer"></span> &nbsp;·&nbsp; <span>Last updated on August 20, 2026</span></p>
+<p><span id="visitor-count-footer">👀 loading…</span> &nbsp;·&nbsp; <span id="country-count-footer"></span> &nbsp;·&nbsp; <span id="last-updated-footer"></span></p>
 </div>
 <script type="module">
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -1466,6 +1474,19 @@ onSnapshot(countriesRef, snapshot => {
   }
   el.style.cursor = "help";
 });
+
+// Last updated: pulled live from the repo's most recent commit
+// on main, so this never needs a manual edit again.
+fetch("https://api.github.com/repos/neuropeds1/evd-toolkit-web/commits/main")
+  .then(res => res.json())
+  .then(data => {
+    const dateStr = data?.commit?.author?.date;
+    const el = document.getElementById("last-updated-footer");
+    if (!el || !dateStr) return;
+    const formatted = new Date(dateStr).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    el.textContent = `Last updated on ${formatted}`;
+  })
+  .catch(() => {});
 </script>
 </div>
     <div class="nav-footer-right">

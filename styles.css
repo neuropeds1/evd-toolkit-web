@@ -466,6 +466,14 @@ table td {
   cursor: zoom-in;
 }
 
+/* Once fsClassifyImage() (lightbox-include.html) reads the image's
+   real naturalWidth/naturalHeight on load, give portrait photos a
+   taller box instead of cropping them into the default landscape
+   frame above. .is-landscape keeps the default 160px height. */
+.fs-card-image.is-portrait {
+  height: 320px;
+}
+
 /* ============================================
    Click-to-enlarge overlay for Firestore/OJS-
    injected images (fs-card-image and friends),
