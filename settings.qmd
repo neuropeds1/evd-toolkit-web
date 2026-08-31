@@ -56,6 +56,21 @@ evdSettings.length === 0
 **Further reading:** Lele AV, Prabhakar H, Lin V, et al. **External Ventricular Drain Management in Aneurysmal Subarachnoid Hemorrhage: Perspectives and Practices From Low-Income and Middle-Income Countries.** *Cureus.* 2025 Apr. [PMID: 40453290](https://pubmed.ncbi.nlm.nih.gov/40453290/)
 :::
 
+## Weaning
+
+EVD weaning generally follows one of two approaches:
+
+- **Rapid weaning:** +10 cm H₂O → clamp trial for 24–48 hours.
+- **Gradual weaning:** +10 cm H₂O → +20 cm H₂O → clamp, with each change occurring at 24-hour intervals.
+
+::: {.callout-note}
+**Further reading — rapid vs. gradual weaning:**
+
+Ebel F, Lichter E, Mariani L, et al. **Rapid Versus Gradual Weaning of External Ventricular Drain: A Systematic Literature Review and Meta-analysis.** *Neurocritical Care.* 2023 Aug. [PMID: 37308728](https://pubmed.ncbi.nlm.nih.gov/37308728/)
+
+Brown GW, Lisitsyna A, Ashraf M, et al. **Rapid versus gradual weaning of external ventricular drains in aneurysmal subarachnoid hemorrhage: a systematic review and meta-analysis.** *Journal of Neurosurgical Sciences.* 2026 Apr. [PMID: 41949294](https://pubmed.ncbi.nlm.nih.gov/41949294/)
+:::
+
 ## Clinical Model
 
 - EVD behaves like a pressure-regulated valve
