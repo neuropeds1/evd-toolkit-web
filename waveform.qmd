@@ -5,9 +5,55 @@ subtitle: "Interpretation of intracranial pressure waveforms and compliance chan
 
 Waveforms often change BEFORE ICP rises → early warning system.
 
+```{ojs}
+icpWaveforms = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "ICPWaveforms"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+function waveformGrid(category) {
+  const items = icpWaveforms.filter(w => w.category === category);
+  return items.length === 0
+    ? html`<div class="fs-empty">Loading…</div>`
+    : html`<div class="fs-grid">${items.map(w => `
+        <div class="fs-card">
+          <img class="fs-card-image" src="${w.imageURL ?? ""}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" />
+          <div class="fs-card-body">
+            <h4 class="fs-card-title">${w.title ?? "Untitled"}</h4>
+            <p class="fs-card-desc">${w.description ?? ""}</p>
+            ${w.source ? `<span class="fs-source">📎 ${w.source}</span>` : ""}
+          </div>
+        </div>
+      `).join("")}</div>`
+}
+```
+
 ## Normal ICP Waveform
 
-![](images/icp-waveform-normal.jpeg){width=40%}
+```{ojs}
+waveformGrid("Normal")
+```
 
 **Normal:** P1 > P2 > P3 → intact intracranial compliance.
 
@@ -19,7 +65,9 @@ Waveforms often change BEFORE ICP rises → early warning system.
 
 ## Abnormal ICP Waveform
 
-![](images/icp-waveform-abnormal.jpeg){width=40%}
+```{ojs}
+waveformGrid("Abnormal")
+```
 
 **Abnormal:** P2 > P1 → reduced intracranial compliance.
 
