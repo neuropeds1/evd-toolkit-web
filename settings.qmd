@@ -7,20 +7,46 @@ The EVD setting represents the pressure threshold (cm H₂O) above which CSF wil
 
 ## The Three Common Settings
 
-::: {.callout-note}
-### 5 cm H₂O — Aggressive drainage
-Used in patients with unresolved hydrocephalus or with low ICPs to facilitate CSF drainage.
-:::
+```{ojs}
+evdSettings = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
 
-::: {.callout-note}
-### 10 cm H₂O — Moderate drainage
-Commonly used after a ruptured aneurysm has been secured. Institutional practices may vary on the setting — please correlate with your institution's practice.
-:::
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
 
-::: {.callout-note}
-### 20 cm H₂O — Restricted drainage
-Prevents overdrainage before an aneurysm is secured.
-:::
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "EVDSettings"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+evdSettings.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<div class="fs-grid">${evdSettings.map(s => `
+      <div class="fs-card">
+        <img class="fs-card-image" src="${s.imageURL ?? ""}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" />
+        <div class="fs-card-body">
+          <h4 class="fs-card-title">${s.title ?? "Untitled"}</h4>
+          <p class="fs-card-desc">${s.description ?? ""}</p>
+          ${s.source ? `<span class="fs-source">📎 ${s.source}</span>` : ""}
+        </div>
+      </div>
+    `).join("")}</div>`
+```
 
 ## Clinical Model
 
