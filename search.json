@@ -4,7 +4,7 @@
     "href": "waveform.html",
     "title": "📈 ICP Waveform",
     "section": "",
-    "text": "Waveforms often change BEFORE ICP rises → early warning system.",
+    "text": "Waveforms often change BEFORE ICP rises → early warning system.\nicpWaveforms = {\n  const { initializeApp, getApps, getApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"ICPWaveforms\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()).sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0)));\n    });\n    return unsubscribe;\n  });\n}\nfunction waveformGrid(category) {\n  const items = icpWaveforms.filter(w =&gt; w.category === category);\n  return items.length === 0\n    ? html`&lt;div class=\"fs-empty\"&gt;Loading…&lt;/div&gt;`\n    : html`&lt;div class=\"fs-grid\"&gt;${items.map(w =&gt; `\n        &lt;div class=\"fs-card\"&gt;\n          &lt;img class=\"fs-card-image\" src=\"${w.imageURL ?? \"\"}\" onerror=\"this.style.display='none'\" onclick=\"fsOpenLightbox(this.src)\" onload=\"fsClassifyImage(this)\" /&gt;\n          &lt;div class=\"fs-card-body\"&gt;\n            &lt;h4 class=\"fs-card-title\"&gt;${w.title ?? \"Untitled\"}&lt;/h4&gt;\n            &lt;p class=\"fs-card-desc\"&gt;${w.description ?? \"\"}&lt;/p&gt;\n            ${w.source ? `&lt;span class=\"fs-source\"&gt;📎 ${w.source}&lt;/span&gt;` : \"\"}\n          &lt;/div&gt;\n        &lt;/div&gt;\n      `).join(\"\")}&lt;/div&gt;`\n}",
     "crumbs": [
       "Foundations",
       "ICP Waveform"
@@ -15,7 +15,7 @@
     "href": "waveform.html#normal-icp-waveform",
     "title": "📈 ICP Waveform",
     "section": "Normal ICP Waveform",
-    "text": "Normal ICP Waveform\n\nNormal: P1 &gt; P2 &gt; P3 → intact intracranial compliance.\n\nP1: Arterial pulsation\nP2: Brain compliance\nP3: Venous outflow\n\nTakeaway: P2 should NEVER exceed P1.",
+    "text": "Normal ICP Waveform\n\nwaveformGrid(\"Normal\")\n\n\n\n\n\n\nNormal: P1 &gt; P2 &gt; P3 → intact intracranial compliance.\n\nP1: Arterial pulsation\nP2: Brain compliance\nP3: Venous outflow\n\nTakeaway: P2 should NEVER exceed P1.",
     "crumbs": [
       "Foundations",
       "ICP Waveform"
@@ -26,7 +26,7 @@
     "href": "waveform.html#abnormal-icp-waveform",
     "title": "📈 ICP Waveform",
     "section": "Abnormal ICP Waveform",
-    "text": "Abnormal ICP Waveform\n\nAbnormal: P2 &gt; P1 → reduced intracranial compliance.\n\nEarly intracranial hypertension\nLoss of compensatory reserve\nPrecedes ICP elevation\n\n\n\n\n\n\n\nWarning\n\n\n\nEarly Warning: Waveform changes occur BEFORE ICP rises.",
+    "text": "Abnormal ICP Waveform\n\nwaveformGrid(\"Abnormal\")\n\n\n\n\n\n\nAbnormal: P2 &gt; P1 → reduced intracranial compliance.\n\nEarly intracranial hypertension\nLoss of compensatory reserve\nPrecedes ICP elevation\n\n\n\n\n\n\n\nWarning\n\n\n\nEarly Warning: Waveform changes occur BEFORE ICP rises.",
     "crumbs": [
       "Foundations",
       "ICP Waveform"
