@@ -113,7 +113,7 @@ website:
         contents:
           - text: "EVD Quiz"
             href: quiz.qmd
-          - text: "🧑‍⚕️ Virtual Patient: SAH Coiling"
+          - text: "🧠 EVD Scenarios"
             href: virtual-patient.qmd
           - text: "🎬 Must-See Videos"
             href: video.qmd
