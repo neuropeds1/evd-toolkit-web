@@ -1034,34 +1034,34 @@
   {
     "objectID": "virtual-patient.html",
     "href": "virtual-patient.html",
-    "title": "🧑‍⚕️ Virtual Patient: SAH Coiling",
+    "title": "🧠 EVD Scenarios",
     "section": "",
-    "text": "Educational simulation only. This is a scripted teaching case, not a real patient, and the scoring rubric reflects a draft reading of the literature and common practice — treat any disagreement with your attending or your institution’s protocol as the authority. Do not enter patient information.\nWalk a patient with aneurysmal subarachnoid hemorrhage and an EVD in place from the neuro ICU to the interventional radiology suite for coiling and back. At each step, select every action you would take, order, or actively consider, then submit to see what happens and how your choices score.\nThere are two cases — start with the routine (deliberately uneventful) one, then try the advanced case.",
+    "text": "Educational simulation only. These are scripted teaching scenarios, not real patients, and the branching logic and outcomes are a teaching model — treat any disagreement with your attending or your institution’s protocol as the authority. Do not enter patient information.\nA growing library of short branching scenarios. Each one is built around a single core EVD concept — mostly the periprocedural window, when an aneurysmal SAH patient with an EVD leaves the unit for the interventional suite. You make a series of decisions; each choice changes what happens next, and some paths recover while others cascade.\nAirway, anesthetic technique, and detailed hemodynamic management are relevant and assumed — they are deliberately out of scope here. Every decision is about the drain.",
     "crumbs": [
       "Learning & Engagement",
-      "🧑‍⚕️ Virtual Patient: SAH Coiling"
+      "🧠 EVD Scenarios"
     ]
   },
   {
-    "objectID": "virtual-patient.html#what-each-case-covers",
-    "href": "virtual-patient.html#what-each-case-covers",
-    "title": "🧑‍⚕️ Virtual Patient: SAH Coiling",
-    "section": "What each case covers",
-    "text": "What each case covers\nRoutine case — an EVD at +20 cm H₂O with a normal ICP.\n\nPre-procedure assessment — EVD parameters as vital signs (setting, reference level, ICP, waveform, CSF output and colour) and the anesthesia workup: airway / RSI for a full stomach, NPO status, type & screen, BMI, coags, nimodipine, a pre-op levetiracetam load, the institutional pre-securement SBP goal (90–120 mmHg), and an arterial line planned before induction.\nTransport to the IR suite — the decision that has to be made before you move: clamp the EVD or leave it open, and if clamped whether to transduce ICP and at what threshold to reopen; plus an explicit choice of everything you will monitor en route.\nIntra-procedural care — monitoring before induction, arterial line before induction, choice of induction and maintenance agents, SBP targets, CPP ≥ 60 as MAP − ICP, intra-op EVD care, deep neuromuscular blockade to a post-tetanic count of 0, full reversal with sugammadex, and extubation awake.\nEmergence, documentation & handoff — the full anesthetic record for an EVD case (antibiotics, agents, IVF and crystalloid type, urine output, ICP, CPP, CSF output and colour, neuromuscular monitoring and reversal), transport back with continued ICP monitoring, and a structured handoff.\n\nAdvanced case — a poor-grade patient (Hunt-Hess 4, intubated), an EVD at +15 with a raised ICP, the institutional SBP exception (≥75 years and uncontrolled hypertension → 90–140 mmHg pre-securement), neurogenic stunned myocardium, a wide neck needing a stent + intraprocedural antiplatelet, an ICP crisis during transport, an intraprocedural rupture, and transfer back to the ICU intubated via CT.",
+    "objectID": "virtual-patient.html#scenarios-in-this-set",
+    "href": "virtual-patient.html#scenarios-in-this-set",
+    "title": "🧠 EVD Scenarios",
+    "section": "Scenarios in this set",
+    "text": "Scenarios in this set\n\n\n\n\n\n\n\nScenario\nCore concept\n\n\n\n\nThe blind transport\nNever move a clamped EVD without a way to see the ICP.\n\n\nRising ICP on transport — the troubleshoot\nIs it real → is it mechanical → is it the patient — then drain, osmotherapy, escalate.\n\n\nOpen EVD: 18 mL in 15 minutes\nA drainage rate well above baseline is acute over-drainage until proven otherwise — clamp first.\n\n\nRe-zeroing after every move\nZeroing is valid only for the position it was done in; re-level to the tragus after every transfer.\n\n\nThe CSF turns bloody\nIntra-procedurally the drain is an early-warning monitor — a colour or output change is a real-time call-out.\n\n\nThe handoff gap\nThe minimum EVD dataset a receiving team needs, and what breaks when one item is missing.\n\n\n\nMore scenarios can be added — each is a self-contained decision tree in js/evd-scenarios.js.",
     "crumbs": [
       "Learning & Engagement",
-      "🧑‍⚕️ Virtual Patient: SAH Coiling"
+      "🧠 EVD Scenarios"
     ]
   },
   {
     "objectID": "virtual-patient.html#key-reference",
     "href": "virtual-patient.html#key-reference",
-    "title": "🧑‍⚕️ Virtual Patient: SAH Coiling",
+    "title": "🧠 EVD Scenarios",
     "section": "Key reference",
     "text": "Key reference\nEnhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training. Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067. PMID: 41235833",
     "crumbs": [
       "Learning & Engagement",
-      "🧑‍⚕️ Virtual Patient: SAH Coiling"
+      "🧠 EVD Scenarios"
     ]
   }
 ]

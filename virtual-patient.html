@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>🧑‍⚕️ Virtual Patient: SAH Coiling – EVD Toolkit</title>
+<title>🧠 EVD Scenarios – EVD Toolkit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -95,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./virtual-patient.html">🧑‍⚕️ Virtual Patient: SAH Coiling</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./virtual-patient.html">🧠 EVD Scenarios</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./virtual-patient.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">🧑‍⚕️ Virtual Patient: SAH Coiling</span></a>
+ <span class="menu-text">🧠 EVD Scenarios</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -375,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-each-case-covers" id="toc-what-each-case-covers" class="nav-link active" data-scroll-target="#what-each-case-covers">What each case covers</a></li>
+  <li><a href="#scenarios-in-this-set" id="toc-scenarios-in-this-set" class="nav-link active" data-scroll-target="#scenarios-in-this-set">Scenarios in this set</a></li>
   <li><a href="#key-reference" id="toc-key-reference" class="nav-link" data-scroll-target="#key-reference">Key reference</a></li>
   </ul>
 </nav>
@@ -383,10 +383,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./virtual-patient.html">🧑‍⚕️ Virtual Patient: SAH Coiling</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quiz.html">Learning &amp; Engagement</a></li><li class="breadcrumb-item"><a href="./virtual-patient.html">🧠 EVD Scenarios</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">🧑‍⚕️ Virtual Patient: SAH Coiling</h1>
-<p class="subtitle lead">Periprocedural care of an anterior communicating artery aneurysm — pre-op through handoff</p>
+<h1 class="title">🧠 EVD Scenarios</h1>
+<p class="subtitle lead">Branching decision scenarios — one core EVD concept each</p>
 </div>
 
 
@@ -409,27 +409,58 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Educational simulation only. This is a <strong>scripted teaching case</strong>, not a real patient, and the scoring rubric reflects a draft reading of the literature and common practice — treat any disagreement with your attending or your institution’s protocol as the authority. <strong>Do not enter patient information.</strong></p>
+<p>Educational simulation only. These are <strong>scripted teaching scenarios</strong>, not real patients, and the branching logic and outcomes are a teaching model — treat any disagreement with your attending or your institution’s protocol as the authority. <strong>Do not enter patient information.</strong></p>
 </div>
 </div>
 </div>
-<p>Walk a patient with aneurysmal subarachnoid hemorrhage <strong>and an EVD in place</strong> from the neuro ICU to the interventional radiology suite for coiling and back. At each step, select <strong>every</strong> action you would take, order, or actively consider, then submit to see what happens and how your choices score.</p>
-<p>There are <strong>two cases</strong> — start with the routine (deliberately uneventful) one, then try the advanced case.</p>
-<div id="evd-sim-root">Loading the scenario…</div>
+<p>A growing library of short branching scenarios. Each one is built around a <strong>single core EVD concept</strong> — mostly the periprocedural window, when an aneurysmal SAH patient with an EVD leaves the unit for the interventional suite. You make a series of decisions; each choice changes what happens next, and some paths recover while others cascade.</p>
+<p>Airway, anesthetic technique, and detailed hemodynamic management are relevant and assumed — they are deliberately <strong>out of scope</strong> here. Every decision is about the drain.</p>
+<div id="evd-sim-root">Loading the scenarios…</div>
 <script type="module">
-  import { mountPeriproceduralSim } from "./js/evd-periprocedural-sim.js";
-  mountPeriproceduralSim(document.getElementById("evd-sim-root"));
+  import { mountScenarioSim } from "./js/evd-scenario-sim.js";
+  mountScenarioSim(document.getElementById("evd-sim-root"));
 </script>
-<section id="what-each-case-covers" class="level2">
-<h2 class="anchored" data-anchor-id="what-each-case-covers">What each case covers</h2>
-<p><strong>Routine case</strong> — an EVD at +20 cm H₂O with a normal ICP.</p>
-<ol type="1">
-<li><strong>Pre-procedure assessment</strong> — EVD parameters as vital signs (setting, reference level, ICP, waveform, CSF output and colour) <em>and</em> the anesthesia workup: airway / RSI for a full stomach, NPO status, type &amp; screen, BMI, coags, nimodipine, a pre-op levetiracetam load, the institutional pre-securement SBP goal (90–120 mmHg), and an arterial line planned <em>before</em> induction.</li>
-<li><strong>Transport to the IR suite</strong> — the decision that has to be made before you move: clamp the EVD or leave it open, and if clamped whether to transduce ICP and at what threshold to reopen; plus an explicit choice of everything you will monitor en route.</li>
-<li><strong>Intra-procedural care</strong> — monitoring before induction, arterial line before induction, choice of induction and maintenance agents, SBP targets, CPP ≥ 60 as MAP − ICP, intra-op EVD care, deep neuromuscular blockade to a post-tetanic count of 0, full reversal with sugammadex, and extubation awake.</li>
-<li><strong>Emergence, documentation &amp; handoff</strong> — the full anesthetic record for an EVD case (antibiotics, agents, IVF and crystalloid type, urine output, ICP, CPP, CSF output and colour, neuromuscular monitoring and reversal), transport back with continued ICP monitoring, and a structured handoff.</li>
-</ol>
-<p><strong>Advanced case</strong> — a poor-grade patient (Hunt-Hess 4, intubated), an EVD at +15 with a <em>raised</em> ICP, the institutional SBP exception (≥75 years <strong>and</strong> uncontrolled hypertension → 90–140 mmHg pre-securement), neurogenic stunned myocardium, a wide neck needing a <strong>stent + intraprocedural antiplatelet</strong>, an <strong>ICP crisis during transport</strong>, an <strong>intraprocedural rupture</strong>, and transfer back to the ICU <strong>intubated</strong> via CT.</p>
+<section id="scenarios-in-this-set" class="level2">
+<h2 class="anchored" data-anchor-id="scenarios-in-this-set">Scenarios in this set</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Core concept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>The blind transport</strong></td>
+<td>Never move a clamped EVD without a way to see the ICP.</td>
+</tr>
+<tr class="even">
+<td><strong>Rising ICP on transport — the troubleshoot</strong></td>
+<td>Is it real → is it mechanical → is it the patient — <em>then</em> drain, osmotherapy, escalate.</td>
+</tr>
+<tr class="odd">
+<td><strong>Open EVD: 18 mL in 15 minutes</strong></td>
+<td>A drainage rate well above baseline is acute over-drainage until proven otherwise — clamp first.</td>
+</tr>
+<tr class="even">
+<td><strong>Re-zeroing after every move</strong></td>
+<td>Zeroing is valid only for the position it was done in; re-level to the tragus after every transfer.</td>
+</tr>
+<tr class="odd">
+<td><strong>The CSF turns bloody</strong></td>
+<td>Intra-procedurally the drain is an early-warning monitor — a colour or output change is a real-time call-out.</td>
+</tr>
+<tr class="even">
+<td><strong>The handoff gap</strong></td>
+<td>The minimum EVD dataset a receiving team needs, and what breaks when one item is missing.</td>
+</tr>
+</tbody>
+</table>
+<p>More scenarios can be added — each is a self-contained decision tree in <code>js/evd-scenarios.js</code>.</p>
 </section>
 <section id="key-reference" class="level2">
 <h2 class="anchored" data-anchor-id="key-reference">Key reference</h2>
@@ -566,7 +597,7 @@ document.addEventListener('keydown', function(e) {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/neuropeds1\.github\.io\/evd-toolkit-web\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

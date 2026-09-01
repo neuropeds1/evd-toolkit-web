@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./virtual-patient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🧑‍⚕️ Virtual Patient: SAH Coiling</span></a>
+ <span class="menu-text">🧠 EVD Scenarios</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -750,7 +750,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/neuropeds1\.github\.io\/evd-toolkit-web\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -718,87 +718,96 @@ table td {
   text-decoration: underline;
 }
 
-/* ── Virtual Patient simulator (virtual-patient.qmd) ─────────────────── */
-#evd-sim-root { margin: 1rem 0 1.5rem; }
+/* ── EVD Scenarios (virtual-patient.qmd) ──────────────────────────────── */
+#evd-sim-root { margin: 1rem 0 1.5rem; scroll-margin-top: 1rem; }
+
+.evdsim-scope {
+  background: #eef4ff; border: 1px solid #c3d7f5; border-radius: 8px;
+  padding: 0.7rem 0.9rem; font-size: 0.86rem; margin-bottom: 1rem;
+}
 
 .evdsim-card {
-  border: 1px solid #e2e5ea;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  background: #fff;
+  border: 1px solid #e2e5ea; border-radius: 10px; margin-bottom: 1rem;
+  overflow: hidden; background: #fff;
 }
 .evdsim-card-head {
-  background: #f6f7f9;
-  padding: 0.6rem 0.9rem;
-  font-weight: 600;
+  background: #f6f7f9; padding: 0.55rem 0.9rem; font-weight: 600;
   border-bottom: 1px solid #e2e5ea;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.75rem;
-  flex-wrap: wrap;
 }
-.evdsim-where { font-weight: 400; font-size: 0.85rem; color: #6b7280; }
 .evdsim-card-body { padding: 0.9rem; }
-.evdsim-card-primary { border-color: #1f6feb; }
-.evdsim-head-primary { background: #1f6feb; color: #fff; }
 
-.evdsim-progress { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
-.evdsim-step {
-  font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
-  background: #eef1f4; color: #6b7280;
-}
-.evdsim-step.current { background: #1f6feb; color: #fff; font-weight: 600; }
-.evdsim-step.done { background: #d7ede0; color: #1e7e45; }
-
-.evdsim-opts { display: flex; flex-direction: column; gap: 0.35rem; margin: 0.7rem 0; }
-.evdsim-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.92rem; line-height: 1.35; }
-.evdsim-opt input { margin-top: 3px; flex-shrink: 0; }
-
-.evdsim-btn {
-  border: none; border-radius: 7px; padding: 0.5rem 1.1rem;
-  font-weight: 600; cursor: pointer; margin-top: 0.7rem; margin-right: 0.5rem;
-  background: #566573; color: #fff;
-}
-.evdsim-btn-primary { background: #1f6feb; }
-.evdsim-btn-ok { background: #1e7e45; }
-
-.evdsim-alert { border-radius: 8px; padding: 0.6rem 0.9rem; margin-bottom: 0.8rem; }
-.evdsim-ok { background: #e7f5ec; border: 1px solid #a9dcbc; }
-.evdsim-info { background: #e8f0fe; border: 1px solid #b6d0f7; }
-.evdsim-warn { background: #fdf3e3; border: 1px solid #f0d29a; }
-.evdsim-bad { background: #fbeae8; border: 1px solid #eab2ab; }
-
-.evdsim-feedback { margin-top: 1rem; }
-.evdsim-fbrow { margin: 0.5rem 0; }
-.evdsim-badge {
-  display: inline-block; border-radius: 6px; font-size: 0.76rem;
-  padding: 3px 8px; margin: 2px 4px 2px 0; color: #fff; line-height: 1.3;
-}
-.evdsim-b-ok { background: #1e7e45; }
-.evdsim-b-warn { background: #b9770e; }
-.evdsim-b-bad { background: #c0392b; }
-.evdsim-tok-ok { color: #1e7e45; font-weight: 600; }
-.evdsim-tok-warn { color: #b9770e; font-weight: 600; }
-.evdsim-tok-bad { color: #c0392b; font-weight: 600; }
 .evdsim-sm { font-size: 0.85rem; }
 .evdsim-strong { font-weight: 600; }
-.evdsim-teach { margin-top: 0.7rem; }
-.evdsim-evolution {
-  margin-top: 1rem; padding: 0.8rem; background: #f6f7f9; border-radius: 8px;
-}
+.evdsim-muted { color: #6b7280; }
 
-.evdsim-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 1rem; }
-.evdsim-pick {
-  border: 1px solid #cfd6dd; background: #fff; color: #566573;
-  border-radius: 999px; padding: 4px 12px; font-size: 0.82rem; cursor: pointer;
+.evdsim-btn {
+  border: none; border-radius: 7px; padding: 0.5rem 1.1rem; font-weight: 600;
+  cursor: pointer; margin: 0.7rem 0.5rem 0 0; background: #566573; color: #fff;
 }
-.evdsim-pick.active { background: #1f6feb; border-color: #1f6feb; color: #fff; font-weight: 600; }
+.evdsim-btn-primary { background: #1f6feb; }
+.evdsim-link {
+  background: none; border: none; color: #1f6feb; cursor: pointer;
+  padding: 0; font-size: 0.85rem; font-weight: 600;
+}
+.evdsim-crumbs { margin-bottom: 0.8rem; }
 
-.evdsim-group { margin: 0.9rem 0; }
-.evdsim-group-head {
-  font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.03em; color: #6b7280; margin-bottom: 0.35rem;
-  border-bottom: 1px solid #e2e5ea; padding-bottom: 2px;
+/* library */
+.evdsim-lib { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
+.evdsim-lib-card {
+  text-align: left; border: 1px solid #e2e5ea; border-radius: 10px; background: #fff;
+  padding: 0.8rem 0.9rem; cursor: pointer; display: flex; flex-direction: column; gap: 4px;
 }
+.evdsim-lib-card:hover { border-color: #1f6feb; box-shadow: 0 1px 6px rgba(31,111,235,0.12); }
+.evdsim-lib-top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+
+/* decision node */
+.evdsim-situation {
+  background: #f6f7f9; border-left: 3px solid #cfd6dd; border-radius: 4px;
+  padding: 0.6rem 0.8rem; margin-bottom: 0.8rem;
+}
+.evdsim-choices { display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.6rem; }
+.evdsim-choice {
+  text-align: left; border: 1px solid #cfd6dd; border-radius: 8px; background: #fff;
+  padding: 0.6rem 0.8rem; cursor: pointer; font-size: 0.92rem; line-height: 1.35;
+}
+.evdsim-choice:hover:not(:disabled) { border-color: #1f6feb; background: #f5f9ff; }
+.evdsim-choice:disabled { cursor: default; opacity: 0.6; }
+.evdsim-choice.picked { opacity: 1; border-color: #1f6feb; background: #eef4ff; font-weight: 600; }
+
+/* feedback / alerts */
+.evdsim-alert { border-radius: 8px; padding: 0.6rem 0.9rem; margin: 0.8rem 0; }
+.evdsim-alert.ok { background: #e7f5ec; border: 1px solid #a9dcbc; }
+.evdsim-alert.info { background: #e8f0fe; border: 1px solid #b6d0f7; }
+.evdsim-alert.warn { background: #fdf3e3; border: 1px solid #f0d29a; }
+.evdsim-alert.bad { background: #fbeae8; border: 1px solid #eab2ab; }
+
+.evdsim-badge {
+  display: inline-block; border-radius: 6px; font-size: 0.72rem; font-weight: 600;
+  padding: 2px 7px; margin-right: 4px; color: #fff; line-height: 1.3;
+}
+.evdsim-badge.b-ok { background: #1e7e45; }
+.evdsim-badge.b-info { background: #1f6feb; }
+.evdsim-badge.b-warn { background: #b9770e; }
+.evdsim-badge.b-bad { background: #c0392b; }
+
+/* outcome */
+.evdsim-outcome { border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 1rem; }
+.evdsim-oc-good { background: #e7f5ec; border: 1px solid #7ac79b; }
+.evdsim-oc-mixed { background: #fdf3e3; border: 1px solid #eac583; }
+.evdsim-oc-bad { background: #fbeae8; border: 1px solid #e3948a; }
+.evdsim-oc-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #6b7280; }
+
+/* path recap */
+.evdsim-pathcard { background: #fbfbfc; }
+.evdsim-pathdots { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0.5rem; }
+.evdsim-pathdot {
+  width: 22px; height: 22px; border-radius: 50%; display: inline-flex;
+  align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: #fff;
+}
+.evdsim-pathdot.dot-best { background: #1e7e45; }
+.evdsim-pathdot.dot-ok { background: #1f6feb; }
+.evdsim-pathdot.dot-poor { background: #b9770e; }
+.evdsim-pathdot.dot-harmful { background: #c0392b; }
+.evdsim-pathlist { margin: 0.3rem 0 0.6rem; padding-left: 1.2rem; font-size: 0.88rem; }
+.evdsim-pathlist li { margin-bottom: 0.35rem; }
+.evdsim-endbtns { margin-top: 0.5rem; }
