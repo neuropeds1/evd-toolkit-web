@@ -30,7 +30,7 @@ they are deliberately **out of scope** here. Every decision is about the drain.
 
 | Scenario | Core concept |
 |---|---|
-| **The blind transport** | Never move a clamped EVD without a way to see the ICP. |
+| **Clamped without monitoring** | Never move a clamped EVD without continuous ICP monitoring. |
 | **Rising ICP on transport — the troubleshoot** | Is it real → is it mechanical → is it the patient — *then* drain, osmotherapy, escalate. |
 | **Open EVD: 18 mL in 15 minutes** | A drainage rate well above baseline is acute over-drainage until proven otherwise — clamp first. |
 | **Re-zeroing after every move** | Zeroing is valid only for the position it was done in; re-level to the tragus after every transfer. |

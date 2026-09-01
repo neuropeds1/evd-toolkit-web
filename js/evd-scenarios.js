@@ -26,9 +26,9 @@ export const SCENARIOS = [
 
   // ==================================================================
   {
-    id: "blind-transport",
-    title: "The blind transport",
-    concept: "Never move a clamped EVD without a way to see the ICP.",
+    id: "clamp-no-monitor",
+    title: "Clamped without monitoring",
+    concept: "Never move a clamped EVD without continuous ICP monitoring.",
     level: "core",
     setup:
       "Day 3 aneurysmal SAH, aneurysm coiled. EVD at +15 cm H₂O (leveled at the tragus), " +
@@ -41,12 +41,12 @@ export const SCENARIOS = [
         choices: [
           C("Clamp it and continuously transduce ICP, with a threshold to reopen and drain",
             "best",
-            "This is the standard: the drain is closed so it can't over-drain with position changes, and you can still see the ICP the whole way.",
+            "This is the standard: the drain is closed so it can't over-drain with position changes, and you keep a continuous ICP reading the whole way.",
             "monitored"),
           C("Clamp it — it's a short CT run, no need to transduce",
             "harmful",
-            "A clamped EVD with no ICP monitoring is a blind transport. If the ICP rises you will not know until the exam changes, which is much later and much worse.",
-            "blind"),
+            "A clamped EVD with no ICP monitoring leaves you with no pressure reading during transport. If the ICP rises you will not know until the exam changes, which is much later and much worse.",
+            "unmonitored"),
           C("Leave it open at +15 for the trip",
             "poor",
             "An open drain can siphon and over-drain during transfers and elevation changes, and while it drains you are not monitoring ICP. There is a dedicated over-drainage scenario for this.",
@@ -54,7 +54,7 @@ export const SCENARIOS = [
           C("Ask the covering team what they want and do that, without documenting a plan",
             "poor",
             "Even the right choice fails if it isn't written down and communicated — the transport team and the receiving team need to know the plan and the reopen threshold.",
-            "blind"),
+            "unmonitored"),
         ],
       },
       monitored: {
@@ -77,7 +77,7 @@ export const SCENARIOS = [
             "delayed"),
         ],
       },
-      blind: {
+      unmonitored: {
         situation:
           "Clamped, no transducer. Twenty minutes in (waiting outside CT) the patient is " +
           "harder to rouse and the right pupil is now 5 mm and sluggish.",
@@ -122,13 +122,13 @@ export const SCENARIOS = [
         "The patient was drained and escalated and ultimately did well, but the trigger to act " +
         "was a blown pupil rather than an ICP trend. With continuous monitoring you would have " +
         "seen the rise to the low 20s about 15 minutes earlier and drained it at the bedside. " +
-        "The rule stands: never transport a clamped EVD without a way to see the ICP."),
+        "The rule stands: never transport a clamped EVD without continuous ICP monitoring."),
       good: END("good", "Good outcome",
         "A planned, monitored, communicated transport. You saw the problem early, acted on it " +
         "with data, drained to a set level, and documented it. This is the target."),
       bad: END("bad", "Preventable deterioration",
         "The patient herniated during transport and the response was delayed or misdirected. " +
-        "The root cause was the setup: a clamped drain with no way to see the ICP, so the first " +
+        "The root cause was the setup: a clamped drain with no ICP monitoring, so the first " +
         "warning was a pupil. Clamp-and-transduce, with a reopen threshold, every time."),
     },
   },
