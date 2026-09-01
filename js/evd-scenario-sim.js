@@ -40,6 +40,7 @@ export function mountScenarioSim(root) {
   let current = null;   // scenario object, or null for the library view
   let nodeId = null;
   let path = [];        // [{ prompt, choiceText, tag }]
+  let firstRender = true;
 
   function openLibrary() { current = null; nodeId = null; path = []; render(); }
   function startScenario(id) {
@@ -165,7 +166,8 @@ export function mountScenarioSim(root) {
     const node = current.nodes[nodeId];
     if (!node) { root.appendChild(el("div", { class: "evdsim-alert bad" }, "Scenario error: missing node " + nodeId)); return; }
     root.appendChild(node.end ? endView(node) : nodeView(node));
-    root.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!firstRender) root.scrollIntoView({ behavior: "smooth", block: "start" });
+    firstRender = false;
   }
 
   render();
