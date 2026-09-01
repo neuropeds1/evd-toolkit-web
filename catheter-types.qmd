@@ -35,15 +35,19 @@ catheterTypes = {
 
 ```{ojs}
 // Semantic color, not arbitrary: antimicrobial-impregnated catheters
-// are the preferred choice (green); everything else is red as a
+// are the preferred choice (green); non-antimicrobial is red as a
 // visual nudge toward the preferred option. Check the "non-" case
 // FIRST since "Non-antimicrobial" also contains the substring
 // "antimicrobial" and would otherwise false-match as green.
+// Other coating categories (e.g. antithrombogenic) sit on a different
+// axis entirely -- not "avoid", just a different property -- so they
+// get a neutral blue rather than falling into the same red bucket.
 function categoryColor(name) {
   const lower = name.toLowerCase();
   if (/non[\s-]?antimicrobial/.test(lower)) return "#e74c3c";
   if (/antimicrobial/.test(lower)) return "#27ae60";
-  return "#e74c3c";
+  if (/antithrombogenic|thrombo/.test(lower)) return "#2c7be5";
+  return "#8e44ad";
 }
 ```
 
@@ -95,7 +99,7 @@ html`<div>
           <div class="fs-grid" style="margin-top:14px;">
             ${items.map(t => `
               <div class="fs-card">
-                <img class="fs-card-image" src="${t.imageURL ?? ""}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" />
+                ${t.imageURL ? `<img class="fs-card-image" src="${t.imageURL}" onerror="this.style.display='none'" onclick="fsOpenLightbox(this.src)" onload="fsClassifyImage(this)" />` : ""}
                 <div class="fs-card-body">
                   <h4 class="fs-card-title">${t.title ?? "Untitled"}</h4>
                   <p class="fs-card-desc">${t.description ?? ""}</p>
@@ -123,4 +127,10 @@ Zabramski JM, Whiting D, Darouiche RO, et al. **Efficacy of antimicrobial-impreg
 Wang X, Dong Y, Qi XQ, et al. **Clinical review: Efficacy of antimicrobial-impregnated catheters in external ventricular drainage — a systematic review and meta-analysis.** *Critical Care.* 2013 Jul 25. [PMID: 23890254](https://pubmed.ncbi.nlm.nih.gov/23890254/)
 
 Blacker SN, Prabhakar H, Moreton EO, et al. **Effect of Bundled Care on External Ventricular Drain Infections: A Systematic Review and Meta-analysis.** *Journal of Neurosurgical Anesthesiology.* 2025 Nov 17. [PMID: 41243982](https://pubmed.ncbi.nlm.nih.gov/41243982/)
+:::
+
+::: {.callout-note}
+**Further reading — antithrombogenic catheter coatings:**
+
+Liu L, Yu H, Wang L, et al. **Heparin-network-mediated long-lasting coatings on intravascular catheters for adaptive antithrombosis and antibacterial infection.** *Nature Communications.* 2024 Jan 2. [PMID: 38167880](https://pubmed.ncbi.nlm.nih.gov/38167880/)
 :::
