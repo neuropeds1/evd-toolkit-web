@@ -673,7 +673,7 @@
     "href": "ehr-alerts.html#identify-patients",
     "title": "💬 EHR Alerts",
     "section": "Identify Patients",
-    "text": "Identify Patients\nEVD and ICP monitor identification workflows\nElectronic health record systems can improve identification of patients with EVDs and intracranial monitoring devices while enhancing perioperative communication and documentation consistency.\nAlerts may appear during perioperative workflow review, ICU handoff, transport preparation, or operating room scheduling workflows.\n\n\n\n\n\n\nTipExample EHR Alert\n\n\n\nExample EHR alert identifying patients with:\n\nExternal ventricular drains\nICP monitors\nBrain tissue oxygen monitors\n\n\n\n\n\n\nExample screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices.",
+    "text": "Identify Patients\nEVD and ICP monitor identification workflows\nElectronic health record systems can improve identification of patients with EVDs and intracranial monitoring devices while enhancing perioperative communication and documentation consistency.\nAlerts may appear during perioperative workflow review, ICU handoff, transport preparation, or operating room scheduling workflows.\n\n\n\n\n\n\nTipExample EHR Alert\n\n\n\nExample EHR alert identifying patients with:\n\nExternal ventricular drains\nICP monitors\nBrain tissue oxygen monitors\n\n\n\n\n\n\nExample screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.",
     "crumbs": [
       "More",
       "EHR Alerts"
@@ -684,7 +684,7 @@
     "href": "ehr-alerts.html#preoperative-review",
     "title": "💬 EHR Alerts",
     "section": "Preoperative Review",
-    "text": "Preoperative Review\nSuggested perioperative information abstraction\nSuggested perioperative information to review:\n\nICP trends\nCSF drainage trends\nClamp intolerance\nPhysiological targets\nNeurosurgery contact information\nHyperosmolar therapy\nSedation requirements\n\nThe goal is to improve perioperative situational awareness before transport or operating room transfer.\n\n\n\nExample EHR perioperative workflow screen displaying ICP trends, CSF output, and transport readiness documentation.\n\n\n\nClinical Pearls\n\nReview clamp intolerance before transport.\nConfirm physiologic targets with ICU and neurosurgery.\nReview hyperosmolar therapy requirements.\nAssess recent ICP trends before OR transfer.\nEnsure multidisciplinary communication.\n\n\nThis module is intended for educational and workflow awareness purposes only. Example screenshots and workflows are hypothetical and should be adapted to institutional EHR systems, policies, and clinical workflows.",
+    "text": "Preoperative Review\nSuggested perioperative information abstraction\nSuggested perioperative information to review:\n\nICP trends\nCSF drainage trends\nClamp intolerance\nPhysiological targets\nNeurosurgery contact information\nHyperosmolar therapy\nSedation requirements\n\nThe goal is to improve perioperative situational awareness before transport or operating room transfer.\n\n\n\nExample EHR perioperative workflow screen displaying ICP trends, CSF output, and transport readiness documentation.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.\n\nClinical Pearls\n\nReview clamp intolerance before transport.\nConfirm physiologic targets with ICU and neurosurgery.\nReview hyperosmolar therapy requirements.\nAssess recent ICP trends before OR transfer.\nEnsure multidisciplinary communication.\n\n\nThis module is intended for educational and workflow awareness purposes only. Screenshots reflect real, active BPA alerts at the University of Washington and should be adapted to each institution’s own EHR system, policies, and clinical workflows.",
     "crumbs": [
       "More",
       "EHR Alerts"
@@ -695,7 +695,7 @@
     "href": "ehr-alerts.html#or-documentation",
     "title": "💬 EHR Alerts",
     "section": "OR Documentation",
-    "text": "OR Documentation\nStructured perioperative documentation workflows\nSuggested perioperative documentation elements:\n\nEVD setting (clamp/open status)\nICP mmHg\nCPP mmHg\nCSF color\nCSF output\n\nStructured documentation may improve communication across ICU, transport, anesthesia, and neurosurgical teams.\n\n\n\nExample intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.",
+    "text": "OR Documentation\nStructured perioperative documentation workflows\nSuggested perioperative documentation elements:\n\nEVD setting (clamp/open status)\nICP mmHg\nCPP mmHg\nCSF color\nCSF output\n\nStructured documentation may improve communication across ICU, transport, anesthesia, and neurosurgical teams.\n\n\n\nExample intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.",
     "crumbs": [
       "More",
       "EHR Alerts"
