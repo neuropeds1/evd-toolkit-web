@@ -5,6 +5,10 @@ subtitle: "Perioperative workflows and best practice advisories"
 
 **EHR Workflow Modules** — educational perioperative EHR workflow examples.
 
+::: {.callout-note}
+These best practice advisory (BPA) alerts are currently active in the electronic health record at the University of Washington. Screenshots reflect real, in-use alerts rather than hypothetical mockups; other institutions should adapt the underlying workflow to their own EHR system and policies.
+:::
+
 ```{=html}
 <div class="tile-grid">
   <a class="tile" href="#identify-patients" style="--tile-color: var(--ios-red);">
@@ -41,6 +45,8 @@ Example EHR alert identifying patients with:
 
 ![Example screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices.](images/identify_icp.png)
 
+*Source: Dr. Abhijit V. Lele, University of Washington.*
+
 ## Preoperative Review
 
 **Suggested perioperative information abstraction**
@@ -59,6 +65,8 @@ The goal is to improve perioperative situational awareness before transport or o
 
 ![Example EHR perioperative workflow screen displaying ICP trends, CSF output, and transport readiness documentation.](images/preop_review.png)
 
+*Source: Dr. Abhijit V. Lele, University of Washington.*
+
 ::: {.callout-pearl}
 **Clinical Pearls**
 
@@ -69,7 +77,7 @@ The goal is to improve perioperative situational awareness before transport or o
 - Ensure multidisciplinary communication.
 :::
 
-This module is intended for educational and workflow awareness purposes only. Example screenshots and workflows are hypothetical and should be adapted to institutional EHR systems, policies, and clinical workflows.
+This module is intended for educational and workflow awareness purposes only. Screenshots reflect real, active BPA alerts at the University of Washington and should be adapted to each institution's own EHR system, policies, and clinical workflows.
 
 ## OR Documentation
 
@@ -86,3 +94,5 @@ Suggested perioperative documentation elements:
 Structured documentation may improve communication across ICU, transport, anesthesia, and neurosurgical teams.
 
 ![Example intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.](images/pearl_or.png)
+
+*Source: Dr. Abhijit V. Lele, University of Washington.*
