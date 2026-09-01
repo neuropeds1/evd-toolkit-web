@@ -37,8 +37,6 @@ they are deliberately **out of scope** here. Every decision is about the drain.
 | **The CSF turns bloody** | Intra-procedurally the drain is an early-warning monitor — a colour or output change is a real-time call-out. |
 | **The handoff gap** | The minimum EVD dataset a receiving team needs, and what breaks when one item is missing. |
 
-More scenarios can be added — each is a self-contained decision tree in `js/evd-scenarios.js`.
-
 ## Key reference
 
 **Enhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains
