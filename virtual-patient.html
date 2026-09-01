@@ -375,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-four-phases" id="toc-the-four-phases" class="nav-link active" data-scroll-target="#the-four-phases">The four phases</a></li>
+  <li><a href="#what-each-case-covers" id="toc-what-each-case-covers" class="nav-link active" data-scroll-target="#what-each-case-covers">What each case covers</a></li>
   <li><a href="#key-reference" id="toc-key-reference" class="nav-link" data-scroll-target="#key-reference">Key reference</a></li>
   </ul>
 </nav>
@@ -413,20 +413,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Walk a patient with aneurysmal subarachnoid hemorrhage from the neuro ICU to the interventional radiology suite for coiling and back. At each step, select <strong>every</strong> action you would take, order, or actively consider, then submit to see what happens and how your choices score.</p>
+<p>Walk a patient with aneurysmal subarachnoid hemorrhage <strong>and an EVD in place</strong> from the neuro ICU to the interventional radiology suite for coiling and back. At each step, select <strong>every</strong> action you would take, order, or actively consider, then submit to see what happens and how your choices score.</p>
+<p>There are <strong>two cases</strong> — start with the routine (deliberately uneventful) one, then try the advanced case.</p>
 <div id="evd-sim-root">Loading the scenario…</div>
 <script type="module">
   import { mountPeriproceduralSim } from "./js/evd-periprocedural-sim.js";
   mountPeriproceduralSim(document.getElementById("evd-sim-root"));
 </script>
-<section id="the-four-phases" class="level2">
-<h2 class="anchored" data-anchor-id="the-four-phases">The four phases</h2>
+<section id="what-each-case-covers" class="level2">
+<h2 class="anchored" data-anchor-id="what-each-case-covers">What each case covers</h2>
+<p><strong>Routine case</strong> — an EVD at +20 cm H₂O with a normal ICP.</p>
 <ol type="1">
-<li><strong>Pre-procedure assessment</strong> — the timed baseline exam, blood-pressure ceiling and access, the labs that matter before a contrast load, and the stent / antiplatelet conversation that has to happen <em>before</em> the case for a wide-necked A-comm aneurysm.</li>
-<li><strong>Transport to the IR suite</strong> — keeping the monitoring you had, the blood-pressure infusion on a pump, an airway in the bag, and a structured handoff at the door.</li>
-<li><strong>Intra-procedural care</strong> — a blunted induction, blood-pressure control until the aneurysm is secured, heparin and ACT, and the rehearsed response to intraprocedural rupture.</li>
-<li><strong>Emergence, transfer &amp; handoff</strong> — the first post-procedure exam against baseline, the access-site check, the blood-pressure logic that now inverts, and a handoff that names how the aneurysm was secured and what the ICU team now owns.</li>
+<li><strong>Pre-procedure assessment</strong> — EVD parameters as vital signs (setting, reference level, ICP, waveform, CSF output and colour) <em>and</em> the anesthesia workup: airway / RSI for a full stomach, NPO status, type &amp; screen, BMI, coags, nimodipine, a pre-op levetiracetam load, the institutional pre-securement SBP goal (90–120 mmHg), and an arterial line planned <em>before</em> induction.</li>
+<li><strong>Transport to the IR suite</strong> — the decision that has to be made before you move: clamp the EVD or leave it open, and if clamped whether to transduce ICP and at what threshold to reopen; plus an explicit choice of everything you will monitor en route.</li>
+<li><strong>Intra-procedural care</strong> — monitoring before induction, arterial line before induction, choice of induction and maintenance agents, SBP targets, CPP ≥ 60 as MAP − ICP, intra-op EVD care, deep neuromuscular blockade to a post-tetanic count of 0, full reversal with sugammadex, and extubation awake.</li>
+<li><strong>Emergence, documentation &amp; handoff</strong> — the full anesthetic record for an EVD case (antibiotics, agents, IVF and crystalloid type, urine output, ICP, CPP, CSF output and colour, neuromuscular monitoring and reversal), transport back with continued ICP monitoring, and a structured handoff.</li>
 </ol>
+<p><strong>Advanced case</strong> — a poor-grade patient (Hunt-Hess 4, intubated), an EVD at +15 with a <em>raised</em> ICP, the institutional SBP exception (≥75 years <strong>and</strong> uncontrolled hypertension → 90–140 mmHg pre-securement), neurogenic stunned myocardium, a wide neck needing a <strong>stent + intraprocedural antiplatelet</strong>, an <strong>ICP crisis during transport</strong>, an <strong>intraprocedural rupture</strong>, and transfer back to the ICU <strong>intubated</strong> via CT.</p>
 </section>
 <section id="key-reference" class="level2">
 <h2 class="anchored" data-anchor-id="key-reference">Key reference</h2>
