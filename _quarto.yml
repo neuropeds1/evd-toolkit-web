@@ -3,6 +3,7 @@ project:
   resources:
     - icon-192.png
     - icon-512.png
+    - js
 
 website:
   title: "EVD Toolkit"
@@ -112,6 +113,8 @@ website:
         contents:
           - text: "EVD Quiz"
             href: quiz.qmd
+          - text: "🧑‍⚕️ Virtual Patient: SAH Coiling"
+            href: virtual-patient.qmd
           - text: "🎬 Must-See Videos"
             href: video.qmd
           - text: "EVD Systems"

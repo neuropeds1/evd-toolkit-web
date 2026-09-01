@@ -1,0 +1,45 @@
+---
+title: "🧑‍⚕️ Virtual Patient: SAH Coiling"
+subtitle: "Periprocedural care of an anterior communicating artery aneurysm — pre-op through handoff"
+---
+
+::: {.callout-warning appearance="simple"}
+Educational simulation only. This is a **scripted teaching case**, not a real patient, and the
+scoring rubric reflects a draft reading of the literature and common practice — treat any
+disagreement with your attending or your institution's protocol as the authority. **Do not
+enter patient information.**
+:::
+
+Walk a patient with aneurysmal subarachnoid hemorrhage from the neuro ICU to the
+interventional radiology suite for coiling and back. At each step, select **every** action you
+would take, order, or actively consider, then submit to see what happens and how your choices
+score.
+
+```{=html}
+<div id="evd-sim-root">Loading the scenario…</div>
+<script type="module">
+  import { mountPeriproceduralSim } from "./js/evd-periprocedural-sim.js";
+  mountPeriproceduralSim(document.getElementById("evd-sim-root"));
+</script>
+```
+
+## The four phases
+
+1. **Pre-procedure assessment** — the timed baseline exam, blood-pressure ceiling and access,
+   the labs that matter before a contrast load, and the stent / antiplatelet conversation that
+   has to happen *before* the case for a wide-necked A-comm aneurysm.
+2. **Transport to the IR suite** — keeping the monitoring you had, the blood-pressure infusion
+   on a pump, an airway in the bag, and a structured handoff at the door.
+3. **Intra-procedural care** — a blunted induction, blood-pressure control until the aneurysm
+   is secured, heparin and ACT, and the rehearsed response to intraprocedural rupture.
+4. **Emergence, transfer & handoff** — the first post-procedure exam against baseline, the
+   access-site check, the blood-pressure logic that now inverts, and a handoff that names how
+   the aneurysm was secured and what the ICU team now owns.
+
+## Key reference
+
+**Enhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains
+Through Simulation-Based Training.** Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM,
+Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. *J Neurosurg Anesthesiol.*
+2025 Oct 31. doi: 10.1097/ANA.0000000000001067.
+[PMID: 41235833](https://pubmed.ncbi.nlm.nih.gov/41235833)
