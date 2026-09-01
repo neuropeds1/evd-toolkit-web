@@ -10,10 +10,13 @@ disagreement with your attending or your institution's protocol as the authority
 enter patient information.**
 :::
 
-Walk a patient with aneurysmal subarachnoid hemorrhage from the neuro ICU to the
-interventional radiology suite for coiling and back. At each step, select **every** action you
-would take, order, or actively consider, then submit to see what happens and how your choices
-score.
+Walk a patient with aneurysmal subarachnoid hemorrhage **and an EVD in place** from the neuro
+ICU to the interventional radiology suite for coiling and back. At each step, select **every**
+action you would take, order, or actively consider, then submit to see what happens and how
+your choices score.
+
+There are **two cases** — start with the routine (deliberately uneventful) one, then try the
+advanced case.
 
 ```{=html}
 <div id="evd-sim-root">Loading the scenario…</div>
@@ -23,18 +26,32 @@ score.
 </script>
 ```
 
-## The four phases
+## What each case covers
 
-1. **Pre-procedure assessment** — the timed baseline exam, blood-pressure ceiling and access,
-   the labs that matter before a contrast load, and the stent / antiplatelet conversation that
-   has to happen *before* the case for a wide-necked A-comm aneurysm.
-2. **Transport to the IR suite** — keeping the monitoring you had, the blood-pressure infusion
-   on a pump, an airway in the bag, and a structured handoff at the door.
-3. **Intra-procedural care** — a blunted induction, blood-pressure control until the aneurysm
-   is secured, heparin and ACT, and the rehearsed response to intraprocedural rupture.
-4. **Emergence, transfer & handoff** — the first post-procedure exam against baseline, the
-   access-site check, the blood-pressure logic that now inverts, and a handoff that names how
-   the aneurysm was secured and what the ICU team now owns.
+**Routine case** — an EVD at +20 cm H₂O with a normal ICP.
+
+1. **Pre-procedure assessment** — EVD parameters as vital signs (setting, reference level, ICP,
+   waveform, CSF output and colour) *and* the anesthesia workup: airway / RSI for a full
+   stomach, NPO status, type & screen, BMI, coags, nimodipine, a pre-op levetiracetam load, the
+   institutional pre-securement SBP goal (90–120 mmHg), and an arterial line planned *before*
+   induction.
+2. **Transport to the IR suite** — the decision that has to be made before you move: clamp the
+   EVD or leave it open, and if clamped whether to transduce ICP and at what threshold to
+   reopen; plus an explicit choice of everything you will monitor en route.
+3. **Intra-procedural care** — monitoring before induction, arterial line before induction,
+   choice of induction and maintenance agents, SBP targets, CPP ≥ 60 as MAP − ICP, intra-op EVD
+   care, deep neuromuscular blockade to a post-tetanic count of 0, full reversal with
+   sugammadex, and extubation awake.
+4. **Emergence, documentation & handoff** — the full anesthetic record for an EVD case
+   (antibiotics, agents, IVF and crystalloid type, urine output, ICP, CPP, CSF output and
+   colour, neuromuscular monitoring and reversal), transport back with continued ICP
+   monitoring, and a structured handoff.
+
+**Advanced case** — a poor-grade patient (Hunt-Hess 4, intubated), an EVD at +15 with a
+*raised* ICP, the institutional SBP exception (≥75 years **and** uncontrolled hypertension →
+90–140 mmHg pre-securement), neurogenic stunned myocardium, a wide neck needing a **stent +
+intraprocedural antiplatelet**, an **ICP crisis during transport**, an **intraprocedural
+rupture**, and transfer back to the ICU **intubated** via CT.
 
 ## Key reference
 
