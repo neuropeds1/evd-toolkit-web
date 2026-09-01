@@ -211,32 +211,6 @@ Supplementary epidemiology (not part of the app content above): reported ventric
 | Singapore | 3 | 3.3% | 0.8–7.0% |
 :::
 
-### What is your unit's VRI rate?
-
-A quick self-check — use this to reinforce prevention practices, whatever your number is.
-
-```{ojs}
-viewof myVRI = Inputs.range([0, 30], {label: "Your Unit's VRI Rate (%)", step: 0.5, value: 0})
-```
-
-```{ojs}
-myVRI === 0
-  ? html`<div style="background:#e8f5e9;padding:15px;border-left:6px solid #27ae60;border-radius:10px;">
-      <strong>🎉 Excellent — 0% VRI rate.</strong>
-      <p style="margin:8px 0 0;">Keep reinforcing the fundamentals that got you here:</p>
-      <ul style="margin:6px 0 0;">
-        <li>Sterile technique and periprocedural antibiotics at insertion</li>
-        <li>Indication-based CSF sampling only</li>
-        <li>Minimizing unnecessary system access</li>
-      </ul>
-    </div>`
-  : html`<div style="background:#fff7e6;padding:15px;border-left:6px solid #f39c12;border-radius:10px;">
-      <strong>Your reported VRI rate is ${myVRI}%.</strong>
-      <p style="margin:8px 0 0;">Every VRI is an opportunity to reinforce prevention. Revisit:</p>
-      <ul style="margin:6px 0 0;">
-        <li><strong>Insertion Bundle:</strong> sterile technique, periprocedural antibiotics, antimicrobial-impregnated catheter, tunneling, closed system, sterile dressing</li>
-        <li><strong>Maintenance Bundle:</strong> indication-based sampling only, minimize system access, maintain system upright, prevent disconnection</li>
-      </ul>
-      <p style="margin:8px 0 0;font-size:13px;color:#666;">See the <a href="bundle.qmd">Infection Prevention Bundle</a> page for the full checklist.</p>
-    </div>`
-```
+::: {.callout-tip}
+**Reinforcing prevention:** Whatever your unit's VRI rate, revisit the **Insertion Bundle** (sterile technique, periprocedural antibiotics, antimicrobial-impregnated catheter, tunneling, closed system, sterile dressing) and **Maintenance Bundle** (indication-based sampling only, minimize system access, maintain system upright, prevent disconnection). See the [Infection Prevention Bundle](bundle.qmd) page for the full checklist.
+:::
