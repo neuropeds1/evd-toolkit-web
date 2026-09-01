@@ -43,3 +43,11 @@ Ventriculostomy-related infections are associated with increased morbidity, prol
 ::: {.callout-warning}
 **Clinical Reminder:** Infection prevention is a multidisciplinary responsibility involving anesthesia, neurosurgery, nursing, and ICU teams.
 :::
+
+::: {.callout-note}
+**Source:**
+
+Blacker SN, Prabhakar H, Moreton EO, et al. **Effect of Bundled Care on External Ventricular Drain Infections: A Systematic Review and Meta-analysis.** *Journal of Neurosurgical Anesthesiology.* 2025 Nov 17. [PMID: 41243982](https://pubmed.ncbi.nlm.nih.gov/41243982/)
+
+Fried HI, Nathan BR, Rowe AS, et al. **The Insertion and Management of External Ventricular Drains: An Evidence-Based Consensus Statement — A Statement for Healthcare Professionals from the Neurocritical Care Society.** *Neurocritical Care.* 2016 Feb. [PMID: 26738503](https://pubmed.ncbi.nlm.nih.gov/26738503/)
+:::
