@@ -867,3 +867,15 @@ table td {
   color: #b03a2e;
   border: 1.5px solid #e3948a;
 }
+
+/* ============================================
+   Sidebar brand tint: a deep navy echoing the
+   home header's blue -> purple gradient, instead
+   of Quarto/Bootstrap's generic dark-theme gray.
+   ============================================ */
+
+#quarto-sidebar,
+#quarto-sidebar .sidebar-menu-container,
+#quarto-sidebar .sidebar-search {
+  background-color: #0d1b3a !important;
+}
