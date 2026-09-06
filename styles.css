@@ -395,6 +395,16 @@ a:hover {
   letter-spacing: -0.01em;
 }
 
+.sidebar-title,
+.sidebar-title a {
+  color: #ffffff !important;
+}
+
+.sidebar-title a:hover {
+  color: #ffffff !important;
+  opacity: 0.85;
+}
+
 #quarto-sidebar .sidebar-item-text {
   font-size: 15.5px;
   font-weight: 500;
