@@ -91,8 +91,6 @@ website:
         href: clinical-pearls.qmd
       - section: "Foundations"
         contents:
-          - text: "🧠 Foundations Hub"
-            href: foundations.qmd
           - text: "🧠 What is an EVD"
             href: basics.qmd
           - text: "🎚️ EVD Settings"
@@ -115,8 +113,6 @@ website:
             href: video.qmd
       - section: "Transport & MRI Safety"
         contents:
-          - text: "🚑 Transport & MRI Safety Hub"
-            href: transport-mri-safety.qmd
           - text: "🛏️ Transport Checklist"
             href: checklist.qmd
           - text: "⚛️ MRI Safety"
@@ -131,8 +127,6 @@ website:
             href: complications.qmd
       - section: "More"
         contents:
-          - text: "⋯ Resources Hub"
-            href: more.qmd
           - text: "⬇️ Downloads"
             href: downloads.qmd
           - text: "💬 EHR Alerts"
