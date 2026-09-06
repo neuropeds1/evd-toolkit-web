@@ -18,6 +18,32 @@ function fsClassifyImage(img) {
   if (!img.naturalWidth || !img.naturalHeight) return;
   img.classList.add(img.naturalWidth >= img.naturalHeight ? 'is-landscape' : 'is-portrait');
 }
+// Shared handler for any checklist-style page (checkbox row + a
+// page-wide progress bar/status banner). Recomputes across every
+// .checklist-checkbox on the page, so multiple sections combine into
+// one overall progress readout.
+function fsChecklistToggle(checkbox) {
+  const row = checkbox.closest('.checklist-row');
+  if (row) row.classList.toggle('checked', checkbox.checked);
+
+  const all = document.querySelectorAll('.checklist-checkbox');
+  const checked = document.querySelectorAll('.checklist-checkbox:checked');
+  const total = all.length;
+  const done = checked.length;
+
+  const fill = document.getElementById('checklist-progress-fill');
+  if (fill) fill.style.width = total ? `${(done / total) * 100}%` : '0%';
+
+  const label = document.getElementById('checklist-progress-label');
+  if (label) label.textContent = `${done} of ${total} complete`;
+
+  const status = document.getElementById('checklist-status');
+  if (status && total > 0) {
+    status.innerHTML = done === total
+      ? `<div class="checklist-status-banner ready">✅ Ready for Transport</div>`
+      : `<div class="checklist-status-banner pending">⚠️ ${total - done} item(s) remaining</div>`;
+  }
+}
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') fsCloseLightbox();
 });

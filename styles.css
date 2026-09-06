@@ -35,6 +35,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Quarto already generates a breadcrumb trail (Section > Page) on
+   every page, but Bootstrap's d-none/d-lg-block utility classes hide
+   it below desktop width -- exactly the screens where the site can
+   feel most "app-like" and a way back is least obvious. Force it
+   visible at every size so there's always a clickable path back up
+   the hierarchy, not just the sidebar or browser back button. */
+.quarto-page-breadcrumbs {
+  display: flex !important;
+  margin-bottom: 0.5em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
@@ -718,96 +729,141 @@ table td {
   text-decoration: underline;
 }
 
-/* ── EVD Scenarios (virtual-patient.qmd) ──────────────────────────────── */
-#evd-sim-root { margin: 1rem 0 1.5rem; scroll-margin-top: 1rem; }
+/* ============================================
+   Clinical checklist UI (checklist.qmd and any
+   future checklist-style page) -- a real
+   bedside-form look: bordered rows with large
+   custom checkboxes, a page-wide progress bar,
+   and a readiness status banner, all driven by
+   fsChecklistToggle() in lightbox-include.html.
+   ============================================ */
 
-.evdsim-scope {
-  background: #eef4ff; border: 1px solid #c3d7f5; border-radius: 8px;
-  padding: 0.7rem 0.9rem; font-size: 0.86rem; margin-bottom: 1rem;
+.checklist-progress {
+  margin: 4px 0 28px;
 }
 
-.evdsim-card {
-  border: 1px solid #e2e5ea; border-radius: 10px; margin-bottom: 1rem;
-  overflow: hidden; background: #fff;
+.checklist-progress-bar {
+  height: 12px;
+  background: #eef1f5;
+  border-radius: 999px;
+  overflow: hidden;
 }
-.evdsim-card-head {
-  background: #f6f7f9; padding: 0.55rem 0.9rem; font-weight: 600;
-  border-bottom: 1px solid #e2e5ea;
-}
-.evdsim-card-body { padding: 0.9rem; }
 
-.evdsim-sm { font-size: 0.85rem; }
-.evdsim-strong { font-weight: 600; }
-.evdsim-muted { color: #6b7280; }
-
-.evdsim-btn {
-  border: none; border-radius: 7px; padding: 0.5rem 1.1rem; font-weight: 600;
-  cursor: pointer; margin: 0.7rem 0.5rem 0 0; background: #566573; color: #fff;
+.checklist-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--ios-blue), var(--ios-green));
+  border-radius: 999px;
+  transition: width 0.25s ease;
 }
-.evdsim-btn-primary { background: #1f6feb; }
-.evdsim-link {
-  background: none; border: none; color: #1f6feb; cursor: pointer;
-  padding: 0; font-size: 0.85rem; font-weight: 600;
-}
-.evdsim-crumbs { margin-bottom: 0.8rem; }
 
-/* library */
-.evdsim-lib { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
-.evdsim-lib-card {
-  text-align: left; border: 1px solid #e2e5ea; border-radius: 10px; background: #fff;
-  padding: 0.8rem 0.9rem; cursor: pointer; display: flex; flex-direction: column; gap: 4px;
+.checklist-progress-label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+  text-align: right;
 }
-.evdsim-lib-card:hover { border-color: #1f6feb; box-shadow: 0 1px 6px rgba(31,111,235,0.12); }
-.evdsim-lib-top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
 
-/* decision node */
-.evdsim-situation {
-  background: #f6f7f9; border-left: 3px solid #cfd6dd; border-radius: 4px;
-  padding: 0.6rem 0.8rem; margin-bottom: 0.8rem;
+.checklist-section {
+  margin-bottom: 30px;
 }
-.evdsim-choices { display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.6rem; }
-.evdsim-choice {
-  text-align: left; border: 1px solid #cfd6dd; border-radius: 8px; background: #fff;
-  padding: 0.6rem 0.8rem; cursor: pointer; font-size: 0.92rem; line-height: 1.35;
+
+.checklist-section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #12375c;
+  margin-bottom: 14px;
 }
-.evdsim-choice:hover:not(:disabled) { border-color: #1f6feb; background: #f5f9ff; }
-.evdsim-choice:disabled { cursor: default; opacity: 0.6; }
-.evdsim-choice.picked { opacity: 1; border-color: #1f6feb; background: #eef4ff; font-weight: 600; }
 
-/* feedback / alerts */
-.evdsim-alert { border-radius: 8px; padding: 0.6rem 0.9rem; margin: 0.8rem 0; }
-.evdsim-alert.ok { background: #e7f5ec; border: 1px solid #a9dcbc; }
-.evdsim-alert.info { background: #e8f0fe; border: 1px solid #b6d0f7; }
-.evdsim-alert.warn { background: #fdf3e3; border: 1px solid #f0d29a; }
-.evdsim-alert.bad { background: #fbeae8; border: 1px solid #eab2ab; }
-
-.evdsim-badge {
-  display: inline-block; border-radius: 6px; font-size: 0.72rem; font-weight: 600;
-  padding: 2px 7px; margin-right: 4px; color: #fff; line-height: 1.3;
+.checklist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.evdsim-badge.b-ok { background: #1e7e45; }
-.evdsim-badge.b-info { background: #1f6feb; }
-.evdsim-badge.b-warn { background: #b9770e; }
-.evdsim-badge.b-bad { background: #c0392b; }
 
-/* outcome */
-.evdsim-outcome { border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 1rem; }
-.evdsim-oc-good { background: #e7f5ec; border: 1px solid #7ac79b; }
-.evdsim-oc-mixed { background: #fdf3e3; border: 1px solid #eac583; }
-.evdsim-oc-bad { background: #fbeae8; border: 1px solid #e3948a; }
-.evdsim-oc-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #6b7280; }
-
-/* path recap */
-.evdsim-pathcard { background: #fbfbfc; }
-.evdsim-pathdots { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0.5rem; }
-.evdsim-pathdot {
-  width: 22px; height: 22px; border-radius: 50%; display: inline-flex;
-  align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: #fff;
+.checklist-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border: 1.5px solid #e4e9f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
-.evdsim-pathdot.dot-best { background: #1e7e45; }
-.evdsim-pathdot.dot-ok { background: #1f6feb; }
-.evdsim-pathdot.dot-poor { background: #b9770e; }
-.evdsim-pathdot.dot-harmful { background: #c0392b; }
-.evdsim-pathlist { margin: 0.3rem 0 0.6rem; padding-left: 1.2rem; font-size: 0.88rem; }
-.evdsim-pathlist li { margin-bottom: 0.35rem; }
-.evdsim-endbtns { margin-top: 0.5rem; }
+
+.checklist-row:hover {
+  border-color: var(--ios-blue);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.checklist-row.checked {
+  background: #eefaf1;
+  border-color: var(--ios-green);
+}
+
+.checklist-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid #c7ccd4;
+  border-radius: 9px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.checklist-checkbox:checked {
+  background: var(--ios-green);
+  border-color: var(--ios-green);
+}
+
+.checklist-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.checklist-row-text {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1c1c1e;
+}
+
+.checklist-row.checked .checklist-row-text {
+  color: #6b7280;
+  text-decoration: line-through;
+  text-decoration-color: #9ca3af;
+}
+
+.checklist-status-banner {
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.checklist-status-banner.ready {
+  background: #e8f5e9;
+  color: #1e7e45;
+  border: 1.5px solid #7ac79b;
+}
+
+.checklist-status-banner.pending {
+  background: #fdecea;
+  color: #b03a2e;
+  border: 1.5px solid #e3948a;
+}

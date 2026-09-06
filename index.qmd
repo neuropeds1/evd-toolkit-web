@@ -1,5 +1,6 @@
 ---
 title: "EVD Toolkit"
+pagetitle: "Home"
 toc: false
 page-layout: full
 ---

@@ -6,7 +6,7 @@ project:
     - js
 
 website:
-  title: "EVD Toolkit"
+  title: "🧠 EVD Toolkit"
   favicon: favicon.ico
   page-footer:
     center: |
@@ -91,61 +91,61 @@ website:
         href: clinical-pearls.qmd
       - section: "Foundations"
         contents:
-          - text: "Foundations Hub"
+          - text: "🧠 Foundations Hub"
             href: foundations.qmd
-          - text: "What is an EVD"
+          - text: "🧠 What is an EVD"
             href: basics.qmd
-          - text: "EVD Settings"
+          - text: "🎚️ EVD Settings"
             href: settings.qmd
-          - text: "ICP Waveform"
+          - text: "📈 ICP Waveform"
             href: waveform.qmd
-          - text: "Catheter Types"
+          - text: "🖼️ Catheter Types"
             href: catheter-types.qmd
+          - text: "💾 EVD Systems"
+            href: systems.qmd
       - section: "Clinical Application"
         contents:
-          - text: "Best Practices"
+          - text: "☑️ Best Practices"
             href: best-practices.qmd
       - section: "Learning & Engagement"
         contents:
-          - text: "EVD Quiz"
+          - text: "❓ EVD Quiz"
             href: quiz.qmd
           - text: "🎬 Must-See Videos"
             href: video.qmd
-          - text: "EVD Systems"
-            href: systems.qmd
       - section: "Transport & MRI Safety"
         contents:
-          - text: "Transport & MRI Safety Hub"
+          - text: "🚑 Transport & MRI Safety Hub"
             href: transport-mri-safety.qmd
-          - text: "Transport Checklist"
+          - text: "🛏️ Transport Checklist"
             href: checklist.qmd
-          - text: "MRI Safety"
+          - text: "⚛️ MRI Safety"
             href: mri-safety.qmd
       - section: "Safety & Quality"
         contents:
-          - text: "QI Metrics"
+          - text: "📊 QI Metrics"
             href: qi-metrics.qmd
-          - text: "Infection Prevention Bundle"
+          - text: "🛡️ Infection Prevention Bundle"
             href: bundle.qmd
-          - text: "Complications"
+          - text: "⚠️ Complications"
             href: complications.qmd
       - section: "More"
         contents:
-          - text: "Resources Hub"
+          - text: "⋯ Resources Hub"
             href: more.qmd
-          - text: "Downloads"
+          - text: "⬇️ Downloads"
             href: downloads.qmd
-          - text: "EHR Alerts"
+          - text: "💬 EHR Alerts"
             href: ehr-alerts.qmd
-          - text: "EVD Safety Campaign"
+          - text: "🛡️ EVD Safety Campaign"
             href: safety-campaign.qmd
       - section: "Resources"
         contents:
-          - text: "References"
+          - text: "📖 References"
             href: references.qmd
-          - text: "Feedback"
+          - text: "💬 Feedback"
             href: feedback.qmd
-          - text: "About"
+          - text: "ℹ️ About"
             href: about.qmd
 
 execute:

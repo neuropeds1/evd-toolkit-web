@@ -39,32 +39,43 @@ pre_items = checklistItems.filter(i => i.section === "pre").map(i => i.text)
 during_items = checklistItems.filter(i => i.section === "during").map(i => i.text)
 ```
 
-## Pre-Transport
-
 ```{ojs}
-viewof pre_checked = Inputs.checkbox(pre_items, {label: ""})
+function checklistRow(text) {
+  return `
+    <label class="checklist-row">
+      <input type="checkbox" class="checklist-checkbox" onchange="fsChecklistToggle(this)">
+      <span class="checklist-row-text">${text}</span>
+    </label>
+  `;
+}
 ```
-
-## During Transport
-
-```{ojs}
-viewof during_checked = Inputs.checkbox(during_items, {label: ""})
-```
-
-## Readiness Status
 
 ```{ojs}
 total = pre_items.length + during_items.length
-completed = pre_checked.length + during_checked.length
+```
 
+```{ojs}
 total === 0
   ? html`<div class="fs-empty">Loading…</div>`
-  : html`<div style="padding:15px;border-radius:10px;
-      background:${completed === total ? '#e8f5e9' : '#fdecea'};
-      border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};">
-      ${completed === total
-        ? "✅ Ready for Transport"
-        : `⚠️ ${total - completed} item(s) remaining`}
+  : html`<div>
+      <div class="checklist-progress">
+        <div class="checklist-progress-bar"><div class="checklist-progress-fill" id="checklist-progress-fill"></div></div>
+        <div class="checklist-progress-label" id="checklist-progress-label">0 of ${total} complete</div>
+      </div>
+
+      <div class="checklist-section">
+        <div class="checklist-section-title">📋 Pre-Transport</div>
+        <div class="checklist-items">${pre_items.map(checklistRow).join("")}</div>
+      </div>
+
+      <div class="checklist-section">
+        <div class="checklist-section-title">🚑 During Transport</div>
+        <div class="checklist-items">${during_items.map(checklistRow).join("")}</div>
+      </div>
+
+      <div id="checklist-status">
+        <div class="checklist-status-banner pending">⚠️ ${total} item(s) remaining</div>
+      </div>
     </div>`
 ```
 
