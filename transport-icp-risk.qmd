@@ -23,70 +23,6 @@ This educational model explores factors associated with transport-related ICP el
 
 Educational model inspired by retrospective literature on transport-associated ICP elevation with clamped EVDs.
 
-## Interactive Risk Assessment
-
-```{ojs}
-viewof baselineICP = Inputs.radio(["<15", "15–19", "≥20"], {label: "Baseline ICP", value: "<15"})
-```
-
-```{ojs}
-viewof intubated = Inputs.toggle({label: "Patient Intubated", value: true})
-```
-
-```{ojs}
-viewof transportDuration = Inputs.range([0, 120], {label: "Transport Duration (minutes)", step: 1, value: 30})
-```
-
-```{ojs}
-viewof icuDay = Inputs.range([0, 30], {label: "ICU Day", step: 1, value: 5})
-```
-
-```{ojs}
-viewof csfOutput = Inputs.range([0, 30], {label: "CSF Output (mL/hr)", step: 1, value: 5})
-```
-
-```{ojs}
-viewof transportType = Inputs.radio(["Diagnostic", "Therapeutic"], {label: "Transport Type", value: "Diagnostic"})
-```
-
-```{ojs}
-viewof unplannedTransport = Inputs.toggle({label: "Unplanned / Emergent Transport", value: false})
-```
-
-```{ojs}
-// Port of TransportICPRiskScreen.kt's calculateRisk().
-estimatedRisk = {
-  let risk = 5;
-  if (baselineICP === "15–19") risk += 20;
-  if (baselineICP === "≥20") risk += 40;
-  if (!intubated) risk += 10;
-  risk += transportDuration * 0.25;
-  if (icuDay <= 3) risk += 10;
-  risk += csfOutput * 1.2;
-  if (transportType === "Therapeutic") risk += 10;
-  if (unplannedTransport) risk += 15;
-  return Math.min(risk, 100);
-}
-```
-
-```{ojs}
-riskCategory = estimatedRisk < 20 ? "LOW RISK" : estimatedRisk < 50 ? "MODERATE RISK" : "HIGH RISK"
-```
-
-```{ojs}
-riskColor = estimatedRisk < 20 ? "#27ae60" : estimatedRisk < 50 ? "#e67e22" : "#e74c3c"
-```
-
-## Estimated Risk
-
-```{ojs}
-html`<div style="text-align:center;padding:24px;border-radius:22px;background:${riskColor};color:white;">
-  <div style="font-size:1.8rem;font-weight:800;">${riskCategory}</div>
-  <div style="font-size:1.2rem;margin-top:8px;">${Math.round(estimatedRisk)}% estimated probability</div>
-  <div style="margin-top:8px;opacity:0.9;">Probability of transport-associated ICP elevation ≥20 mmHg</div>
-</div>`
-```
-
 ## Potential Mitigation Strategies
 
 - Conduct multidisciplinary huddle.
@@ -107,5 +43,5 @@ html`<div style="text-align:center;padding:24px;border-radius:22px;background:${
 ## Disclaimer
 
 ::: {.callout-warning}
-This educational model is hypothetical and intended for awareness, simulation-based learning, and educational purposes only. The transport-associated ICP risk model has not been prospectively validated and should not be used as a clinical decision-making tool. This tool is intended to promote awareness surrounding transport-associated ICP elevation and multidisciplinary transport preparedness. Clinical decisions should always rely on institutional protocols, multidisciplinary communication, bedside assessment, and clinician judgment.
+This educational content is intended for awareness and educational purposes only. It does not provide a clinical risk score or decision-making tool. This page is intended to promote awareness surrounding transport-associated ICP elevation and multidisciplinary transport preparedness. Clinical decisions should always rely on institutional protocols, multidisciplinary communication, bedside assessment, and clinician judgment.
 :::

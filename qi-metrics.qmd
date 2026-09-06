@@ -61,18 +61,6 @@ qiReportableEvents = {
 ```
 
 ```{ojs}
-qiBenchmarkZones = {
-  const { collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
-  return Generators.observe(notify => {
-    const unsubscribe = onSnapshot(collection(firebaseDb, "QIBenchmarkZones"), snapshot => {
-      notify(snapshot.docs.map(d => d.data()));
-    });
-    return unsubscribe;
-  });
-}
-```
-
-```{ojs}
 suggestedMetrics = qiListItems.filter(i => i.section === "suggestedMetrics").sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 ```
 
@@ -100,32 +88,6 @@ function bulletedList(items) {
 
 ```{ojs}
 bulletedList(suggestedMetrics)
-```
-
-## Interactive VRI Benchmarking
-
-Adjust the slider to compare an institutional ventriculostomy-related infection (VRI) rate against suggested quality benchmarks. See the [Global VRI Rate Data](#global-vri-rate-data) below to compare your rate against reported rates by country, based on Blacker et al.'s Bayesian hierarchical meta-analysis (PMID [42290525](https://pubmed.ncbi.nlm.nih.gov/42290525/)).
-
-```{ojs}
-viewof vriRate = Inputs.range([0, 20], {label: "Institutional VRI Rate (%)", step: 0.1, value: 4})
-```
-
-```{ojs}
-// Port of QIMetricsScreen's zone lookup: low <1%, elevated <10%, high >=10%.
-currentZoneKey = vriRate < 1 ? "low" : vriRate < 10 ? "elevated" : "high"
-```
-
-```{ojs}
-currentZone = qiBenchmarkZones.find(z => z.zoneKey === currentZoneKey)
-```
-
-```{ojs}
-currentZone
-  ? html`<div style="padding:16px;border-radius:14px;background:${(currentZone.color ?? "orange")}22;border-left:5px solid ${currentZone.color ?? "orange"};">
-      <strong>${currentZone.title ?? ""}</strong>
-      <p style="margin:8px 0 0;">${currentZone.message ?? ""}</p>
-    </div>`
-  : html`<div class="fs-empty">Loading benchmark zones…</div>`
 ```
 
 ## Reportable EVD Safety Events
