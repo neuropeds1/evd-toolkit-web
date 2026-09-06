@@ -110,28 +110,6 @@
     ]
   },
   {
-    "objectID": "transport-icp-risk.html#interactive-risk-assessment",
-    "href": "transport-icp-risk.html#interactive-risk-assessment",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "Interactive Risk Assessment",
-    "text": "Interactive Risk Assessment\n\nviewof baselineICP = Inputs.radio([\"&lt;15\", \"15–19\", \"≥20\"], {label: \"Baseline ICP\", value: \"&lt;15\"})\n\n\n\n\n\n\n\nviewof intubated = Inputs.toggle({label: \"Patient Intubated\", value: true})\n\n\n\n\n\n\n\nviewof transportDuration = Inputs.range([0, 120], {label: \"Transport Duration (minutes)\", step: 1, value: 30})\n\n\n\n\n\n\n\nviewof icuDay = Inputs.range([0, 30], {label: \"ICU Day\", step: 1, value: 5})\n\n\n\n\n\n\n\nviewof csfOutput = Inputs.range([0, 30], {label: \"CSF Output (mL/hr)\", step: 1, value: 5})\n\n\n\n\n\n\n\nviewof transportType = Inputs.radio([\"Diagnostic\", \"Therapeutic\"], {label: \"Transport Type\", value: \"Diagnostic\"})\n\n\n\n\n\n\n\nviewof unplannedTransport = Inputs.toggle({label: \"Unplanned / Emergent Transport\", value: false})\n\n\n\n\n\n\n\n// Port of TransportICPRiskScreen.kt's calculateRisk().\nestimatedRisk = {\n  let risk = 5;\n  if (baselineICP === \"15–19\") risk += 20;\n  if (baselineICP === \"≥20\") risk += 40;\n  if (!intubated) risk += 10;\n  risk += transportDuration * 0.25;\n  if (icuDay &lt;= 3) risk += 10;\n  risk += csfOutput * 1.2;\n  if (transportType === \"Therapeutic\") risk += 10;\n  if (unplannedTransport) risk += 15;\n  return Math.min(risk, 100);\n}\n\n\n\n\n\n\n\nriskCategory = estimatedRisk &lt; 20 ? \"LOW RISK\" : estimatedRisk &lt; 50 ? \"MODERATE RISK\" : \"HIGH RISK\"\n\n\n\n\n\n\n\nriskColor = estimatedRisk &lt; 20 ? \"#27ae60\" : estimatedRisk &lt; 50 ? \"#e67e22\" : \"#e74c3c\"",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html#estimated-risk",
-    "href": "transport-icp-risk.html#estimated-risk",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "Estimated Risk",
-    "text": "Estimated Risk\n\nhtml`&lt;div style=\"text-align:center;padding:24px;border-radius:22px;background:${riskColor};color:white;\"&gt;\n  &lt;div style=\"font-size:1.8rem;font-weight:800;\"&gt;${riskCategory}&lt;/div&gt;\n  &lt;div style=\"font-size:1.2rem;margin-top:8px;\"&gt;${Math.round(estimatedRisk)}% estimated probability&lt;/div&gt;\n  &lt;div style=\"margin-top:8px;opacity:0.9;\"&gt;Probability of transport-associated ICP elevation ≥20 mmHg&lt;/div&gt;\n&lt;/div&gt;`",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
     "objectID": "transport-icp-risk.html#potential-mitigation-strategies",
     "href": "transport-icp-risk.html#potential-mitigation-strategies",
     "title": "⚠️ Transport ICP Risk",
@@ -158,7 +136,7 @@
     "href": "transport-icp-risk.html#disclaimer",
     "title": "⚠️ Transport ICP Risk",
     "section": "Disclaimer",
-    "text": "Disclaimer\n\n\n\n\n\n\nWarning\n\n\n\nThis educational model is hypothetical and intended for awareness, simulation-based learning, and educational purposes only. The transport-associated ICP risk model has not been prospectively validated and should not be used as a clinical decision-making tool. This tool is intended to promote awareness surrounding transport-associated ICP elevation and multidisciplinary transport preparedness. Clinical decisions should always rely on institutional protocols, multidisciplinary communication, bedside assessment, and clinician judgment.",
+    "text": "Disclaimer\n\n\n\n\n\n\nWarning\n\n\n\nThis educational content is intended for awareness and educational purposes only. It does not provide a clinical risk score or decision-making tool. This page is intended to promote awareness surrounding transport-associated ICP elevation and multidisciplinary transport preparedness. Clinical decisions should always rely on institutional protocols, multidisciplinary communication, bedside assessment, and clinician judgment.",
     "crumbs": [
       "Transport & MRI Safety",
       "Transport ICP Risk"
@@ -268,7 +246,7 @@
     "href": "qi-metrics.html",
     "title": "📊 QI Metrics",
     "section": "",
-    "text": "Quality improvement metrics for EVD safety and monitoring.\nfirebaseDb = {\n  const { initializeApp, getApps, getApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);\n  return getFirestore(app);\n}\nqiListItems = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIMetricsListItems\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\nqiPearlItems = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIMetricsPearls\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\nqiReportableEvents = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIReportableEvents\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()).sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0)));\n    });\n    return unsubscribe;\n  });\n}\nqiBenchmarkZones = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIBenchmarkZones\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\nsuggestedMetrics = qiListItems.filter(i =&gt; i.section === \"suggestedMetrics\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\ndocumentationItems = qiListItems.filter(i =&gt; i.section === \"documentation\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\nqiPearls = qiPearlItems.filter(i =&gt; i.section === \"pearls\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\npriorities = qiPearlItems.filter(i =&gt; i.section === \"priorities\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\nfunction bulletedList(items) {\n  return items.length === 0\n    ? html`&lt;div class=\"fs-empty\"&gt;Loading…&lt;/div&gt;`\n    : html`&lt;ul&gt;${items.map(i =&gt; `&lt;li&gt;${i.text}&lt;/li&gt;`).join(\"\")}&lt;/ul&gt;`\n}",
+    "text": "Quality improvement metrics for EVD safety and monitoring.\nfirebaseDb = {\n  const { initializeApp, getApps, getApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);\n  return getFirestore(app);\n}\nqiListItems = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIMetricsListItems\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\nqiPearlItems = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIMetricsPearls\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\nqiReportableEvents = {\n  const { collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(firebaseDb, \"QIReportableEvents\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()).sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0)));\n    });\n    return unsubscribe;\n  });\n}\nsuggestedMetrics = qiListItems.filter(i =&gt; i.section === \"suggestedMetrics\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\ndocumentationItems = qiListItems.filter(i =&gt; i.section === \"documentation\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\nqiPearls = qiPearlItems.filter(i =&gt; i.section === \"pearls\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\npriorities = qiPearlItems.filter(i =&gt; i.section === \"priorities\").sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0))\nfunction bulletedList(items) {\n  return items.length === 0\n    ? html`&lt;div class=\"fs-empty\"&gt;Loading…&lt;/div&gt;`\n    : html`&lt;ul&gt;${items.map(i =&gt; `&lt;li&gt;${i.text}&lt;/li&gt;`).join(\"\")}&lt;/ul&gt;`\n}",
     "crumbs": [
       "Safety & Quality",
       "QI Metrics"
@@ -280,17 +258,6 @@
     "title": "📊 QI Metrics",
     "section": "Suggested Metrics",
     "text": "Suggested Metrics\n\nbulletedList(suggestedMetrics)",
-    "crumbs": [
-      "Safety & Quality",
-      "QI Metrics"
-    ]
-  },
-  {
-    "objectID": "qi-metrics.html#interactive-vri-benchmarking",
-    "href": "qi-metrics.html#interactive-vri-benchmarking",
-    "title": "📊 QI Metrics",
-    "section": "Interactive VRI Benchmarking",
-    "text": "Interactive VRI Benchmarking\nAdjust the slider to compare an institutional ventriculostomy-related infection (VRI) rate against suggested quality benchmarks. See the Global VRI Rate Data below to compare your rate against reported rates by country, based on Blacker et al.’s Bayesian hierarchical meta-analysis (PMID 42290525).\n\nviewof vriRate = Inputs.range([0, 20], {label: \"Institutional VRI Rate (%)\", step: 0.1, value: 4})\n\n\n\n\n\n\n\n// Port of QIMetricsScreen's zone lookup: low &lt;1%, elevated &lt;10%, high &gt;=10%.\ncurrentZoneKey = vriRate &lt; 1 ? \"low\" : vriRate &lt; 10 ? \"elevated\" : \"high\"\n\n\n\n\n\n\n\ncurrentZone = qiBenchmarkZones.find(z =&gt; z.zoneKey === currentZoneKey)\n\n\n\n\n\n\n\ncurrentZone\n  ? html`&lt;div style=\"padding:16px;border-radius:14px;background:${(currentZone.color ?? \"orange\")}22;border-left:5px solid ${currentZone.color ?? \"orange\"};\"&gt;\n      &lt;strong&gt;${currentZone.title ?? \"\"}&lt;/strong&gt;\n      &lt;p style=\"margin:8px 0 0;\"&gt;${currentZone.message ?? \"\"}&lt;/p&gt;\n    &lt;/div&gt;`\n  : html`&lt;div class=\"fs-empty\"&gt;Loading benchmark zones…&lt;/div&gt;`",
     "crumbs": [
       "Safety & Quality",
       "QI Metrics"
