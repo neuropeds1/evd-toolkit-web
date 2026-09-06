@@ -29,6 +29,17 @@ Retrospective analyses have identified factors associated with **ICP elevation â
 - How long will transport take?
 - Is this emergent?
 
+## Potential Mitigation Strategies
+
+- Conduct multidisciplinary huddle.
+- Reassess urgency of transport.
+- Optimize sedation before transport.
+- Review EVD clamp strategy.
+- Minimize transport duration.
+- Ensure ICP monitoring preparedness.
+- Clarify roles before transport.
+- Re-level immediately after transport.
+
 ## Clinical Takeaway
 
 Use these reflection points as a cognitive aid before transport. Final decisions should be guided by clinical judgment and team communication.

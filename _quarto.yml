@@ -123,8 +123,6 @@ website:
         contents:
           - text: "Transport & MRI Safety Hub"
             href: transport-mri-safety.qmd
-          - text: "Transport ICP Risk"
-            href: transport-icp-risk.qmd
           - text: "Transport Checklist"
             href: checklist.qmd
           - text: "MRI Safety"
