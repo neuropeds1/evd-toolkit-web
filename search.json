@@ -323,10 +323,10 @@
     "href": "checklist.html",
     "title": "🛏️ Transport Checklist",
     "section": "",
-    "text": "Complete this checklist prior to intra-hospital transport or procedures.",
+    "text": "Complete this checklist prior to intra-hospital transport or procedures.\nchecklistItems = {\n  const { initializeApp, getApps, getApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"TransportChecklistItems\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()).sort((a, b) =&gt; (a.order ?? 0) - (b.order ?? 0)));\n    });\n    return unsubscribe;\n  });\n}\npre_items = checklistItems.filter(i =&gt; i.section === \"pre\").map(i =&gt; i.text)\nduring_items = checklistItems.filter(i =&gt; i.section === \"during\").map(i =&gt; i.text)",
     "crumbs": [
-      "Clinical Application",
-      "Checklist"
+      "Transport & MRI Safety",
+      "Transport Checklist"
     ]
   },
   {
@@ -334,10 +334,10 @@
     "href": "checklist.html#pre-transport",
     "title": "🛏️ Transport Checklist",
     "section": "Pre-Transport",
-    "text": "Pre-Transport\n\npre_items = [\n  \"EVD leveled at external auditory meatus\",\n  \"Clamp status confirmed\",\n  \"EVD setting verified\",\n  \"ICP value reviewed\",\n  \"Waveform assessed\",\n  \"CSF output reviewed\",\n  \"Tubing secured\",\n  \"System integrity maintained\"\n]\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
+    "text": "Pre-Transport\n\nviewof pre_checked = Inputs.checkbox(pre_items, {label: \"\"})",
     "crumbs": [
-      "Clinical Application",
-      "Checklist"
+      "Transport & MRI Safety",
+      "Transport Checklist"
     ]
   },
   {
@@ -345,10 +345,10 @@
     "href": "checklist.html#during-transport",
     "title": "🛏️ Transport Checklist",
     "section": "During Transport",
-    "text": "During Transport\n\nduring_items = [\n  \"ICP monitoring maintained\",\n  \"Head position maintained\",\n  \"Drain status appropriate\"\n]\nviewof during_checked = Inputs.checkbox(during_items, {label: \"\"})",
+    "text": "During Transport\n\nviewof during_checked = Inputs.checkbox(during_items, {label: \"\"})",
     "crumbs": [
-      "Clinical Application",
-      "Checklist"
+      "Transport & MRI Safety",
+      "Transport Checklist"
     ]
   },
   {
@@ -356,10 +356,10 @@
     "href": "checklist.html#readiness-status",
     "title": "🛏️ Transport Checklist",
     "section": "Readiness Status",
-    "text": "Readiness Status\n\ntotal = pre_items.length + during_items.length\ncompleted = pre_checked.length + during_checked.length\n\nhtml`&lt;div style=\"padding:15px;border-radius:10px;\n  background:${completed === total ? '#e8f5e9' : '#fdecea'};\n  border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};\"&gt;\n  ${completed === total\n    ? \"✅ Ready for Transport\"\n    : `⚠️ ${total - completed} item(s) remaining`}\n&lt;/div&gt;`",
+    "text": "Readiness Status\n\ntotal = pre_items.length + during_items.length\ncompleted = pre_checked.length + during_checked.length\n\ntotal === 0\n  ? html`&lt;div class=\"fs-empty\"&gt;Loading…&lt;/div&gt;`\n  : html`&lt;div style=\"padding:15px;border-radius:10px;\n      background:${completed === total ? '#e8f5e9' : '#fdecea'};\n      border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};\"&gt;\n      ${completed === total\n        ? \"✅ Ready for Transport\"\n        : `⚠️ ${total - completed} item(s) remaining`}\n    &lt;/div&gt;`",
     "crumbs": [
-      "Clinical Application",
-      "Checklist"
+      "Transport & MRI Safety",
+      "Transport Checklist"
     ]
   },
   {
@@ -369,8 +369,8 @@
     "section": "Key Reference",
     "text": "Key Reference\nEnhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training. Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067. PMID: 41235833",
     "crumbs": [
-      "Clinical Application",
-      "Checklist"
+      "Transport & MRI Safety",
+      "Transport Checklist"
     ]
   },
   {
