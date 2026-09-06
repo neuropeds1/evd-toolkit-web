@@ -44,102 +44,14 @@
     ]
   },
   {
-    "objectID": "video.html",
-    "href": "video.html",
-    "title": "▶️ Video Library",
+    "objectID": "transport-mri-safety.html",
+    "href": "transport-mri-safety.html",
+    "title": "🚑 Transport & MRI Safety",
     "section": "",
-    "text": "How-To: A Video Library of Must-See Videos — learn key principles of External Ventricular Drain (EVD) management through SNACC educational resources.",
-    "crumbs": [
-      "Learning & Engagement",
-      "🎬 Must-See Videos"
-    ]
-  },
-  {
-    "objectID": "video.html#videos",
-    "href": "video.html#videos",
-    "title": "▶️ Video Library",
-    "section": "Videos",
-    "text": "Videos\n\nvideos = {\n  const { initializeApp, getApps, getApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  // Live listener — updates automatically whenever Videos\n  // changes in Firestore, no page reload needed.\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"Videos\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\nfunction youtubeId(url) {\n  if (!url) return null;\n  const patterns = [\n    /youtu\\.be\\/([a-zA-Z0-9_-]+)/,\n    /youtube\\.com\\/watch\\?v=([a-zA-Z0-9_-]+)/,\n    /youtube\\.com\\/embed\\/([a-zA-Z0-9_-]+)/\n  ];\n  for (const p of patterns) {\n    const m = url.match(p);\n    if (m) return m[1];\n  }\n  return null;\n}\n\n\n\n\n\n\n\n// Deterministic color per category name — same category always\n// gets the same color, no manual mapping to maintain.\nfunction categoryColor(name) {\n  const palette = [\"#007AFF\", \"#34C759\", \"#FF9500\", \"#AF52DE\", \"#FF3B30\", \"#30B0C7\", \"#FF2D55\", \"#8E8E93\"];\n  let hash = 0;\n  for (let i = 0; i &lt; name.length; i++) hash = name.charCodeAt(i) + ((hash &lt;&lt; 5) - hash);\n  return palette[Math.abs(hash) % palette.length];\n}\n\n\n\n\n\n\n\nvideoCategories = [\"All\", ...new Set(videos.map(v =&gt; v.category).filter(Boolean))].sort()\n\n\n\n\n\n\n\nviewof videoCategoryFilter = {\n  const container = html`&lt;div class=\"fs-filters\"&gt;&lt;/div&gt;`;\n  container.value = \"All\";\n\n  function draw() {\n    container.innerHTML = \"\";\n    videoCategories.forEach(cat =&gt; {\n      const isActive = cat === container.value;\n      const color = cat === \"All\" ? \"#2c7be5\" : categoryColor(cat);\n      const pill = html`&lt;button type=\"button\" class=\"fs-filter-pill${isActive ? \" active\" : \"\"}\"&gt;${cat}&lt;/button&gt;`;\n      if (isActive) {\n        pill.style.background = color;\n        pill.style.borderColor = color;\n      }\n      pill.onclick = () =&gt; {\n        container.value = cat;\n        container.dispatchEvent(new CustomEvent(\"input\"));\n        draw();\n      };\n      container.appendChild(pill);\n    });\n  }\n  draw();\n  return container;\n}\n\n\n\n\n\n\n\nfilteredVideos = videoCategoryFilter === \"All\"\n  ? videos\n  : videos.filter(v =&gt; v.category === videoCategoryFilter)\n\n\n\n\n\n\n\nhtml`&lt;div class=\"fs-grid\"&gt;\n  ${filteredVideos.length === 0\n    ? `&lt;div class=\"fs-empty\"&gt;No videos found in this category yet.&lt;/div&gt;`\n    : filteredVideos.map(v =&gt; {\n        const id = youtubeId(v.url);\n        const embed = id\n          ? `&lt;iframe class=\"fs-card-image\" style=\"height:200px;border:none;\" src=\"https://www.youtube.com/embed/${id}\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen&gt;&lt;/iframe&gt;`\n          : \"\";\n        return `\n          &lt;div class=\"fs-card\"&gt;\n            ${embed}\n            &lt;div class=\"fs-card-body\"&gt;\n              &lt;h4 class=\"fs-card-title\"&gt;${v.title ?? \"Untitled\"}&lt;/h4&gt;\n              &lt;p class=\"fs-card-desc\"&gt;${v.subtitle ?? \"\"}&lt;/p&gt;\n              ${v.source ? `&lt;span class=\"fs-source\"&gt;📎 ${v.source}&lt;/span&gt;` : \"\"}\n              ${v.category ? `&lt;span class=\"fs-badge\" style=\"background:${categoryColor(v.category)};\"&gt;${v.category}&lt;/span&gt;` : \"\"}\n            &lt;/div&gt;\n          &lt;/div&gt;\n        `;\n      }).join(\"\")}\n&lt;/div&gt;`",
-    "crumbs": [
-      "Learning & Engagement",
-      "🎬 Must-See Videos"
-    ]
-  },
-  {
-    "objectID": "video.html#learning-objectives",
-    "href": "video.html#learning-objectives",
-    "title": "▶️ Video Library",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nUnderstand how EVD systems function\nRecognize proper leveling and setup\nInterpret intracranial pressure (ICP) values\nIdentify common pitfalls and safety risks\nApply concepts to clinical practice\n\n\n\n\n\n\n\nTip\n\n\n\nClinical Tip: Pause each video and reflect on how each concept applies to your own clinical environment.",
-    "crumbs": [
-      "Learning & Engagement",
-      "🎬 Must-See Videos"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html",
-    "href": "transport-icp-risk.html",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "",
-    "text": "Hypothetical scenario for transport-associated ICP elevation.",
+    "text": "Transport & MRI Safety Modules — transport safety checklist and MRI scan safety.\n\n  \n    ✅\n    Transport ChecklistEVD safety checklist\n  \n  \n    ⚛️\n    MRI SafetyScan safety considerations",
     "crumbs": [
       "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html#clinical-scenario",
-    "href": "transport-icp-risk.html#clinical-scenario",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "Clinical Scenario",
-    "text": "Clinical Scenario\nA neurocritical care patient with a clamped EVD is being transported for imaging.\nCould transport increase the risk of ICP elevation?\nThis educational model explores factors associated with transport-related ICP elevation described in retrospective literature.",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html#factors-associated-with-icp-elevation",
-    "href": "transport-icp-risk.html#factors-associated-with-icp-elevation",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "Factors Associated with ICP Elevation",
-    "text": "Factors Associated with ICP Elevation\n\nHigher baseline ICP\nHigher CSF output\nEarly ICU phase\nUnplanned transport\nLonger transport duration\n\nEducational model inspired by retrospective literature on transport-associated ICP elevation with clamped EVDs.",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html#potential-mitigation-strategies",
-    "href": "transport-icp-risk.html#potential-mitigation-strategies",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "Potential Mitigation Strategies",
-    "text": "Potential Mitigation Strategies\n\nConduct multidisciplinary huddle.\nReassess urgency of transport.\nOptimize sedation before transport.\nReview EVD clamp strategy.\nMinimize transport duration.\nEnsure ICP monitoring preparedness.\nClarify roles before transport.\nRe-level immediately after transport.",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html#references",
-    "href": "transport-icp-risk.html#references",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "References",
-    "text": "References\n\nChaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. Neurocrit Care. 2017 Apr;26(2):196-204. doi: 10.1007/s12028-016-0308-0\n\nOpen PubMed Reference",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
-    ]
-  },
-  {
-    "objectID": "transport-icp-risk.html#disclaimer",
-    "href": "transport-icp-risk.html#disclaimer",
-    "title": "⚠️ Transport ICP Risk",
-    "section": "Disclaimer",
-    "text": "Disclaimer\n\n\n\n\n\n\nWarning\n\n\n\nThis educational content is intended for awareness and educational purposes only. It does not provide a clinical risk score or decision-making tool. This page is intended to promote awareness surrounding transport-associated ICP elevation and multidisciplinary transport preparedness. Clinical decisions should always rely on institutional protocols, multidisciplinary communication, bedside assessment, and clinician judgment.",
-    "crumbs": [
-      "Transport & MRI Safety",
-      "Transport ICP Risk"
+      "Transport & MRI Safety Hub"
     ]
   },
   {
@@ -682,6 +594,17 @@
     ]
   },
   {
+    "objectID": "apply.html#potential-mitigation-strategies",
+    "href": "apply.html#potential-mitigation-strategies",
+    "title": "🩺 Apply to a Hypothetical Patient",
+    "section": "Potential Mitigation Strategies",
+    "text": "Potential Mitigation Strategies\n\nConduct multidisciplinary huddle.\nReassess urgency of transport.\nOptimize sedation before transport.\nReview EVD clamp strategy.\nMinimize transport duration.\nEnsure ICP monitoring preparedness.\nClarify roles before transport.\nRe-level immediately after transport.",
+    "crumbs": [
+      "Clinical Application",
+      "Apply to a Patient"
+    ]
+  },
+  {
     "objectID": "apply.html#clinical-takeaway",
     "href": "apply.html#clinical-takeaway",
     "title": "🩺 Apply to a Hypothetical Patient",
@@ -977,47 +900,36 @@
     ]
   },
   {
-    "objectID": "transport-mri-safety.html",
-    "href": "transport-mri-safety.html",
-    "title": "🚑 Transport & MRI Safety",
+    "objectID": "video.html",
+    "href": "video.html",
+    "title": "▶️ Video Library",
     "section": "",
-    "text": "Transport & MRI Safety Modules — ICP risk and safety checklist.\n\n  \n    ⚠️\n    ICP RiskInteractive ICP risk model\n  \n  \n    ✅\n    Transport ChecklistEVD safety checklist\n  \n  \n    ⚛️\n    MRI SafetyScan safety considerations",
+    "text": "How-To: A Video Library of Must-See Videos — learn key principles of External Ventricular Drain (EVD) management through SNACC educational resources.",
     "crumbs": [
-      "Transport & MRI Safety",
-      "Transport & MRI Safety Hub"
+      "Learning & Engagement",
+      "🎬 Must-See Videos"
     ]
   },
   {
-    "objectID": "virtual-patient.html",
-    "href": "virtual-patient.html",
-    "title": "🧠 EVD Scenarios",
-    "section": "",
-    "text": "Educational simulation only. These are scripted teaching scenarios, not real patients, and the branching logic and outcomes are a teaching model — treat any disagreement with your attending or your institution’s protocol as the authority. Do not enter patient information.\nA growing library of short branching scenarios. Each one is built around a single core EVD concept — mostly the periprocedural window, when an aneurysmal SAH patient with an EVD leaves the unit for the interventional suite. You make a series of decisions; each choice changes what happens next, and some paths recover while others cascade.\nAirway, anesthetic technique, and detailed hemodynamic management are relevant and assumed — they are deliberately out of scope here. Every decision is about the drain.",
+    "objectID": "video.html#videos",
+    "href": "video.html#videos",
+    "title": "▶️ Video Library",
+    "section": "Videos",
+    "text": "Videos\n\nvideos = {\n  const { initializeApp, getApps, getApp } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js\");\n  const { getFirestore, collection, onSnapshot } = await import(\"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js\");\n\n  const firebaseConfig = {\n    apiKey: \"AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc\",\n    authDomain: \"evdtoolkit.firebaseapp.com\",\n    projectId: \"evdtoolkit\",\n    storageBucket: \"evdtoolkit.firebasestorage.app\",\n    messagingSenderId: \"1002374431151\",\n    appId: \"1:1002374431151:web:fe3724bb1f39eb4744af5a\"\n  };\n\n  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);\n  const db = getFirestore(app);\n\n  // Live listener — updates automatically whenever Videos\n  // changes in Firestore, no page reload needed.\n  return Generators.observe(notify =&gt; {\n    const unsubscribe = onSnapshot(collection(db, \"Videos\"), snapshot =&gt; {\n      notify(snapshot.docs.map(d =&gt; d.data()));\n    });\n    return unsubscribe;\n  });\n}\n\n\n\n\n\n\n\nfunction youtubeId(url) {\n  if (!url) return null;\n  const patterns = [\n    /youtu\\.be\\/([a-zA-Z0-9_-]+)/,\n    /youtube\\.com\\/watch\\?v=([a-zA-Z0-9_-]+)/,\n    /youtube\\.com\\/embed\\/([a-zA-Z0-9_-]+)/\n  ];\n  for (const p of patterns) {\n    const m = url.match(p);\n    if (m) return m[1];\n  }\n  return null;\n}\n\n\n\n\n\n\n\n// Deterministic color per category name — same category always\n// gets the same color, no manual mapping to maintain.\nfunction categoryColor(name) {\n  const palette = [\"#007AFF\", \"#34C759\", \"#FF9500\", \"#AF52DE\", \"#FF3B30\", \"#30B0C7\", \"#FF2D55\", \"#8E8E93\"];\n  let hash = 0;\n  for (let i = 0; i &lt; name.length; i++) hash = name.charCodeAt(i) + ((hash &lt;&lt; 5) - hash);\n  return palette[Math.abs(hash) % palette.length];\n}\n\n\n\n\n\n\n\nvideoCategories = [\"All\", ...new Set(videos.map(v =&gt; v.category).filter(Boolean))].sort()\n\n\n\n\n\n\n\nviewof videoCategoryFilter = {\n  const container = html`&lt;div class=\"fs-filters\"&gt;&lt;/div&gt;`;\n  container.value = \"All\";\n\n  function draw() {\n    container.innerHTML = \"\";\n    videoCategories.forEach(cat =&gt; {\n      const isActive = cat === container.value;\n      const color = cat === \"All\" ? \"#2c7be5\" : categoryColor(cat);\n      const pill = html`&lt;button type=\"button\" class=\"fs-filter-pill${isActive ? \" active\" : \"\"}\"&gt;${cat}&lt;/button&gt;`;\n      if (isActive) {\n        pill.style.background = color;\n        pill.style.borderColor = color;\n      }\n      pill.onclick = () =&gt; {\n        container.value = cat;\n        container.dispatchEvent(new CustomEvent(\"input\"));\n        draw();\n      };\n      container.appendChild(pill);\n    });\n  }\n  draw();\n  return container;\n}\n\n\n\n\n\n\n\nfilteredVideos = videoCategoryFilter === \"All\"\n  ? videos\n  : videos.filter(v =&gt; v.category === videoCategoryFilter)\n\n\n\n\n\n\n\nhtml`&lt;div class=\"fs-grid\"&gt;\n  ${filteredVideos.length === 0\n    ? `&lt;div class=\"fs-empty\"&gt;No videos found in this category yet.&lt;/div&gt;`\n    : filteredVideos.map(v =&gt; {\n        const id = youtubeId(v.url);\n        const embed = id\n          ? `&lt;iframe class=\"fs-card-image\" style=\"height:200px;border:none;\" src=\"https://www.youtube.com/embed/${id}\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen&gt;&lt;/iframe&gt;`\n          : \"\";\n        return `\n          &lt;div class=\"fs-card\"&gt;\n            ${embed}\n            &lt;div class=\"fs-card-body\"&gt;\n              &lt;h4 class=\"fs-card-title\"&gt;${v.title ?? \"Untitled\"}&lt;/h4&gt;\n              &lt;p class=\"fs-card-desc\"&gt;${v.subtitle ?? \"\"}&lt;/p&gt;\n              ${v.source ? `&lt;span class=\"fs-source\"&gt;📎 ${v.source}&lt;/span&gt;` : \"\"}\n              ${v.category ? `&lt;span class=\"fs-badge\" style=\"background:${categoryColor(v.category)};\"&gt;${v.category}&lt;/span&gt;` : \"\"}\n            &lt;/div&gt;\n          &lt;/div&gt;\n        `;\n      }).join(\"\")}\n&lt;/div&gt;`",
     "crumbs": [
       "Learning & Engagement",
-      "🧠 EVD Scenarios"
+      "🎬 Must-See Videos"
     ]
   },
   {
-    "objectID": "virtual-patient.html#scenarios-in-this-set",
-    "href": "virtual-patient.html#scenarios-in-this-set",
-    "title": "🧠 EVD Scenarios",
-    "section": "Scenarios in this set",
-    "text": "Scenarios in this set\n\n\n\n\n\n\n\nScenario\nCore concept\n\n\n\n\nClamped without monitoring\nNever move a clamped EVD without continuous ICP monitoring.\n\n\nRising ICP on transport — the troubleshoot\nIs it real → is it mechanical → is it the patient — then drain, osmotherapy, escalate.\n\n\nOpen EVD: 18 mL in 15 minutes\nA drainage rate well above baseline is acute over-drainage until proven otherwise — clamp first.\n\n\nRe-zeroing after every move\nZeroing is valid only for the position it was done in; re-level to the tragus after every transfer.\n\n\nThe CSF turns bloody\nIntra-procedurally the drain is an early-warning monitor — a colour or output change is a real-time call-out.\n\n\nThe handoff gap\nThe minimum EVD dataset a receiving team needs, and what breaks when one item is missing.",
+    "objectID": "video.html#learning-objectives",
+    "href": "video.html#learning-objectives",
+    "title": "▶️ Video Library",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nUnderstand how EVD systems function\nRecognize proper leveling and setup\nInterpret intracranial pressure (ICP) values\nIdentify common pitfalls and safety risks\nApply concepts to clinical practice\n\n\n\n\n\n\n\nTip\n\n\n\nClinical Tip: Pause each video and reflect on how each concept applies to your own clinical environment.",
     "crumbs": [
       "Learning & Engagement",
-      "🧠 EVD Scenarios"
-    ]
-  },
-  {
-    "objectID": "virtual-patient.html#key-reference",
-    "href": "virtual-patient.html#key-reference",
-    "title": "🧠 EVD Scenarios",
-    "section": "Key reference",
-    "text": "Key reference\nEnhancing Safety in Intrahospital Transport of Patients With External Ventricular Drains Through Simulation-Based Training. Bharadwaj MS, Abu-Alya A, Fochs A, Liau C, McGlennen KM, Ishimoto L, Bjurstrom M, Guo S, Khadka S, Teske T, Vu TT, Lele AV. J Neurosurg Anesthesiol. 2025 Oct 31. doi: 10.1097/ANA.0000000000001067. PMID: 41235833",
-    "crumbs": [
-      "Learning & Engagement",
-      "🧠 EVD Scenarios"
+      "🎬 Must-See Videos"
     ]
   }
 ]
