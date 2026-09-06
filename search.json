@@ -682,22 +682,11 @@
     ]
   },
   {
-    "objectID": "apply.html#exploratory-risk-model",
-    "href": "apply.html#exploratory-risk-model",
-    "title": "🩺 Apply to a Hypothetical Patient",
-    "section": "Exploratory Risk Model",
-    "text": "Exploratory Risk Model\nEstimates probability of ICP elevation ≥20 mmHg during transport (derived from Chaikittisilpa et al., 2017).\n\nviewof icp = Inputs.select([\"&lt;15\", \"15–19\", \"≥20\"], {label: \"Baseline ICP\"})\nviewof intubated = Inputs.select([\"Yes\", \"No\"], {label: \"Intubated\"})\nviewof duration = Inputs.range([0, 120], {label: \"Transport Time (min)\", step: 1, value: 30})\nviewof days = Inputs.range([0, 30], {label: \"ICU Day\", step: 1, value: 5})\nviewof csf = Inputs.number({label: \"CSF Output (mL/hr)\", value: 5})\nviewof iht = Inputs.select([\"Therapeutic\", \"Diagnostic\"], {label: \"Transport Type\"})\nviewof unscheduled = Inputs.select([\"Yes\", \"No\"], {label: \"Unplanned\"})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrisk_icp = icp === \"&lt;15\" ? 1 : icp === \"15–19\" ? 3.4 : 12.94\nrisk_intubated = intubated === \"Yes\" ? 0.58 : 1\nrisk_duration = (duration / 10) * 0.95\nrisk_days = days * 0.97\nrisk_csf = csf * 1.11\nrisk_iht = iht === \"Therapeutic\" ? 5.82 : 1\nrisk_unscheduled = unscheduled === \"Yes\" ? 1.2 : 1\n\nrisk = risk_icp * risk_intubated * risk_duration * risk_days * risk_csf * risk_iht * risk_unscheduled * 0.118\nresult = Math.round(Math.min(risk, 100) * 10) / 10\n\ncategory = result &lt; 20 ? \"LOW RISK\" : result &lt; 50 ? \"MODERATE RISK\" : \"HIGH RISK\"\ncolor = result &lt; 20 ? \"#2ecc71\" : result &lt; 50 ? \"#f39c12\" : \"#e74c3c\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;div style=\"padding:18px;border-radius:12px;background:${color};color:white;font-size:18px;text-align:center;\"&gt;\n  &lt;strong&gt;${category}&lt;/strong&gt;&lt;br&gt;\n  ${result}% probability of ICP ≥20 mmHg\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat does this mean?\n\n\n\n\n\nThis model estimates the probability of ICP elevation ≥20 mmHg during transport with a clamped EVD, derived from retrospective data in Chaikittisilpa et al., 2017.\n\nLow Risk: minimal signal\nModerate Risk: consider mitigation strategies\nHigh Risk: strong signal → reassess transport plan\n\nNot prospectively validated. For educational use only.",
-    "crumbs": [
-      "Clinical Application",
-      "Apply to a Patient"
-    ]
-  },
-  {
     "objectID": "apply.html#clinical-takeaway",
     "href": "apply.html#clinical-takeaway",
     "title": "🩺 Apply to a Hypothetical Patient",
     "section": "Clinical Takeaway",
-    "text": "Clinical Takeaway\nUse this model as a cognitive aid. Final decisions should be guided by clinical judgment and team communication.",
+    "text": "Clinical Takeaway\nUse these reflection points as a cognitive aid before transport. Final decisions should be guided by clinical judgment and team communication.",
     "crumbs": [
       "Clinical Application",
       "Apply to a Patient"
@@ -708,7 +697,7 @@
     "href": "apply.html#references",
     "title": "🩺 Apply to a Hypothetical Patient",
     "section": "References",
-    "text": "References\n\nChaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. Neurocrit Care. 2017;26(2):196–204. doi: 10.1007/s12028-016-0308-0. PubMed\n\n\n\n\n\n\n\nNote\n\n\n\nDisclaimer: This model is derived from retrospective data and is intended for educational use only. It does not provide clinical recommendations.",
+    "text": "References\n\nChaikittisilpa N, Lele AV, Lyons VH, Nair BG, Newman SF, Blissitt PA, Vavilala MS. Risks of Routinely Clamping External Ventricular Drains for Intrahospital Transport in Neurocritically Ill Cerebrovascular Patients. Neurocrit Care. 2017;26(2):196–204. doi: 10.1007/s12028-016-0308-0. PubMed\n\n\n\n\n\n\n\nNote\n\n\n\nDisclaimer: This content is derived from retrospective data and is intended for educational use only. It does not provide clinical recommendations.",
     "crumbs": [
       "Clinical Application",
       "Apply to a Patient"
