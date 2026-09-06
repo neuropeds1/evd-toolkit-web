@@ -103,8 +103,6 @@ website:
             href: catheter-types.qmd
       - section: "Clinical Application"
         contents:
-          - text: "Checklist"
-            href: checklist.qmd
           - text: "Best Practices"
             href: best-practices.qmd
       - section: "Learning & Engagement"

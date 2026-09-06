@@ -5,30 +5,49 @@ subtitle: "Pre-transport EVD safety review"
 
 Complete this checklist prior to intra-hospital transport or procedures.
 
+```{ojs}
+checklistItems = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  return Generators.observe(notify => {
+    const unsubscribe = onSnapshot(collection(db, "TransportChecklistItems"), snapshot => {
+      notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+    });
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+pre_items = checklistItems.filter(i => i.section === "pre").map(i => i.text)
+```
+
+```{ojs}
+during_items = checklistItems.filter(i => i.section === "during").map(i => i.text)
+```
+
 ## Pre-Transport
 
 ```{ojs}
-pre_items = [
-  "EVD leveled at external auditory meatus",
-  "Clamp status confirmed",
-  "EVD setting verified",
-  "ICP value reviewed",
-  "Waveform assessed",
-  "CSF output reviewed",
-  "Tubing secured",
-  "System integrity maintained"
-]
 viewof pre_checked = Inputs.checkbox(pre_items, {label: ""})
 ```
 
 ## During Transport
 
 ```{ojs}
-during_items = [
-  "ICP monitoring maintained",
-  "Head position maintained",
-  "Drain status appropriate"
-]
 viewof during_checked = Inputs.checkbox(during_items, {label: ""})
 ```
 
@@ -38,13 +57,15 @@ viewof during_checked = Inputs.checkbox(during_items, {label: ""})
 total = pre_items.length + during_items.length
 completed = pre_checked.length + during_checked.length
 
-html`<div style="padding:15px;border-radius:10px;
-  background:${completed === total ? '#e8f5e9' : '#fdecea'};
-  border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};">
-  ${completed === total
-    ? "✅ Ready for Transport"
-    : `⚠️ ${total - completed} item(s) remaining`}
-</div>`
+total === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<div style="padding:15px;border-radius:10px;
+      background:${completed === total ? '#e8f5e9' : '#fdecea'};
+      border-left:6px solid ${completed === total ? '#27ae60' : '#e74c3c'};">
+      ${completed === total
+        ? "✅ Ready for Transport"
+        : `⚠️ ${total - completed} item(s) remaining`}
+    </div>`
 ```
 
 ## Key Reference
