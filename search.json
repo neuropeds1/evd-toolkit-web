@@ -180,7 +180,7 @@
     "href": "feedback.html#share-your-feedback",
     "title": "💬 Feedback",
     "section": "Share Your Feedback",
-    "text": "Share Your Feedback\nYou can fill out the form directly below.",
+    "text": "Share Your Feedback\nThis survey is administered through REDCap (Research Electronic Data Capture), a secure platform used for research data collection at the University of Washington.\n\n  📝\n  \n    Open the Feedback Survey\n    Opens in a new tab — redcap.link/evdtoolkit\n  \n  →",
     "crumbs": [
       "Resources",
       "💬 Feedback"
@@ -191,7 +191,7 @@
     "href": "feedback.html#confidentiality",
     "title": "💬 Feedback",
     "section": "Confidentiality",
-    "text": "Confidentiality\nFeedback is collected anonymously unless you choose to provide identifying information.\n\n\n\n\n\n\nNote\n\n\n\nYour insights directly contribute to improving EVD safety and education.",
+    "text": "Confidentiality\nFeedback is collected anonymously unless you choose to provide identifying information.\n\n\n\n\n\n\nNote\n\n\n\nThis survey is being conducted as part of a University of Washington IRB-reviewed research study evaluating clinical implementation of the EVD Toolkit (IRB #: pending assignment). Participation is voluntary.\n\n\n\n\n\n\n\n\nNote\n\n\n\nYour insights directly contribute to improving EVD safety and education.",
     "crumbs": [
       "Resources",
       "💬 Feedback"
@@ -575,7 +575,7 @@
     "href": "index.html",
     "title": "EVD Toolkit",
     "section": "",
-    "text": "🧠\n  \n    EVD Toolkit\n    Educational platform\n  \n\n\nNew Here?\nA quick path to get oriented on EVDs\n\n\n  \n    ❓\n    What is an EVD?Core concepts and terminology\n    ›\n  \n  \n    ▶️\n    How-To VideosSetup, safety, and technique walkthroughs\n    ›\n  \n  \n    📋\n    EVD Types & SystemsCatheter types and drainage systems you'll encounter\n    ›\n  \n  \n    🎚️\n    EVD SetupLeveling and bedside setup\n    ›\n  \n  \n    🧠\n    CT ImagingNormal positioning and complications\n    ›\n  \n  \n    📈\n    ICP WaveformsInterpretation and waveform review\n    ›\n  \n  \n    💡\n    Clinical PearlsHigh-yield teaching points\n    ›\n  \n  \n    🚑\n    Transport & MRI SafetySafe transport and MRI considerations\n    ›\n  \n\n\n\n  💬\n  \n    How are we doing?\n    We'd love your feedback.\n  \n  Send\n  ✕",
+    "text": "🧠\n  \n    EVD Toolkit\n    Educational platform\n  \n\n\n\n  📋\n  \n    Research Notice\n    This educational toolkit is currently being studied as part of an ongoing University of Washington IRB-reviewed research project, and we are actively collecting feedback from users in a systematic way. Your participation is valued. By visiting and using this site, you acknowledge that it is intended strictly for educational purposes and that anonymous usage data and feedback may be collected as part of this research.\n    Give Feedback →\n  \n  ✕\n\n\nNew Here?\nA quick path to get oriented on EVDs\n\n\n  \n    ❓\n    What is an EVD?Core concepts and terminology\n    ›\n  \n  \n    ▶️\n    How-To VideosSetup, safety, and technique walkthroughs\n    ›\n  \n  \n    📋\n    EVD Types & SystemsCatheter types and drainage systems you'll encounter\n    ›\n  \n  \n    🎚️\n    EVD SetupLeveling and bedside setup\n    ›\n  \n  \n    🧠\n    CT ImagingNormal positioning and complications\n    ›\n  \n  \n    📈\n    ICP WaveformsInterpretation and waveform review\n    ›\n  \n  \n    💡\n    Clinical PearlsHigh-yield teaching points\n    ›\n  \n  \n    🚑\n    Transport & MRI SafetySafe transport and MRI considerations\n    ›\n  \n\n\n\n  💬\n  \n    How are we doing?\n    We'd love your feedback.\n  \n  Send\n  ✕",
     "crumbs": [
       "🏠 Home"
     ]
