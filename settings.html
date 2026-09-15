@@ -655,6 +655,50 @@ document.addEventListener('keydown', function(e) {
   });
 })();
 </script>
+<div id="research-consent-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:20px;">
+  <div id="research-consent-modal" style="background:white;border-radius:18px;max-width:440px;width:100%;padding:24px 22px;box-shadow:0 20px 50px rgba(0,0,0,0.25);">
+    <div style="font-size:1.8rem;margin-bottom:8px;">📋</div>
+    <div style="font-weight:700;font-size:1.05rem;margin-bottom:10px;">Research Notice</div>
+    <div style="font-size:0.86rem;line-height:1.55;color:#333;margin-bottom:16px;">
+      This educational toolkit is currently rolled out as part of an ongoing University of Washington IRB-reviewed research project, and we are actively collecting feedback from users in a systematic way. It is intended strictly for educational purposes, and anonymous usage data and feedback may be collected as part of this research.
+    </div>
+    <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.84rem;line-height:1.4;cursor:pointer;margin-bottom:18px;">
+      <input type="checkbox" id="research-consent-checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;">
+      <span>I acknowledge that this educational toolkit is currently rolled out as an educational research tool.</span>
+    </label>
+    <button id="research-consent-continue" disabled="" style="width:100%;padding:11px;border:none;border-radius:10px;background:var(--ios-blue, #007AFF);color:white;font-weight:600;font-size:0.92rem;cursor:not-allowed;opacity:0.5;transition:opacity 0.15s;">Continue</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // sessionStorage (not localStorage): the checkbox should reappear
+  // each new visit/session, not just once ever per browser.
+  var KEY = "researchConsentAcknowledged";
+  var overlay = document.getElementById("research-consent-overlay");
+  var checkbox = document.getElementById("research-consent-checkbox");
+  var continueBtn = document.getElementById("research-consent-continue");
+  if (!overlay || !checkbox || !continueBtn) return;
+
+  if (sessionStorage.getItem(KEY)) return;
+
+  overlay.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  checkbox.addEventListener("change", function() {
+    continueBtn.disabled = !checkbox.checked;
+    continueBtn.style.opacity = checkbox.checked ? "1" : "0.5";
+    continueBtn.style.cursor = checkbox.checked ? "pointer" : "not-allowed";
+  });
+
+  continueBtn.addEventListener("click", function() {
+    if (!checkbox.checked) return;
+    sessionStorage.setItem(KEY, new Date().toISOString());
+    overlay.style.display = "none";
+    document.body.style.overflow = "";
+  });
+})();
+</script>
 <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImV2ZFNldHRpbmdzID0ge1xyXG4gIGNvbnN0IHsgaW5pdGlhbGl6ZUFwcCwgZ2V0QXBwcywgZ2V0QXBwIH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtYXBwLmpzXCIpO1xyXG4gIGNvbnN0IHsgZ2V0RmlyZXN0b3JlLCBjb2xsZWN0aW9uLCBvblNuYXBzaG90IH0gPSBhd2FpdCBpbXBvcnQoXCJodHRwczovL3d3dy5nc3RhdGljLmNvbS9maXJlYmFzZWpzLzEwLjE0LjEvZmlyZWJhc2UtZmlyZXN0b3JlLmpzXCIpO1xyXG5cclxuICBjb25zdCBmaXJlYmFzZUNvbmZpZyA9IHtcclxuICAgIGFwaUtleTogXCJBSXphU3lEMUZMbklyZDg2cU9zRlBMaTV5MXFfRUlVMGxoTDVneGNcIixcclxuICAgIGF1dGhEb21haW46IFwiZXZkdG9vbGtpdC5maXJlYmFzZWFwcC5jb21cIixcclxuICAgIHByb2plY3RJZDogXCJldmR0b29sa2l0XCIsXHJcbiAgICBzdG9yYWdlQnVja2V0OiBcImV2ZHRvb2xraXQuZmlyZWJhc2VzdG9yYWdlLmFwcFwiLFxyXG4gICAgbWVzc2FnaW5nU2VuZGVySWQ6IFwiMTAwMjM3NDQzMTE1MVwiLFxyXG4gICAgYXBwSWQ6IFwiMToxMDAyMzc0NDMxMTUxOndlYjpmZTM3MjRiYjFmMzllYjQ3NDRhZjVhXCJcclxuICB9O1xyXG5cclxuICBjb25zdCBhcHAgPSBnZXRBcHBzKCkubGVuZ3RoID8gZ2V0QXBwKCkgOiBpbml0aWFsaXplQXBwKGZpcmViYXNlQ29uZmlnKTtcclxuICBjb25zdCBkYiA9IGdldEZpcmVzdG9yZShhcHApO1xyXG5cclxuICByZXR1cm4gR2VuZXJhdG9ycy5vYnNlcnZlKG5vdGlmeSA9PiB7XHJcbiAgICBjb25zdCB1bnN1YnNjcmliZSA9IG9uU25hcHNob3QoY29sbGVjdGlvbihkYiwgXCJFVkRTZXR0aW5nc1wiKSwgc25hcHNob3QgPT4ge1xyXG4gICAgICBub3RpZnkoc25hcHNob3QuZG9jcy5tYXAoZCA9PiBkLmRhdGEoKSkuc29ydCgoYSwgYikgPT4gKGEub3JkZXIgPz8gMCkgLSAoYi5vcmRlciA/PyAwKSkpO1xyXG4gICAgfSk7XHJcbiAgICByZXR1cm4gdW5zdWJzY3JpYmU7XHJcbiAgfSk7XHJcbn1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZXZkU2V0dGluZ3MubGVuZ3RoID09PSAwXHJcbiAgPyBodG1sYDxkaXYgY2xhc3M9XCJmcy1lbXB0eVwiPkxvYWRpbmfigKY8L2Rpdj5gXHJcbiAgOiBodG1sYDxkaXYgY2xhc3M9XCJmcy1ncmlkXCI+JHtldmRTZXR0aW5ncy5tYXAocyA9PiBgXHJcbiAgICAgIDxkaXYgY2xhc3M9XCJmcy1jYXJkXCI+XHJcbiAgICAgICAgPGltZyBjbGFzcz1cImZzLWNhcmQtaW1hZ2VcIiBzcmM9XCIke3MuaW1hZ2VVUkwgPz8gXCJcIn1cIiBvbmVycm9yPVwidGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJ1wiIG9uY2xpY2s9XCJmc09wZW5MaWdodGJveCh0aGlzLnNyYylcIiBvbmxvYWQ9XCJmc0NsYXNzaWZ5SW1hZ2UodGhpcylcIiAvPlxyXG4gICAgICAgIDxkaXYgY2xhc3M9XCJmcy1jYXJkLWJvZHlcIj5cclxuICAgICAgICAgIDxoNCBjbGFzcz1cImZzLWNhcmQtdGl0bGVcIj4ke3MudGl0bGUgPz8gXCJVbnRpdGxlZFwifTwvaDQ+XHJcbiAgICAgICAgICA8cCBjbGFzcz1cImZzLWNhcmQtZGVzY1wiPiR7cy5kZXNjcmlwdGlvbiA/PyBcIlwifTwvcD5cclxuICAgICAgICAgICR7cy5zb3VyY2UgPyBgPHNwYW4gY2xhc3M9XCJmcy1zb3VyY2VcIj7wn5OOICR7cy5zb3VyY2V9PC9zcGFuPmAgOiBcIlwifVxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICA8L2Rpdj5cclxuICAgIGApLmpvaW4oXCJcIil9PC9kaXY+YFxyXG4ifV19
 </script>
