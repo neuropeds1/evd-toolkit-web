@@ -158,3 +158,4 @@ format:
     include-after-body:
       - lightbox-include.html
       - app-shell-include.html
+      - research-consent-include.html
