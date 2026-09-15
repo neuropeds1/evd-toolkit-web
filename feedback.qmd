@@ -14,15 +14,26 @@ We value your input to improve this tool and enhance patient safety.
 
 ## Share Your Feedback
 
-You can fill out the form directly below.
+This survey is administered through REDCap (Research Electronic Data Capture), a secure platform used for research data collection at the University of Washington.
 
 ```{=html}
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdq2TXhaqMShJ7ruv27xEuizUr5NlKwEzQcc00hGbl22t7Ssg/viewform?usp=sharing&ouid=117721421438305031990" width="100%" height="700" style="border:none;border-radius:12px;"></iframe>
+<a href="https://redcap.link/evdtoolkit" target="_blank" rel="noopener" class="fs-card" style="display:flex;align-items:center;gap:14px;text-decoration:none;padding:18px 20px;background:linear-gradient(135deg, var(--ios-blue), var(--ios-indigo));border-radius:14px;color:white;">
+  <span style="font-size:1.6rem;">📝</span>
+  <span style="flex:1;">
+    <span style="display:block;font-weight:700;font-size:1rem;">Open the Feedback Survey</span>
+    <span style="display:block;font-size:0.85rem;opacity:0.9;">Opens in a new tab &mdash; redcap.link/evdtoolkit</span>
+  </span>
+  <span style="font-size:1.3rem;">→</span>
+</a>
 ```
 
 ## Confidentiality
 
 Feedback is collected anonymously unless you choose to provide identifying information.
+
+::: {.callout-note}
+This survey is being conducted as part of a University of Washington IRB-reviewed research study evaluating clinical implementation of the EVD Toolkit (IRB #: *pending assignment*). Participation is voluntary.
+:::
 
 ::: {.callout-note}
 Your insights directly contribute to improving EVD safety and education.
