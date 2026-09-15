@@ -360,14 +360,13 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 
-<div id="home-research-banner" style="display:none;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:16px;background:var(--ios-blue-light, rgba(0,122,255,0.08));border:1px solid var(--ios-blue);margin-bottom:16px;">
+<div id="home-research-banner" style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:16px;background:var(--ios-blue-light, rgba(0,122,255,0.08));border:1px solid var(--ios-blue);margin-bottom:16px;">
   <span style="font-size:20px;line-height:1.3;">📋</span>
   <span style="flex:1;font-size:0.82rem;line-height:1.5;">
     <span style="display:block;font-weight:700;margin-bottom:2px;">Research Notice</span>
     This educational toolkit is currently being studied as part of an ongoing University of Washington IRB-reviewed research project, and we are actively collecting feedback from users in a systematic way. Your participation is valued. By visiting and using this site, you acknowledge that it is intended strictly for educational purposes and that anonymous usage data and feedback may be collected as part of this research.
     <a href="./feedback.html" style="font-weight:600;">Give Feedback →</a>
   </span>
-  <button id="home-research-dismiss" style="background:none;border:none;color:var(--ios-gray);font-size:1rem;cursor:pointer;line-height:1;flex-shrink:0;">✕</button>
 </div>
 
 <h2 class="new-here-heading anchored">New Here?</h2>
@@ -452,28 +451,6 @@ ul.task-list li input[type="checkbox"] {
 
   document.getElementById("home-feedback-dismiss").addEventListener("click", dismiss);
   document.getElementById("home-feedback-send").addEventListener("click", dismiss);
-})();
-
-(function() {
-  var KEY = "lastResearchBannerDismissDate";
-  var banner = document.getElementById("home-research-banner");
-  if (!banner) return;
-
-  function shouldShow() {
-    var last = localStorage.getItem(KEY);
-    if (!last) return true;
-    var days = Math.floor((new Date() - new Date(last)) / (1000 * 60 * 60 * 24));
-    return days >= 30;
-  }
-
-  function dismiss() {
-    localStorage.setItem(KEY, new Date().toDateString());
-    banner.style.display = "none";
-  }
-
-  if (shouldShow()) banner.style.display = "flex";
-
-  document.getElementById("home-research-dismiss").addEventListener("click", dismiss);
 })();
 </script>
 
