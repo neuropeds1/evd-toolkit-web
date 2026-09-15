@@ -1,5 +1,5 @@
 ---
-title: "EVD Toolkit"
+title: "EVD Educational Toolkit"
 pagetitle: "Home"
 toc: false
 page-layout: full
@@ -10,7 +10,7 @@ page-layout: full
 <div class="home-header">
   <span class="home-header-icon">🧠</span>
   <div>
-    <div class="home-header-title">EVD Toolkit</div>
+    <div class="home-header-title">EVD Educational Toolkit</div>
     <div class="home-header-subtitle">Educational platform</div>
   </div>
 </div>
