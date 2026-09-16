@@ -5,6 +5,10 @@ subtitle: "Pre-transport EVD safety review"
 
 Complete this checklist prior to intra-hospital transport or procedures.
 
+::: {.callout-important}
+**Clamped ≠ unmonitored.** ICP can be monitored whether the EVD is open to CSF drainage or clamped — the transducer reads ICP in either state. Common practice is to clamp the EVD for transport *without* continuously monitoring ICP; in a CSF-drain-dependent patient, this can let an ICP elevation go unrecognized. It is safer to keep monitoring ICP throughout transport and open the EVD to drain CSF as needed if ICP rises.
+:::
+
 ```{ojs}
 checklistItems = {
   const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");

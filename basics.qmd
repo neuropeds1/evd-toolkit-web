@@ -70,7 +70,7 @@ ctAbnormalities.length === 0
 ## Clinical Pearls
 
 - **Leveling matters:** Always level the EVD at the external auditory meatus for accurate ICP measurement.
-- **Drain vs monitor:** An open EVD prioritizes CSF drainage; a clamped EVD allows accurate ICP monitoring.
-- **Transport risk:** Clamping an EVD during transport can lead to dangerous ICP elevations.
+- **Drain vs monitor:** ICP can be monitored whether the EVD is open to CSF drainage or clamped — the transducer reads ICP in either state.
+- **Transport risk:** Common practice is to clamp the EVD for intra-hospital transport *without* continuously monitoring ICP. In a CSF-drain-dependent patient, this can let an ICP elevation go unrecognized. It is safer to keep monitoring ICP throughout transport and open the EVD to drain CSF as needed if ICP rises.
 - **Output trends:** A sudden drop in CSF output may indicate obstruction rather than improvement.
 - **Infection prevention:** Maintain a closed system and minimize unnecessary access to reduce infection risk.
