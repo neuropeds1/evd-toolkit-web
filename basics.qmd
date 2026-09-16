@@ -13,15 +13,15 @@ An estimated 24,380 ventriculostomies are performed annually in the United State
 
 ## Common Indications
 
-1. Subarachnoid hemorrhage (SAH)
-2. Intraventricular hemorrhage (IVH)
-3. Traumatic brain injury with hydrocephalus
-4. Posterior fossa lesions causing obstruction
-5. CNS infections with hydrocephalus
-6. Patients with chronic hydrocephalus in whom a pre-existing permanent CSF diversion system (e.g., a VP shunt) is infected or malfunctioning
+1. Subarachnoid hemorrhage (SAH) [[PMID: 42438063]](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+2. Intraventricular hemorrhage (IVH) [[PMID: 42438063]](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+3. Traumatic brain injury with hydrocephalus [[PMID: 42438063]](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+4. Posterior fossa lesions causing obstruction [[PMID: 42438063]](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+5. CNS infections with hydrocephalus [[PMID: 42438063]](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+6. Patients with chronic hydrocephalus in whom a pre-existing permanent CSF diversion system (e.g., a VP shunt) is infected or malfunctioning [[PMID: 42438063]](https://pubmed.ncbi.nlm.nih.gov/42438063/)
 
 ::: {.callout-note}
-**Further reading:** Lele AV, Sawant P, Blacker SN. **External ventricular drain safety campaign and opportunities for global neuroanesthesiology quality and safety.** *Current Opinion in Anaesthesiology.* 2026 Jul 13. [PMID: 42438063](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+**Source (all indications above):** Lele AV, Sawant P, Blacker SN. **External ventricular drain safety campaign and opportunities for global neuroanesthesiology quality and safety.** *Current Opinion in Anaesthesiology.* 2026 Jul 13. [PMID: 42438063](https://pubmed.ncbi.nlm.nih.gov/42438063/)
 :::
 
 ## CT Abnormalities
@@ -70,7 +70,8 @@ ctAbnormalities.length === 0
 ## Clinical Pearls
 
 - **Leveling matters:** Always level the EVD at the external auditory meatus for accurate ICP measurement.
-- **Drain vs monitor:** ICP can be monitored whether the EVD is open to CSF drainage or clamped — the transducer reads ICP in either state.
 - **Transport risk:** Common practice is to clamp the EVD for intra-hospital transport *without* continuously monitoring ICP. In a CSF-drain-dependent patient, this can let an ICP elevation go unrecognized. It is safer to keep monitoring ICP throughout transport and open the EVD to drain CSF as needed if ICP rises.
-- **Output trends:** A sudden drop in CSF output may indicate obstruction rather than improvement.
-- **Infection prevention:** Maintain a closed system and minimize unnecessary access to reduce infection risk.
+
+::: {.callout-note}
+**Source (both pearls above):** Lele AV, Hoefnagel AL, Schloemerkemper N, et al. **Perioperative Management of Adult Patients With External Ventricular and Lumbar Drains: Guidelines From the Society for Neuroscience in Anesthesiology and Critical Care.** *Journal of Neurosurgical Anesthesiology.* 2017 Jul. [PMID: 28169966](https://pubmed.ncbi.nlm.nih.gov/28169966/)
+:::
