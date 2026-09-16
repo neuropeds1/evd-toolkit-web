@@ -19,7 +19,7 @@ page-layout: full
   <span style="font-size:20px;line-height:1.3;">📋</span>
   <span style="flex:1;font-size:0.82rem;line-height:1.5;">
     <span style="display:block;font-weight:700;margin-bottom:2px;">Research Notice</span>
-    This educational toolkit is currently being studied as part of an ongoing University of Washington IRB-reviewed research project, and we are actively collecting feedback from users in a systematic way. Your participation is valued. By visiting and using this site, you acknowledge that it is intended strictly for educational purposes and that anonymous usage data and feedback may be collected as part of this research.
+    This educational toolkit is being used as part of a research study reviewed by the University of Washington Human Subjects Division, which has determined it exempt from further IRB review (STUDY00026573, approved 9/16/2026). We are actively collecting feedback from users in a systematic way. Your participation is valued. By visiting and using this site, you acknowledge that it is intended strictly for educational purposes and that anonymous usage data and feedback may be collected as part of this research.
     <a href="feedback.qmd" style="font-weight:600;">Give Feedback →</a>
   </span>
 </div>

@@ -32,7 +32,7 @@ This survey is administered through REDCap (Research Electronic Data Capture), a
 Feedback is collected anonymously unless you choose to provide identifying information.
 
 ::: {.callout-note}
-This survey is being conducted as part of a University of Washington IRB-reviewed research study evaluating clinical implementation of the EVD Toolkit (IRB #: *pending assignment*). Participation is voluntary.
+This survey is being conducted as part of a research study evaluating clinical implementation of the EVD Toolkit, reviewed by the University of Washington Human Subjects Division and determined exempt from further IRB review (STUDY00026573, approved 9/16/2026). Participation is voluntary.
 :::
 
 ::: {.callout-note}
