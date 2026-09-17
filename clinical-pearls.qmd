@@ -53,6 +53,20 @@ groupedPearls = {
 ```
 
 ```{ojs}
+function pearlCitation(p) {
+  if (!p.citationPmid) return "";
+  const firstAuthor = (p.citationAuthors ?? "").split(",")[0].trim();
+  const authorLabel = firstAuthor ? `${firstAuthor}, et al.` : "Source";
+  const journal = p.citationJournalInfo ?? "";
+  return `
+    <a class="fs-source" style="text-decoration:none;" href="https://pubmed.ncbi.nlm.nih.gov/${p.citationPmid}/" target="_blank" rel="noopener">
+      📎 ${authorLabel} ${journal} [PMID: ${p.citationPmid}]
+    </a>
+  `;
+}
+```
+
+```{ojs}
 groupedPearls.length === 0
   ? html`<div class="fs-empty">No clinical pearls added yet — check back soon.</div>`
   : html`<div>
@@ -65,8 +79,13 @@ groupedPearls.length === 0
             <span class="fs-accordion-count">${items.length}</span>
           </summary>
           <div class="fs-accordion-body">
-            <ul style="margin:14px 0 6px;padding-left:20px;">
-              ${items.map(p => `<li style="margin-bottom:6px;">${p.pearl ?? ""}</li>`).join("")}
+            <ul style="margin:14px 0 6px;padding-left:20px;list-style:none;">
+              ${items.map(p => `
+                <li style="margin-bottom:14px;">
+                  <div>${p.pearl ?? ""}</div>
+                  ${pearlCitation(p)}
+                </li>
+              `).join("")}
             </ul>
           </div>
         </details>

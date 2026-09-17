@@ -84,6 +84,10 @@ function bulletedList(items) {
 }
 ```
 
+::: {.callout-note}
+**Source:** The Suggested Metrics, Reportable Events, Documentation, Pearls, and Priorities below reflect the [SNACC EVD Quality and Safety](https://snacc.org/evd-quality-and-safety/) resources on the SNACC EVD Safety Campaign knowledge hub.
+:::
+
 ## Suggested Metrics
 
 ```{ojs}

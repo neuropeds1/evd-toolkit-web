@@ -81,6 +81,10 @@ Key collaborations include:
 
 The campaign continues to expand through international engagement and multidisciplinary collaboration focused on improving EVD safety worldwide. Currently more than 50 hospitals from more than 30 countries are part of the EVD Safety Campaign.
 
+::: {.callout-note}
+**Source:** Lele AV, Sawant P, Blacker SN. **External ventricular drain safety campaign and opportunities for global neuroanesthesiology quality and safety.** *Current Opinion in Anaesthesiology.* 2026 Jul 13. [PMID: 42438063](https://pubmed.ncbi.nlm.nih.gov/42438063/)
+:::
+
 ## Deliverables
 
 **Educational and quality improvement resources**

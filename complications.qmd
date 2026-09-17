@@ -61,7 +61,7 @@ function categoryColor(name) {
 categoryPearls = ({
   "Hemorrhage": {
     prevention: [
-      "Correct coagulopathy and antiplatelet effects BEFORE placement",
+      "Consider reversal of coagulopathy and medication reconciliation regarding antiplatelet drugs, and consider discussing with your neurosurgeon about platelet count to prepare the patient for an EVD",
       "Minimize number of attempts",
       "Avoid blind repeated passes",
       "Use navigation tools when available"
@@ -69,7 +69,8 @@ categoryPearls = ({
     insight: [
       "Small tract bleeds are common — large bleeds are not",
       "Correlate CT findings with exam + ICP changes"
-    ]
+    ],
+    citation: { label: "Lele AV, et al. J Neurosurg Anesthesiol. 2017", pmid: "28169966" }
   },
   "Malposition": {
     prevention: [
@@ -125,6 +126,11 @@ groupedComplications.length === 0
             <ul style="margin:8px 0 0;padding-left:20px;">
               ${pearls.insight.map(p => `<li style="margin-bottom:4px;">${p}</li>`).join("")}
             </ul>
+          ` : ""}
+          ${pearls.citation ? `
+            <a class="fs-source" style="text-decoration:none;display:inline-block;margin-top:8px;" href="https://pubmed.ncbi.nlm.nih.gov/${pearls.citation.pmid}/" target="_blank" rel="noopener">
+              📎 ${pearls.citation.label} [PMID: ${pearls.citation.pmid}]
+            </a>
           ` : ""}
         </div>
       ` : "";

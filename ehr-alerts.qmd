@@ -6,7 +6,7 @@ subtitle: "Perioperative workflows and best practice advisories"
 **EHR Workflow Modules** — educational perioperative EHR workflow examples.
 
 ::: {.callout-note}
-These best practice advisory (BPA) alerts are currently active in the electronic health record at the University of Washington. Screenshots reflect real, in-use alerts rather than hypothetical mockups; other institutions should adapt the underlying workflow to their own EHR system and policies.
+These best practice advisory (BPA) alerts are part of a specific electronic health record rollout at Harborview Medical Center (University of Washington), implemented in an attempt to improve situational awareness and standardize practice around ICP monitoring during transport and in the operating room. Outcomes data from this rollout are unpublished. Screenshots reflect real, in-use alerts rather than hypothetical mockups; other institutions should adapt the underlying workflow to their own EHR system and policies.
 :::
 
 ```{=html}
@@ -30,7 +30,7 @@ These best practice advisory (BPA) alerts are currently active in the electronic
 
 **EVD and ICP monitor identification workflows**
 
-Electronic health record systems can improve identification of patients with EVDs and intracranial monitoring devices while enhancing perioperative communication and documentation consistency.
+This EHR alert is part of a Harborview Medical Center initiative intended to improve identification of patients with EVDs and intracranial monitoring devices, and to enhance perioperative communication and documentation consistency (unpublished data).
 
 Alerts may appear during perioperative workflow review, ICU handoff, transport preparation, or operating room scheduling workflows.
 
@@ -91,7 +91,7 @@ Suggested perioperative documentation elements:
 - CSF color
 - CSF output
 
-Structured documentation may improve communication across ICU, transport, anesthesia, and neurosurgical teams.
+This structured documentation workflow is part of the same Harborview Medical Center initiative, intended to improve communication across ICU, transport, anesthesia, and neurosurgical teams (unpublished data).
 
 ![Example intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.](images/pearl_or.png)
 
