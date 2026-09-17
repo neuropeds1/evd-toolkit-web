@@ -542,7 +542,7 @@
     "href": "ehr-alerts.html#identify-patients",
     "title": "💬 EHR Alerts",
     "section": "Identify Patients",
-    "text": "Identify Patients\nEVD and ICP monitor identification workflows\nElectronic health record systems can improve identification of patients with EVDs and intracranial monitoring devices while enhancing perioperative communication and documentation consistency.\nAlerts may appear during perioperative workflow review, ICU handoff, transport preparation, or operating room scheduling workflows.\n\n\n\n\n\n\nTipExample EHR Alert\n\n\n\nExample EHR alert identifying patients with:\n\nExternal ventricular drains\nICP monitors\nBrain tissue oxygen monitors\n\n\n\n\n\n\nExample screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.",
+    "text": "Identify Patients\nEVD and ICP monitor identification workflows\nThis EHR alert is part of a Harborview Medical Center initiative intended to improve identification of patients with EVDs and intracranial monitoring devices, and to enhance perioperative communication and documentation consistency (unpublished data).\nAlerts may appear during perioperative workflow review, ICU handoff, transport preparation, or operating room scheduling workflows.\n\n\n\n\n\n\nTipExample EHR Alert\n\n\n\nExample EHR alert identifying patients with:\n\nExternal ventricular drains\nICP monitors\nBrain tissue oxygen monitors\n\n\n\n\n\n\nExample screenshot of an EHR best practice advisory identifying a patient with an EVD and intracranial monitoring devices.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.",
     "crumbs": [
       "More",
       "💬 EHR Alerts"
@@ -564,7 +564,7 @@
     "href": "ehr-alerts.html#or-documentation",
     "title": "💬 EHR Alerts",
     "section": "OR Documentation",
-    "text": "OR Documentation\nStructured perioperative documentation workflows\nSuggested perioperative documentation elements:\n\nEVD setting (clamp/open status)\nICP mmHg\nCPP mmHg\nCSF color\nCSF output\n\nStructured documentation may improve communication across ICU, transport, anesthesia, and neurosurgical teams.\n\n\n\nExample intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.",
+    "text": "OR Documentation\nStructured perioperative documentation workflows\nSuggested perioperative documentation elements:\n\nEVD setting (clamp/open status)\nICP mmHg\nCPP mmHg\nCSF color\nCSF output\n\nThis structured documentation workflow is part of the same Harborview Medical Center initiative, intended to improve communication across ICU, transport, anesthesia, and neurosurgical teams (unpublished data).\n\n\n\nExample intraoperative EHR documentation workflow showing EVD status, ICP documentation, and perioperative communication fields.\n\n\nSource: Dr. Abhijit V. Lele, University of Washington.",
     "crumbs": [
       "More",
       "💬 EHR Alerts"
