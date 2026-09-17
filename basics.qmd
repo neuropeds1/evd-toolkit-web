@@ -26,6 +26,8 @@ An estimated 24,380 ventriculostomies are performed annually in the United State
 
 ## CT Abnormalities
 
+The images below are illustrative examples sourced from Dr. Lele's institution (Harborview Medical Center, University of Washington) — see each image's source badge — and are not intended to represent every possible presentation.
+
 ```{ojs}
 ctAbnormalities = {
   const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");

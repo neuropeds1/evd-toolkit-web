@@ -31,7 +31,7 @@ A quick-reference guide to safe, high-quality care when managing external ventri
 | **Debris / Particulate** | Possible clot breakdown, infection, or catheter obstruction |
 
 ::: {.callout-warning}
-**Clinical Note:** Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation.
+**Clinical Note:** Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation. This table reflects illustrative examples for general education, sourced from Dr. Lele's institution (Harborview Medical Center, University of Washington), and is not exhaustive.
 :::
 
 ## Key Takeaway
