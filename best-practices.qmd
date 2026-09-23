@@ -1,49 +1,138 @@
 ---
 title: "☑️ Best Practices"
-subtitle: "Interactive learning for safe EVD management"
+subtitle: "Quick-reference guide for safe EVD management"
 ---
 
 A quick-reference guide to safe, high-quality care when managing external ventricular drains.
 
+```{ojs}
+bestPracticesFirebase = {
+  const { initializeApp, getApps, getApp } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js");
+  const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1FLnIrd86qOsFPLi5y1q_EIU0lhL5gxc",
+    authDomain: "evdtoolkit.firebaseapp.com",
+    projectId: "evdtoolkit",
+    storageBucket: "evdtoolkit.firebasestorage.app",
+    messagingSenderId: "1002374431151",
+    appId: "1:1002374431151:web:fe3724bb1f39eb4744af5a"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  return { db: getFirestore(app), collection, onSnapshot };
+}
+```
+
+```{ojs}
+function watchCollection(name) {
+  return Generators.observe(notify => {
+    const unsubscribe = bestPracticesFirebase.onSnapshot(
+      bestPracticesFirebase.collection(bestPracticesFirebase.db, name),
+      snapshot => notify(snapshot.docs.map(d => d.data()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)))
+    );
+    return unsubscribe;
+  });
+}
+```
+
+```{ojs}
+doDonts = watchCollection("BestPracticesDoDonts")
+```
+
+```{ojs}
+csfColors = watchCollection("BestPracticesCSFColors")
+```
+
+```{ojs}
+// BestPracticesContent docs don't carry their own `id` field in
+// Firestore (it's the document key) — read directly instead.
+bestPracticesById = {
+  const { doc, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js");
+  const ids = ["csf_caveat", "key_takeaway"];
+  const result = {};
+  return Generators.observe(notify => {
+    const unsubscribes = ids.map(id =>
+      onSnapshot(doc(bestPracticesFirebase.db, "BestPracticesContent", id), snap => {
+        result[id] = snap.exists() ? snap.data() : {};
+        notify({ ...result });
+      })
+    );
+    return () => unsubscribes.forEach(u => u());
+  });
+}
+```
+
+```{ojs}
+function renderCitations(block) {
+  if (!block) return "";
+  const citations = [];
+  if (block.citationAuthors && block.citationTitle) {
+    citations.push({ authors: block.citationAuthors, title: block.citationTitle, journal: block.citationJournalInfo, pmid: block.citationPmid });
+  }
+  if (block.citationAuthors2 && block.citationTitle2) {
+    citations.push({ authors: block.citationAuthors2, title: block.citationTitle2, journal: block.citationJournalInfo2, pmid: block.citationPmid2 });
+  }
+  if (citations.length === 0) {
+    return `<div class="fs-source" style="color:#c00;">⚠️ Citation needed</div>`;
+  }
+  return citations.map(c => `
+    <div class="fs-source">
+      📎 ${c.authors ? c.authors + " — " : ""}<strong>${c.title ?? ""}</strong>${c.journal ? " " + c.journal : ""}
+      ${c.pmid ? ` <a href="https://pubmed.ncbi.nlm.nih.gov/${c.pmid}/" target="_blank" rel="noopener">[PMID: ${c.pmid}]</a>` : ""}
+    </div>
+  `).join("");
+}
+```
+
 ## Do's and Don'ts
 
-| Do | Don't |
-|---|---|
-| <span class="mark-do">✔</span> Confirm EVD setting before interpreting ICP | <span class="mark-dont">✖</span> Interpret ICP without knowing the drain setting |
-| <span class="mark-do">✔</span> Check clamp status before transport or procedures | <span class="mark-dont">✖</span> Keep EVD closed and not monitor ICP |
-| <span class="mark-do">✔</span> Level the transducer at the external auditory meatus | <span class="mark-dont">✖</span> Clamp EVD and leave the transducer at the level of the heart |
-| <span class="mark-do">✔</span> Trend ICP and waveform together | <span class="mark-dont">✖</span> Rely on a single ICP value |
-| <span class="mark-do">✔</span> Minimize CSF system access | <span class="mark-dont">✖</span> Access CSF unnecessarily |
-| <span class="mark-do">✔</span> Use sterile technique for all handling | <span class="mark-dont">✖</span> Break sterility during manipulation |
-| <span class="mark-do">✔</span> Secure tubing to prevent dislodgement | <span class="mark-dont">✖</span> Leave tubing unsecured |
-| <span class="mark-do">✔</span> Communicate EVD status during handoffs | <span class="mark-dont">✖</span> Assume others know the EVD setup |
-| <span class="mark-do">✔</span> Monitor ICP during transport at all times | <span class="mark-dont">✖</span> Transport without considering ICP risk |
-| <span class="mark-do">✔</span> Reassess waveform if values seem inconsistent | <span class="mark-dont">✖</span> Ignore dampened or abnormal waveforms |
+```{ojs}
+doDonts.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<table>
+      <thead><tr><th>Do</th><th>Don't</th></tr></thead>
+      <tbody>
+        ${doDonts.map(row => `
+          <tr>
+            <td><span class="mark-do">✔</span> ${row.doText ?? ""}</td>
+            <td><span class="mark-dont">✖</span> ${row.dontText ?? ""}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>`
+```
 
 ## CSF Color Interpretation
 
-| CSF Appearance | Clinical Interpretation |
-|---|---|
-| **Clear** | Normal CSF |
-| **Xanthochromia (yellow)** | Suggests prior hemorrhage or SAH breakdown products |
-| **Bloody** | May indicate active bleeding, traumatic tap, or evolving hemorrhage |
-| **Cloudy** | Concerning for infection (e.g., ventriculitis) |
-| **Debris / Particulate** | Possible clot breakdown, infection, or catheter obstruction |
+```{ojs}
+csfColors.length === 0
+  ? html`<div class="fs-empty">Loading…</div>`
+  : html`<table>
+      <thead><tr><th>CSF Appearance</th><th>Clinical Interpretation</th></tr></thead>
+      <tbody>
+        ${csfColors.map(row => `
+          <tr><td><strong>${row.appearance ?? ""}</strong></td><td>${row.interpretation ?? ""}</td></tr>
+        `).join("")}
+      </tbody>
+    </table>`
+```
 
-::: {.callout-warning}
-**Clinical Note:** Changes in CSF color should always be interpreted in clinical context and may warrant further evaluation. This table reflects illustrative examples for general education, sourced from Dr. Lele's institution (Harborview Medical Center, University of Washington), and is not exhaustive.
-:::
+```{ojs}
+html`<div class="callout-warning" style="padding:12px 16px;border-radius:8px;">
+  <strong>Clinical Note:</strong> ${bestPracticesById.csf_caveat?.text ?? ""}
+  ${renderCitations(bestPracticesById.csf_caveat)}
+</div>`
+```
 
 ## Key Takeaway
 
-::: {.callout-tip}
-**Clinical Pearl:** Most EVD-related errors are system-based (leveling, clamping, interpretation). A structured approach prevents harm.
-:::
-
-::: {.callout-note}
-**Source:**
-
-Fried HI, Nathan BR, Rowe AS, et al. **The Insertion and Management of External Ventricular Drains: An Evidence-Based Consensus Statement — A Statement for Healthcare Professionals from the Neurocritical Care Society.** *Neurocritical Care.* 2016 Feb. [PMID: 26738503](https://pubmed.ncbi.nlm.nih.gov/26738503/)
-
-Lele AV, Hoefnagel AL, Schloemerkemper N, et al. **Perioperative Management of Adult Patients With External Ventricular and Lumbar Drains: Guidelines From the Society for Neuroscience in Anesthesiology and Critical Care.** *Journal of Neurosurgical Anesthesiology.* 2017 Jul. [PMID: 28169966](https://pubmed.ncbi.nlm.nih.gov/28169966/)
-:::
+```{ojs}
+html`<div class="callout-tip" style="padding:12px 16px;border-radius:8px;">
+  <strong>Clinical Pearl:</strong> ${bestPracticesById.key_takeaway?.text ?? ""}
+</div>
+<div class="callout-note" style="padding:12px 16px;border-radius:8px;margin-top:10px;">
+  <strong>Source:</strong>
+  ${renderCitations(bestPracticesById.key_takeaway)}
+</div>`
+```
