@@ -1,0 +1,51 @@
+---
+title: "🔒 Privacy Policy"
+subtitle: "EVD Educational Toolkit iPhone app"
+---
+
+*Last updated: September 25, 2026*
+
+This policy describes how the **EVD Educational Toolkit** iPhone app handles information. The app is an educational resource for clinicians about external ventricular drains (EVDs), developed by Abhijit V. Lele, University of Washington.
+
+## The short version
+
+- The app has **no accounts or sign-in**.
+- The app does **not ask for, collect, or store patient information or any personal health information**. There is nowhere in the app to enter it — please never include patient details in any feedback you submit.
+- The app does **not track you** across other companies' apps or websites, and it contains **no advertising**.
+- The app collects **anonymous usage information** (which screens and features are opened) to help us improve the content.
+
+## Information the app collects
+
+**Anonymous usage analytics.** The app uses Google Firebase Analytics to record which screens and features are used (for example, that the "ICP Waveforms" screen was opened, or that an educational video link was tapped). This information includes an anonymous identifier generated for the app installation. It is **not linked to your name, email address, or any account**, and it is not used for advertising or sold to anyone.
+
+## Information stored only on your device
+
+The app remembers a few preferences on your device only — for example, which educational videos you have watched, which references you have opened, and when you last saw the daily clinical pearl. This information is not sent to us.
+
+## Content the app loads
+
+The educational content, images, and references shown in the app are loaded from Google Firebase (Firestore and Cloud Storage) so they can be kept up to date. Loading this content does not require you to provide any personal information.
+
+## Links to other services
+
+The app contains links that open outside the app, including PubMed (National Library of Medicine), YouTube, the Society for Neuroscience in Anesthesiology and Critical Care (SNACC), and a feedback survey. These services have their own privacy practices, which we do not control.
+
+## Research study and feedback survey
+
+The app is currently part of a research study evaluating clinical implementation of the EVD Toolkit. The study was reviewed by the University of Washington Human Subjects Division and determined exempt from further IRB review (STUDY00026573, approved 9/16/2026). Participation is voluntary. The optional feedback survey is administered through REDCap (Research Electronic Data Capture), a secure platform used for research data collection at the University of Washington; information you choose to enter in the survey is collected by that survey, not by the app itself.
+
+## Children
+
+The app is intended for healthcare professionals and trainees and is not directed to children.
+
+## Medical disclaimer
+
+This app is for educational purposes only. It does not provide medical advice, diagnosis, or treatment, and it does not replace clinical judgment or institutional protocols.
+
+## Changes to this policy
+
+If this policy changes, the updated version will be posted on this page with a new "last updated" date.
+
+## Contact
+
+Questions about this policy can be sent to **abhijit2@washington.edu**, or submitted through the [Feedback](feedback.html) page.
