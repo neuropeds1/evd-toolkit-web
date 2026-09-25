@@ -1,0 +1,42 @@
+---
+title: "🔒 Privacy Policy"
+pagetitle: "Privacy Policy"
+subtitle: "How the EVD Educational Toolkit handles data"
+---
+
+**Last updated:** September 25, 2026
+
+This Privacy Policy applies to the EVD Educational Toolkit website and its companion iOS and Android apps (collectively, "the Toolkit"), developed at the University of Washington, Department of Anesthesiology & Pain Medicine (Harborview Medical Center). The Toolkit is an educational resource for clinicians on external ventricular drain (EVD) management and is not intended to collect personal health information or replace institutional clinical protocols.
+
+## Research Notice
+
+The Toolkit is currently used as part of a research study evaluating its clinical implementation, reviewed by the University of Washington Human Subjects Division and determined exempt from further IRB review (STUDY00026573, approved 9/16/2026). As part of this research, the Toolkit collects **anonymous** usage data and feedback as described below.
+
+## Information We Collect
+
+**We do not require account creation, login, or any personally identifiable information to use the Toolkit.**
+
+- **Anonymous usage analytics:** The apps and website use Firebase Analytics to record anonymous, aggregate usage events (e.g., which pages/screens are opened) to understand which content is useful and improve the Toolkit. This data is not linked to your name, email, or other identifying information.
+- **Anonymous visit counters:** The website records an aggregate visit count and, using your IP address at the time of your visit (not stored), a country-level location for a public "visitors by country" display. No IP addresses are stored.
+- **Optional feedback survey:** The Feedback section links to an external REDCap survey hosted by the University of Washington. Participation is voluntary, and you choose what information (if any) to provide there. That survey has its own data handling governed by the same IRB-exempt research protocol (STUDY00026573).
+- **Map data (Collaborators page):** The About/Collaborators map uses the Google Maps SDK, which may collect data per [Google's Privacy Policy](https://policies.google.com/privacy).
+
+## Information We Do Not Collect
+
+We do not collect patient health information, names, email addresses, or other personally identifiable information through normal use of the Toolkit's educational content.
+
+## Data Sharing
+
+We do not sell or share collected data with third parties for advertising purposes. Aggregate, anonymous analytics data is processed by Google Firebase (Google LLC) as our service provider, subject to [Google's Privacy Policy](https://policies.google.com/privacy).
+
+## Children's Privacy
+
+The Toolkit is intended for use by healthcare professionals and trainees and is not directed at children under 13.
+
+## Changes to This Policy
+
+We may update this policy as the Toolkit evolves. Material changes will be reflected with an updated "Last updated" date above.
+
+## Contact
+
+Questions about this policy or the associated research study (STUDY00026573) can be submitted through the [Feedback page](feedback.qmd) within the Toolkit, or via the linked REDCap survey.
