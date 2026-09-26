@@ -3,7 +3,7 @@ title: "🔒 Privacy Policy"
 subtitle: "EVD Educational Toolkit iPhone app"
 ---
 
-*Last updated: September 25, 2026*
+*Last updated: September 26, 2026*
 
 This policy describes how the **EVD Educational Toolkit** iPhone app handles information. The app is an educational resource for clinicians about external ventricular drains (EVDs), developed by Abhijit V. Lele, University of Washington.
 
@@ -12,11 +12,13 @@ This policy describes how the **EVD Educational Toolkit** iPhone app handles inf
 - The app has **no accounts or sign-in**.
 - The app does **not ask for, collect, or store patient information or any personal health information**. There is nowhere in the app to enter it — please never include patient details in any feedback you submit.
 - The app does **not track you** across other companies' apps or websites, and it contains **no advertising**.
-- The app collects **anonymous usage information** (which screens and features are opened) to help us improve the content.
+- The app collects **anonymous usage information** (which screens and features are opened) and **anonymous crash reports** to help us improve the content and fix problems.
 
 ## Information the app collects
 
 **Anonymous usage analytics.** The app uses Google Firebase Analytics to record which screens and features are used (for example, that the "ICP Waveforms" screen was opened, or that an educational video link was tapped). This information includes an anonymous identifier generated for the app installation. It is **not linked to your name, email address, or any account**, and it is not used for advertising or sold to anyone.
+
+**Crash reports.** The app uses Google Firebase Crashlytics to receive technical reports when the app crashes (for example, the device model, iOS version, and what the app was doing when it failed). These reports are used only to fix problems, are not linked to your name or any account, and do not contain patient information.
 
 ## Information stored only on your device
 
